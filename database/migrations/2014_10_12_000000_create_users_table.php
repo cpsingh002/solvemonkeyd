@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('profile')->nullable();
             $table->string('utype')->default('USR')->comment('ADM for admin and USR for User');
             $table->timestamps();
+            
         });
     }
 

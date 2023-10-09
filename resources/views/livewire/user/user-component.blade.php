@@ -25,9 +25,11 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                All Cities
+                                All Users
                             </div>
-                           
+                            <div class="col-md-6">
+                                <a href="{{route('admin.adduser')}}" class="btn btn-success pull-right">Add New User</a>
+                            </div>
                         </div>
                         
                     </div>
@@ -39,26 +41,31 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>City Name</th>
-                                    <th>State</th>
-                                    <th>Country</th>
+                                    <th>User Name</th>
+                                    <th>Email Id</th>
+                                    <th>Phone Number</th>
+                                    <th>City</th>
+                                    <th>Address</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($cities as $city)
+                                @foreach($users as $user)
                                     <tr>
-                                        <td>{{$city->id}}</td>
-                                        <td>{{$city->city}}</td>
-                                        <td>{{$city->state->name}}</td>
+                                        <td>{{$user->id}}</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->city}}</td>
+                                        <td>{{$user->country}}</td>
                                         <td>
-                                           {{$city->state->country->name}}
+                                        <td>@if($user->is_active) ACtive @else Deactive @endif</td>
                                         </td>
                                         <td>
-                                            @if($city->status==1)
-                                            <a href="#" onclick="confirm('Are you sure, You want to Deactive this City') || event.stopImmediatePropagation()" wire:click.prevent="deactiveCity({{$city->id}})" style="margin-left:10px;"><i class="fa fa-edit fa-2x"></i></a>
+                                            <a href="{{route('admin.edituser',['uid'=>$user->id])}}"><i class="fa fa-edit fa-2x"></i></a>
+                                            @if($user->is_active)
+                                            <a href="#" onclick="confirm('Are you sure, You want to Deactive this User') || event.stopImmediatePropagation()" wire:click.prevent="DeactiveUser({{$user->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
                                             @else
-                                            <a href="#" onclick="confirm('Are you sure, You want to Active this City') || event.stopImmediatePropagation()" wire:click.prevent="deleteCity({{$city->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                            <a href="#" onclick="confirm('Are you sure, You want to Active this User') || event.stopImmediatePropagation()" wire:click.prevent="ActiveUser({{$user->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
                                             @endif
                                         </td>
                                     </tr>
@@ -66,7 +73,7 @@
                             </tbody>
 
                         </table>
-                        {{$cities->links()}}
+                        {{$users->links()}}
 
                     </div>
                 </div>

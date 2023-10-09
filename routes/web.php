@@ -10,6 +10,9 @@ use App\Livewire\Package\AddPackagecomponent;
 use App\Livewire\Package\Packagecomponent;
 use App\Livewire\Package\EditPackagecomponent;
 use App\Livewire\City\Citycomponent;
+use App\Livewire\User\UserComponent;
+use App\Livewire\User\AddUserComponent;
+use App\Livewire\User\EditUserComponent;
 
 
 /*
@@ -49,7 +52,9 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/package/add',AddPackagecomponent::class)->name('admin.addpackage');
     Route::get('/admin/package/edit/{pid}',EditPackagecomponent::class)->name('admin.editpackage');
     Route::get('/admin/cities',Citycomponent::class)->name('admin.cities');
-    Route::get('/admin/city/add',Citycomponent::class)->name('admin.addcity');
-    Route::get('/admin/city/edit/{cid}',Citycomponent::class)->name('admin.editcity');
+    Route::get('/admin/users',UserComponent::class)->name('admin.users');
+    Route::get('/admin/user/add',AddUserComponent::class)->name('admin.adduser');
+    Route::get('/admin/user/edit/{uid}',EditUserComponent::class)->name('admin.edituser');
+   
 
 });
