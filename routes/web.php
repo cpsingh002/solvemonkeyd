@@ -27,7 +27,7 @@ use App\Livewire\User\EditUserComponent;
 */
 
 Route::get('/', function () {
-    return view('layouts.base');
+    return view('index');
 });
 
 Auth::routes(['verify' => true]);
@@ -56,5 +56,4 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/user/add',AddUserComponent::class)->name('admin.adduser');
     Route::get('/admin/user/edit/{uid}',EditUserComponent::class)->name('admin.edituser');
    
-
 });

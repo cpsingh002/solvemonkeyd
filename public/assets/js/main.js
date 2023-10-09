@@ -117,10 +117,23 @@
         Popup Modal
         -----------------------------------*/
         $(document).on('click', '.close-icon, .body-overlay-desktop', function() {
-            $('.modal-wrapper, .body-overlay-desktop').removeClass('active');
+            $('.modal-wrapper-box, .body-overlay-desktop').css('display','none');
         });
         $(document).on('click', '.popup-modal', function() {
-            $('.modal-wrapper, .body-overlay-desktop').addClass('active');
+            $('#modal-wrapper').show()
+            $('.modal-wrapper-box').addClass('active');
+        });
+
+        $(document).on('click', '.popup-btn-login', function() {
+           
+            $('#modal-wrapper-login,.modal-wrapper-box,.body-overlay-desktop').css('display','block');
+           $('.body-overlay-desktop').addClass('active');
+        });
+
+        $(document).on('click', '.popup-btn-register', function() {
+           
+            $('#modal-wrapper-register,.modal-wrapper-box,.body-overlay-desktop').css('display','block');
+           $('.body-overlay-desktop').addClass('active');
         });
 
         /*-----------------------------------
