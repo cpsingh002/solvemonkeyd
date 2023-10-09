@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+<<<<<<< Updated upstream
     return view('welcome');
+=======
+    return view('index');
+>>>>>>> Stashed changes
 });
 
 Auth::routes(['verify' => true]);
