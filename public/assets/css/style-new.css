@@ -7293,7 +7293,9 @@
     color: #ffffff;
     background: var(--main-color-one);
   }
-
+.text-violet{
+  color:#29275b
+}
   .modal-wrapper-box {
     background-color: #fff;
     border-radius: 0.3rem;
@@ -7315,7 +7317,7 @@
 
     visibility: visible;
     opacity: 1;
-    top: 30%;
+    top: 20%;
   }
   /* .modal-wrapper-box.active {
     visibility: visible;
@@ -7327,8 +7329,8 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 800;
-    color: #fff;
-    margin-bottom: 50px;
+    color: #000;
+    margin-bottom: 15px;
     text-align: center;
   }
   @media (max-width: 575px) {
