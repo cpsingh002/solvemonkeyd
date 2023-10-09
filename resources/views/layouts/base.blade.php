@@ -108,54 +108,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <!-- <div class="singleMegamenu">
-<h5 class="submenu-title">Tittle Two</h5>
-<div class="megamenu-product">
-<ul class="product-items">
-<li><a href="ad_Lists.html" class="list">Listing One</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Two</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Three</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Four</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Five</a></li>
-</ul>
-</div>
-</div>
-<div class="singleMegamenu">
-<h5 class="submenu-title">Tittle Three</h5>
-<div class="megamenu-product">
-<ul class="product-items">
-<li><a href="ad_Lists.html" class="list">Listing One</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Two</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Three</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Four</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Five</a></li>
-</ul>
-</div>
-</div>
-<div class="singleMegamenu">
-<h5 class="submenu-title">Tittle Four</h5>
-<div class="megamenu-product">
-<ul class="product-items">
-<li><a href="ad_Lists.html" class="list">Listing One</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Two</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Three</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Four</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Five</a></li>
-</ul>
-</div>
-</div>
-<div class="singleMegamenu">
-<h5 class="submenu-title">Tittle Five</h5>
-<div class="megamenu-product">
-<ul class="product-items">
-<li><a href="ad_Lists.html" class="list">Listing One</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Two</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Three</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Four</a></li>
-<li><a href="ad_Lists.html" class="list">Listing Five</a></li>
-</ul>
-</div>
-</div> -->
+                                           
                                         </div>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
@@ -809,9 +762,17 @@
                                     <!-- <li class="list">
         <a class="list-title" href="help.html"> <i class="lar la-question-circle icon"></i> Help</a>
         </li> -->
-                                    <li class="list">
+                                    <!-- <li class="list">
                                         <a class="list-title" href="login.html"> <i
                                                 class="las la-sign-out-alt icon"></i> Logout</a>
+                                    </li> -->
+
+                                    <li class="list" >
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                    </li>
+                                    <form id="logout-form" method="POST" action="{{route('logout')}}">
+                                        @csrf
+                                    </form>
                                     </li>
                                 </ul>
                             </div>
@@ -835,16 +796,7 @@
                                 </a>
                             </div>
                         </li>
-                        <!-- <li class="single" >
-            <! <a title="Register or Login" href="{{route('login')}}">Login</a> ->
-        
-
-            <div class="btn-wrapper">
-        <a href="#" class="cmn-btn1 popup-btn-register">
-        <i class="las la-plus-square"></i><span class="text">Login</span>   
-        </a>
-    </div>
-        </li>                           -->
+                       
                         @endif
                         @endif
                     </ul>
@@ -856,6 +808,203 @@
 
 @section('container')
 @show
+
+
+
+
+
+<div class="body-overlay-desktop"></div>
+    <div id="modal-wrapper" style="display:none">
+        <div class="modal-wrapper-box text-center">
+
+            <div class="close-icon">
+                <i class="las la-times"></i>
+            </div>
+            <h2 class="modialTittle">Post Your <span>Ad</span> ?</h2>
+            <div class="btn-wrapper">
+                <a href="post-ad.html" class="cmn-btn02">Yes , Post ad</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-wrapper-login" style="display:none">
+        <div class="modal-wrapper-box text-center">
+
+            <div class="close-icon">
+                <i class="las la-times"></i>
+            </div>
+            <h2 class="modialTittle">Login <span>Here</span> </h2>
+            <div class="card-body">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <div class="row mb-3">
+                        <label for="email"
+                            class="col-md-4 fw-bold col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="password"
+                            class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Password') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" name="password" required
+                                autocomplete="current-password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-10 m-auto">
+                            <div class="form-check1">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label class="form-check-label fw-bold" for="remember">
+                                            {{ __('Remember Me') }}
+                                        </label>
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                                            {{ old('remember') ? 'checked' : '' }}>
+
+                                    </div>
+                                    <div class="col-6">
+                                        @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                        @endif
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-0">
+                        <div class="col-md-12 m-auto">
+                            <div class="btn-wrapper">
+                                <button type="submit" class="pro-btn2 py-2 px-3">
+                                    {{ __('Login') }}
+                                </button>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <p class="sinUp"><span>Don’t have an account? </span><a
+                                class="singApp popup-btn-register text-violet fw-bold">Sign Up</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="modal-wrapper-register" style="display:none">
+        <div class="modal-wrapper-box text-center">
+
+            <div class="close-icon">
+                <i class="las la-times"></i>
+            </div>
+            <h2 class="modialTittle">Register <span>Here</span> </h2>
+            <div class="card-body">
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    <div class="row mb-3">
+                        <label for="name" class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Name') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="email"
+                            class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Email Address') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="password"
+                            class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Password') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" name="password" required
+                                autocomplete="new-password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="password-confirm"
+                            class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Confirm Password') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="password-confirm" type="password" class="form-control"
+                                name="password_confirmation" required autocomplete="new-password">
+                        </div>
+                    </div>
+
+                    <div class="row mb-0">
+                        <div class="col-md-6 offset-md-4">
+
+
+                            <div class="btn-wrapper">
+                                <button type="submit" class="pro-btn2 py-2 px-3">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
+</div>
+                </form>
+            </div>
+        </div>
+    </div> 
 
     <footer>
         <div class="footerWrapper plr">

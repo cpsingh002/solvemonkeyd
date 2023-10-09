@@ -30,6 +30,16 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+
+// frontend routes
+// Route::get('/about',[HomeController::class,'about'])->name('about');
+Route::get('/about', function () {
+    return view('about');
+});
+
+
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
