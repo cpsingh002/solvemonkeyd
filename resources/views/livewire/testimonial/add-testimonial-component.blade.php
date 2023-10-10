@@ -9,7 +9,7 @@
                                 Add New Testimonial
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.users')}}" class="btn btn-success"> All Testimonial</a>
+                                <a href="{{route('admin.testimonials')}}" class="btn btn-success"> All Testimonial</a>
                             </div>
                         </div>
                     </div>
@@ -17,7 +17,7 @@
                         @if(Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
-                        <form class="form-horizontal" wire:submit.prevent="storeUser">
+                        <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent="storeUser">
                             <div class="form-group">
                                 <label class="col-md-4 control-label"> Name</label>
                                 <div class="col-md-4">

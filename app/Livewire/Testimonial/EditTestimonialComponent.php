@@ -23,9 +23,8 @@ class EditTestimonialComponent extends Component
     public function mount($tid)
     {
         //dd($scategory_slug);
-        
-        
-            $this->t_id= $pid;
+               
+            $this->t_id= $tid;
             $package =Testimonial::where('id',$this->t_id)->first();
             $this->star = $package->star;
             $this->name= $package->name;
@@ -54,7 +53,7 @@ class EditTestimonialComponent extends Component
             ]);
         }
     }
-    public function storeTestimonial()
+    public function updateTestimonial()
     {
         $this->validate([
             'name'=>'required',
@@ -78,13 +77,13 @@ class EditTestimonialComponent extends Component
             $test->position = $this->position;
             $test->star = $this->star;
             $test->short_description = $this->short_description;
-            if($this->newimage){
+            if($this->newimage)
+            {
                 //unlink('admin/category'.'/'.$test->image);
-                
                 $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
                 $this->categorythum->storeAs('category',$imageName);
                 $test->image = $imageName;
-                }
+            }
             $test->save();
         
         session()->flash('message','Testimonial has been updated successfully!');

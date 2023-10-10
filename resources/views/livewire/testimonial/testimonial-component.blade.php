@@ -28,7 +28,7 @@
                                 All Testimonial
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.adduser')}}" class="btn btn-success pull-right">Add New Testimonial</a>
+                                <a href="{{route('admin.addtestimonial')}}" class="btn btn-success pull-right">Add New Testimonial</a>
                             </div>
                         </div>
                         
@@ -69,7 +69,7 @@
                                             <a href="#" onclick="confirm('Are you sure, You want to active this testimonial') || event.stopImmediatePropagation()" wire:click.prevent="ActiveStatus({{$testimonial->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
                                             @endif</td>
                                         <td>
-                                            <a href="{{route('admin.edituser',['uid'=>$user->id])}}"><i class="fa fa-edit fa-2x"></i></a>
+                                            <a href="{{route('admin.edittestimonial',['tid'=>$testimonial->id])}}"><i class="fa fa-edit fa-2x"></i></a>
                                             @if($testimonial->verified)
                                             <a href="#" onclick="confirm('Are you sure, You want to deverified this testimonial') || event.stopImmediatePropagation()" wire:click.prevent="DeVerifiedstatus({{$testimonial->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
                                             @else

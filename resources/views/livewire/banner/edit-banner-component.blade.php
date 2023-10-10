@@ -9,7 +9,7 @@
                                 Edit Slider
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.homeslider')}}" class="btn btn-success pull-right"> All Slider</a>
+                                <a href="{{route('admin.banners')}}" class="btn btn-success pull-right"> All Slider</a>
                             </div>
                         </div>
                     </div>

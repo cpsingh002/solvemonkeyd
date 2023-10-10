@@ -17,11 +17,11 @@ class EditBannerComponent extends Component
     public $image;
     public $status;
     public $newimage;
-    public $slider_id;
+    public $bid;
 
-    public function mount($slider_id)
+    public function mount($bid)
     {
-        $slider = Banner::find($slider_id);
+        $slider = Banner::find($bid);
         $this->title = $slider->title;
         $this->subtitle=$slider->subtitle;
         $this->price =$slider->price;
@@ -29,13 +29,13 @@ class EditBannerComponent extends Component
         $this->image=$slider->image;
         $this->status=$slider->status;
         $this->newimage = $slider->newimage;
-        $this->slider_id = $slider->id;
+        $this->bid = $slider->id;
 
     }
 
     public function updateSlider()
     {
-        $slider = Banner::find($this->slider_id);
+        $slider = Banner::find($this->bid);
         $slider->title = $this->title;
         $slider->subtitle = $this->subtitle;
         $slider->price =  $this->price;

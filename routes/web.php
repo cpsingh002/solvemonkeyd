@@ -13,6 +13,12 @@ use App\Livewire\City\Citycomponent;
 use App\Livewire\User\UserComponent;
 use App\Livewire\User\AddUserComponent;
 use App\Livewire\User\EditUserComponent;
+use App\Livewire\Banner\BannerComponent;
+use App\Livewire\Banner\AddBannerComponent;
+use App\Livewire\Banner\EditBannerComponent;
+use App\Livewire\Testimonial\TestimonialComponent;
+use App\Livewire\Banner\AddTestimonialComponent;
+use App\Livewire\Banner\EditTestimonialComponent;
 
 
 use App\Http\Controllers\HomeController;
@@ -83,5 +89,12 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/users',UserComponent::class)->name('admin.users');
     Route::get('/admin/user/add',AddUserComponent::class)->name('admin.adduser');
     Route::get('/admin/user/edit/{uid}',EditUserComponent::class)->name('admin.edituser');
+    Route::get('/admin/banners',BannerComponent::class)->name('admin.banners');
+    Route::get('/admin/banner/add',AddBannerComponent::class)->name('admin.addbanner');
+    Route::get('/admin/banner/edit/{bid}',EditBannerComponent::class)->name('admin.editbanner');
+    Route::get('/admin/testimonials',TestimonialComponent::class)->name('admin.testimonials');
+    Route::get('/admin/testimonial/add',AddTestimonialComponent::class)->name('admin.addtestimonial');
+    Route::get('/admin/testimonial/edit/{tid}',EditTestimonialComponent::class)->name('admin.edittestimonial');
+
    
 });
