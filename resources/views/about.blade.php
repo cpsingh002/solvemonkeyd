@@ -14,7 +14,7 @@
 <h1 class="tittle" data-animation="fadeInUp" data-delay="0.0s">We make buying-selling online easier</h1>
 <p class="pera" data-animation="fadeInUp" data-delay="0.3s">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
 <div class="btn-wrapper">
-<a href="login.html" class="cmn-btn04 mr-15 mb-10 wow fadeInLeft" data-wow-delay="0.3s">Sign up</a>
+<!-- <a href="login.html" class="cmn-btn04 mr-15 mb-10 wow fadeInLeft" data-wow-delay="0.3s">Sign up</a> -->
 <a href="#" class="browseBtn mb-10 wow fadeInLeft" data-wow-delay="0.3s">Browse ads <i class="las la-angle-right icon"></i></a>
 </div>
 </div>

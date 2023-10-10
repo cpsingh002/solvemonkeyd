@@ -7296,6 +7296,9 @@
 .text-violet{
   color:#29275b
 }
+.text-orange{
+  color:#f76631;
+}
   .modal-wrapper-box {
     background-color: #fff;
     border-radius: 0.3rem;
@@ -13247,7 +13250,7 @@
     font-size: 24px;
   }
   .listingDetails-Wrapper .listingDetails .select-itms .nice-select {
-    border: 1px solid rgba(208, 213, 221, 0.4);
+    border: 1px solid #e0e3eb;
     width: 100%;
     height: 50px;
     background: #fff;
@@ -13295,7 +13298,7 @@
     font-weight: 300;
     padding: 9px 18px 9px 52px;
     position: relative;
-    border: 1px solid #EAECF0;
+    border: 1px solid #e0e3eb;
     border-radius: 8px;
     margin-bottom: 20px;
   }
@@ -13370,7 +13373,7 @@
   .listingDetails-Wrapper .listingDetails .condition {
     padding: 25px 22px;
     padding-bottom: 16px;
-    border: 1px solid rgba(208, 213, 221, 0.4);
+    border: 1px solid #e0e3eb;
     border-radius: 8px;
     background: #fff;
     -webkit-box-shadow: 0px 1px 2px #EAECF0;
@@ -13443,7 +13446,7 @@
     font-weight: 300;
     padding: 15px 18px 9px 20px;
     position: relative;
-    border: 1px solid #EAECF0;
+    border: 1px solid #e0e3eb;
     border-radius: 8px;
     margin-bottom: 20px;
   }
