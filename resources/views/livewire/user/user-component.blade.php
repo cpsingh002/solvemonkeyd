@@ -55,6 +55,7 @@
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
+                                        <td>{{$user->phone}}</td>
                                         <td>{{$user->city}}</td>
                                         <td>{{$user->country}}</td>
                                         <td>

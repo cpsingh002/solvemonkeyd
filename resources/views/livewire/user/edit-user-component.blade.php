@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Email</label>
                                 <div class="col-md-4">
-                                    <input type="Email" placeholder="Category Slug" class="form-control input-md"  wire:model="email"/>
+                                    <input type="Email" placeholder="User Email" class="form-control input-md"  wire:model="email"/>
                                     @error('email') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Phone</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Category Icon" class="form-control input-md"  wire:model="phone"/>
+                                    <input type="text" placeholder="Phone" class="form-control input-md"  wire:model="phone"/>
                                     @error('phone') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>

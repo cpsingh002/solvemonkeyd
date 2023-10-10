@@ -33,8 +33,8 @@ class EditCategoryComponent extends Component
             $this->category_id =  $scategory->category_id;
             $this->name = $scategory->name;
             $this->slug = $scategory->slug;
-            $this->icon = $scategory_id->icon;
-            $this->categorythum = $scategory_id->categorythum;
+            $this->icon = $scategory->icon;
+            $this->categorythum = $scategory->categorythum;
             //dd($this->slug);
         }else{
             $this->category_slug= $category_slug;
@@ -55,14 +55,24 @@ class EditCategoryComponent extends Component
     
     public function updated($fields)
     {
-        $this->validateOnly($fields,[
-            'name'=>'required',
-            'slug'=>'required|unique:categories'
-        ]);
+    //     if($this->scategory_id)
+    //     {
+    //     $this->validateOnly($fields,[
+    //         'name'=>'required',
+    //         'slug'=>'required|unique:sub_categories,slug,'.$this->scategory_id
+    //     ]);
+    // }
         if($this->newimage)
         {
             $this->validateOnly($fields,[
                 'newimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
+        if($this->category_id)
+        {
+            $this->validateOnly($fields,[
+                'name'=>'required',
+                'slug'=>'required|unique:categories,slug,'.$this->category_id
             ]);
         }
     }
@@ -71,11 +81,11 @@ class EditCategoryComponent extends Component
     {
         $this->validate([
             'name'=>'required',
-            'slug' => 'required|unique:categories'
+            'slug' => 'required|unique:categories,slug,'.$this->category_id
         ]);
         if($this->newimage)
         {
-            $this->validateOnly($fields,[
+            $this->validate([
                 'newimage'=>'required|mimes:jpeg,jpg,png',
             ]);
         }
@@ -84,11 +94,11 @@ class EditCategoryComponent extends Component
             $scategory->name =$this->name;
             $scategory->slug = $this->slug;
             $scategory->category_id = $this->category_id;
-            $scategory_id->icon = $this->icon;
+            $scategory->icon = $this->icon;
             if($this->newimage){
-                unlink('admin/category'.'/'.$scategory_id->categorythum);
+                //unlink('admin/category'.'/'.$scategory_id->categorythum);
                 $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
-                $this->newimage->storeAs('category',$imageName);
+                $this->newimage->storeAs('admin/category',$imageName);
                 $scategory_id->categorythum = $imageName;
             }
             $scategory->save();
@@ -99,9 +109,9 @@ class EditCategoryComponent extends Component
             $category->slug = $this->slug;
             $category->icon = $this->icon;
             if($this->newimage){
-                unlink('admin/category'.'/'.$category->categorythum);
+               // unlink('admin/category'.'/'.$category->categorythum);
                 $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
-                $this->newimage->storeAs('category',$imageName);
+                $this->newimage->storeAs('admin/category',$imageName);
                 $category->categorythum = $imageName;
             }
             $category->save();

@@ -48,7 +48,7 @@
 						</div>
 						<div class="topbar-menu right-menu">
 							<ul>
-								<li class="menu-item lang-menu menu-item-has-children parent">
+								<!-- <li class="menu-item lang-menu menu-item-has-children parent">
 									<a title="English" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu lang" >
 										<li class="menu-item" ><a title="hungary" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-hun.png')}}" alt="lang-hun"></span>Hungary</a></li>
@@ -56,7 +56,7 @@
 										<li class="menu-item" ><a title="french" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-fra.png')}}" alt="lang-fre"></span>French</a></li>
 										<li class="menu-item" ><a title="canada" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-can.png')}}" alt="lang-can"></span>Canada</a></li>
 									</ul>
-								</li>
+								</li> -->
 								
                                 @if(Route::has('login'))
                                     @auth
@@ -128,7 +128,7 @@
 
 				<div class="nav-section header-sticky">
 					<div class="header-nav-section">
-						<div class="container">
+						<!-- <div class="container">
 							<ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info" >
 								<li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span class="nav-label hot-label">hot</span></li>
 								<li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span class="nav-label hot-label">hot</span></li>
@@ -136,29 +136,29 @@
 								<li class="menu-item"><a href="#" class="link-term">Top Selling</a><span class="nav-label hot-label">hot</span></li>
 								<li class="menu-item"><a href="#" class="link-term">Top rated items</a><span class="nav-label hot-label">hot</span></li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
 
 					<div class="primary-nav-section">
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
 								<li class="menu-item home-icon">
-									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+									<a href="{{route('admin.dashboard')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
-									<a href="/about" class="link-term mercado-item-title">About Us</a>
+									<a href="{{route('admin.categories')}}" class="link-term mercado-item-title">Categories</a>
 								</li>
 								<li class="menu-item">
-									<a href="/shop" class="link-term mercado-item-title">Shop</a>
+									<a href="{{route('admin.packages')}}" class="link-term mercado-item-title">Packages</a>
 								</li>
 								<li class="menu-item">
-									<a href="/cart" class="link-term mercado-item-title">Cart</a>
+									<a href="{{route('admin.users')}}" class="link-term mercado-item-title">Users</a>
 								</li>
 								<li class="menu-item">
-									<a href="/checkout" class="link-term mercado-item-title">Checkout</a>
+									<a href="{{route('admin.cities')}}" class="link-term mercado-item-title">Cities</a>
 								</li>
 								<li class="menu-item">
-									<a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
+									<a href="{{route('admin.categories')}}" class="link-term mercado-item-title">Contact Us</a>
 								</li>																	
 							</ul>
 						</div>

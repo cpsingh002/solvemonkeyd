@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('subtitle');
-            $table->string('price');
-            $table->string('link');
+            $table->string('name');
+            $table->string('email');
             $table->string('image');
-            $table->boolean('status');
-            $table->string('for')->default('home')->comment('home for home and cat_id for category_id');
+            $table->string('position');
+            $table->string('phone');
+            $table->bigInteger('star');
+            $table->text('description');
+            $table->boolean('status')->default(false);
+            $table->boolean('verified')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('testimonials');
     }
 };
