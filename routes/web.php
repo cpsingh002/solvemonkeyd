@@ -15,6 +15,9 @@ use App\Livewire\User\AddUserComponent;
 use App\Livewire\User\EditUserComponent;
 
 
+use App\Http\Controllers\HomeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,10 +36,25 @@ Route::get('/', function () {
 
 
 // frontend routes
-// Route::get('/about',[HomeController::class,'about'])->name('about');
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about',[HomeController::class,'about'])->name('about');
+Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+Route::get('/faq',[HomeController::class,'faq'])->name('faq');
+Route::get('/terms-and-condition',[HomeController::class,'termsCondition'])->name('terms-and-condition');
+Route::get('/privacy-policy',[HomeController::class,'privacyPolicy'])->name('privacy-policy');
+Route::get('/product-list',[HomeController::class,'productList'])->name('product-list');
+Route::get('/product-detail',[HomeController::class,'ProductDetails'])->name('product-detail');
+Route::get('/post-ad',[HomeController::class,'postAd'])->name('post-ad');
+
+Route::get('/edit-ad',[HomeController::class,'editAd'])->name('edit-ad');
+
+
+//frontend user routes
+Route::get('/message',[HomeController::class,'message'])->name('message');
+Route::get('/user-order',[HomeController::class,'userOrder'])->name('user-order');
+Route::get('/user-account',[HomeController::class,'userAccount'])->name('user-account');
+Route::get('/user-ads',[HomeController::class,'userAds'])->name('user-ads');
+Route::get('/user-dashboard',[HomeController::class,'userDashboard'])->name('user-dashboard');
+Route::get('/wishlist',[HomeController::class,'wishlist'])->name('wishlist');
 
 
 

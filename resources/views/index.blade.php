@@ -79,8 +79,8 @@
                                                                     <div class="product-price">
                                                                         <div class="price-update-through">
                                                                             <span
-                                                                                class="flash-price fw-500">$200.00</span>
-                                                                            <span class="flash-old-prices">$240</span>
+                                                                                class="flash-price fw-500">Rs 200.00</span>
+                                                                            <span class="flash-old-prices">Rs 240</span>
                                                                         </div>
                                                                         <span class="stock-out">In Stock</span>
                                                                     </div>
@@ -142,7 +142,7 @@
                                 <img src="assets/img/icon/services1.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Electronics</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Electronics</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -151,7 +151,7 @@
                                 <img src="assets/img/icon/services2.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Mobile</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Mobile</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -160,7 +160,7 @@
                                 <img src="assets/img/icon/services3.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Vehicles</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Vehicles</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -169,7 +169,7 @@
                                 <img src="assets/img/icon/services4.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Appliances</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Appliances</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -178,7 +178,7 @@
                                 <img src="assets/img/icon/services5.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Fashions</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Fashions</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -187,7 +187,7 @@
                                 <img src="assets/img/icon/services6.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Properties</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Properties</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -196,7 +196,7 @@
                                 <img src="assets/img/icon/services7.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Pets</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Pets</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -205,7 +205,7 @@
                                 <img src="assets/img/icon/services8.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Educations</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Educations</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -214,7 +214,7 @@
                                 <img src="assets/img/icon/services9.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Businesses</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Businesses</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -223,7 +223,7 @@
                                 <img src="assets/img/icon/services10.svg" alt="images">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="ad_Lists.html" class="title">Sports</a></h4>
+                                <h4><a href="{{'/product-list'}}" class="title">Sports</a></h4>
                                 <p class="info">12,990 items</p>
                             </div>
                         </li>
@@ -254,13 +254,13 @@
 
                         <div class="singleFeature pb-24">
                             <div class="featureImg">
-                                <a href="add_details.html"><img src="assets/img/gallery/featuredImg1.jpg"
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/featuredImg1.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="featureCaption">
-                                <h4><a href="add_details.html" class="featureTittle">Apple smartwatch 6</a></h4>
+                                <h4><a href="{{'/product-details'}}" class="featureTittle">Apple smartwatch 6</a></h4>
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                                <span class="featurePricing">$139.40</span>
+                                <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -270,13 +270,13 @@
 
                         <div class="singleFeature pb-24">
                             <div class="featureImg">
-                                <a href="add_details.html"> <img src="assets/img/gallery/featuredImg2.jpg"
+                                <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featuredImg2.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="featureCaption">
-                                <h4><a href="add_details.html" class="featureTittle">Samsung M32</a></h4>
+                                <h4><a href="{{'/product-details'}}" class="featureTittle">Samsung M32</a></h4>
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                                <span class="featurePricing">$139.40</span>
+                                <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -286,13 +286,13 @@
 
                         <div class="singleFeature pb-24">
                             <div class="featureImg">
-                                <a href="add_details.html"> <img src="assets/img/gallery/featuredImg3.jpg"
+                                <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featuredImg3.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="featureCaption">
-                                <h4><a href="add_details.html" class="featureTittle">Persian cat</a></h4>
+                                <h4><a href="{{'/product-details'}}" class="featureTittle">Persian cat</a></h4>
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                                <span class="featurePricing">$139.40</span>
+                                <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -302,13 +302,13 @@
 
                         <div class="singleFeature pb-24">
                             <div class="featureImg">
-                                <a href="add_details.html"><img src="assets/img/gallery/featuredImg4.jpg"
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/featuredImg4.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="featureCaption">
-                                <h4><a href="add_details.html" class="featureTittle">Beats headphone</a></h4>
+                                <h4><a href="{{'/product-details'}}" class="featureTittle">Beats headphone</a></h4>
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                                <span class="featurePricing">$139.40</span>
+                                <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -318,13 +318,13 @@
 
                         <div class="singleFeature pb-24">
                             <div class="featureImg">
-                                <a href="add_details.html"><img src="assets/img/gallery/featuredImg5.jpg"
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/featuredImg5.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="featureCaption">
-                                <h4><a href="add_details.html" class="featureTittle">4 Bed 2 storey house</a></h4>
+                                <h4><a href="{{'/product-details'}}" class="featureTittle">4 Bed 2 storey house</a></h4>
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                                <span class="featurePricing">$139.40</span>
+                                <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -334,13 +334,13 @@
 
                         <div class="singleFeature pb-24">
                             <div class="featureImg">
-                                <a href="add_details.html"> <img src="assets/img/gallery/featuredImg1.jpg"
+                                <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featuredImg1.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="featureCaption">
-                                <h4><a href="add_details.html" class="featureTittle">Apple smartwatch 6</a></h4>
+                                <h4><a href="{{'/product-details'}}" class="featureTittle">Apple smartwatch 6</a></h4>
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                                <span class="featurePricing">$139.40</span>
+                                <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -367,110 +367,110 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 ">
                 <div class="col">
                     <div class="singleCategories wow fadeInLeft mb-24" data-wow-delay=".2s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore1.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle"> Electronics </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle"> Electronics </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="singleCategories wow fadeInLeft mb-24" data-wow-delay=".2s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore2.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle"> Mobiles </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle"> Mobiles </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="singleCategories wow fadeInDown mb-24" data-wow-delay=".2s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore3.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle"> Vehicles </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle"> Vehicles </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="singleCategories wow fadeInRight mb-24" data-wow-delay=".2s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore4.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle"> Appliances </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle"> Appliances </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="singleCategories wow fadeInRight mb-24" data-wow-delay=".2s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore5.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle"> Fashions </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle"> Fashions </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="singleCategories wow fadeInRight mb-24" data-wow-delay=".3s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore6.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle"> Property </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle"> Property </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="singleCategories wow fadeInRight mb-24" data-wow-delay=".3s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore7.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle"> Pets </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle"> Pets </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="singleCategories wow fadeInUp mb-24" data-wow-delay=".2s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore8.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle"> Businesses </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle"> Businesses </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="singleCategories wow fadeInLeft mb-24" data-wow-delay=".3s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore9.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle">Services </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle">Services </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="singleCategories wow fadeInLeft mb-24" data-wow-delay=".3s">
-                        <a href="ad_Lists.html" class="catThumb">
+                        <a href="{{'/product-list'}}" class="catThumb">
                             <img src="assets/img/gallery/explore10.jpg" alt="images">
                         </a>
                         <div class="catCaptions">
-                            <h6> <a href="ad_Lists.html" class="tittle"> Sports </a> </h6>
+                            <h6> <a href="{{'/product-list'}}" class="tittle"> Sports </a> </h6>
                             <p class="pera">12,990 items</p>
                         </div>
                     </div>
@@ -494,9 +494,9 @@
                                 injected humo or randomised words which don't look even slightlys</p>
                         </div>
                         <div class="btn-wrapper">
-                            <a href="post-ad.html" class="cmn-btn2 mr-15 mb-10 wow fadeInLeft"
+                            <a href="{{'/post-ad'}}" class="cmn-btn2 mr-15 mb-10 wow fadeInLeft"
                                 data-wow-delay="0.3s">Post your ad</a>
-                            <a href="ad_Lists.html" class="cmn-btn3 mb-10 wow fadeInRight" data-wow-delay="0.3s">Browse
+                            <a href="{{'/product-list'}}" class="cmn-btn3 mb-10 wow fadeInRight" data-wow-delay="0.3s">Browse
                                 ads</a>
                         </div>
                     </div>
@@ -527,14 +527,14 @@
                     <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="add_details.html"><img src="assets/img/gallery/recentListings1.jpg"
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings1.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="recentCaption">
-                                <h5><a href="add_details.html" class="featureTittle">Luxury couple apartment</a>
+                                <h5><a href="{{'/product-details'}}" class="featureTittle">Luxury couple apartment</a>
                                 </h5>
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
-                                <span class="featurePricing">$146,300</span>
+                                <span class="featurePricing">Rs 146,300</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -547,13 +547,13 @@
                     <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.1s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="add_details.html"><img src="assets/img/gallery/recentListings2.jpg"
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings2.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="recentCaption">
-                                <h5><a href="add_details.html" class="featureTittle">Galaxy M32</a></h5>
+                                <h5><a href="{{'/product-details'}}" class="featureTittle">Galaxy M32</a></h5>
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
-                                <span class="featurePricing">$124.80</span>
+                                <span class="featurePricing">Rs 124.80</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -566,13 +566,13 @@
                     <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.2s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="add_details.html"><img src="assets/img/gallery/recentListings3.jpg"
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings3.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="recentCaption">
-                                <h5><a href="add_details.html" class="featureTittle">Amazon smartwatch</a></h5>
+                                <h5><a href="{{'/product-details'}}" class="featureTittle">Amazon smartwatch</a></h5>
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
-                                <span class="featurePricing">$34.80</span>
+                                <span class="featurePricing">Rs 34.80</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -585,13 +585,13 @@
                     <div class="borderStyle style1 wow fadeInRight social" data-wow-delay="0.3s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="add_details.html"><img src="assets/img/gallery/recentListings4.jpg"
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings4.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="recentCaption">
-                                <h5><a href="add_details.html" class="featureTittle">Persian cat</a></h5>
+                                <h5><a href="{{'/product-details'}}" class="featureTittle">Persian cat</a></h5>
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
-                                <span class="featurePricing">$150.19</span>
+                                <span class="featurePricing">Rs 150.19</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
@@ -603,13 +603,13 @@
                     <div class="borderStyle style1 wow fadeInRight social" data-wow-delay="0.1s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="add_details.html"><img src="assets/img/gallery/recentListings5.jpg"
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings5.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="recentCaption">
-                                <h5><a href="add_details.html" class="featureTittle">Beats headphone</a></h5>
+                                <h5><a href="{{'/product-details'}}" class="featureTittle">Beats headphone</a></h5>
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
-                                <span class="featurePricing">$99.99</span>
+                                <span class="featurePricing">Rs 99.99</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -622,13 +622,13 @@
                     <div class="borderStyle style1 wow fadeInRight social" data-wow-delay="0.0s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="add_details.html"><img src="assets/img/gallery/recentListings6.jpg"
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings6.jpg"
                                         alt="images"></a>
                             </div>
                             <div class="recentCaption">
-                                <h5><a href="add_details.html" class="featureTittle">A pair of sneakers</a></h5>
+                                <h5><a href="{{'/product-details'}}" class="featureTittle">A pair of sneakers</a></h5>
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
-                                <span class="featurePricing">$380</span>
+                                <span class="featurePricing">Rs 380</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
@@ -659,12 +659,12 @@
 
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
-                            <a href="add_details.html"><img src="assets/img/gallery/featured8.jpg" alt="images"></a>
+                            <a href="{{'/product-details'}}"><img src="assets/img/gallery/featured8.jpg" alt="images"></a>
                         </div>
                         <div class="featureCaption">
-                            <h4><a href="add_details.html" class="featureTittle">Apple smartwatch 6</a></h4>
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Apple smartwatch 6</a></h4>
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                            <span class="featurePricing">$139.40</span>
+                            <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
                                 <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
@@ -676,12 +676,12 @@
 
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
-                            <a href="add_details.html"> <img src="assets/img/gallery/featured2.jpg" alt="images"></a>
+                            <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featured2.jpg" alt="images"></a>
                         </div>
                         <div class="featureCaption">
-                            <h4><a href="add_details.html" class="featureTittle">Samsung M32</a></h4>
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Samsung M32</a></h4>
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                            <span class="featurePricing">$139.40</span>
+                            <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
                                 <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
@@ -693,12 +693,12 @@
 
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
-                            <a href="add_details.html"> <img src="assets/img/gallery/featured3.jpg" alt="images"></a>
+                            <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featured3.jpg" alt="images"></a>
                         </div>
                         <div class="featureCaption">
-                            <h4><a href="add_details.html" class="featureTittle">Persian cat</a></h4>
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Persian cat</a></h4>
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                            <span class="featurePricing">$139.40</span>
+                            <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
                                 <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
@@ -710,12 +710,12 @@
 
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
-                            <a href="add_details.html"><img src="assets/img/gallery/featured4.jpg" alt="images"></a>
+                            <a href="{{'/product-details'}}"><img src="assets/img/gallery/featured4.jpg" alt="images"></a>
                         </div>
                         <div class="featureCaption">
-                            <h4><a href="add_details.html" class="featureTittle">Beats headphone</a></h4>
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Beats headphone</a></h4>
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                            <span class="featurePricing">$139.40</span>
+                            <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
                                 <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
@@ -727,12 +727,12 @@
 
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
-                            <a href="add_details.html"><img src="assets/img/gallery/featured5.jpg" alt="images"></a>
+                            <a href="{{'/product-details'}}"><img src="assets/img/gallery/featured5.jpg" alt="images"></a>
                         </div>
                         <div class="featureCaption">
-                            <h4><a href="add_details.html" class="featureTittle">4 Bed 2 storey house</a></h4>
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">4 Bed 2 storey house</a></h4>
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                            <span class="featurePricing">$139.40</span>
+                            <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
                                 <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
@@ -744,12 +744,12 @@
 
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
-                            <a href="add_details.html"> <img src="assets/img/gallery/featured6.jpg" alt="images"></a>
+                            <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featured6.jpg" alt="images"></a>
                         </div>
                         <div class="featureCaption">
-                            <h4><a href="add_details.html" class="featureTittle">Apple smartwatch 6</a></h4>
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Apple smartwatch 6</a></h4>
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                            <span class="featurePricing">$139.40</span>
+                            <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
                                 <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
@@ -761,12 +761,12 @@
 
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
-                            <a href="add_details.html"> <img src="assets/img/gallery/featured7.jpg" alt="images"></a>
+                            <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featured7.jpg" alt="images"></a>
                         </div>
                         <div class="featureCaption">
-                            <h4><a href="add_details.html" class="featureTittle">Apple smartwatch 6</a></h4>
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Apple smartwatch 6</a></h4>
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                            <span class="featurePricing">$139.40</span>
+                            <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
                                 <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
@@ -778,12 +778,12 @@
 
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
-                            <a href="add_details.html"> <img src="assets/img/gallery/featured8.jpg" alt="images"></a>
+                            <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featured8.jpg" alt="images"></a>
                         </div>
                         <div class="featureCaption">
-                            <h4><a href="add_details.html" class="featureTittle">Apple smartwatch 6</a></h4>
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Apple smartwatch 6</a></h4>
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
-                            <span class="featurePricing">$139.40</span>
+                            <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
                                 <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
@@ -828,7 +828,7 @@
                                 </ul>
                                 <div class="testiPera">
                                     <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                        sold more than $80,000 on this platform.
+                                        sold more than Rs 80,000 on this platform.
                                         my all buyers are extremely happy</p>
                                 </div>
 
@@ -855,7 +855,7 @@
                                 </ul>
                                 <div class="testiPera">
                                     <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                        sold more than $80,000 on this platform.
+                                        sold more than Rs 80,000 on this platform.
                                         my all buyers are extremely happy</p>
                                 </div>
 
@@ -882,7 +882,7 @@
                                 </ul>
                                 <div class="testiPera">
                                     <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                        sold more than $80,000 on this platform.
+                                        sold more than Rs 80,000 on this platform.
                                         my all buyers are extremely happy</p>
                                 </div>
 
@@ -909,7 +909,7 @@
                                 </ul>
                                 <div class="testiPera">
                                     <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                        sold more than $80,000 on this platform.
+                                        sold more than Rs 80,000 on this platform.
                                         my all buyers are extremely happy</p>
                                 </div>
 
@@ -936,7 +936,7 @@
                                 </ul>
                                 <div class="testiPera">
                                     <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                        sold more than $80,000 on this platform.
+                                        sold more than Rs 80,000 on this platform.
                                         my all buyers are extremely happy</p>
                                 </div>
 

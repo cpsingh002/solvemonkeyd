@@ -29,7 +29,7 @@
             <div class="container-fluid container-two nav-container">
                 <div class="responsive-mobile-menu">
                     <div class="logo-wrapper">
-                        <a href="index.html" class="logo">
+                        <a href="{{'/'}}" class="logo">
                             <img src="assets/img/logo/solve-logo.png" alt="images">
                         </a>
                     </div>
@@ -44,28 +44,9 @@
 
                     <div class="collapse navbar-collapse" id="bizcoxx_main_menu">
                         <ul class="navbar-nav">
-                            <li><a href="ad_Lists.html">All Ads</a></li>
-                            <li><a href="about.html">About us</a></li>
-                            <!-- <li class="menu-item-has-children">
-<a href="#" class="menuArrow">Pages</a>
-<ul class="sub-menu">
-<li><a href="index.html">Home One</a></li>
-<li><a href="ad_Lists.html">Ad Lists</a></li>
-<li><a href="add_details.html">Add Details</a></li>
-<li><a href="ad_lists_category.html">ad lists category</a></li>
-<li><a href="post-ad.html">Add listing Details</a></li>
-<li><a href="add_setting.html">Add Setting</a></li>
-<li><a href="my_account.html">My Account</a></li>
-<li><a href="memberShip.html">Member Ship</a></li>
-<li><a href="wish_list.html">Wish list</a></li>
-<li><a href="promoted_add_list.html">Promoted add_list</a></li>
-<!-- <li><a href="image_uploded.html">Image Uploded</a></li> 
-<li><a href="payment.html">Payment</a></li>
-<li><a href="login.html">Login</a></li>
-<li><a href="messages.html">Messages All</a></li>
-</ul>
-</li> -->
-                            <li><a href="contact.html">contact</a></li>
+                            <li><a href="{{'/product-list'}}">All Ads</a></li>
+                            <li><a href="{{'/about'}}">About us</a></li>
+                            <li><a href="{{'/contact'}}">contact</a></li>
                         </ul>
                     </div>
 
@@ -88,22 +69,22 @@
                                 <ul>
 
                                     <li class="singleList">
-                                        <a href="ad_Lists.html" class="tittle"><i class="las la-phone-volume icon"></i>
+                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-phone-volume icon"></i>
                                             Property</a>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="ad_Lists.html" class="tittle"><i
+                                        <a href="{{'/product-list'}}" class="tittle"><i
                                                 class="las la-sort-amount-up icon"></i>Vehicles</a>
                                         <div class="megamenuWrapper">
                                             <div class="singleMegamenu">
                                                 <h5 class="submenu-title">Tittle One</h5>
                                                 <div class="megamenu-product">
                                                     <ul class="product-items">
-                                                        <li><a href="ad_Lists.html" class="list">Car</a></li>
-                                                        <li><a href="ad_Lists.html" class="list">Bike</a></li>
-                                                        <li><a href="ad_Lists.html" class="list">Scooter</a></li>
-                                                        <li><a href="ad_Lists.html" class="list">Taxi</a></li>
-                                                        <li><a href="ad_Lists.html" class="list">Loading Vehicle</a>
+                                                        <li><a href="{{'/product-list'}}" class="list">Car</a></li>
+                                                        <li><a href="{{'/product-list'}}" class="list">Bike</a></li>
+                                                        <li><a href="{{'/product-list'}}" class="list">Scooter</a></li>
+                                                        <li><a href="{{'/product-list'}}" class="list">Taxi</a></li>
+                                                        <li><a href="{{'/product-list'}}" class="list">Loading Vehicle</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -112,18 +93,18 @@
                                         </div>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="ad_Lists.html" class="tittle"> <i class="las la-headphones icon"></i>
+                                        <a href="{{'/product-list'}}" class="tittle"> <i class="las la-headphones icon"></i>
                                             Electronics </a>
                                         <div class="megamenuWrapper">
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems1.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -135,12 +116,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems2.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -152,12 +133,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems3.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -169,12 +150,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems4.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -186,12 +167,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems5.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -203,12 +184,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems6.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -220,12 +201,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems7.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -237,12 +218,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat1.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -254,12 +235,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems9.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -271,12 +252,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems4.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -288,18 +269,18 @@
                                         </div>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="ad_Lists.html" class="tittle"><i class="las la-tv icon"></i> TV &amp;
+                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-tv icon"></i> TV &amp;
                                             Audio </a>
                                         <div class="megamenuWrapper">
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat1.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -311,12 +292,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat2.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -328,12 +309,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat3.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -345,12 +326,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat4.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -362,12 +343,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat5.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -379,12 +360,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat6.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -396,12 +377,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat7.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -413,12 +394,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat8.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -430,12 +411,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat9.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -447,12 +428,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/phoneCat5.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -464,18 +445,18 @@
                                         </div>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="ad_Lists.html" class="tittle"><i class="las la-keyboard icon"></i> Key
+                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-keyboard icon"></i> Key
                                             Board</a>
                                         <div class="megamenuWrapper">
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/recentListings1.jpg"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -487,12 +468,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/recentListings2.jpg"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -504,12 +485,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/recentListings3.jpg"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -521,12 +502,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/recentListings4.jpg"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -538,12 +519,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems5.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -555,12 +536,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/recentListings6.jpg"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -572,12 +553,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems9.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -589,12 +570,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems1.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -606,12 +587,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/catitems2.jpg" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -623,12 +604,12 @@
                                             <div class="singleMegamenu">
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
-                                                        <a href="ad_Lists.html"> <img
+                                                        <a href="{{'/product-list'}}"> <img
                                                                 src="assets/img/gallery/recentListings6.jpg"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
-                                                        <h4> <a href="ad_Lists.html" class="megamenu-title"> items
+                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
                                                                 Tittle </a> </h4>
                                                         <div class="price">
                                                             <h5 class="newPrice"> $33.00 </h5>
@@ -640,11 +621,11 @@
                                         </div>
                                     </li>
                                     <li class="singleList">
-                                        <a href="ad_Lists.html" class="tittle"><i class="las la-mouse icon"></i> Mouse
+                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-mouse icon"></i> Mouse
                                             Electronics </a>
                                     </li>
                                     <li class="singleList">
-                                        <a href="ad_Lists.html" class="tittle"><i class="las la-laptop icon"></i>Jewelry
+                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-laptop icon"></i>Jewelry
                                             Watches </a>
                                     </li>
                                 </ul>
@@ -679,7 +660,7 @@
                                                 <img src="assets/img/gallery/user.png" alt="img">
                                             </div>
                                             <div class="chat-contents">
-                                                <a class="list-title" href="user/messages.html"> Rupak </a>
+                                                <a class="list-title" href="{{'/message'}}"> Rupak </a>
                                                 <span class="list-sub"> 4 hours ago </span>
                                             </div>
                                         </div>
@@ -690,7 +671,7 @@
                                                 <img src="assets/img/gallery/user.png" alt="img">
                                             </div>
                                             <div class="chat-contents">
-                                                <a class="list-title" href="user/messages.html">Md. Shahin </a>
+                                                <a class="list-title" href="{{'/message'}}">Md. Shahin </a>
                                                 <span class="list-sub"> 8 hours ago </span>
                                             </div>
                                         </div>
@@ -701,7 +682,7 @@
                                                 <img src="assets/img/gallery/user.png" alt="img">
                                             </div>
                                             <div class="chat-contents">
-                                                <a class="list-title" href="user/messages.html"> Shariful Rahman </a>
+                                                <a class="list-title" href="{{'/message'}}"> Shariful Rahman </a>
                                                 <span class="list-sub"> 1 day ago </span>
                                             </div>
                                         </div>
@@ -712,7 +693,7 @@
                                                 <img src="assets/img/gallery/user.png" alt="img">
                                             </div>
                                             <div class="chat-contents">
-                                                <a class="list-title" href="user/messages.html"> Suzon islam </a>
+                                                <a class="list-title" href="{{'/message'}}"> Suzon islam </a>
                                                 <span class="list-sub"> 3 day ago </span>
                                             </div>
                                         </div>
@@ -723,18 +704,19 @@
                                                 <img src="assets/img/gallery/user.png" alt="img">
                                             </div>
                                             <div class="chat-contents">
-                                                <a class="list-title" href="user/messages.html"> Md Zahid </a>
+                                                <a class="list-title" href="{{'/message'}}"> Md Zahid </a>
                                                 <span class="list-sub"> 7 day ago </span>
                                             </div>
                                         </div>
                                     </li>
                                 </ul>
-                                <a href="messages.html" class="all-chat"> See All Messages </a>
+                                <a href="{{'/message'}}" class="all-chat"> See All Messages </a>
                             </div>
 
                         </li>
-                        <li class="single"><a href="user/wish_list.html" class="heart"><i
+                        <li class="single"><a href="{{'wishlist'}}" class="heart"><i
                                     class="lar la-heart icon"></i></a></li>
+                       
 
 
                         @if(Route::has('login'))
@@ -745,30 +727,22 @@
                                 <h6 class="ac-title">User Account</h6>
                                 <ul class="ac-list">
                                     <li class="list">
-                                        <a class="list-title" href="user/my_account.html"> <i
+                                        <a class="list-title" href="{{'user-account'}}"> <i
                                                 class="lar la-user-circle icon"></i> My Account </a>
                                     </li>
                                     <li class="list">
-                                        <a class="list-title" href="user/memberShip.html"> <i
-                                                class="las la-address-card icon"></i> Membership </a>
-                                    </li>
-                                    <!-- <li class="list">
-        <a class="list-title" href="promoted_add_list.html"><i class="las la-ad icon"></i> Promoted Ads </a>
-        </li> -->
-                                    <li class="list">
-                                        <a class="list-title" href="user/wish_list.html"><i
+                                        <a class="list-title" href="{{'wishlist'}}"><i
                                                 class="lar la-heart icon"></i> Wishlist </a>
                                     </li>
-                                    <!-- <li class="list">
-        <a class="list-title" href="help.html"> <i class="lar la-question-circle icon"></i> Help</a>
-        </li> -->
-                                    <!-- <li class="list">
-                                        <a class="list-title" href="login.html"> <i
-                                                class="las la-sign-out-alt icon"></i> Logout</a>
-                                    </li> -->
+
+                                    <li class="list">
+                                        <a class="list-title" href="{{'user-ads'}}"><i
+                                                class="las la-address-card icon"></i> Product ADs </a>
+                                    </li>
+
 
                                     <li class="list" >
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                    <a class="list-title" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="las la-sign-out-alt icon"></i>Logout</a>
                                     </li>
                                     <form id="logout-form" method="POST" action="{{route('logout')}}">
                                         @csrf
@@ -822,7 +796,7 @@
             </div>
             <h2 class="modialTittle">Post Your <span>Ad</span> ?</h2>
             <div class="btn-wrapper">
-                <a href="post-ad.html" class="cmn-btn02">Yes , Post ad</a>
+                <a href="{{'/post-ad'}}" class="cmn-btn02">Yes , Post ad</a>
             </div>
         </div>
     </div>
@@ -1015,53 +989,51 @@
                             <div class="footer-widget widget">
                                 <div class="footer-tittle footer-tittle2">
                                     <div class="footer-logo mb-40">
-                                        <a href="index.html"><img src="assets/img/logo/solve-logo.png" alt="images"></a>
+                                        <a href="{{'/'}}"><img src="assets/img/logo/solve-logo.png" alt="images"></a>
                                     </div>
                                     <ul class="listing">
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="#"
-                                                class="singleLinks"><i class="las la-map-marker icon"></i>631 Elgin St.
-                                                Celina, Delaware</a></li>
+                                                class="singleLinks"><i class="las la-map-marker icon"></i>Surat</a></li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="#"
-                                                class="singleLinks"><i class="las la-phone icon"></i>(702) 555-0122</a>
+                                                class="singleLinks"><i class="las la-phone icon"></i>9999056788</a>
                                         </li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="#"
                                                 class="singleLinks"><i class="las la-envelope icon"></i><span
-                                                    class="__cf_email__"
-                                                    data-cfemail="8bd3eceee5e2e4fef8cbe6eae2e7a5e8e4e6">[email&#160;protected]</span></a>
+                                                    class="__cf_email__">info@exchangesab.com</span></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6">
                             <div class="footer-widget widget">
                                 <div class="footer-tittle">
                                     <h4 class="footerTittle">Categories</h4>
                                     <ul class="listing">
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="#"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{'product-list'}}"
                                                 class="singleLinks"> Electronics</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="#"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{'product-list'}}"
                                                 class="singleLinks"> Mobile</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="#"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="{{'product-list'}}"
                                                 class="singleLinks"> Vehicles</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="#"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="{{'product-list'}}"
                                                 class="singleLinks"> Appliances</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="#"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'product-list'}}"
                                                 class="singleLinks"> Fashions</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="#"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'product-list'}}"
                                                 class="singleLinks"> Eductation</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="#"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'product-list'}}"
                                                 class="singleLinks"> Property</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
+                        <!-- <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
                             <div class="footer-widget widget">
                                 <div class="footer-tittle">
                                     <h4 class="footerTittle">About</h4>
                                     <ul class="listing">
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="#"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{'/about'}}"
                                                 class="singleLinks"> About us</a></li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="#"
                                                 class="singleLinks"> Blog</a></li>
@@ -1078,18 +1050,22 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
+                        </div> -->
+                        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6">
                             <div class="footer-widget widget">
                                 <div class="footer-tittle">
                                     <h4 class="footerTittle">Help & support</h4>
                                     <ul class="listing">
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="#"
+                                        
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{'contact'}}"
                                                 class="singleLinks"> Contact</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="#"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'faq'}}"
                                                 class="singleLinks"> Faq</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.3s"><a href="#"
-                                                class="singleLinks"> Safety Informations</a></li>
+                                                <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="{{'terms-and-condition'}}"
+                                                class="singleLinks"> Terms and Conditions</a></li>
+                                                <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'privacy-policy'}}"
+                                                class="singleLinks"> Privacy Policy</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
