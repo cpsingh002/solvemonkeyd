@@ -17,8 +17,8 @@ use App\Livewire\Banner\BannerComponent;
 use App\Livewire\Banner\AddBannerComponent;
 use App\Livewire\Banner\EditBannerComponent;
 use App\Livewire\Testimonial\TestimonialComponent;
-use App\Livewire\Banner\AddTestimonialComponent;
-use App\Livewire\Banner\EditTestimonialComponent;
+use App\Livewire\Testimonial\AddTestimonialComponent;
+use App\Livewire\Testimonial\EditTestimonialComponent;
 
 
 use App\Http\Controllers\HomeController;
