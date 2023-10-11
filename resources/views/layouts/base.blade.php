@@ -988,7 +988,7 @@
                         <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-8">
                             <div class="footer-widget widget">
                                 <div class="footer-tittle footer-tittle2">
-                                    <div class="footer-logo mb-40">
+                                    <div class="footer-logo mb-20">
                                         <a href="{{'/'}}"><img src="assets/img/logo/solve-logo.png" alt="images"></a>
                                     </div>
                                     <ul class="listing">
@@ -1061,9 +1061,9 @@
                                                 class="singleLinks"> Contact</a></li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'faq'}}"
                                                 class="singleLinks"> Faq</a></li>
-                                                <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="{{'terms-and-condition'}}"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="{{'terms-and-condition'}}"
                                                 class="singleLinks"> Terms and Conditions</a></li>
-                                                <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'privacy-policy'}}"
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'privacy-policy'}}"
                                                 class="singleLinks"> Privacy Policy</a></li>
                                         
                                     </ul>
