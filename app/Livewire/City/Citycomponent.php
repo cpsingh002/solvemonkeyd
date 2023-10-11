@@ -30,6 +30,9 @@ class Citycomponent extends Component
     public function render()
     {
         $cities=City::orderBy('id','ASC')->paginate(10);
-        return view('livewire.city.citycomponent',['cities'=>$cities])->layout('layouts.admin');
+        // return view('livewire.city.citycomponent',['cities'=>$cities])->layout('layouts.admin1');
+
+
+        return view('livewire.admin1.city.city-admin1',['cities'=>$cities])->layout('layouts.admin1');
     }
 }
