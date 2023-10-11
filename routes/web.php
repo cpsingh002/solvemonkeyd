@@ -50,6 +50,7 @@ Route::get('/privacy-policy',[HomeController::class,'privacyPolicy'])->name('pri
 Route::get('/product-list',[HomeController::class,'productList'])->name('product-list');
 Route::get('/product-detail',[HomeController::class,'ProductDetails'])->name('product-detail');
 Route::get('/post-ad',[HomeController::class,'postAd'])->name('post-ad');
+Route::get('/package',[HomeController::class,'package'])->name('package');
 
 Route::get('/edit-ad',[HomeController::class,'editAd'])->name('edit-ad');
 

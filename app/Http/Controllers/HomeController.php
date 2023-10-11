@@ -11,10 +11,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware(['auth','verified']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth','verified']);
+    // }
 
     /**
      * Show the application dashboard.
@@ -70,6 +70,11 @@ class HomeController extends Controller
     public function faq()
     {
         return view('faq');
+    }
+
+    public function package()
+    {
+        return view('package');
     }
 
 
