@@ -69,7 +69,8 @@
                                 <ul>
 
                                     <li class="singleList">
-                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-phone-volume icon"></i>
+                                        <a href="{{'/product-list'}}" class="tittle"><i
+                                                class="las la-phone-volume icon"></i>
                                             Property</a>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
@@ -84,16 +85,18 @@
                                                         <li><a href="{{'/product-list'}}" class="list">Bike</a></li>
                                                         <li><a href="{{'/product-list'}}" class="list">Scooter</a></li>
                                                         <li><a href="{{'/product-list'}}" class="list">Taxi</a></li>
-                                                        <li><a href="{{'/product-list'}}" class="list">Loading Vehicle</a>
+                                                        <li><a href="{{'/product-list'}}" class="list">Loading
+                                                                Vehicle</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                           
+
                                         </div>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="{{'/product-list'}}" class="tittle"> <i class="las la-headphones icon"></i>
+                                        <a href="{{'/product-list'}}" class="tittle"> <i
+                                                class="las la-headphones icon"></i>
                                             Electronics </a>
                                         <div class="megamenuWrapper">
                                             <div class="singleMegamenu">
@@ -269,7 +272,8 @@
                                         </div>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-tv icon"></i> TV &amp;
+                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-tv icon"></i> TV
+                                            &amp;
                                             Audio </a>
                                         <div class="megamenuWrapper">
                                             <div class="singleMegamenu">
@@ -445,7 +449,8 @@
                                         </div>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-keyboard icon"></i> Key
+                                        <a href="{{'/product-list'}}" class="tittle"><i
+                                                class="las la-keyboard icon"></i> Key
                                             Board</a>
                                         <div class="megamenuWrapper">
                                             <div class="singleMegamenu">
@@ -621,11 +626,13 @@
                                         </div>
                                     </li>
                                     <li class="singleList">
-                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-mouse icon"></i> Mouse
+                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-mouse icon"></i>
+                                            Mouse
                                             Electronics </a>
                                     </li>
                                     <li class="singleList">
-                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-laptop icon"></i>Jewelry
+                                        <a href="{{'/product-list'}}" class="tittle"><i
+                                                class="las la-laptop icon"></i>Jewelry
                                             Watches </a>
                                     </li>
                                 </ul>
@@ -714,9 +721,9 @@
                             </div>
 
                         </li>
-                        <li class="single"><a href="{{'wishlist'}}" class="heart"><i
-                                    class="lar la-heart icon"></i></a></li>
-                       
+                        <li class="single"><a href="{{'wishlist'}}" class="heart"><i class="lar la-heart icon"></i></a>
+                        </li>
+
 
 
                         @if(Route::has('login'))
@@ -731,8 +738,8 @@
                                                 class="lar la-user-circle icon"></i> My Account </a>
                                     </li>
                                     <li class="list">
-                                        <a class="list-title" href="{{'wishlist'}}"><i
-                                                class="lar la-heart icon"></i> Wishlist </a>
+                                        <a class="list-title" href="{{'wishlist'}}"><i class="lar la-heart icon"></i>
+                                            Wishlist </a>
                                     </li>
 
                                     <li class="list">
@@ -741,53 +748,55 @@
                                     </li>
 
 
-                                    <li class="list" >
-                                    <a class="list-title" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="las la-sign-out-alt icon"></i>Logout</a>
+                                    <li class="list">
+                                        <a class="list-title" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                                class="las la-sign-out-alt icon"></i>Logout</a>
                                     </li>
                                     <form id="logout-form" method="POST" action="{{route('logout')}}">
                                         @csrf
                                     </form>
-                                    </li>
-                                </ul>
-                            </div>
-
                         </li>
-                        <li class="single">
-                            <div class="btn-wrapper">
-                                <a href="#" class="cmn-btn1 popup-modal">
-                                    <i class="las la-plus-square"></i><span class="text">Post your ad</span>
-                                </a>
-                            </div>
-                        </li>
-                        @else
-                        <li class="single">
-                            <!-- <a title="Register or Login" href="{{route('login')}}">Login</a> -->
-
-
-                            <div class="btn-wrapper">
-                                <a href="#" class="cmn-btn1 popup-btn-login">
-                                    <i class="las la-plus-square"></i><span class="text">Login</span>
-                                </a>
-                            </div>
-                        </li>
-                       
-                        @endif
-                        @endif
                     </ul>
                 </div>
+
+                </li>
+                <li class="single">
+                    <div class="btn-wrapper">
+                        <a href="#" class="cmn-btn1 popup-modal">
+                            <i class="las la-plus-square"></i><span class="text">Post your ad</span>
+                        </a>
+                    </div>
+                </li>
+                @else
+                <li class="single">
+                    <!-- <a title="Register or Login" href="{{route('login')}}">Login</a> -->
+
+
+                    <div class="btn-wrapper">
+                        <a href="#" class="cmn-btn1 popup-btn-login">
+                            <i class="las la-plus-square"></i><span class="text">Login</span>
+                        </a>
+                    </div>
+                </li>
+
+                @endif
+                @endif
+                </ul>
+            </div>
             </div>
         </nav>
     </header>
-   
-
-@section('container')
-@show
 
 
+    @section('container')
+    @show
 
 
 
-<div class="body-overlay-desktop"></div>
+
+
+    <div class="body-overlay-desktop"></div>
     <div id="modal-wrapper" style="display:none">
         <div class="modal-wrapper-box text-center">
 
@@ -974,11 +983,11 @@
                                 </button>
                             </div>
                         </div>
-</div>
+                    </div>
                 </form>
             </div>
         </div>
-    </div> 
+    </div>
 
     <footer>
         <div class="footerWrapper plr">
@@ -1010,62 +1019,40 @@
                                 <div class="footer-tittle">
                                     <h4 class="footerTittle">Categories</h4>
                                     <ul class="listing">
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{'product-list'}}"
-                                                class="singleLinks"> Electronics</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{'product-list'}}"
-                                                class="singleLinks"> Mobile</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="{{'product-list'}}"
-                                                class="singleLinks"> Vehicles</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="{{'product-list'}}"
-                                                class="singleLinks"> Appliances</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'product-list'}}"
-                                                class="singleLinks"> Fashions</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'product-list'}}"
-                                                class="singleLinks"> Eductation</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'product-list'}}"
-                                                class="singleLinks"> Property</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a
+                                                href="{{'product-list'}}" class="singleLinks"> Electronics</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a
+                                                href="{{'product-list'}}" class="singleLinks"> Mobile</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a
+                                                href="{{'product-list'}}" class="singleLinks"> Vehicles</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a
+                                                href="{{'product-list'}}" class="singleLinks"> Appliances</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a
+                                                href="{{'product-list'}}" class="singleLinks"> Fashions</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a
+                                                href="{{'product-list'}}" class="singleLinks"> Eductation</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a
+                                                href="{{'product-list'}}" class="singleLinks"> Property</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-xxl-2 col-xl-2 col-lg-6 col-md-6 col-sm-6">
-                            <div class="footer-widget widget">
-                                <div class="footer-tittle">
-                                    <h4 class="footerTittle">About</h4>
-                                    <ul class="listing">
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{'/about'}}"
-                                                class="singleLinks"> About us</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="#"
-                                                class="singleLinks"> Blog</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="#"
-                                                class="singleLinks"> Press</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="#"
-                                                class="singleLinks"> Jobs</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="#"
-                                                class="singleLinks"> In Press</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="#"
-                                                class="singleLinks"> Terms & Conditions</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="#"
-                                                class="singleLinks"> Privacy Policy</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6">
                             <div class="footer-widget widget">
                                 <div class="footer-tittle">
                                     <h4 class="footerTittle">Help & support</h4>
                                     <ul class="listing">
-                                        
+
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{'contact'}}"
                                                 class="singleLinks"> Contact</a></li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'faq'}}"
                                                 class="singleLinks"> Faq</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="{{'terms-and-condition'}}"
-                                                class="singleLinks"> Terms and Conditions</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'privacy-policy'}}"
-                                                class="singleLinks"> Privacy Policy</a></li>
-                                        
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a
+                                                href="{{'terms-and-condition'}}" class="singleLinks"> Terms and
+                                                Conditions</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a
+                                                href="{{'privacy-policy'}}" class="singleLinks"> Privacy Policy</a></li>
+
                                     </ul>
                                 </div>
                             </div>

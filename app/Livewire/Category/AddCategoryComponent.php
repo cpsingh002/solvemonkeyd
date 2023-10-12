@@ -68,6 +68,8 @@ class AddCategoryComponent extends Component
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.category.add-category-component',['categories'=>$categories])->layout('layouts.admin');
+        return view('livewire.admin1.category.add-category-admin1',['categories'=>$categories])->layout('layouts.admin1');
+
+        // return view('livewire.category.add-category-component',['categories'=>$categories])->layout('layouts.admin');
     }
 }

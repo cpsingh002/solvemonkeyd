@@ -25,6 +25,9 @@ class Packagecomponent extends Component
     public function render()
     {
         $packages=Package::paginate(5);
-        return view('livewire.package.packagecomponent',['packages'=>$packages])->layout('layouts.admin');
+        // return view('livewire.package.packagecomponent',['packages'=>$packages])->layout('layouts.admin');
+
+
+        return view('livewire.admin1.package.list-package-admin1',['packages'=>$packages])->layout('layouts.admin1');
     }
 }

@@ -3,7 +3,7 @@
 
 <main>
 
-    
+
     <div class="proDetails section-padding2">
         <div class="container">
 

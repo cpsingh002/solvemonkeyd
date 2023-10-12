@@ -65,6 +65,9 @@ class EditPackagecomponent extends Component
     
     public function render()
     {
-        return view('livewire.package.edit-packagecomponent')->layout('layouts.admin');
+        // return view('livewire.package.edit-packagecomponent')->layout('layouts.admin');
+
+
+        return view('livewire.admin1.package.edit-package-admin1')->layout('layouts.admin1');
     }
 }
