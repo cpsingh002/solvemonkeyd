@@ -49,6 +49,8 @@ class AddPackagecomponent extends Component
 
     public function render()
     {
-        return view('livewire.package.add-packagecomponent')->layout('layouts.admin');
+        // return view('livewire.package.add-packagecomponent')->layout('layouts.admin');
+
+        return view('livewire.admin1.package.add-package-admin1')->layout('layouts.admin1');
     }
 }

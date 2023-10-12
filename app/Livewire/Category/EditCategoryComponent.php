@@ -121,6 +121,9 @@ class EditCategoryComponent extends Component
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.category.edit-category-component',['categories'=>$categories])->layout('layouts.admin');
+        // return view('livewire.category.edit-category-component',['categories'=>$categories])->layout('layouts.admin');
+
+
+        return view('livewire.admin1.category.edit-category-admin1',['categories'=>$categories])->layout('layouts.admin1');
     }
 }
