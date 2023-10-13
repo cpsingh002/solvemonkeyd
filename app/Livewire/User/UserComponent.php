@@ -38,6 +38,8 @@ class UserComponent extends Component
     public function render()
     {
         $users=User::orderBy('id','ASC')->paginate(10);
-        return view('livewire.user.user-component',['users'=>$users])->layout('layouts.admin');
+        // return view('livewire.user.user-component',['users'=>$users])->layout('layouts.admin');
+
+        return view('livewire.admin1.user.user-admin1',['users'=>$users])->layout('layouts.admin1');
     }
 }

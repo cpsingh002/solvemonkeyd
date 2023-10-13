@@ -9,10 +9,10 @@
                          <nav class="mb-2" aria-label="breadcrumb">
 
                          </nav>
-                         <h1 class="h3 m-0">Edit Product</h1>
+                         <h1 class="h3 m-0">Edit User</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.categories')}}" class="btn btn-primary">All Category</a>
+                         <a href="{{route('admin.users')}}" class="btn btn-primary">All User</a>
                      </div>
 
                  </div>
@@ -25,38 +25,39 @@
                              <div class="sa-entity-layout__main">
                                  <div class="card">
                                      <div class="card-body p-5">
-
-                                         <form class="form-horizontal" wire:submit.prevent="storeCategory">
+                                         @if(Session::has('message'))
+                                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                         @endif
+                                         <form class="form-horizontal" wire:submit.prevent="UpdateUser">
                                              <div class="mb-5">
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-category/name" class="form-label">Category Name</label>
-                                                 <input type="text" placeholder="Category Name" class="form-control"
-                                                 wire:model="name" wire:keyup="generateslug" />
-                                                     @error('name') <p class="text-danger">{{$message}}</p> @enderror
+                                                 <label for="form-user/name" class="form-label">User Name</label>
+                                                 <input type="text" placeholder="User Name" class="form-control"
+                                                     wire:model="name" />
+                                                 @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-category/slug" class="form-label">Category Slug</label>
+                                                 <label for="form-user/email" class="form-label">Email</label>
                                                  <div class="input-group input-group--sa-slug">
-                                                     <input class="form-control input-md" type="text" placeholder="Category Slug" class="form-control"
-                                                         wire:model="slug" />
-                                                         @error('slug') <p class="text-danger">{{$message}}</p> @enderror
+                                                     <input class="form-control input-md" type="Email"
+                                                         placeholder="User Email" wire:model="email" />
+                                                     @error('email') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
-                                             <div class="mb-4">
-                                                 <div>
-                                                     <label for="form-category/parent-category" class="form-label">Parent
-                                                         Category</label>
 
-                                                     <select class="form-control input-md" wire:model="category_id">
-                                                         <option value="">None</option>
-                                                         @foreach($categories as $category)
-                                                         <option value="{{$category->id}}">{{$category->name}}</option>
-                                                         @endforeach
-                                                     </select>
+                                             <div class="mb-4">
+                                                 <label for="form-user/phone" class="form-label">Phone</label>
+                                                 <div class="input-group input-group--sa-slug">
+                                                     <input class="form-control input-md" type="text"
+                                                         placeholder="User Phone No" wire:model="phone" />
+                                                     @error('phone') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
+
+
+
 
 
                                              <div class="mb-4 text-center">

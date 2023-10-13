@@ -11,13 +11,13 @@
                         </nav>
                         <h1 class="h3 m-0">Cities</h1>
                     </div>
-                    <div class="col-auto d-flex"><a href="app-category.html" class="btn btn-primary">New category</a>
+                    <div class="col-auto d-flex"><a href="#" class="btn btn-primary">New category</a>
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="sa-divider"></div>
-                <table class="sa-datatables-init" data-order='[[ 1, "asc" ]]' data-sa-search-input="#table-search">
+                <table class="sa-datatables-init">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -33,19 +33,18 @@
                             <!-- <td><input type="checkbox" class="form-check-input m-0 fs-exact-16 d-block" aria-label="..." /></td> -->
                             <td>{{$city->id}}</td>
                             <td>{{$city->city}}</td>
-                            <td>{{$city->state->name}}</td>
-                            <td>{{$city->state->country->name}}</td>
+                            {{-- <td>{{$city->state->name}}</td>
+                            <td>{{$city->state->country->name}}</td> --}}
+                            <td></td>
+                            <td></td>
                             <td>
                                 @if($city->status==1)
-                                <a href="#"
-                                    onclick="confirm('Are you sure, You want to Deactive this City') || event.stopImmediatePropagation()"
-                                    wire:click.prevent="deactiveCity({{$city->id}})" style="margin-left:10px;"><i
-                                        class="fa fa-edit"></i></a>
+                                <a href="#" onclick="confirm('Are you sure, You want to Deactive this City') || event.stopImmediatePropagation()"
+                                    wire:click.prevent="deactiveCity({{$city->id}})"><i class="fa fa-edit ml-1"></i></a>
                                 @else
                                 <a href="#"
                                     onclick="confirm('Are you sure, You want to Active this City') || event.stopImmediatePropagation()"
-                                    wire:click.prevent="deleteCity({{$city->id}})" style="margin-left:10px;"><i
-                                        class="fa fa-times fa-2x text-danger"></i></a>
+                                    wire:click.prevent="deleteCity({{$city->id}})"><i class="fa fa-times ml-1 text-danger"></i></a>
                                 @endif
                             </td>
                         </tr>
@@ -54,6 +53,7 @@
                         
                     </tbody>
                 </table>
+                
             </div>
         </div>
     </div>

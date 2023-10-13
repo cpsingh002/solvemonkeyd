@@ -84,5 +84,9 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/users',UserComponent::class)->name('admin.users');
     Route::get('/admin/user/add',AddUserComponent::class)->name('admin.adduser');
     Route::get('/admin/user/edit/{uid}',EditUserComponent::class)->name('admin.edituser');
+
+    // Route::get('/admin/products',ProductComponent::class)->name('admin.products');
+    // Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
+    // Route::get('/admin/product/edit/{uid}',EditProductComponent::class)->name('admin.editproduct');
    
 });
