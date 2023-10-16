@@ -57,6 +57,8 @@ class AddUserComponent extends Component
 
     public function render()
     {
-        return view('livewire.user.add-user-component')->layout('layouts.admin');
+        // return view('livewire.user.add-user-component')->layout('layouts.admin');
+
+        return view('livewire.admin1.user.add-user-admin1')->layout('layouts.admin1');
     }
 }

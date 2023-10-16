@@ -26,9 +26,9 @@ class EditUserComponent extends Component
     {
         //dd($scategory_slug);
         
-        
-            $this->p_id= $uid;
-            $package =User::where('id',$this->p_id)->first();
+                                            
+            $this->u_id= $uid;
+            $package =User::where('id',$this->u_id)->first();
             $this->name = $package->name;
             $this->email= $package->email;
             $this->phone = $package->phone;
@@ -67,6 +67,13 @@ class EditUserComponent extends Component
 
     public function render()
     {
-        return view('livewire.user.edit-user-component')->layout('layouts.admin');
+
+        // return view('livewire.user.edit-user-component');
+
+        // return view('livewire.admin1.user.edit-user-admin1');
+
+        return view('livewire.admin1.user.edit-user-admin1')->layout('layouts.admin1');
+       // return view('livewire.user.edit-user-component')->layout('layouts.admin');
+
     }
 }

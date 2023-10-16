@@ -90,12 +90,18 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/users',UserComponent::class)->name('admin.users');
     Route::get('/admin/user/add',AddUserComponent::class)->name('admin.adduser');
     Route::get('/admin/user/edit/{uid}',EditUserComponent::class)->name('admin.edituser');
+
+
+    // Route::get('/admin/products',ProductComponent::class)->name('admin.products');
+    // Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
+    // Route::get('/admin/product/edit/{uid}',EditProductComponent::class)->name('admin.editproduct');
     Route::get('/admin/banners',BannerComponent::class)->name('admin.banners');
     Route::get('/admin/banner/add',AddBannerComponent::class)->name('admin.addbanner');
     Route::get('/admin/banner/edit/{bid}',EditBannerComponent::class)->name('admin.editbanner');
     Route::get('/admin/testimonials',TestimonialComponent::class)->name('admin.testimonials');
     Route::get('/admin/testimonial/add',AddTestimonialComponent::class)->name('admin.addtestimonial');
     Route::get('/admin/testimonial/edit/{tid}',EditTestimonialComponent::class)->name('admin.edittestimonial');
+
 
    
 });

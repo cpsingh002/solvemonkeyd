@@ -9,10 +9,10 @@
                          <nav class="mb-2" aria-label="breadcrumb">
 
                          </nav>
-                         <h1 class="h3 m-0">Add Category</h1>
+                         <h1 class="h3 m-0">Add User</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.categories')}}" class="btn btn-primary">All Category</a>
+                         <a href="{{route('admin.users')}}" class="btn btn-primary">All Users</a>
                      </div>
 
                  </div>
@@ -28,59 +28,58 @@
                                          @if(Session::has('message'))
                                          <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                          @endif
-                                         <form class="form-horizontal" wire:submit.prevent="storeCategory">
+                                         <form class="form-horizontal" wire:submit.prevent="storeUser">
                                              <div class="mb-5">
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-category/name" class="form-label">Category Name</label>
-                                                 <input type="text" placeholder="Category Name" class="form-control"
-                                                     wire:model="name" wire:keyup="generateslug" />
+                                                 <label class="form-label">User Name</label>
+                                                 <input type="text" placeholder="User Name" class="form-control"
+                                                     wire:model="name" />
                                                  @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-category/slug" class="form-label">Category Slug</label>
+                                                 <label class="form-label">Email</label>
                                                  <div class="input-group input-group--sa-slug">
-                                                     <input type="text" placeholder="Category Slug" class="form-control"
-                                                         wire:model="slug" />
-                                                     @error('slug') <p class="text-danger">{{$message}}</p> @enderror
+                                                     <input type="Email" placeholder="User Email" class="form-control" wire:model="email" />
+                                                     @error('email') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
                                              <div class="mb-4">
                                                  <div>
-                                                     <label for="form-category/parent-category" class="form-label">Parent
-                                                         Category</label>
-
-                                                     <select class="form-select" wire:model="category_id">
-                                                         <option value="">None</option>
-                                                         @foreach($categories as $category)
-                                                         <option value="{{$category->id}}">{{$category->name}}</option>
-                                                         @endforeach
-                                                     </select>
+                                                     <label class="form-label">Phone</label>
+                                                     <div class="input-group input-group--sa-slug">
+                                                         <input type="text" placeholder="User Phone No" class="form-control" wire:model="phone" />
+                                                         @error('phone') <p class="text-danger">{{$message}}</p> @enderror
+                                                     </div>
                                                  </div>
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-product/icon" class="form-label">Category Icon</label>
+                                                 <label for="form-user/password" class="form-label">Password</label>
                                                  <div class="input-group input-group--sa-slug">
-                                                     <input type="text" placeholder="Category Icon" class="form-control"
-                                                         wire:model="icon" />
-                                                     @error('icon') <p class="text-danger">{{$message}}</p> @enderror
-                                                 </div>
-                                             </div>
-
-                                             <div class="mb-4">
-                                                 <label for="form-product/image" class="form-label">Category
-                                                     Thumb</label>
-                                                 <div class="input-group input-group--sa-slug">
-                                                     <input type="file" class="input-file" wire:model="categorythum" />
-                                                     @if($categorythum)
-                                                     <img src="{{$categorythum->temporaryUrl()}}" width="120" />
-                                                     @endif
-                                                     @error('categorythum') <p class="text-danger">{{$message}}</p>
+                                                     <input id="password" type="password"
+                                                         class="form-control @error('password') is-invalid @enderror"
+                                                         wire:model="password" required autocomplete="new-password">
+                                                     @error('password')
+                                                     <span class="invalid-feedback" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                     </span>
                                                      @enderror
                                                  </div>
                                              </div>
+
+
+                                             <div class="mb-4">
+                                                 <label for="form-user/confirm-password" class="form-label">Confirm Password</label>
+                                                 <div class="input-group input-group--sa-slug">
+                                                     <input id="password-confirm" type="password" class="form-control" wire:model="password_confirmation" required autocomplete="new-password">
+                                                 </div>
+                                             </div>
+
+                                             
+
+
 
                                              <div class="mb-4 text-center">
                                                  <button type="submit" class="btn btn-primary">Submit</button>
@@ -103,5 +102,4 @@
          </div>
      </div>
  </div>
- <!-- sa-app__body / end -->
- <!-- sa-app__footer -->
+

@@ -29,7 +29,11 @@ class Citycomponent extends Component
 
     public function render()
     {
-        $cities=City::orderBy('id','ASC')->paginate(10);
+
+        $cities=City::leftJoin('states','states.id','cities.state_id')->leftjoin('countries','countries.id','states.country_id')->select('cities.*')->where('countries.id',101)->orderBy('id','ASC')->get();
+
+
+        // $cities=City::orderBy('id','ASC')->paginate(50);
         // return view('livewire.city.citycomponent',['cities'=>$cities])->layout('layouts.admin1');
 
 
