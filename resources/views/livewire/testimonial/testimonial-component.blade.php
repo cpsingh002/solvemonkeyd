@@ -1,59 +1,51 @@
-<div>
-    <style>
-        nav svg{
-            height: 20px;
-        }
-        nav .hidden{
-            display: block !important;
-        }
-        .sclist{
-            list-style:none;
-        }
-        .sclist li{
-            line-height:33px;
-            border-bottom: 1px solid #ccc;
-        }
-        .slink i{
-            font-size:16px;
-            margin-left:12px;
-        }
-    </style>
-    <div class="container" style="padding:30px 0px;">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-6">
-                                All Testimonial
-                            </div>
-                            <div class="col-md-6">
-                                <a href="{{route('admin.addtestimonial')}}" class="btn btn-success pull-right">Add New Testimonial</a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="panel-body">
-                        @if(Session::has('message'))
-                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                        @endif
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th> Name</th>
-                                    <th>Email Id</th>
-                                    <th>Phone Number</th>
-                                    <th>Image</th>
-                                    <th>Description</th>
-                                    <th>Rating</th>
-                                    <th>Status</th>
-                                    <th>Status Action</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($testimonials as $testimonial)
+
+
+
+
+
+<div id="top" class="sa-app__body">
+     <div class="mx-xxl-3 px-4 px-sm-5">
+         <div class="py-5">
+             <div class="row g-4 align-items-center">
+                 <div class="col">
+                     <nav class="mb-2" aria-label="breadcrumb">
+
+                     </nav>
+                     <h1 class="h3 m-0">Testimonials</h1>
+                 </div>
+                 <div class="col-auto d-flex">
+                     <a href="{{route('admin.addtestimonial')}}" class="btn btn-primary">Add New Testimonial</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="mx-xxl-3 px-4 px-sm-5 pb-6">
+         <div class="sa-layout">
+             <!-- <div class="sa-layout__backdrop" data-sa-layout-sidebar-close=""></div> -->
+
+             <div class="sa-layout__content">
+                 <div class="card">
+                     @if(Session::has('message'))
+                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                     @endif
+                     <!-- <div class="sa-divider"></div> -->
+                     <table class="sa-datatables-init">
+                         <thead>
+                             <tr>
+                                <th>Id</th>
+                                <th> Name</th>
+                                <th>Email Id</th>
+                                <th>Phone Number</th>
+                                <th>Image</th>
+                                <th>Description</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Status Action</th>
+                                <th>Action</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         @foreach($testimonials as $testimonial)
                                     <tr>
                                         <td>{{$testimonial->id}}</td>
                                         <td>{{$testimonial->name}}/{{$testimonial->position}}</td>
@@ -78,16 +70,10 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            </tbody>
-
-                        </table>
-                        {{$testimonials->links()}}
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>

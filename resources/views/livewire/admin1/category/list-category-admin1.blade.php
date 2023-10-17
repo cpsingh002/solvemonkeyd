@@ -31,6 +31,7 @@
                              <tr>
                                  <th>Id</th>
                                  <th>Category Name</th>
+                                 <th>Category Image</th>
                                  <th>Slug</th>
                                  <th>SubCategory</th>
                                  <th>Action</th>
@@ -41,6 +42,7 @@
                              <tr>
                                  <td>{{$category->id}}</td>
                                  <td>{{$category->name}}</td>
+                                 <td><img src="{{asset('admin/category')}}/{{$category->categorythum}}" width="60"></td>
                                  <td>
                                      <div class="badge badge-sa-success">{{$category->slug}}</div>
                                  </td>

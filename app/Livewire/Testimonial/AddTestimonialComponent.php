@@ -75,6 +75,6 @@ class AddTestimonialComponent extends Component
 
     public function render()
     {
-        return view('livewire.testimonial.add-testimonial-component')->layout('layouts.admin');
+        return view('livewire.testimonial.add-testimonial-component')->layout('layouts.admin1');
     }
 }
