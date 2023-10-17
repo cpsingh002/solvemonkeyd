@@ -24,97 +24,190 @@
                         <div class="card-body">
                             <div class="listingDetails-Wrapper">
                                 <div class="listingDetails">
+
+
+
+
+
+
                                     <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="select-itms">
-                                                <label class="infoTitle">Item category</label>
-                                                <select name="select" class="niceSelect">
-                                                    <option value>Electronics</option>
-                                                    <option value>Food</option>
-                                                    <option value>Cloth</option>
-                                                    <option value>Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="select-itms">
-                                                <label class="infoTitle">Item subcategory</label>
-                                                <select name="select" class="niceSelect">
-                                                    <option value>Subcategory</option>
-                                                    <option value>Subcategory 1</option>
-                                                    <option value>Subcategory 2</option>
-                                                    <option value>Subcategory 3</option>
-                                                </select>
-                                            </div>
+                                        <style>
+                                        .tabs {
+                                            display: flex;
+                                        }
+
+                                        .tab {
+                                            display: none;
+                                        }
+
+                                        .tab:target,
+                                        .tab:first-child {
+                                            display: block;
+                                        }
+
+                                        .tab-content {
+                                            padding: 10px;
+                                            border: 1px solid #ccc;
+                                        }
+
+                                        .btn-tabs {
+                                            border-radius: 6px;
+                                            border: 1px solid;
+                                            padding: 10px 20px;
+                                            /* margin: 10px; */
+                                        }
+                                        </style>
+
+
+
+                                        <div class="tabs my-3 justify-content-center">
+                                            <a href="#basic" class="btn-tabs mx-2">Basic</a>
+                                            <a href="#details" class="btn-tabs mx-2">Details</a>
+                                            <a href="#location" class="btn-tabs mx-2">Location</a>
+                                            <a href="#photos" class="btn-tabs mx-2">Photos/Videos</a>
+                                            <a href="#tag" class="btn-tabs mx-2">Tag</a>
+                                            <a href="#contact" class="btn-tabs mx-2">Contact</a>
+
+
+                                            <!-- <div class="view">
+                                                <button class="customTab active" data-toggle-target=".customTab-content-1"><i
+                                                        class="las la-th-large"></i></button>
+                                                <button class="customTab "
+                                                    data-toggle-target=".customTab-content-2"><i
+                                                        class="las la-bars"></i></button>
+                                            </div> -->
+
                                         </div>
 
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="condition">
-                                                <h6 class="infoTitle">Item Condition</h6>
-                                                <div class="cs_radio_btn">
-                                                    <div class="radio">
-                                                        <input id="radio-1" name="radio" type="radio" tabindex="0">
-                                                        <label for="radio-1" class="radio-label">Pre-Loved</label>
+                                        <!-- <div class="customTab-content customTab-content-1 active">
+                                            <p>hello</p>
+                                        </div>
+                                        <div class="customTab-content customTab-content-2">
+                                            <p>hello4545</p>
+                                        </div> -->
+
+                                        <div id="basic" class="tab">
+                                            <div class="tab-content">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Title</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="text" placeholder="Product Title">
+                                                        </div>
                                                     </div>
-                                                    <div class="radio">
-                                                        <input id="radio-2" name="radio" type="radio" tabindex="0">
-                                                        <label for="radio-2" class="radio-label">New</label>
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Description</label>
+                                                        <div class="input-form input-form2">
+                                                            <textarea placeholder="Description"></textarea>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="condition">
-                                                <h6 class="infoTitle">Authenticity</h6>
-                                                <div class="cs_radio_btn">
-                                                    <div class="radio">
-                                                        <input id="radio-3" name="radio" type="radio" tabindex="0">
-                                                        <label for="radio-3" class="radio-label">Pre-Loved</label>
+                                        <div id="details" class="tab">
+                                            <div class="tab-content">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Product Specification</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="text" placeholder="Product Title">
+                                                        </div>
                                                     </div>
-                                                    <div class="radio">
-                                                        <input id="radio-4" name="radio" type="radio" tabindex="0">
-                                                        <label for="radio-4" class="radio-label">New</label>
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Product Price</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="text" placeholder="Product Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">How many year Old</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="text" placeholder="Product Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Condition</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="text" placeholder="Product Title">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-12">
-                                            <label class="infoTitle">Title</label>
-                                            <div class="input-form input-form2">
-                                                <input type="text" placeholder="Rs 430">
+                                        <div id="location" class="tab">
+
+                                            <div class="tab-content">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">City</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="text" placeholder="Product Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Address</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="text" placeholder="Product Title">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-12">
-                                            <label class="infoTitle">Description</label>
-                                            <div class="input-form">
-                                                <textarea name="message " id="message"
-                                                    placeholder="About your project"></textarea>
+                                        <div id="photos" class="tab">
+
+                                            <div class="tab-content">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Thumbnail Image</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="file" placeholder="Product Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Featured Image</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="file" placeholder="Product Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle"> Image</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="file" placeholder="Product Title">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-12">
-                                            <label class="infoTitle">Price</label>
-                                            <div class="input-form">
-                                                <input type="text" placeholder="Rs 430">
-                                                <div class="icon"><i class="las la-calendar-week"></i></div>
+                                        <div id="tag" class="tab">
+
+                                            <div class="tab-content">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Meta Tag</label>
+                                                        <div class="input-form input-form2">
+                                                            <input type="text" placeholder="Product Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <label class="infoTitle">Meta Description</label>
+                                                        <div class="input-form input-form2">
+                                                            <textarea placeholder="Meta Description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-12">
-                                            <label class="checkWrap2">Negotiable
-                                                <input class="effectBorder" type="checkbox" value>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="btn-wrapper mb-10">
-                                                <a href="#" class="cmn-btn4 w-100">Continue</a>
-                                            </div>
-                                        </div>
+
                                     </div>
+
+
+
+
                                 </div>
                             </div>
                         </div>
