@@ -62,7 +62,7 @@
                             <div class="sa-nav__section-title"><span>Application</span></div>
                             <ul class="sa-nav__menu sa-nav__menu--root">
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon">
-                                    <a href="{{'/'}}" class="sa-nav__link">
+                                    <a href="{{route('admin.dashboard')}}" class="sa-nav__link">
                                         <span class="sa-nav__icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                                                 viewBox="0 0 16 16" fill="currentColor">
@@ -97,20 +97,20 @@
                                     </a>
                                     <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
                                         <li class="sa-nav__menu-item">
-                                            <a href="{{'category/add'}}" class="sa-nav__link"><span
+                                            <a href="{{route('admin.addcategory')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Add Category</span></a>
                                         </li>
                                         <li class="sa-nav__menu-item">
-                                            <a href="{{'categories'}}" class="sa-nav__link"><span
+                                            <a href="{{route('admin.categories')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Category List</span></a>
                                         </li>
-                                        <li class="sa-nav__menu-item">
-                                            <a href="{{'category/edit'}}" class="sa-nav__link"><span
+                                      {{--  <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.editcategory',$uid)}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Edit Category</span></a>
-                                        </li>
+                                        </li>--}}
                                     </ul>
                                 </li>
 
@@ -137,21 +137,21 @@
                                     </a>
                                     <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
                                         <li class="sa-nav__menu-item">
-                                            <a href="{{'package/add'}}" class="sa-nav__link"><span
+                                            <a href="{{route('admin.addpackage')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Add Package</span></a>
                                         </li>
                                         <li class="sa-nav__menu-item">
-                                            <a href="{{'packages'}}" class="sa-nav__link"><span
+                                            <a href="{{route('admin.packages')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Package List</span></a>
                                         </li>
 
-                                        <li class="sa-nav__menu-item">
+                                       {{-- <li class="sa-nav__menu-item">
                                             <a href="package/edit" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Edit Package</span></a>
-                                        </li>
+                                        </li>--}}
                                     </ul>
                                 </li>
 
@@ -178,21 +178,22 @@
                                     </a>
                                     <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
                                         <li class="sa-nav__menu-item">
-                                            <a href="{{'user/add'}}" class="sa-nav__link"><span
+                                            <a href="{{route('admin.adduser')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Add User</span></a>
                                         </li>
                                         <li class="sa-nav__menu-item">
-                                            <a href="{{'users'}}" class="sa-nav__link"><span
+                                            <a href="{{route('admin.users')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">User List</span></a>
                                         </li>
 
-                                        <li class="sa-nav__menu-item">
-                                            <a href="user/edit" class="sa-nav__link"><span
+                                        {{--<li class="sa-nav__menu-item">
+                                        
+                                            <a href="{{route('admin.edituser',['uid'=>$user->id])}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Edit User</span></a>
-                                        </li>
+                                        </li>--}}
                                     </ul>
                                 </li>
 
@@ -220,21 +221,21 @@
                                     </a>
                                     <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
                                         <li class="sa-nav__menu-item">
-                                            <a href="{{'product/add'}}" class="sa-nav__link"><span
+                                            <a href="{{route('admin.addproduct')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Add Product</span></a>
                                         </li>
                                         <li class="sa-nav__menu-item">
-                                            <a href="{{'products'}}" class="sa-nav__link"><span
+                                            <a href="{{route('admin.products')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Product List</span></a>
                                         </li>
 
-                                        <li class="sa-nav__menu-item">
-                                            <a href="{{'    product/edit'}}" class="sa-nav__link"><span
+                                       {{-- <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.editproduct')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Edit Product</span></a>
-                                        </li>
+                                        </li>--}}
                                     </ul>
                                 </li>
 
@@ -267,7 +268,7 @@
                                                     class="sa-nav__title">Add User</span></a>
                                         </li> -->
                                         <li class="sa-nav__menu-item">
-                                            <a href="{{'cities'}}" class="sa-nav__link"><span
+                                            <a href="{{route('admin.cities')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Cities</span></a>
                                         </li>
