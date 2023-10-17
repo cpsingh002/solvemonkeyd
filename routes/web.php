@@ -19,6 +19,9 @@ use App\Livewire\Banner\EditBannerComponent;
 use App\Livewire\Testimonial\TestimonialComponent;
 use App\Livewire\Testimonial\AddTestimonialComponent;
 use App\Livewire\Testimonial\EditTestimonialComponent;
+use App\Livewire\Product\ProductComponent;
+use App\Livewire\Product\AddProductComponent;
+use App\Livewire\Product\EditProductComponent;
 
 
 use App\Http\Controllers\HomeController;
@@ -92,9 +95,9 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/user/edit/{uid}',EditUserComponent::class)->name('admin.edituser');
 
 
-    // Route::get('/admin/products',ProductComponent::class)->name('admin.products');
-    // Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
-    // Route::get('/admin/product/edit/{uid}',EditProductComponent::class)->name('admin.editproduct');
+    Route::get('/admin/products',ProductComponent::class)->name('admin.products');
+    Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
+    Route::get('/admin/product/edit/{uid}',EditProductComponent::class)->name('admin.editproduct');
     Route::get('/admin/banners',BannerComponent::class)->name('admin.banners');
     Route::get('/admin/banner/add',AddBannerComponent::class)->name('admin.addbanner');
     Route::get('/admin/banner/edit/{bid}',EditBannerComponent::class)->name('admin.editbanner');
