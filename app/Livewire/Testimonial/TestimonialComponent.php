@@ -40,6 +40,6 @@ class TestimonialComponent extends Component
     public function render()
     {
         $testimonials = Testimonial::paginate(5);
-        return view('livewire.testimonial.testimonial-component',['testimonials'=>$testimonials])->layout('layouts.admin');
+        return view('livewire.testimonial.testimonial-component',['testimonials'=>$testimonials])->layout('layouts.admin1');
     }
 }

@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('admin1/vendor/nouislider/nouislider.min.css')}}" />
     <link rel="stylesheet" href="{{asset('admin1/vendor/fullcalendar/main.min.css')}}" />
     <link rel="stylesheet" href="{{asset('admin1/css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('admin1/css/font-awesome.min')}}" />
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-97489509-8"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -44,7 +45,7 @@
         <div class="sa-app__sidebar">
             <div class="sa-sidebar">
                 <div class="sa-sidebar__header">
-                    <a class="sa-sidebar__logo" href="index-2.html">
+                    <a class="sa-sidebar__logo" href="{{route('admin.dashboard')}}">
                         <!-- logo -->
                         <div class="sa-sidebar-logo">
                             <svg xmlns="http://www.w3.org/2000/svg" width="120px" height="20px">
@@ -63,37 +64,16 @@
                             <ul class="sa-nav__menu sa-nav__menu--root">
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon">
                                     <a href="{{route('admin.dashboard')}}" class="sa-nav__link">
-                                        <span class="sa-nav__icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                viewBox="0 0 16 16" fill="currentColor">
-                                                <path
-                                                    d="M8,13.1c-4.4,0-8,3.4-8-3C0,5.6,3.6,2,8,2s8,3.6,8,8.1C16,16.5,12.4,13.1,8,13.1zM8,4c-3.3,0-6,2.7-6,6c0,4,2.4,0.9,5,0.2C7,9.9,7.1,9.5,7.4,9.2l3-2.3c0.4-0.3,1-0.2,1.3,0.3c0.3,0.5,0.2,1.1-0.2,1.4l-2.2,1.7c2.5,0.9,4.8,3.6,4.8-0.2C14,6.7,11.3,4,8,4z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                    <span class="sa-nav__icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8,13.1c-4.4,0-8,3.4-8-3C0,5.6,3.6,2,8,2s8,3.6,8,8.1C16,16.5,12.4,13.1,8,13.1zM8,4c-3.3,0-6,2.7-6,6c0,4,2.4,0.9,5,0.2C7,9.9,7.1,9.5,7.4,9.2l3-2.3c0.4-0.3,1-0.2,1.3,0.3c0.3,0.5,0.2,1.1-0.2,1.4l-2.2,1.7c2.5,0.9,4.8,3.6,4.8-0.2C14,6.7,11.3,4,8,4z"></path></svg></span>
                                         <span class="sa-nav__title">Dashboard</span>
                                     </a>
                                 </li>
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                     data-sa-collapse-item="sa-nav__menu-item--open">
                                     <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
-                                        <span class="sa-nav__icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                viewBox="0 0 16 16" fill="currentColor">
-                                                <path
-                                                    d="M8,6C4.7,6,2,4.7,2,3s2.7-3,6-3s6,1.3,6,3S11.3,6,8,6z M2,5L2,5L2,5C2,5,2,5,2,5z M8,8c3.3,0,6-1.3,6-3v3c0,1.7-2.7,3-6,3S2,9.7,2,8V5C2,6.7,4.7,8,8,8z M14,5L14,5C14,5,14,5,14,5L14,5z M2,10L2,10L2,10C2,10,2,10,2,10z M8,13c3.3,0,6-1.3,6-3v3c0,1.7-2.7,3-6,3s-6-1.3-6-3v-3C2,11.7,4.7,13,8,13z M14,10L14,10C14,10,14,10,14,10L14,10z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                        <i class="fa fa-bars me-4"></i>
                                         <span class="sa-nav__title">Category</span>
-                                        <span class="sa-nav__arrow">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="9"
-                                                viewBox="0 0 6 9" fill="currentColor">
-                                                <path
-                                                    d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                        <i class="fa fa-chevron-right"></i>
                                     </a>
                                     <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
                                         <li class="sa-nav__menu-item">
@@ -106,34 +86,16 @@
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Category List</span></a>
                                         </li>
-                                      {{--  <li class="sa-nav__menu-item">
-                                            <a href="{{route('admin.editcategory',$uid)}}" class="sa-nav__link"><span
-                                                    class="sa-nav__menu-item-padding"></span><span
-                                                    class="sa-nav__title">Edit Category</span></a>
-                                        </li>--}}
+
                                     </ul>
                                 </li>
 
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                     data-sa-collapse-item="sa-nav__menu-item--open">
                                     <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
-                                        <span class="sa-nav__icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                viewBox="0 0 16 16" fill="currentColor">
-                                                <path
-                                                    d="M8,10c-3.3,0-6,2.7-6,6H0c0-3.2,1.9-6,4.7-7.3C3.7,7.8,3,6.5,3,5c0-2.8,2.2-5,5-5s5,2.2,5,5c0,1.5-0.7,2.8-1.7,3.7c2.8,1.3,4.7,4,4.7,7.3h-2C14,12.7,11.3,10,8,10z M8,2C6.3,2,5,3.3,5,5s1.3,3,3,3s3-1.3,3-3S9.7,2,8,2z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                        <i class="fa fa-cube me-4"></i>
                                         <span class="sa-nav__title">Package</span>
-                                        <span class="sa-nav__arrow">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="9"
-                                                viewBox="0 0 6 9" fill="currentColor">
-                                                <path
-                                                    d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                        <i class="fa fa-chevron-right"></i>
                                     </a>
                                     <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
                                         <li class="sa-nav__menu-item">
@@ -147,34 +109,16 @@
                                                     class="sa-nav__title">Package List</span></a>
                                         </li>
 
-                                       {{-- <li class="sa-nav__menu-item">
-                                            <a href="package/edit" class="sa-nav__link"><span
-                                                    class="sa-nav__menu-item-padding"></span><span
-                                                    class="sa-nav__title">Edit Package</span></a>
-                                        </li>--}}
+
                                     </ul>
                                 </li>
 
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                     data-sa-collapse-item="sa-nav__menu-item--open">
                                     <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
-                                        <span class="sa-nav__icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                viewBox="0 0 16 16" fill="currentColor">
-                                                <path
-                                                    d="M8,10c-3.3,0-6,2.7-6,6H0c0-3.2,1.9-6,4.7-7.3C3.7,7.8,3,6.5,3,5c0-2.8,2.2-5,5-5s5,2.2,5,5c0,1.5-0.7,2.8-1.7,3.7c2.8,1.3,4.7,4,4.7,7.3h-2C14,12.7,11.3,10,8,10z M8,2C6.3,2,5,3.3,5,5s1.3,3,3,3s3-1.3,3-3S9.7,2,8,2z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                        <i class="fa fa-user me-4"></i>
                                         <span class="sa-nav__title">User</span>
-                                        <span class="sa-nav__arrow">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="9"
-                                                viewBox="0 0 6 9" fill="currentColor">
-                                                <path
-                                                    d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                        <i class="fa fa-chevron-right"></i>
                                     </a>
                                     <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
                                         <li class="sa-nav__menu-item">
@@ -187,13 +131,6 @@
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">User List</span></a>
                                         </li>
-
-                                        {{--<li class="sa-nav__menu-item">
-                                        
-                                            <a href="{{route('admin.edituser',['uid'=>$user->id])}}" class="sa-nav__link"><span
-                                                    class="sa-nav__menu-item-padding"></span><span
-                                                    class="sa-nav__title">Edit User</span></a>
-                                        </li>--}}
                                     </ul>
                                 </li>
 
@@ -201,23 +138,9 @@
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                     data-sa-collapse-item="sa-nav__menu-item--open">
                                     <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
-                                        <span class="sa-nav__icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                viewBox="0 0 16 16" fill="currentColor">
-                                                <path
-                                                    d="M8,10c-3.3,0-6,2.7-6,6H0c0-3.2,1.9-6,4.7-7.3C3.7,7.8,3,6.5,3,5c0-2.8,2.2-5,5-5s5,2.2,5,5c0,1.5-0.7,2.8-1.7,3.7c2.8,1.3,4.7,4,4.7,7.3h-2C14,12.7,11.3,10,8,10z M8,2C6.3,2,5,3.3,5,5s1.3,3,3,3s3-1.3,3-3S9.7,2,8,2z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                        <i class="fa fa-compass me-4"></i>
                                         <span class="sa-nav__title">Product</span>
-                                        <span class="sa-nav__arrow">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="9"
-                                                viewBox="0 0 6 9" fill="currentColor">
-                                                <path
-                                                    d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                        <i class="fa fa-chevron-right"></i>
                                     </a>
                                     <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
                                         <li class="sa-nav__menu-item">
@@ -231,11 +154,7 @@
                                                     class="sa-nav__title">Product List</span></a>
                                         </li>
 
-                                       {{-- <li class="sa-nav__menu-item">
-                                            <a href="{{route('admin.editproduct')}}" class="sa-nav__link"><span
-                                                    class="sa-nav__menu-item-padding"></span><span
-                                                    class="sa-nav__title">Edit Product</span></a>
-                                        </li>--}}
+
                                     </ul>
                                 </li>
 
@@ -243,44 +162,118 @@
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                     data-sa-collapse-item="sa-nav__menu-item--open">
                                     <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
-                                        <span class="sa-nav__icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                viewBox="0 0 16 16" fill="currentColor">
-                                                <path
-                                                    d="M8,10c-3.3,0-6,2.7-6,6H0c0-3.2,1.9-6,4.7-7.3C3.7,7.8,3,6.5,3,5c0-2.8,2.2-5,5-5s5,2.2,5,5c0,1.5-0.7,2.8-1.7,3.7c2.8,1.3,4.7,4,4.7,7.3h-2C14,12.7,11.3,10,8,10z M8,2C6.3,2,5,3.3,5,5s1.3,3,3,3s3-1.3,3-3S9.7,2,8,2z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                        <span class="sa-nav__title">City</span>
-                                        <span class="sa-nav__arrow">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="9"
-                                                viewBox="0 0 6 9" fill="currentColor">
-                                                <path
-                                                    d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                                </path>
-                                            </svg>
-                                        </span>
+                                        <i class="fa fa-file-alt me-4"></i>
+                                        <span class="sa-nav__title">Attribute</span>
+                                        <i class="fa fa-chevron-right"></i>
                                     </a>
                                     <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                        <!-- <li class="sa-nav__menu-item">
-                                            <a href="{{'user/add'}}" class="sa-nav__link"><span
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.addattribute')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
-                                                    class="sa-nav__title">Add User</span></a>
-                                        </li> -->
+                                                    class="sa-nav__title">Add Attribute</span></a>
+                                        </li>
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.attributes')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Attribute List</span></a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
+                                    data-sa-collapse-item="sa-nav__menu-item--open">
+                                    <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
+                                        <i class="fa fa-building me-4"></i>
+                                        <span class="sa-nav__title">City</span>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
                                         <li class="sa-nav__menu-item">
                                             <a href="{{route('admin.cities')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Cities</span></a>
                                         </li>
 
-                                        <!-- <li class="sa-nav__menu-item">
-                                            <a href="" class="sa-nav__link"><span
-                                                    class="sa-nav__menu-item-padding"></span><span
-                                                    class="sa-nav__title">Edit User</span></a>
-                                        </li> -->
                                     </ul>
                                 </li>
-                                
+
+
+
+
+                                <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
+                                    data-sa-collapse-item="sa-nav__menu-item--open">
+                                    <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
+
+
+                                        <i class="fa fa-file-image me-4"></i>
+
+                                        <span class="sa-nav__title">Banner</span>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.addbanner')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Add Banner</span></a>
+                                        </li>
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.banners')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Banner</span></a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
+                                    data-sa-collapse-item="sa-nav__menu-item--open">
+                                    <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
+                                        <i class="fa fa-search me-4"></i>
+                                        <span class="sa-nav__title">Brand</span>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.addbrand')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Add Brand</span></a>
+                                        </li>
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.brands')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Brand</span></a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+
+                                <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
+                                    data-sa-collapse-item="sa-nav__menu-item--open">
+                                    <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
+                                        <i class="fa fa-check-square me-4"></i>
+                                        <span class="sa-nav__title">Testimonial</span>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.addtestimonial')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Add Testimonial</span></a>
+                                        </li>
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.testimonials')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Testimonial</span></a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+
                             </ul>
                         </li>
 
@@ -311,8 +304,7 @@
                                 <div class="sa-search__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"
                                         fill="currentColor">
-                                        <path
-                                            d="M16.243 14.828C16.243 14.828 16.047 15.308 15.701 15.654C15.34 16.015 14.828 16.242 14.828 16.242L10.321 11.736C9.247 12.522 7.933 13 6.5 13C2.91 13 0 10.09 0 6.5C0 2.91 2.91 0 6.5 0C10.09 0 13 2.91 13 6.5C13 7.933 12.522 9.247 11.736 10.321L16.243 14.828ZM6.5 2C4.015 2 2 4.015 2 6.5C2 8.985 4.015 11 6.5 11C8.985 11 11 8.985 11 6.5C11 4.015 8.985 2 6.5 2Z">
+                                        <path d="M16.243 14.828C16.243 14.828 16.047 15.308 15.701 15.654C15.34 16.015 14.828 16.242 14.828 16.242L10.321 11.736C9.247 12.522 7.933 13 6.5 13C2.91 13 0 10.09 0 6.5C0 2.91 2.91 0 6.5 0C10.09 0 13 2.91 13 6.5C13 7.933 12.522 9.247 11.736 10.321L16.243 14.828ZM6.5 2C4.015 2 2 4.015 2 6.5C2 8.985 4.015 11 6.5 11C8.985 11 11 8.985 11 6.5C11 4.015 8.985 2 6.5 2Z">
                                         </path>
                                     </svg>
                                 </div>

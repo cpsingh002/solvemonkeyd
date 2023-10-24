@@ -52,6 +52,6 @@ class EditBannerComponent extends Component
 
     public function render()
     {
-        return view('livewire.banner.edit-banner-component')->layout('layouts.admin');
+        return view('livewire.banner.edit-banner-component')->layout('layouts.admin1');
     }
 }

@@ -22,6 +22,12 @@ use App\Livewire\Testimonial\EditTestimonialComponent;
 use App\Livewire\Product\ProductComponent;
 use App\Livewire\Product\AddProductComponent;
 use App\Livewire\Product\EditProductComponent;
+use App\Livewire\Brand\BrandComponent;
+use App\Livewire\Brand\AddBrandComponent;
+use App\Livewire\Brand\EditBrandComponent;
+use App\Livewire\Attribute\AttributeComponent;
+use App\Livewire\Attribute\AddAttributeComponent;
+use App\Livewire\Attribute\EditAttributeComponent;
 
 
 use App\Http\Controllers\HomeController;
@@ -104,6 +110,14 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/testimonials',TestimonialComponent::class)->name('admin.testimonials');
     Route::get('/admin/testimonial/add',AddTestimonialComponent::class)->name('admin.addtestimonial');
     Route::get('/admin/testimonial/edit/{tid}',EditTestimonialComponent::class)->name('admin.edittestimonial');
+
+    Route::get('/admin/brands',BrandComponent::class)->name('admin.brands');
+    Route::get('/admin/brand/add',AddBrandComponent::class)->name('admin.addbrand');
+    Route::get('/admin/brand/edit/{bid}',EditBrandComponent::class)->name('admin.editbrand');
+
+    Route::get('/admin/attributes',AttributeComponent::class)->name('admin.attributes');
+    Route::get('/admin/attribute/add',AddAttributeComponent::class)->name('admin.addattribute');
+    // Route::get('/admin/attribute/edit/{bid}',EditAttributeComponent::class)->name('admin.editattribute');
 
 
    

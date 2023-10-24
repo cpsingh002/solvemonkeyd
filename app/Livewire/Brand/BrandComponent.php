@@ -8,6 +8,7 @@ class BrandComponent extends Component
 {
     public function render()
     {
-        return view('livewire.brand.brand-component');
+        
+        return view('livewire.brand.brand-component')->layout('layouts.admin1');
     }
 }

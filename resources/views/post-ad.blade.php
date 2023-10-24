@@ -2,7 +2,17 @@
 @section('container')
 <main>
 
-
+<style>
+    .btn-tabs {
+    border-radius: 6px;
+    border: 1px solid gray;
+    padding: 10px 20px;
+    margin: 5px; 
+} 
+/* .btn-tabs.active{
+    border:1px solid red
+} */
+    </style>
 
     <div class="addList-Details section-padding2">
 
@@ -31,63 +41,37 @@
 
 
                                     <div class="row">
-                                        <style>
-                                        .tabs {
-                                            display: flex;
-                                        }
+                                        
 
-                                        .tab {
-                                            display: none;
-                                        }
-
-                                        .tab:target,
-                                        .tab:first-child {
-                                            display: block;
-                                        }
-
-                                        .tab-content {
-                                            padding: 10px;
-                                            border: 1px solid #ccc;
-                                        }
-
-                                        .btn-tabs {
-                                            border-radius: 6px;
-                                            border: 1px solid;
-                                            padding: 10px 20px;
-                                            /* margin: 10px; */
-                                        }
-                                        </style>
-
-
-
-                                        <div class="tabs my-3 justify-content-center">
-                                            <a href="#basic" class="btn-tabs mx-2">Basic</a>
+                                        <div class="tabs my-3">
+                                            <!-- <a href="#basic" class="btn-tabs mx-2">Basic</a>
                                             <a href="#details" class="btn-tabs mx-2">Details</a>
                                             <a href="#location" class="btn-tabs mx-2">Location</a>
                                             <a href="#photos" class="btn-tabs mx-2">Photos/Videos</a>
                                             <a href="#tag" class="btn-tabs mx-2">Tag</a>
-                                            <a href="#contact" class="btn-tabs mx-2">Contact</a>
+                                            <a href="#contact" class="btn-tabs mx-2">Contact</a> -->
 
 
-                                            <!-- <div class="view">
-                                                <button class="customTab active" data-toggle-target=".customTab-content-1"><i
-                                                        class="las la-th-large"></i></button>
-                                                <button class="customTab "
-                                                    data-toggle-target=".customTab-content-2"><i
-                                                        class="las la-bars"></i></button>
-                                            </div> -->
+                                            <div class="view">
+                                                <button class="customTab btn-tabs active" data-toggle-target=".customTab-content-1">Basic</button>
+                                                <button class="customTab btn-tabs" data-toggle-target=".customTab-content-2">Details</button>
+                                                <button class="customTab btn-tabs" data-toggle-target=".customTab-content-3">Location</button>
+                                                <button class="customTab btn-tabs" data-toggle-target=".customTab-content-4">Photos/Videos</button>
+                                                <button class="customTab btn-tabs" data-toggle-target=".customTab-content-5">Tag</button>
+                                                <button class="customTab btn-tabs" data-toggle-target=".customTab-content-6">Contact</button>
+                                            </div>
 
                                         </div>
 
                                         <!-- <div class="customTab-content customTab-content-1 active">
                                             <p>hello</p>
-                                        </div>
-                                        <div class="customTab-content customTab-content-2">
+                                        </div> -->
+                                        <!-- <div class="customTab-content customTab-content-2">
                                             <p>hello4545</p>
                                         </div> -->
 
-                                        <div id="basic" class="tab">
-                                            <div class="tab-content">
+                                        <!-- <div  class="tab"> -->
+                                            <div id="basic" class="tab-content customTab-content customTab-content-1 active">
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <label class="infoTitle">Title</label>
@@ -103,10 +87,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        <!-- </div> -->
 
-                                        <div id="details" class="tab">
-                                            <div class="tab-content">
+                                        <!-- <div  class="tab"> -->
+                                            <div id="details" class="tab-content customTab-content customTab-content-2">
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <label class="infoTitle">Product Specification</label>
@@ -134,11 +118,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        <!-- </div> -->
 
-                                        <div id="location" class="tab">
+                                        <!-- <div  class="tab"> -->
 
-                                            <div class="tab-content">
+                                            <div id="location" class="tab-content customTab-content customTab-content-3">
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <label class="infoTitle">City</label>
@@ -154,11 +138,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        <!-- </div> -->
 
-                                        <div id="photos" class="tab">
+                                        <!-- <div  class="tab"> -->
 
-                                            <div class="tab-content">
+                                            <div id="photos" class="tab-content customTab-content customTab-content-4">
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <label class="infoTitle">Thumbnail Image</label>
@@ -180,11 +164,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        <!-- </div> -->
 
-                                        <div id="tag" class="tab">
+                                        <!-- <div  class="tab"> -->
 
-                                            <div class="tab-content">
+                                            <div id="tag" class="tab-content customTab-content customTab-content-5">
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <label class="infoTitle">Meta Tag</label>
@@ -200,7 +184,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        <!-- </div> -->
 
 
                                     </div>
@@ -221,3 +205,10 @@
 
 </main>
 @endsection
+
+<script>
+    $('.customTab').click(function(){
+        // alert("hhjj")
+    $('.btn-tabs').css({'color','orange' })
+})
+</script>
