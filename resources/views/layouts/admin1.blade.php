@@ -186,7 +186,10 @@
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                     data-sa-collapse-item="sa-nav__menu-item--open">
                                     <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
+
                                         <i class="fa fa-building me-4"></i>
+                                       
+
                                         <span class="sa-nav__title">City</span>
                                         <i class="fa fa-chevron-right"></i>
                                     </a>
