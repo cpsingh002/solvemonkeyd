@@ -9,10 +9,10 @@
                          <nav class="mb-2" aria-label="breadcrumb">
 
                          </nav>
-                         <h1 class="h3 m-0">Edit Brand</h1>
+                         <h1 class="h3 m-0">Add Attribute</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.brands')}}" class="btn btn-primary">All Brand</a>
+                         <a href="{{route('admin.attributes')}}" class="btn btn-primary">All Attributes</a>
                      </div>
 
                  </div>
@@ -29,46 +29,48 @@
                                          <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                          @endif
                                          <form class="form-horizontal" enctype="multipart/form-data"
-                                             wire:submit.prevent="updateBrand">
+                                             wire:submit.prevent="addAttribute">
                                              <div class="mb-5">
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-banner/name" class="form-label">Title</label>
-                                                 <input type="text" placeholder="Title" class="form-control"
-                                                     wire:model="title" />
-                                                 @error('name') <p class="text-danger">{{$message}}</p> @enderror
+                                                 <div>
+                                                     <label for="form-category/category" class="form-label">
+                                                         Category</label>
+
+                                                     <select class="form-select" wire:model="category_id">
+                                                         <option value="">None</option>
+                                                         {{--@foreach($categories as $category)
+                                                         <option value="{{$category->id}}">{{$category->name}}</option>
+                                                         @endforeach--}}
+                                                     </select>
+                                                 </div>
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-banner/name" class="form-label">Slug</label>
-                                                 <input type="text" placeholder="Slug" class="form-control"
-                                                     wire:model="slug" />
-                                                 @error('name') <p class="text-danger">{{$message}}</p> @enderror
+                                                 <div>
+                                                     <label for="form-category/sub-category" class="form-label">Sub
+                                                         Category</label>
+
+                                                     <select class="form-select" wire:model="sub_category_id">
+                                                         <option value="">None</option>
+                                                         {{--@foreach($categories as $category)
+                                                         <option value="{{$category->id}}">{{$category->name}}</option>
+                                                         @endforeach--}}
+                                                     </select>
+                                                 </div>
                                              </div>
                                             
 
                                              <div class="mb-4">
-                                                 <label for="form-banner/image" class="form-label">Image</label>
+                                                 <label for="form-banner/image" class="form-label">Attribute</label>
                                                  <div class="input-group input-group--sa-slug">
-
-                                                     <input type="file" class="input-file" wire:model="image" />
-                                                     {{-- @if($image)
-                                                     <img src="{{$image->temporaryUrl()}}" width="120" />
-                                                     @endif--}}
+                                                     <input type="text" placeholder="Attribute" class="form-control" wire:model="aname" />
+                                                     @error('aname') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
 
-                                             <div class="mb-4">
-                                                 <label for="form-banner/image" class="form-label">Status</label>
-                                                 <div class="input-group input-group--sa-slug">
-
-                                                     <select class="form-select" wire:model="status">
-                                                         <option value="0">Inactive</option>
-                                                         <option value="1">Active</option>
-                                                     </select>
-                                                 </div>
-                                             </div>
+                                             
 
                                              <div class="mb-4 text-center">
                                                  <button type="submit" class="btn btn-primary">Submit</button>

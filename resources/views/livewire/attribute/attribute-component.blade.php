@@ -8,10 +8,10 @@
                      <nav class="mb-2" aria-label="breadcrumb">
 
                      </nav>
-                     <h1 class="h3 m-0">All Brands</h1>
+                     <h1 class="h3 m-0">Attributes</h1>
                  </div>
                  <div class="col-auto d-flex">
-                     <a href="{{route('admin.addbrand')}}" class="btn btn-primary">Add Brand</a>
+                     <a href="{{route('admin.addattribute')}}" class="btn btn-primary">Add Attribute</a>
                  </div>
              </div>
          </div>
@@ -25,35 +25,32 @@
                      @if(Session::has('message'))
                      <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                      @endif
-                     <!-- <div class="sa-divider"></div> -->
+                     <div class="sa-divider"></div>
                      <table class="sa-datatables-init">
                          <thead>
                              <tr>
                                  <th>Id</th>
-                                 <th>Image</th>
-                                 <th>Title</th>
-                                 <th>Slug</th>
+                                 <th>Category</th>
+                                 <th>Sub Category</th>
+                                 <th>Attribute</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
                          <tbody>
-                             {{-- @foreach($brands as $brand)
+                             @foreach($attributes as $attribute)
                              <tr>
-                                 <td>{{$brand->id}}</td>
-                                 <td><img src="{{asset('assets/images/sliders')}}/{{$slider->image}}" width="60" /></td>
-                                 <td>{{$brand->title}}</td>
-                                 <td>{{$brand->slug}}</td>
+                                 <td>{{$attribute->category_id}}</td>
+                                 <td>{{$attribute->sub_category_id}}</td>
+                                 <td>{{$attribute->attribute}}</td>
                                  
                                  <td>
-                                     <a href="{{route('admin.editbanner',['bid'=> $slider->id])}}"><i
-                                             class="fa fa-edit fa-2x"></i></a>
-                                     <a href="#"
-                                         onclick="confirm('Are you sure, You want to delet this slider') || event.stopImmediatePropagation()"
-                                         wire:click.prevent="deleteSlider({{$slider->id}})" style="margin-left:10px;"><i
-                                             class="fa fa-times fa-2x text-danger"></i></a>
+                                     <a href="{{route('admin.edittestimonial',['aid'=>$attribute->id])}}"><i
+                                             class="fa fa-edit "></i></a>
+                                     <a href="#" onclick="confirm('Are you sure, You want to delete this attribute') || event.stopImmediatePropagation()"
+                                         wire:click.prevent="deleteAttribute({{$attribute->id}})"><i class="fa fa-times  text-danger ml-2"></i></a>
                                  </td>
                              </tr>
-                             @endforeach --}}
+                             @endforeach
                          </tbody>
                      </table>
                  </div>

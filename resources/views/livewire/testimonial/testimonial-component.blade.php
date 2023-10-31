@@ -1,9 +1,8 @@
 
+ <!-- sa-app__toolbar / end -->
+ <!-- sa-app__body -->
+ <div id="top" class="sa-app__body">
 
-
-
-
-<div id="top" class="sa-app__body">
      <div class="mx-xxl-3 px-4 px-sm-5">
          <div class="py-5">
              <div class="row g-4 align-items-center">
@@ -14,7 +13,8 @@
                      <h1 class="h3 m-0">Testimonials</h1>
                  </div>
                  <div class="col-auto d-flex">
-                     <a href="{{route('admin.addtestimonial')}}" class="btn btn-primary">Add New Testimonial</a>
+
+                     <a href="{{route('admin.addtestimonial')}}" class="btn btn-primary">Add Testimonial</a>
                  </div>
              </div>
          </div>
@@ -25,24 +25,27 @@
 
              <div class="sa-layout__content">
                  <div class="card">
-                     @if(Session::has('message'))
-                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                     @endif
+
+                 @if(Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                        @endif
                      <!-- <div class="sa-divider"></div> -->
+
                      <table class="sa-datatables-init">
                          <thead>
-                             <tr>
-                                <th>Id</th>
-                                <th> Name</th>
-                                <th>Email Id</th>
-                                <th>Phone Number</th>
-                                <th>Image</th>
-                                <th>Description</th>
-                                <th>Rating</th>
-                                <th>Status</th>
-                                <th>Status Action</th>
-                                <th>Action</th>
-                             </tr>
+                         <tr>
+                                    <th>Id</th>
+                                    <th> Name</th>
+                                    <th>Email Id</th>
+                                    <th>Phone Number</th>
+                                    <th>Image</th>
+                                    <th>Description</th>
+                                    <th>Rating</th>
+                                    <th>Status</th>
+                                    <th>Status Action</th>
+                                    <th>Action</th>
+                                </tr>
+
                          </thead>
                          <tbody>
                          @foreach($testimonials as $testimonial)
@@ -72,6 +75,9 @@
                                 @endforeach
                          </tbody>
                      </table>
+
+                     {{$testimonials->links()}}
+
                  </div>
              </div>
          </div>

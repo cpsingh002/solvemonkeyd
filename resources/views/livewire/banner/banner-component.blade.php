@@ -1,48 +1,48 @@
-<div>
-    <style>
-        nav svg{
-            height:20px;
-        }
-        nav .hidden{
-            display:block !important;
-        }
-    </style>
-    <div class="container" style="padding:30px 0;">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-6">
-                                All Home Sliders
-                            </div>
-                            <div class="col-md-6">
-                                <a href="{{route('admin.addbanner')}}" class="btn btn-success pull-right">Add New </a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="pnael-body">
-                        @if(Session::has('message'))
+ <!-- sa-app__toolbar / end -->
+ <!-- sa-app__body -->
+ <div id="top" class="sa-app__body">
+     <div class="mx-xxl-3 px-4 px-sm-5">
+         <div class="py-5">
+             <div class="row g-4 align-items-center">
+                 <div class="col">
+                     <nav class="mb-2" aria-label="breadcrumb">
+
+                     </nav>
+                     <h1 class="h3 m-0">All Banners</h1>
+                 </div>
+                 <div class="col-auto d-flex">
+                     <a href="{{route('admin.addbanner')}}" class="btn btn-primary">Add Banner</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="mx-xxl-3 px-4 px-sm-5 pb-6">
+         <div class="sa-layout">
+             <!-- <div class="sa-layout__backdrop" data-sa-layout-sidebar-close=""></div> -->
+
+             <div class="sa-layout__content">
+                 <div class="card">
+                 @if(Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Subtitle</th>
-                                    <th>Price</th>
-                                    <th>Link</th>
-                                    <th>Status</th>
-                                    <th>Date</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($sliders as $slider)
-                                    <tr>
+                     <!-- <div class="sa-divider"></div> -->
+                     <table class="sa-datatables-init">
+                         <thead>
+                             <tr>
+                                 <th>Id</th>
+                                 <th>Image</th>
+                                 <th>Title</th>
+                                 <th>Subtitle</th>
+                                 <th>Price</th>
+                                 <th>Link</th>
+                                 <th>Status</th>
+                                 <th>Date</th>
+                                 <th>Action</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             @foreach($sliders as $slider)
+                             <tr>
                                         <td>{{$slider->id}}</td>
                                         <td><img src="{{asset('assets/images/sliders')}}/{{$slider->image}}" width="60" /></td>
                                         <td>{{$slider->title}}</td>
@@ -56,14 +56,11 @@
                                                 <a href="#" onclick="confirm('Are you sure, You want to delet this slider') || event.stopImmediatePropagation()" wire:click.prevent="deleteSlider({{$slider->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
                                         </td>
                                     </tr>
-                                @endforeach
-                            </tbody>
-
-                        </table>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                             @endforeach
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>

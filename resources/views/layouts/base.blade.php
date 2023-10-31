@@ -974,9 +974,7 @@
                     </div>
 
                     <div class="row mb-0">
-                        <div class="col-md-6 offset-md-4">
-
-
+                        <div class="col-md-12 text-center">
                             <div class="btn-wrapper">
                                 <button type="submit" class="pro-btn2 py-2 px-3">
                                     {{ __('Register') }}

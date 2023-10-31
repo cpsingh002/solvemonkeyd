@@ -18,6 +18,8 @@ class BannerComponent extends Component
     public function render()
     {
         $sliders = Banner::all();
-        return view('livewire.banner-component',['sliders'=>$sliders])->layout('layouts.admin');
+
+       
+        return view('livewire.banner.banner-component',['sliders'=>$sliders])->layout('layouts.admin1');
     }
 }

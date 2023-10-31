@@ -38,6 +38,6 @@ class AddBannerComponent extends Component
 
     public function render()
     {
-        return view('livewire.banner.add-banner-component')->layout('layouts.admin');
+        return view('livewire.banner.add-banner-component')->layout('layouts.admin1');
     }
 }

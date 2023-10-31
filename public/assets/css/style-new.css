@@ -4011,8 +4011,9 @@
   }
   .btn-wrapper .pro-btn2:hover {
     border: 1px solid transparent;
-    background: rgba(82, 78, 183, 0.1);
-    color: var(--main-color-two);
+    background: rgb(247 102 49);
+    color: #fff;
+
   }
   .btn-wrapper .pro-btn2:hover i {
     color: var(--main-color-one);
