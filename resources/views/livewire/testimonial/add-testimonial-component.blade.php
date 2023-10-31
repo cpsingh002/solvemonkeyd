@@ -28,12 +28,15 @@
                                          @if(Session::has('message'))
                                          <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                          @endif
+
                                          <form class="form-horizontal" enctype="multipart/form-data"
                                              wire:submit.prevent="storeUser">
+                              
                                              <div class="mb-5">
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
                                              <div class="mb-4">
+
                                                  <label for="form-banner/name" class="form-label">Name</label>
                                                  <input type="text" placeholder="User Name" class="form-control"
                                                      wire:model="title" />
@@ -55,6 +58,8 @@
                                                  <div class="input-group input-group--sa-slug">
 
                                                      <input type="text" placeholder="Phone" class="form-control" wire:model="phone" />
+
+                                                
                                                      @error('phone') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
@@ -67,10 +72,12 @@
                                                          wire:model="position" />
                                                      @error('position') <p class="text-danger">{{$message}}</p>
                                                      @enderror
+
                                                  </div>
                                              </div>
 
                                              <div class="mb-4">
+
                                                  <label for="form-banner/image" class="form-label">Image</label>
                                                  <div class="input-group input-group--sa-slug">
 
