@@ -9,10 +9,10 @@
                          <nav class="mb-2" aria-label="breadcrumb">
 
                          </nav>
-                         <h1 class="h3 m-0">Edit Brand</h1>
+                         <h1 class="h3 m-0">Add Model Number</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.brands')}}" class="btn btn-primary">All Brand</a>
+                         <a href="{{route('admin.modelnumbers')}}" class="btn btn-primary">All Model Number</a>
                      </div>
 
                  </div>
@@ -29,7 +29,7 @@
                                          <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                          @endif
                                          <form class="form-horizontal" enctype="multipart/form-data"
-                                             wire:submit.prevent="updateBrand">
+                                             wire:submit.prevent="addModelNumber">
                                              <div class="mb-5">
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
@@ -45,21 +45,6 @@
                                                  <input type="text" placeholder="Slug" class="form-control"
                                                      wire:model="slug" />
                                                  @error('slug') <p class="text-danger">{{$message}}</p> @enderror
-                                             </div>
-                                            
-
-                                             <div class="mb-4">
-                                                 <label for="form-banner/image" class="form-label">Image</label>
-                                                 <div class="input-group input-group--sa-slug">
-
-                                                     <input type="file" class="input-file" wire:model="newimage" />
-                                                     @if($newimage)
-                                                        <img src="{{$newimage->temporaryUrl()}}" width="120" />
-                                                    @else
-                                                        <img src="{{asset('admin/brand')}}/{{$image}}" width="120" />
-                                                    @endif
-                                                    @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
-                                                 </div>
                                              </div>
                                              <div class="form-group">
                                                 <label class="col-md-4 control-label">Category</label>
@@ -85,6 +70,18 @@
                                                     @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
                                                 </div>
                                             </div>
+                                            <div class="mb-4">
+                                                 <label for="form-banner" class="form-label">Brands</label>
+                                                 <div class="col-md-4">
+                                                    <select class="form-control" wire:model="brand_id">
+                                                        <option value="0">Select Brand Name</option>
+                                                        @foreach($brands as $brand)
+                                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('brand_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                </div>
+                                             </div>
 
                                              <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Status</label>
@@ -94,8 +91,10 @@
                                                          <option value="0">Inactive</option>
                                                          <option value="1">Active</option>
                                                      </select>
+                                                     @error('status') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
+
 
                                              <div class="mb-4 text-center">
                                                  <button type="submit" class="btn btn-primary">Submit</button>

@@ -7,6 +7,9 @@ use App\Livewire\DashboardComponent;
 use App\Livewire\Category\CategoryComponent;
 use App\Livewire\Category\AddCategoryComponent;
 use App\Livewire\Category\EditCategoryComponent;
+use App\Livewire\Category\SubCategoryComponent;
+use App\Livewire\Category\AddSubCategoryComponent;
+use App\Livewire\Category\EditSubCategoryComponent;
 use App\Livewire\Package\AddPackagecomponent;
 use App\Livewire\Package\Packagecomponent;
 use App\Livewire\Package\EditPackagecomponent;
@@ -29,6 +32,9 @@ use App\Livewire\Brand\EditBrandComponent;
 use App\Livewire\Attribute\AttributeComponent;
 use App\Livewire\Attribute\AddAttributeComponent;
 use App\Livewire\Attribute\EditAttributeComponent;
+use App\Livewire\ModelNumber\ModelNumberComponent;
+use App\Livewire\ModelNumber\AddModelNumberComponent;
+use App\Livewire\ModelNumber\EditModelNumberComponent;
 
 
 use App\Http\Controllers\HomeController;
@@ -94,6 +100,9 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/categories',CategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category/add',AddCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}',EditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/subcategories',SubCategoryComponent::class)->name('admin.subcategories');
+    Route::get('/admin/subcategory/add',AddSubCategoryComponent::class)->name('admin.addsubcategory');
+    Route::get('/admin/subcategory/edit/{category_slug}/{scategory_slug?}',EditSubCategoryComponent::class)->name('admin.editsubcategory');
     Route::get('/admin/packages',Packagecomponent::class)->name('admin.packages');
     Route::get('/admin/package/add',AddPackagecomponent::class)->name('admin.addpackage');
     Route::get('/admin/package/edit/{pid}',EditPackagecomponent::class)->name('admin.editpackage');
@@ -112,7 +121,6 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/testimonials',TestimonialComponent::class)->name('admin.testimonials');
     Route::get('/admin/testimonial/add',AddTestimonialComponent::class)->name('admin.addtestimonial');
     Route::get('/admin/testimonial/edit/{tid}',EditTestimonialComponent::class)->name('admin.edittestimonial');
-
     Route::get('/admin/brands',BrandComponent::class)->name('admin.brands');
     Route::get('/admin/brand/add',AddBrandComponent::class)->name('admin.addbrand');
     Route::get('/admin/brand/edit/{bid}',EditBrandComponent::class)->name('admin.editbrand');
@@ -120,6 +128,9 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/attributes',AttributeComponent::class)->name('admin.attributes');
     Route::get('/admin/attribute/add',AddAttributeComponent::class)->name('admin.addattribute');
     // Route::get('/admin/attribute/edit/{bid}',EditAttributeComponent::class)->name('admin.editattribute');
+    Route::get('/admin/modelnumbers',ModelNumberComponent::class)->name('admin.modelnumbers');
+    Route::get('/admin/modelnumber/add',AddModelNumberComponent::class)->name('admin.addmodelnumber');
+    Route::get('/admin/modelnumber/edit/{mid}',EditModelNumberComponent::class)->name('admin.editmodelnumber');
 
 
    

@@ -86,6 +86,11 @@
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Category List</span></a>
                                         </li>
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.subcategories')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Sub Category List</span></a>
+                                        </li>
 
                                     </ul>
                                 </li>
@@ -233,7 +238,7 @@
 
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                     data-sa-collapse-item="sa-nav__menu-item--open">
-                                    <a href="#" class="sa-nav__link" data-sa-collapse-trigger="">
+                                    <a href="#" class="sa-nav__link" data-sa-collapse-trigger=""> 
                                         <i class="fa fa-search me-4"></i>
                                         <span class="sa-nav__title">Brand</span>
                                         <i class="fa fa-chevron-right"></i>
@@ -248,6 +253,28 @@
                                             <a href="{{route('admin.brands')}}" class="sa-nav__link"><span
                                                     class="sa-nav__menu-item-padding"></span><span
                                                     class="sa-nav__title">Brand</span></a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+                                <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
+                                    data-sa-collapse-item="sa-nav__menu-item--open">
+                                    <a href="#" class="sa-nav__link" data-sa-collapse-trigger=""> 
+                                        <i class="fa fa-search me-4"></i>
+                                        <span class="sa-nav__title">Model Number</span>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.addmodelnumber')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Add Model Number</span></a>
+                                        </li>
+                                        <li class="sa-nav__menu-item">
+                                            <a href="{{route('admin.modelnumbers')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Model Number List</span></a>
                                         </li>
 
 

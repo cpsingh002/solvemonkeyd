@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Livewire\Brand;
+namespace App\Livewire\Category;
 
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithPagination;
 use App\Models\SubCategory;
-use App\Models\Brand;
 
-
-class BrandComponent extends Component
+class SubCategoryComponent extends Component
 {
     use withPagination;
-    public function deleteBrand($id)
+    public function deleteCategory($id)
     {
         $category = Category::find($id);
         $category->delete();
-        session()->flash('message','Brand has been deleted successfully!');
+        session()->flash('message','Category has been deleted successfully!');
     }
     public function deleteSubCategory($id)
     {
@@ -26,8 +24,8 @@ class BrandComponent extends Component
     }
     public function render()
     {
-        $brands=Brand::paginate(5);
-        
-        return view('livewire.brand.brand-component',['brands'=>$brands])->layout('layouts.admin1');
+        $categories=SubCategory::paginate(5);
+        //dd($categories);
+        return view('livewire.category.sub-category-component',['categories'=>$categories])->layout('layouts.admin1');
     }
 }

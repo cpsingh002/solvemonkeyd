@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class ModelNumber extends Model
 {
     use HasFactory;
-    protected $table = "brands";
-
+    protected $table = "model_numbers";
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -17,5 +16,9 @@ class Brand extends Model
     public function subcategory()
     {
         return $this->belongsTo(SubCategory::class);
+    }
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
     }
 }

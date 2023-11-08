@@ -36,15 +36,15 @@
                                              <div class="mb-4">
                                                  <label for="form-banner/name" class="form-label">Title</label>
                                                  <input type="text" placeholder="Title" class="form-control"
-                                                     wire:model="title" />
-                                                 @error('name') <p class="text-danger">{{$message}}</p> @enderror
+                                                     wire:model="title" wire:keyup="generateslug" />
+                                                 @error('title') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
                                              <div class="mb-4">
                                                  <label for="form-banner/name" class="form-label">Slug</label>
                                                  <input type="text" placeholder="Slug" class="form-control"
                                                      wire:model="slug" />
-                                                 @error('name') <p class="text-danger">{{$message}}</p> @enderror
+                                                 @error('slug') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                             
 
@@ -53,11 +53,35 @@
                                                  <div class="input-group input-group--sa-slug">
 
                                                      <input type="file" class="input-file" wire:model="image" />
-                                                    {{-- @if($image)
+                                                    @if($image)
                                                      <img src="{{$image->temporaryUrl()}}" width="120" />
-                                                     @endif--}}
+                                                     @endif
                                                  </div>
                                              </div>
+                                             <div class="form-group">
+                                                <label class="col-md-4 control-label">Category</label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
+                                                        <option value="">Select Category</option>
+                                                        @foreach($categories as $category)
+                                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Sub-Category</label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" wire:model="scategory_id">
+                                                        <option value="0">Select Sub Category</option>
+                                                        @foreach($scategories as $scategory)
+                                                            <option value="{{$scategory->id}}">{{$scategory->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                </div>
+                                            </div>
 
                                              <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Status</label>
@@ -69,6 +93,7 @@
                                                      </select>
                                                  </div>
                                              </div>
+
 
                                              <div class="mb-4 text-center">
                                                  <button type="submit" class="btn btn-primary">Submit</button>

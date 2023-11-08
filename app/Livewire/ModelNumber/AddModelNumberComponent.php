@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Livewire\Brand;
-
+namespace App\Livewire\ModelNumber;
 
 use Livewire\Component;
 use App\Models\Category;
@@ -11,15 +10,16 @@ use App\Models\Brand;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
+use App\Models\ModelNumber;
 
-class AddBrandComponent extends Component
+
+class AddModelNumberComponent extends Component
 {
     use WithFileUPloads;
     public $title;
     public $slug;
     public $category_id;
-    public $icon;
-    public $image;
+    public $brand_id;
     Public $scategory_id;
     public $status;
 
@@ -31,42 +31,46 @@ class AddBrandComponent extends Component
     {
         $this->validateOnly($fields,[
             'title'=>'required',
-            'slug'=>'required|unique:brands',
-            'status'=>'required'
+            'slug'=>'required|unique:model_numbers',
+            
+            'brand_id'=>'required',
+            'category_id'=>'required'
         ]);
     }
-    public function addBrand()
+    public function addModelNumber()
     {
         $this->validate([
             'title'=>'required',
-            'slug' => 'required|unique:brands',
-            'status'=>'required'
+            'slug' => 'required|unique:model_numbers',
+            'brand_id'=>'required',
+            'category_id'=>'required'
         ]);
         
-            $brand = new Brand();
+            $brand = new ModelNumber();
             $brand->name = $this->title;
             $brand->slug = $this->slug;
             $brand->category_id  = $this->category_id;
             $brand->subcategory_id  = $this->scategory_id;
-            if($this->image){
-                $imageName= Carbon::now()->timestamp.'.'.$this->image->extension();
-                $this->image->storeAs('brand',$imageName);
-                $brand->image = $imageName;
-                }
+            $brand->brand_id = $this->brand_id;           
             $brand->status = $this->status;
             $brand->save();
     
-        session()->flash('message','Brand has been created successfully!');
+        session()->flash('message','Model Number has been created successfully!');
     }
     public function changeSubcategory()
     {
-        $this->scategory_id = 0;
+        $this->scategory_id = '';
     }
     public function render()
     {
         $categories=Category::all();
         $scategories = Subcategory::where('category_id',$this->category_id)->get();
-        
-        return view('livewire.brand.add-brand-component',['categories'=>$categories,'scategories'=>$scategories])->layout('layouts.admin1');
+        if($this->scategory_id){
+        $brands = Brand::where('subcategory_id',$this->scategory_id)->get();
+        }else{
+            // dd($this->scategory_id);
+        $brands = Brand::where('category_id',$this->category_id)->get();
+        }
+        return view('livewire.model-number.add-model-number-component',['categories'=>$categories,'scategories'=>$scategories,'brands'=>$brands])->layout('layouts.admin1');
     }
 }

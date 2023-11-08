@@ -32,7 +32,7 @@
                                     @error('slug') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
-                            <div class="form-group">
+                           {{-- <div class="form-group">
                                 <label class="col-md-4 control-label">Parent Category</label>
                                 <div class="col-md-4">
                                     <select class="form-control input-md" wire:model="category_id"> 
@@ -42,7 +42,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Category Icon</label>
                                 <div class="col-md-4">
