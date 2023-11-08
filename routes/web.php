@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Livewire\DashboardComponent;
 use App\Livewire\Category\CategoryComponent;
@@ -51,6 +52,7 @@ Route::get('/', function () {
 
 
 // frontend routes
+// Route::post('login',[LoginController::class,'login']);
 Route::get('/about',[HomeController::class,'about'])->name('about');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 Route::get('/faq',[HomeController::class,'faq'])->name('faq');
