@@ -38,11 +38,11 @@
                                                      <label for="form-category/category" class="form-label">
                                                          Category</label>
 
-                                                     <select class="form-select" wire:model="category_id">
+                                                     <select class="form-select" wire:model="category_id" wire:change="changeSubcategory">
                                                          <option value="">None</option>
-                                                         {{--@foreach($categories as $category)
+                                                         @foreach($categories as $category)
                                                          <option value="{{$category->id}}">{{$category->name}}</option>
-                                                         @endforeach--}}
+                                                         @endforeach
                                                      </select>
                                                  </div>
                                              </div>
@@ -54,9 +54,9 @@
 
                                                      <select class="form-select" wire:model="sub_category_id">
                                                          <option value="">None</option>
-                                                         {{--@foreach($categories as $category)
-                                                         <option value="{{$category->id}}">{{$category->name}}</option>
-                                                         @endforeach--}}
+                                                         @foreach($scategories as $scategory)
+                                                         <option value="{{$scategory->id}}">{{$scategory->name}}</option>
+                                                         @endforeach
                                                      </select>
                                                  </div>
                                              </div>
@@ -69,7 +69,16 @@
                                                      @error('aname') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
+                                             <div class="mb-4">
+                                                 <label for="form-banner/image" class="form-label">Status</label>
+                                                 <div class="input-group input-group--sa-slug">
 
+                                                     <select class="form-select" wire:model="status">
+                                                         <option value="0">Inactive</option>
+                                                         <option value="1">Active</option>
+                                                     </select>
+                                                 </div>
+                                             </div>
                                              
 
                                              <div class="mb-4 text-center">

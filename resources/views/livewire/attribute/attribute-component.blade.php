@@ -39,12 +39,13 @@
                          <tbody>
                              @foreach($attributes as $attribute)
                              <tr>
-                                 <td>{{$attribute->category_id}}</td>
-                                 <td>{{$attribute->sub_category_id}}</td>
+                                <td>{{$attribute->id}}</td>
+                                 <td>{{$attribute->category->name}}</td>
+                                 <td>{{$attribute->subcategory->name}}</td>
                                  <td>{{$attribute->attribute}}</td>
                                  
                                  <td>
-                                     <a href="{{route('admin.edittestimonial',['aid'=>$attribute->id])}}"><i
+                                     <a href="{{route('admin.editattribute',['aid'=>$attribute->id])}}"><i
                                              class="fa fa-edit "></i></a>
                                      <a href="#" onclick="confirm('Are you sure, You want to delete this attribute') || event.stopImmediatePropagation()"
                                          wire:click.prevent="deleteAttribute({{$attribute->id}})"><i class="fa fa-times  text-danger ml-2"></i></a>

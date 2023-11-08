@@ -127,7 +127,7 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
 
     Route::get('/admin/attributes',AttributeComponent::class)->name('admin.attributes');
     Route::get('/admin/attribute/add',AddAttributeComponent::class)->name('admin.addattribute');
-    // Route::get('/admin/attribute/edit/{bid}',EditAttributeComponent::class)->name('admin.editattribute');
+    Route::get('/admin/attribute/edit/{aid}',EditAttributeComponent::class)->name('admin.editattribute');
     Route::get('/admin/modelnumbers',ModelNumberComponent::class)->name('admin.modelnumbers');
     Route::get('/admin/modelnumber/add',AddModelNumberComponent::class)->name('admin.addmodelnumber');
     Route::get('/admin/modelnumber/edit/{mid}',EditModelNumberComponent::class)->name('admin.editmodelnumber');
