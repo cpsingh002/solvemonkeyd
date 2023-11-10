@@ -32,6 +32,8 @@
                                  <th>Sub Category Image</th>
                                  <th>Sub Slug</th>
                                  <th>Category</th>
+                                 <th>Brands</th>
+                                 <th>Attribute</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
@@ -45,6 +47,22 @@
                                      <div class="badge badge-sa-success">{{$category->slug}}</div>
                                  </td>
                                  <td>{{$category->category->name}}</td>
+                                 <td>
+                                    <ul class="sclist">
+                                        @foreach($category->brands as $scategory)
+                                            <li><i class="fa fa-caret-right"></i>{{$scategory->name}}</li>
+                                            
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="sclist">
+                                        @foreach($category->attributes as $scategory)
+                                            <li><i class="fa fa-caret-right"></i>{{$scategory->attribute}}</li>
+                                            
+                                        @endforeach
+                                    </ul>
+                                </td>
                                  <td>
                                      <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="fa fa-edit"></i></a>
                                      <a href="#" onclick="confirm('Are you sure, You want to delet this category') || event.stopImmediatePropagation()"

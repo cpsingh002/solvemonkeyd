@@ -19,4 +19,8 @@ class Attribute extends Model
     {
         return $this->belongsTo(SubCategory::class);
     }
+    public function attributeoptions()
+    {
+        return $this->hasMany(AttributeOption::class,'attribute_id');
+    }
 }

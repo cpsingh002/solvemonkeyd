@@ -35,7 +35,9 @@ use App\Livewire\Attribute\EditAttributeComponent;
 use App\Livewire\ModelNumber\ModelNumberComponent;
 use App\Livewire\ModelNumber\AddModelNumberComponent;
 use App\Livewire\ModelNumber\EditModelNumberComponent;
-
+use App\Livewire\AttributeOption\AttributeOptionComponent;
+use App\Livewire\AttributeOption\AddAttributeOptionComponent;
+use App\Livewire\AttributeOption\EditAttributeOptionComponent;
 
 use App\Http\Controllers\HomeController;
 
@@ -132,6 +134,8 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/modelnumber/add',AddModelNumberComponent::class)->name('admin.addmodelnumber');
     Route::get('/admin/modelnumber/edit/{mid}',EditModelNumberComponent::class)->name('admin.editmodelnumber');
 
-
+    Route::get('/admin/attributeoptions',AttributeOptionComponent::class)->name('admin.attributeoptions');
+    Route::get('/admin/attributeoption/add',AddAttributeOptionComponent::class)->name('admin.addattributeoption');
+    Route::get('/admin/attributeoption/edit/{oid}',EditAttributeOptionComponent::class)->name('admin.editattributeoption');
    
 });

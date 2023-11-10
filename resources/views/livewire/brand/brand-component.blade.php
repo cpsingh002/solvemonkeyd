@@ -35,6 +35,7 @@
                                  <th>Slug</th>
                                  <th>Category</th>
                                  <th>Sub Category</th>
+                                 <th>Model Number</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
@@ -47,6 +48,14 @@
                                  <td>{{$brand->slug}}</td>
                                  <td>{{$brand->category->name }}</td>
                                  <td>{{$brand->subcategory->name }}</td>
+                                 <td>
+                                    <ul class="sclist">
+                                        @foreach($brand->modelnumber as $scategory)
+                                            <li><i class="fa fa-caret-right"></i>{{$scategory->name}}</li>
+                                            
+                                        @endforeach
+                                    </ul>
+                                </td>
                                  
                                  <td>
                                      <a href="{{route('admin.editbrand',['bid'=> $brand->id])}}"><i

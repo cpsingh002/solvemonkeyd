@@ -8,10 +8,10 @@
                      <nav class="mb-2" aria-label="breadcrumb">
 
                      </nav>
-                     <h1 class="h3 m-0">Attributes</h1>
+                     <h1 class="h3 m-0">Attribute's Options</h1>
                  </div>
                  <div class="col-auto d-flex">
-                     <a href="{{route('admin.addattribute')}}" class="btn btn-primary">Add Attribute</a>
+                     <a href="{{route('admin.addattributeoption')}}" class="btn btn-primary">Add Attribute's Option</a>
                  </div>
              </div>
          </div>
@@ -33,31 +33,24 @@
                                  <th>Category</th>
                                  <th>Sub Category</th>
                                  <th>Attribute</th>
-                                 <th>optipon values</th>
+                                 <th>Attribute's Option</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
                          <tbody>
-                             @foreach($attributes as $attribute)
+                             @foreach($attributeoptions as $attributeoption)
                              <tr>
-                                <td>{{$attribute->id}}</td>
-                                 <td>{{$attribute->category->name}}</td>
-                                 <td>{{$attribute->subcategory->name}}</td>
-                                 <td>{{$attribute->attribute}}</td>
-                                 <td>
-                                    <ul class="sclist">
-                                        @foreach($attribute->attributeoptions as $scategory)
-                                            <li><i class="fa fa-caret-right"></i>{{$scategory->option_details}}</li>
-                                            
-                                        @endforeach
-                                    </ul>
-                                </td>
+                                <td>{{$attributeoption->id}}</td>
+                                 <td>{{$attributeoption->category->name}}</td>
+                                 <td>{{$attributeoption->subcategory->name}}</td>
+                                 <td>{{$attributeoption->attribute->attribute}}</td>
+                                 <td>{{$attributeoption->option_details}}</td>
                                  
                                  <td>
-                                     <a href="{{route('admin.editattribute',['aid'=>$attribute->id])}}"><i
+                                     <a href="{{route('admin.editattributeoption',['oid'=>$attributeoption->id])}}"><i
                                              class="fa fa-edit "></i></a>
                                      <a href="#" onclick="confirm('Are you sure, You want to delete this attribute') || event.stopImmediatePropagation()"
-                                         wire:click.prevent="deleteAttribute({{$attribute->id}})"><i class="fa fa-times  text-danger ml-2"></i></a>
+                                         wire:click.prevent="deleteOption({{$attributeoption->id}})"><i class="fa fa-times  text-danger ml-2"></i></a>
                                  </td>
                              </tr>
                              @endforeach
