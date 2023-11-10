@@ -33,18 +33,6 @@
                                                 <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
                                             <div class="row">
                                                 <div class="sa-example__body">
                                                     <ul class="nav nav-tabs nav-fill" role="tablist">
@@ -120,6 +108,69 @@
                                                         <div class="tab-pane fade show active" id="basic-tab-content-3"
                                                             role="tabpanel" aria-labelledby="basic-tab-3">
                                                             <p class="mb-0">
+                                                            <div class="form-group">
+                                                                <label class="col-md-4 control-label">Category</label>
+                                                                <div class="col-md-4">
+                                                                    <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
+                                                                        <option value="">Select Category</option>
+                                                                        @foreach($categories as $category)
+                                                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-4 control-label">Sub-Category</label>
+                                                                <div class="col-md-4">
+                                                                    <select class="form-control" wire:model="scategory_id" wire:change="changeattribute">
+                                                                        <option value="0">Select Sub Category</option>
+                                                                        @foreach($scategories as $scategory)
+                                                                            <option value="{{$scategory->id}}">{{$scategory->name}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-4">
+                                                                <label for="form-banner" class="form-label">Brands</label>
+                                                                <div class="col-md-4">
+                                                                    <select class="form-control" wire:model="brand_id" wire:change="changebrands">
+                                                                        <option value="0">Select Brand Name</option>
+                                                                        @foreach($brands as $brand)
+                                                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    @error('brand_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-4">
+                                                                <label for="form-banner" class="form-label">Brands Model Number </label>
+                                                                <div class="col-md-4">
+                                                                    <select class="form-control" wire:model="modelnumber_id">
+                                                                        <option value="0">Select Brand Name</option>
+                                                                        @foreach($modelnumbers as $modelnumber)
+                                                                            <option value="{{$modelnumber->id}}">{{$modelnumber->name}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    @error('modelnumber_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-4">
+                                                                <label for="form-banner" class="form-label">Attributes </label>
+                                                                <div class="col-md-4">
+                                                                        @foreach($attributes as $attribute)
+                                                                            <label>{{$attribute->attribute}}</label>
+                                                                            <select class="form-control" wire:model="attributeoption_id">
+                                                                                @foreach($attribute->attributeoptions as $attributeoption)
+                                                                                <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        @endforeach
+                                                                    
+                                                                    @error('attribute_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                                </div>
+                                                            </div>
                                                             <div class="mb-4">
                                                                 <label class="form-label">Title</label>
                                                                 <input type="text" placeholder="Title"
