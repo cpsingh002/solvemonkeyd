@@ -37,7 +37,11 @@
                         @if(Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
-                        <table class="table table-striped">
+
+                        <div class="p-4"><input type="text" placeholder="Start typing to search ..." class="form-control form-control--search mx-auto" id="table-search" /></div>
+
+
+                        <table class="table table-striped"  data-order='[[ 1, "asc" ]]' data-sa-search-input="#table-search">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -59,7 +63,7 @@
                                         <td>{{$user->city}}</td>
                                         <td>{{$user->country}}</td>
                                         <td>
-                                        <td>@if($user->is_active) ACtive @else Deactive @endif</td>
+                                        <td>@if($user->is_active) Active @else Deactive @endif</td>
                                         </td>
                                         <td>
                                             <a href="{{route('admin.edituser',['uid'=>$user->id])}}"><i class="fa fa-edit fa-2x"></i></a>

@@ -34,15 +34,13 @@
                                              </div>
                                              <div class="mb-4">
                                                  <label for="form-category/name" class="form-label">Category Name</label>
-                                                 <input type="text" placeholder="Category Name" class="form-control"
-                                                     wire:model="name" wire:keyup="generateslug" />
+                                                 <input type="text" placeholder="Category Name" class="form-control" wire:model="name" wire:keyup="generateslug" />
                                                  @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
                                                  <label for="form-category/slug" class="form-label">Category Slug</label>
                                                  <div class="input-group input-group--sa-slug">
-                                                     <input type="text" placeholder="Category Slug" class="form-control"
-                                                         wire:model="slug" />
+                                                     <input type="text" placeholder="Category Slug" class="form-control" wire:model="slug" />
                                                      @error('slug') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
@@ -63,8 +61,7 @@
                                              <div class="mb-4">
                                                  <label for="form-product/icon" class="form-label">Category Icon</label>
                                                  <div class="input-group input-group--sa-slug">
-                                                     <input type="text" placeholder="Category Icon" class="form-control"
-                                                         wire:model="icon" />
+                                                     <input type="text" placeholder="Category Icon" class="form-control" wire:model="icon" />
                                                      @error('icon') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>

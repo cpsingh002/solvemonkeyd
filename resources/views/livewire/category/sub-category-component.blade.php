@@ -1,6 +1,4 @@
- <!-- sa-app__toolbar / end -->
- <!-- sa-app__body -->
- <div id="top" class="sa-app__body">
+<div id="top" class="sa-app__body">
      <div class="mx-xxl-3 px-4 px-sm-5">
          <div class="py-5">
              <div class="row g-4 align-items-center">
@@ -8,10 +6,10 @@
                      <nav class="mb-2" aria-label="breadcrumb">
 
                      </nav>
-                     <h1 class="h3 m-0">Products</h1>
+                     <h1 class="h3 m-0">Categories</h1>
                  </div>
                  <div class="col-auto d-flex">
-                     <a href="{{route('admin.addproduct')}}" class="btn btn-primary">Add New Product</a>
+                     <a href="{{route('admin.addsubcategory')}}" class="btn btn-primary">Add Sub Category</a>
                  </div>
              </div>
          </div>
@@ -34,33 +32,30 @@
                          <thead>
                              <tr>
                                  <th>Id</th>
-                                 <th>Title</th>
-                                 <th>Description</th>
-                                 <th>Price</th>
-                                 <th>City</th>
-                                 <th>Address</th>
-                                 <th>Tag</th>
+                                 <th>Sub Category Name</th>
+                                 <th>Sub Category Image</th>
+                                 <th>Sub Slug</th>
+                                 <th>Category</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
                          <tbody>
-                             {{--@foreach($packages as $package)
+                             @foreach($categories as $category)
                              <tr>
-                                 <td>{{$package->id}}</td>
-                                 <td>{{$package->pname}}</td>
-                                 <td>{{$package->ptype}}</td>
+                                 <td>{{$category->id}}</td>
+                                 <td>{{$category->name}}</td>
+                                 <td><img src="{{asset('admin/category')}}/{{$category->categorythum}}" width="60"></td>
                                  <td>
-                                     {{$package->price}}
+                                     <div class="badge badge-sa-success">{{$category->slug}}</div>
                                  </td>
-                                 <td>{{$package->validity}}</td>
+                                 <td>{{$category->category->name}}</td>
                                  <td>
-                                     <a href="{{route('admin.editpackage',['pid'=>$package->id])}}"><i
-                                             class="fa fa-edit "></i></a>
-                                     <a href="#" onclick="confirm('Are you sure, You want to delet this package') || event.stopImmediatePropagation()"
-                                         wire:click.prevent="deletePackage({{$package->id}})"><i class="fa fa-times  text-danger ml-2"></i></a>
+                                     <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="fa fa-edit"></i></a>
+                                     <a href="#" onclick="confirm('Are you sure, You want to delet this category') || event.stopImmediatePropagation()"
+                                         wire:click.prevent="deleteCategory({{$category->id}})"><i class="fa fa-times ml-1 text-danger"></i></a>
                                  </td>
                              </tr>
-                             @endforeach--}}
+                             @endforeach
                          </tbody>
                      </table>
                  </div>

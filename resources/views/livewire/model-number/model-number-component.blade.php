@@ -8,10 +8,10 @@
                      <nav class="mb-2" aria-label="breadcrumb">
 
                      </nav>
-                     <h1 class="h3 m-0">Products</h1>
+                     <h1 class="h3 m-0">All Brands Model Number</h1>
                  </div>
                  <div class="col-auto d-flex">
-                     <a href="{{route('admin.addproduct')}}" class="btn btn-primary">Add New Product</a>
+                     <a href="{{route('admin.addmodelnumber')}}" class="btn btn-primary">Add Model Number</a>
                  </div>
              </div>
          </div>
@@ -28,39 +28,39 @@
 
                      <div class="p-4"><input type="text" placeholder="Start typing to search ..." class="form-control form-control--search mx-auto" id="table-search" /></div>
 
-
                      <div class="sa-divider"></div>
                      <table class="sa-datatables-init"  data-order='[[ 1, "asc" ]]' data-sa-search-input="#table-search">
                          <thead>
                              <tr>
-                                 <th>Id</th>
-                                 <th>Title</th>
-                                 <th>Description</th>
-                                 <th>Price</th>
-                                 <th>City</th>
-                                 <th>Address</th>
-                                 <th>Tag</th>
-                                 <th>Action</th>
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Slug</th>
+                                <th>Brand</th>
+                                <th>Category</th>
+                                <th>Sub Category</th>
+                                <th>Action</th>
                              </tr>
                          </thead>
                          <tbody>
-                             {{--@foreach($packages as $package)
+                             @foreach($modelnumbers as $modelnumber)
                              <tr>
-                                 <td>{{$package->id}}</td>
-                                 <td>{{$package->pname}}</td>
-                                 <td>{{$package->ptype}}</td>
+                                 <td>{{$modelnumber->id}}</td>
+                                 <td>{{$modelnumber->name}}</td>
+                                 <td>{{$modelnumber->slug}}</td>
+                                 <td>{{$modelnumber->brand->name}}</td>
+                                 <td>{{$modelnumber->category->name }}</td>
+                                 <td>{{$modelnumber->subcategory->name }}</td>
+                                 
                                  <td>
-                                     {{$package->price}}
-                                 </td>
-                                 <td>{{$package->validity}}</td>
-                                 <td>
-                                     <a href="{{route('admin.editpackage',['pid'=>$package->id])}}"><i
-                                             class="fa fa-edit "></i></a>
-                                     <a href="#" onclick="confirm('Are you sure, You want to delet this package') || event.stopImmediatePropagation()"
-                                         wire:click.prevent="deletePackage({{$package->id}})"><i class="fa fa-times  text-danger ml-2"></i></a>
+                                     <a href="{{route('admin.editmodelnumber',['mid'=> $modelnumber->id])}}"><i
+                                             class="fa fa-edit fa-2x"></i></a>
+                                     <a href="#"
+                                         onclick="confirm('Are you sure, You want to delet this Model Number') || event.stopImmediatePropagation()"
+                                         wire:click.prevent="deleteModel({{$modelnumber->id}})" style="margin-left:10px;"><i
+                                             class="fa fa-times fa-2x text-danger"></i></a>
                                  </td>
                              </tr>
-                             @endforeach--}}
+                             @endforeach 
                          </tbody>
                      </table>
                  </div>

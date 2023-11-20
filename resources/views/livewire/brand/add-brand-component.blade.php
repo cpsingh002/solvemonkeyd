@@ -58,15 +58,51 @@
                                                      @endif--}}
                                                  </div>
                                              </div>
+<<<<<<< Updated upstream
+=======
+
+
+
+                                             <div class="mb-4">
+                                                 <div>
+                                                     <label for="form-category/parent-category" class="form-label">Category</label>
+
+                                                     <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
+                                                        <option value="">Select Category</option>
+                                                        @foreach($categories as $category)
+                                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                 </div>
+                                             </div>
+
+                                             <div class="mb-4">
+                                                 <div>
+                                                     <label for="form-category/parent-category" class="form-label">Sub-Category</label>
+
+                                                     <select class="form-control" wire:model="scategory_id">
+                                                        <option value="0">Select Sub Category</option>
+                                                        @foreach($scategories as $scategory)
+                                                            <option value="{{$scategory->id}}">{{$scategory->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                 </div>
+                                             </div>
+
+
+                                            
+>>>>>>> Stashed changes
 
                                              <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Status</label>
                                                  <div class="input-group input-group--sa-slug">
 
-                                                     <select class="form-select" wire:model="status">
+                                                    <select class="form-select" wire:model="status">
                                                          <option value="0">Inactive</option>
                                                          <option value="1">Active</option>
-                                                     </select>
+                                                    </select>
                                                  </div>
                                              </div>
 

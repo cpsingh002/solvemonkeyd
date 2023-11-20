@@ -16,8 +16,9 @@
                 </div>
             </div>
             <div class="card">
+                <div class="p-4"><input type="text" placeholder="Start typing to search ..." class="form-control form-control--search mx-auto" id="table-search" /></div>
                 <div class="sa-divider"></div>
-                <table class="sa-datatables-init">
+                <table class="sa-datatables-init"  data-order='[[ 1, "asc" ]]' data-sa-search-input="#table-search">
                     <thead>
                         <tr>
                             <th>Id</th>
