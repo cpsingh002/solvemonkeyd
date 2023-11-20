@@ -19,7 +19,7 @@
              </div>
 
              <div class="row">
-                 <div class="col-md-10 m-auto">
+                 <div class="col-md-8 m-auto">
                      <div class="sa-entity-layout">
                          <div class="sa-entity-layout__body">
                              <div class="sa-entity-layout__main">

@@ -9,10 +9,10 @@
                          <nav class="mb-2" aria-label="breadcrumb">
 
                          </nav>
-                         <h1 class="h3 m-0">Add Attribute</h1>
+                         <h1 class="h3 m-0">Edit Attribute's Option</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.attributes')}}" class="btn btn-primary">All Attributes</a>
+                         <a href="{{route('admin.attributes')}}" class="btn btn-primary">All Attribute's Options</a>
                      </div>
 
                  </div>
@@ -29,7 +29,7 @@
                                          <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                          @endif
                                          <form class="form-horizontal" enctype="multipart/form-data"
-                                             wire:submit.prevent="addAttribute">
+                                             wire:submit.prevent="updateAttributeOption">
                                              <div class="mb-5">
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
@@ -38,12 +38,13 @@
                                                      <label for="form-category/category" class="form-label">
                                                          Category</label>
 
-                                                     <select class="form-select" wire:model="category_id">
+                                                     <select class="form-select" wire:model="category_id" wire:change="changeSubcategory">
                                                          <option value="">None</option>
-                                                         {{--@foreach($categories as $category)
+                                                         @foreach($categories as $category)
                                                          <option value="{{$category->id}}">{{$category->name}}</option>
-                                                         @endforeach--}}
+                                                         @endforeach
                                                      </select>
+                                                     @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
 
@@ -52,12 +53,13 @@
                                                      <label for="form-category/sub-category" class="form-label">Sub
                                                          Category</label>
 
-                                                     <select class="form-select" wire:model="sub_category_id">
+                                                     <select class="form-select" wire:model="scategory_id" wire:change="changeattribute"/>
                                                          <option value="">None</option>
-                                                         {{--@foreach($categories as $category)
-                                                         <option value="{{$category->id}}">{{$category->name}}</option>
-                                                         @endforeach--}}
+                                                         @foreach($scategories as $scategory)
+                                                         <option value="{{$scategory->id}}">{{$scategory->name}}</option>
+                                                         @endforeach
                                                      </select>
+                                                     @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
                                             
@@ -65,15 +67,36 @@
                                              <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Attribute</label>
                                                  <div class="input-group input-group--sa-slug">
-                                                     <input type="text" placeholder="Attribute" class="form-control" wire:model="aname" />
-                                                     @error('aname') <p class="text-danger">{{$message}}</p> @enderror
+                                                    <select class="form-select" wire:model="attribute_id">
+                                                         <option value="">None</option>
+                                                         @foreach($attributes as $attribute)
+                                                         <option value="{{$attribute->id}}">{{$attribute->attribute}}</option>
+                                                         @endforeach
+                                                     </select>
+                                                     @error('attribute_id') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
+                                             <div class="mb-4">
+                                                 <label for="form-banner/image" class="form-label">Option Details</label>
+                                                 <div class="input-group input-group--sa-slug">
+                                                     <input type="text" placeholder="Attribute" class="form-control" wire:model="option_details" />
+                                                     @error('option_details') <p class="text-danger">{{$message}}</p> @enderror
+                                                 </div>
+                                             </div>
+                                             <div class="mb-4">
+                                                 <label for="form-banner/image" class="form-label">Status</label>
+                                                 <div class="input-group input-group--sa-slug">
 
+                                                     <select class="form-select" wire:model="status">
+                                                         <option value="0">Inactive</option>
+                                                         <option value="1">Active</option>
+                                                     </select>
+                                                 </div>
+                                             </div>
                                              
 
                                              <div class="mb-4 text-center">
-                                                 <button type="submit" class="btn btn-primary">Submit</button>
+                                                 <button type="submit" class="btn btn-primary">Update</button>
                                              </div>
 
                                          </form>
