@@ -67,15 +67,6 @@
                                                             </button>
                                                         </li>
                                                         <li class="nav-item" role="presentation">
-                                                            <button class="nav-link" id="specification-tab-3"
-                                                                data-bs-toggle="tab"
-                                                                data-bs-target="#specification-tab-content-3" type="button"
-                                                                role="tab" aria-controls="specification-tab-content-3"
-                                                                aria-selected="true">
-                                                                Specification<span class="nav-link-sa-indicator"></span>
-                                                            </button>
-                                                        </li>
-                                                        <li class="nav-item" role="presentation">
                                                             <button class="nav-link" id="location-nav-link-tab-3"
                                                                 data-bs-toggle="tab"
                                                                 data-bs-target="#location-tab-content-3" type="button"
@@ -129,59 +120,6 @@
                                                         <div class="tab-pane fade show active" id="basic-tab-content-3"
                                                             role="tabpanel" aria-labelledby="basic-tab-3">
                                                             <p class="mb-0">
-
-                                                                <div class="mb-4">
-                                                                <div>
-                                                                    <label class="form-label">Category</label>
-                                                                    <div class="input-group input-group--sa-slug">
-                                                                        <select class="form-select" wire:model="category_id">
-                                                                             <option value="">None</option>
-                                                                            {{-- @foreach($categories as $category)
-                                                                             <option value="{{$category->id}}">{{$category->name}}</option>
-                                                                             @endforeach--}}
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="mb-4">
-                                                                <div>
-                                                                    <label class="form-label">Sub-category</label>
-                                                                    <div class="input-group input-group--sa-slug">
-                                                                        <select class="form-select mt-3">
-                                                                            <option selected="">Yes</option>
-                                                                            <option>No</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="mb-4">
-                                                                <div>
-                                                                    <label class="form-label">Brand</label>
-                                                                    <div class="input-group input-group--sa-slug">
-                                                                        <select class="form-select mt-3">
-                                                                            <option selected="">Yes</option>
-                                                                            <option>No</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-                                                            
-
-                                                            <div class="mb-4 text-center">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Next</button>
-                                                            </div>
-                                                            </p>
-                                                        </div>
-                                                        <!-- </div> -->
-                                                        <div class="tab-pane fade" id="details-tab-content-3"
-                                                            role="tabpanel" aria-labelledby="details-tab-3">
-                                                            <p class="mb-0">
                                                             <div class="mb-4">
                                                                 <label class="form-label">Title</label>
                                                                 <input type="text" placeholder="Title"
@@ -210,18 +148,15 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                             <div class="mb-4 text-center">
                                                                 <button type="submit"
                                                                     class="btn btn-primary">Next</button>
                                                             </div>
                                                             </p>
                                                         </div>
-
-
-                                                        <div class="tab-pane fade" id="specification-tab-content-3"
-                                                            role="tabpanel" aria-labelledby="specification-tab-3">
+                                                        <!-- </div> -->
+                                                        <div class="tab-pane fade" id="details-tab-content-3"
+                                                            role="tabpanel" aria-labelledby="details-tab-3">
                                                             <p class="mb-0">
                                                             <div class="mb-4">
                                                                 <label class="form-label">Product Specification</label>
@@ -256,7 +191,8 @@
                                                                 <label for="form-package/validity"
                                                                     class="form-label">Condition</label>
                                                                 <div class="input-group input-group--sa-slug">
-                                                                    <input type="text" placeholder="Product Condition" class="form-control" wire:model="validity" />
+                                                                    <input type="text" placeholder="Product Condition"
+                                                                        class="form-control" wire:model="validity" />
                                                                     @error('validity') <p class="text-danger">
                                                                         {{$message}}</p>
                                                                     @enderror
@@ -271,8 +207,6 @@
                                                             </div>
                                                             </p>
                                                         </div>
-
-
                                                         <div class="tab-pane fade" id="location-tab-content-3"
                                                             role="tabpanel" aria-labelledby="location-tab-3">
                                                             <p class="mb-0">

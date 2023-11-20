@@ -58,24 +58,24 @@
                                                  </div>
                                              </div>
                                              <div class="form-group">
-                                                <label class="col-md-4 control-label">Category Icon</label>
-                                                <div class="col-md-4">
-                                                    <input type="text" placeholder="Category Icon" class="form-control input-md"  wire:model="icon"/>
-                                                    @error('icon') <p class="text-danger">{{$message}}</p> @enderror
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label">Category Thumb</label>
-                                                <div class="col-md-4">
-                                                    <input type ="file" class ="input-file" wire:model="newimage"/>
-                                                    @if($newimage)
-                                                        <img src="{{$newimage->temporaryUrl()}}" width="120" />
-                                                    @else
-                                                        <img src="{{asset('admin/category')}}/{{$categorythum}}" width="120" />
-                                                    @endif
-                                                    @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
-                                                </div>
-                                            </div>
+                                <label class="col-md-4 control-label">Category Icon</label>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Category Icon" class="form-control input-md"  wire:model="icon"/>
+                                    @error('icon') <p class="text-danger">{{$message}}</p> @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Category Thumb</label>
+                                <div class="col-md-4">
+                                    <input type ="file" class ="input-file" wire:model="newimage"/>
+                                    @if($newimage)
+                                        <img src="{{$newimage->temporaryUrl()}}" width="120" />
+                                    @else
+                                        <img src="{{asset('admin/category')}}/{{$categorythum}}" width="120" />
+                                    @endif
+                                    @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
+                                </div>
+                            </div>
 
 
                                              <div class="mb-4 text-center">

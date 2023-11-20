@@ -262,7 +262,7 @@
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -278,7 +278,7 @@
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -294,7 +294,7 @@
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -310,7 +310,7 @@
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -326,7 +326,7 @@
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -342,7 +342,7 @@
                                 <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">Rs 139.40</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -360,7 +360,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-7 col-md-10 col-sm-10">
                     <div class="section-tittle text-center mb-50">
-                        <h2 class="tittle"><span class="shape"></span>Post and Promote Your Listings</h2>
+                        <h2 class="tittle  "><span class="shape"></span>Post and Promote Your Listings</h2>
                     </div>
                 </div>
             </div>
@@ -487,8 +487,10 @@
                     <div class="about-caption">
 
                         <div class="section-tittle section-tittle2 mb-40">
-                            <h2 class="tittle wow fadeInUp" data-wow-delay="0.1s">Earn cash by selling<br> or Find anything you desire</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.2s">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by
+                            <h2 class="tittle wow fadeInUp" data-wow-delay="0.1s">Earn cash by selling<br> or Find
+                                anything you desire</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">There are many variations of passages of
+                                Lorem Ipsum available, but the majority have suffered alteration in some form, by
                                 injected humo or randomised words which don't look even slightlys</p>
                         </div>
                         <div class="btn-wrapper">
@@ -534,7 +536,7 @@
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
                                 <span class="featurePricing">Rs 146,300</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -553,7 +555,7 @@
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
                                 <span class="featurePricing">Rs 124.80</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -564,14 +566,15 @@
                     <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.2s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings3.jpg" alt="images"></a>
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings3.jpg"
+                                        alt="images"></a>
                             </div>
                             <div class="recentCaption">
                                 <h5><a href="{{'/product-details'}}" class="featureTittle">Amazon smartwatch</a></h5>
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
                                 <span class="featurePricing">Rs 34.80</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -582,7 +585,8 @@
                     <div class="borderStyle style1 wow fadeInRight social" data-wow-delay="0.3s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings4.jpg" alt="images"></a>
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings4.jpg"
+                                        alt="images"></a>
                             </div>
                             <div class="recentCaption">
                                 <h5><a href="{{'/product-details'}}" class="featureTittle">Persian cat</a></h5>
@@ -599,14 +603,15 @@
                     <div class="borderStyle style1 wow fadeInRight social" data-wow-delay="0.1s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings5.jpg" alt="images"></a>
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings5.jpg"
+                                        alt="images"></a>
                             </div>
                             <div class="recentCaption">
                                 <h5><a href="{{'/product-details'}}" class="featureTittle">Beats headphone</a></h5>
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
                                 <span class="featurePricing">Rs 99.99</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -617,14 +622,15 @@
                     <div class="borderStyle style1 wow fadeInRight social" data-wow-delay="0.0s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings6.jpg" alt="images"></a>
+                                <a href="{{'/product-details'}}"><img src="assets/img/gallery/recentListings6.jpg"
+                                        alt="images"></a>
                             </div>
                             <div class="recentCaption">
                                 <h5><a href="{{'/product-details'}}" class="featureTittle">A pair of sneakers</a></h5>
                                 <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
                                 <span class="featurePricing">Rs 380</span>
                                 <div class="btn-wrapper">
-                                    <span class="pro-btn1">Buy</span>
+                                    <span class="pro-btn1">Sell</span>
                                     <span class="pro-btn2">Exchange</span>
                                 </div>
                             </div>
@@ -660,7 +666,7 @@
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                             <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
-                                <span class="pro-btn1">Buy</span>
+                                <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
                             </div>
                         </div>
@@ -677,7 +683,7 @@
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                             <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
-                                <span class="pro-btn1">Buy</span>
+                                <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
                             </div>
                         </div>
@@ -694,7 +700,7 @@
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                             <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
-                                <span class="pro-btn1">Buy</span>
+                                <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
                             </div>
                         </div>
@@ -711,7 +717,7 @@
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                             <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
-                                <span class="pro-btn1">Buy</span>
+                                <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
                             </div>
                         </div>
@@ -728,7 +734,7 @@
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                             <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
-                                <span class="pro-btn1">Buy</span>
+                                <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
                             </div>
                         </div>
@@ -745,7 +751,7 @@
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                             <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
-                                <span class="pro-btn1">Buy</span>
+                                <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
                             </div>
                         </div>
@@ -762,7 +768,7 @@
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                             <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
-                                <span class="pro-btn1">Buy</span>
+                                <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
                             </div>
                         </div>
@@ -779,7 +785,7 @@
                             <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                             <span class="featurePricing">Rs 139.40</span>
                             <div class="btn-wrapper">
-                                <span class="pro-btn1">Buy</span>
+                                <span class="pro-btn1">Sell</span>
                                 <span class="pro-btn2">Exchange</span>
                             </div>
                         </div>
@@ -809,7 +815,7 @@
                         data-autoplay="true" data-autoplaySpeed="2500"
                         data-prevArrow="<div class=&quot;prev-icon&quot;><i class=&quot;las la-angle-left&quot;></i></div>"
                         data-nextArrow="<div class=&quot;next-icon&quot;><i class=&quot;las la-angle-right&quot;></i></div>"
-                        data-responsive="[{&quot;breakpoint&quot;: 1800,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1600,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1400,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1200,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 991, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 768, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 576, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1}}]">
+                        data-responsive="[{&quot;breakpoint&quot;: 1800,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1600,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1400,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1200,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 991,&quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 768, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 576, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1}}]">
 
                         <div class="singleTestimonial">
                             <div class="testimonialCap">
@@ -821,7 +827,9 @@
                                     <li class="listItems"><i class="las la-star icon"></i></li>
                                 </ul>
                                 <div class="testiPera">
-                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I sold more than Rs 80,000 on this platform. my all buyers are extremely happy</p>
+                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
+                                        sold more than Rs 80,000 on this platform.
+                                        my all buyers are extremely happy</p>
                                 </div>
 
                                 <div class="testimonialClient d-flex align-items-center">
@@ -846,7 +854,9 @@
                                     <li class="listItems"><i class="las la-star icon"></i></li>
                                 </ul>
                                 <div class="testiPera">
-                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I sold more than Rs 80,000 on this platform. my all buyers are extremely happy</p>
+                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
+                                        sold more than Rs 80,000 on this platform.
+                                        my all buyers are extremely happy</p>
                                 </div>
 
                                 <div class="testimonialClient d-flex align-items-center">
@@ -871,7 +881,9 @@
                                     <li class="listItems"><i class="las la-star icon"></i></li>
                                 </ul>
                                 <div class="testiPera">
-                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I sold more than Rs 80,000 on this platform. my all buyers are extremely happy</p>
+                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
+                                        sold more than Rs 80,000 on this platform.
+                                        my all buyers are extremely happy</p>
                                 </div>
 
                                 <div class="testimonialClient d-flex align-items-center">
@@ -896,7 +908,9 @@
                                     <li class="listItems"><i class="las la-star icon"></i></li>
                                 </ul>
                                 <div class="testiPera">
-                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I sold more than Rs 80,000 on this platform. my all buyers are extremely happy</p>
+                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
+                                        sold more than Rs 80,000 on this platform.
+                                        my all buyers are extremely happy</p>
                                 </div>
 
                                 <div class="testimonialClient d-flex align-items-center">
@@ -921,7 +935,9 @@
                                     <li class="listItems"><i class="las la-star icon"></i></li>
                                 </ul>
                                 <div class="testiPera">
-                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I sold more than Rs 80,000 on this platform. my all buyers are extremely happy</p>
+                                    <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
+                                        sold more than Rs 80,000 on this platform.
+                                        my all buyers are extremely happy</p>
                                 </div>
 
                                 <div class="testimonialClient d-flex align-items-center">

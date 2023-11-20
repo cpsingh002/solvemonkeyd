@@ -25,12 +25,8 @@
                      @if(Session::has('message'))
                      <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                      @endif
-
-                     <div class="p-4"><input type="text" placeholder="Start typing to search ..." class="form-control form-control--search mx-auto" id="table-search" /></div>
-
-
                      <div class="sa-divider"></div>
-                     <table class="sa-datatables-init"  data-order='[[ 1, "asc" ]]' data-sa-search-input="#table-search">
+                     <table class="sa-datatables-init">
                          <thead>
                              <tr>
                                  <th>Id</th>
