@@ -441,8 +441,7 @@
                                                             <div class="mb-4">
                                                                 <label class="form-label">Contact No</label>
                                                                 <div class="input-group input-group--sa-slug">
-                                                                    <input type="number" placeholder="Contact No"
-                                                                        class="form-control" wire:model="contact_number" />
+                                                                    <input type="number" placeholder="Contact No" class="form-control" wire:model="contact_number" />
                                                                     @error('contact_number') <p class="text-danger">{{$message}}
                                                                     </p> @enderror
                                                                 </div>
@@ -451,10 +450,8 @@
                                                                 <div>
                                                                     <label class="form-label">Email</label>
                                                                     <div class="input-group input-group--sa-slug">
-                                                                        <input type="email" placeholder="email_id"
-                                                                            class="form-control" wire:model="price" />
-                                                                        @error('email_id') <p class="text-danger">
-                                                                            {{$message}}</p>
+                                                                        <input type="email" placeholder="email_id" class="form-control" wire:model="price" />
+                                                                        @error('email_id') <p class="text-danger">{{$message}}</p>
                                                                         @enderror
                                                                     </div>
                                                                 </div>
