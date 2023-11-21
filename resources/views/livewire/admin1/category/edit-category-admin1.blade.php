@@ -9,7 +9,7 @@
                          <nav class="mb-2" aria-label="breadcrumb">
 
                          </nav>
-                         <h1 class="h3 m-0">Edit Product</h1>
+                         <h1 class="h3 m-0">Edit Category</h1>
                      </div>
                      <div class="col-auto d-flex">
                          <a href="{{route('admin.categories')}}" class="btn btn-primary">All Category</a>
