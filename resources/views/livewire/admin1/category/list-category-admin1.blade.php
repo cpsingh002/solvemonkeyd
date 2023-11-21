@@ -8,7 +8,7 @@
                      <nav class="mb-2" aria-label="breadcrumb">
 
                      </nav>
-                     <h1 class="h3 m-0">Categories</h1>
+                     <h1 class="h3 m-0">Categories  </h1>
                  </div>
                  <div class="col-auto d-flex">
                      <a href="{{route('admin.addcategory')}}" class="btn btn-primary">Add Category</a>
