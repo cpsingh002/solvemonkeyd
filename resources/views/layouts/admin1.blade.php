@@ -475,6 +475,8 @@
     <script src="{{asset('admin1/js/calendar.js')}}"></script>
     <script src="{{asset('admin1/js/demo.js')}}"></script>
     <script src="{{asset('admin1/js/demo-chart-js.js')}}"></script>
+    @livewireScripts
+	@stack('scripts')
 </body>
 <!-- Mirrored from stroyka-admin.html.themeforest.scompiler.ru/variants/ltr/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 May 2023 05:17:29 GMT -->
 
