@@ -35,7 +35,7 @@
 
                                             <div class="row">
                                                 <div class="sa-example__body">
-                                                    <ul class="nav nav-tabs nav-fill" role="tablist">
+                                                    <!-- <ul class="nav nav-tabs nav-fill" role="tablist">
                                                         <li class="nav-item" role="presentation">
                                                             <button class="nav-link active" id="basic-tab-3"
                                                                 data-bs-toggle="tab"
@@ -103,14 +103,12 @@
                                                                 Finish<span class="nav-link-sa-indicator"></span>
                                                             </button>
                                                         </li>
-                                                    </ul>
+                                                    </ul> -->
                                                     <div class="tab-content mt-4">
-                                                        <div class="tab-pane fade show active" id="basic-tab-content-3"
-                                                            role="tabpanel" aria-labelledby="basic-tab-3">
-                                                            <p class="mb-0">
+                                                        
                                                             <div class="form-group">
                                                                 <label class="col-md-4 control-label">Category</label>
-                                                                <div class="col-md-4">
+                                                                <div class="col-md-12">
                                                                     <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
                                                                         <option value="">Select Category</option>
                                                                         @foreach($categories as $category)
@@ -122,7 +120,7 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-md-4 control-label">Sub-Category</label>
-                                                                <div class="col-md-4">
+                                                                <div class="col-md-12">
                                                                     <select class="form-control" wire:model="scategory_id" wire:change="changeattribute">
                                                                         <option value="0">Select Sub Category</option>
                                                                         @foreach($scategories as $scategory)
@@ -134,7 +132,7 @@
                                                             </div>
                                                             <div class="mb-4">
                                                                 <label for="form-banner" class="form-label">Brands</label>
-                                                                <div class="col-md-4">
+                                                                <div class="col-md-12">
                                                                     <select class="form-control" wire:model="brand_id" wire:change="changebrands">
                                                                         <option value="0">Select Brand Name</option>
                                                                         @foreach($brands as $brand)
@@ -146,7 +144,7 @@
                                                             </div>
                                                             <div class="mb-4">
                                                                 <label for="form-banner" class="form-label">Brands Model Number </label>
-                                                                <div class="col-md-4">
+                                                                <div class="col-md-12">
                                                                     <select class="form-control" wire:model="modelnumber_id">
                                                                         <option value="0">Select Brand Name</option>
                                                                         @foreach($modelnumbers as $modelnumber)
@@ -158,7 +156,7 @@
                                                             </div>
                                                             <div class="mb-4">
                                                                 <label for="form-banner" class="form-label">Attributes </label>
-                                                                <div class="col-md-4">
+                                                                <div class="col-md-12">
                                                                         @foreach($attributes as $attribute)
                                                                             <label>{{$attribute->attribute}}</label>
                                                                             <select class="form-control" wire:model="attributeoption_id">
@@ -222,13 +220,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-                                                            <div class="mb-4 text-center">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Next</button>
-                                                            </div>
-                                                            </p>
-                                                        </div>
+                                                        
                                                         <!-- </div> -->
                                                         <div class="tab-pane fade" id="details-tab-content-3"
                                                             role="tabpanel" aria-labelledby="details-tab-3">
