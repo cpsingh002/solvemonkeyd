@@ -1,5 +1,14 @@
 <!-- sa-app__toolbar / end -->
 <!-- sa-app__body -->
+
+<style>
+    #mapa{
+        position: sticky !important;
+        margin-top:2%;
+        border-radius:10px;
+        height:450px;
+    }
+    </style>
 <div id="top" class="sa-app__body">
     <div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
         <div class="container">
@@ -268,10 +277,16 @@
                                                                     
                                                                     <input name="cureent_location" id="different-add" value="1" type="radio" wire:model="cureent_location" wire:click="currentlocation">
                                                                    <label for="html">Current Location</label><br>
-                                                                   <input name="click_location" id="different-add" value="1" type="radio" wire:model="click_location">
+                                                                   <input name="cureent_location" id="different-add" class="different-add-map" value="1" type="radio" wire:model="click_location" onclick="show2();" >
                                                                     <label for="css">Click on map</label><br>
                                                             
-                                                                <div id="map" style="display:none"></div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                        <div id="mapa" style="display:none;"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                
+
                                                             
                                                            
                                                             <div class="mb-4">
@@ -443,7 +458,16 @@
 <!-- sa-app__footer -->
 
 @push('scripts')
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5fD8-BwH8kMsjb-HQS_4NG0f7FRcHS4&callback=initMap"></script>
+
+
+    <script>
+    function show2(){
+        document.getElementById('mapa').style.display = 'block';
+        }
+    </script>
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5fD8-BwH8kMsjb-HQS_4NG0f7FRcHS4&callback=initMap"></script>
 
     <script>
         // In the following example, markers appear when the user clicks on the map.
@@ -455,7 +479,7 @@
         function initMap() {
             var center = {lat:37.769, lng:-122.446};
 
-            map = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('mapa'), {
                 zoom: 12,
                 center: center,
                 mapTypeId: 'terrain'
