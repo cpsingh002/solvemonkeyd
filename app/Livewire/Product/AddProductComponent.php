@@ -115,6 +115,53 @@ class AddProductComponent extends Component
         //dd($currentUserInfo);
         return;
     }
+
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'category_id'=>'required',
+            'scategory_id'=>'required',
+            'brand_id'=>'required',
+            'attribute_id'=>'required',
+            'modelnumber_id'=>'required',
+            'attributeoption_id'=>'required',
+            'option_details'=>'required',
+            's_id'=>'required',
+            'b_id'=>'required',
+
+
+            'for_exchange'=>'required',
+            'for_sell'=>'required',
+        'for_rent'=>'required',
+        'prices'=>'required',
+        'address'=>'required',
+        'lat'=>'required',
+        'long'=>'required',
+        'country_id'=>'required',
+        'state_id'=>'required',
+        'city_id'=>'required',
+        'st_id'=>'required',
+        'click_location'=>'required',
+        'zipcode'=>'required', 
+
+        'meta_keywords'=>'required',
+        'meta_description'=>'required',
+        'owner_name'=>'required',
+        'contact_number'=>'required',
+        'email_id'=>'required',
+
+        'featimage'=>'required',
+        'images'=>'required',
+        'thumbimage'=>'required',
+        'exchange_for'=>'required',
+
+        'name'=>'required',
+        'slug'=>'required',
+
+        ]);
+    }
+
     public function addProduct(Request $request)
     {
         dd($request);

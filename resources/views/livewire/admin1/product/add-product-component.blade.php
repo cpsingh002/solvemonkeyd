@@ -156,10 +156,13 @@
                                                             </div>
                                                             <div class="mb-4">
                                                                 <label for="form-banner" class="form-label">Attributes </label>
+
                                                                 <div class="col-md-12">
                                                                         @foreach($attributes as $attribute)
+
+                                                              
                                                                             <label>{{$attribute->attribute}}</label>
-                                                                            <select class="form-control" wire:model="attributeoption_id">
+                                                                            <select class="form-control" wire:model="attributeoption_id.{{$key1}}">
                                                                                 @foreach($attribute->attributeoptions as $attributeoption)
                                                                                 <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
                                                                                 @endforeach
