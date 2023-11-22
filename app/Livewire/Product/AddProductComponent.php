@@ -164,7 +164,7 @@ class AddProductComponent extends Component
 
     public function addProduct(Request $request)
     {
-        dd($request);
+        //dd($request);
         $this->validate([
             'category_id'=>'required',
             'scategory_id'=>'required',
@@ -175,52 +175,67 @@ class AddProductComponent extends Component
             'option_details'=>'required',
             's_id'=>'required',
             'b_id'=>'required',
-
-
             'for_exchange'=>'required',
             'for_sell'=>'required',
-        'for_rent'=>'required',
-        'prices'=>'required',
-        'address'=>'required',
-        'lat'=>'required',
-        'long'=>'required',
-        'country_id'=>'required',
-        'state_id'=>'required',
-        'city_id'=>'required',
-        'st_id'=>'required',
-        'click_location'=>'required',
-        'zipcode'=>'required', 
+            'for_rent'=>'required',
+            'prices'=>'required',
+            'address'=>'required',
+            'lat'=>'required',
+            'long'=>'required',
+            'country_id'=>'required',
+            'state_id'=>'required',
+            'city_id'=>'required',
+            'st_id'=>'required',
+            'click_location'=>'required',
+            'zipcode'=>'required', 
 
-        'meta_keywords'=>'required',
-        'meta_description'=>'required',
-        'owner_name'=>'required',
-        'contact_number'=>'required',
-        'email_id'=>'required',
+            'meta_keywords'=>'required',
+            'meta_description'=>'required',
+            'owner_name'=>'required',
+            'contact_number'=>'required',
+            'email_id'=>'required',
 
-        'featimage'=>'required',
-        'images'=>'required',
-        'thumbimage'=>'required',
-        'exchange_for'=>'required',
+            'featimage'=>'required',
+            'images'=>'required',
+            'thumbimage'=>'required',
+            'exchange_for'=>'required',
 
-        'name'=>'required',
-        'slug'=>'required',
+            'name'=>'required',
+            'slug'=>'required',
         ]);
 
         $product =new Product();
-        $product->name = $this->name;
-        $product->slug = $this->slug;
-        $product->short_description =  $this->short_description;
-        $product->description = $this->description;
-        $product->regular_price= $this->regular_price;
-        $product->sale_price = $this->sale_price;
-        $product->SKU = $this->SKU;
-        $product->stock_status = $this->stock_status;
-        $product->featured = $this->featured;
-        $product->quantity = $this->quantity;
+        $product->category_id= $this->category_id;
+        $product->subcategory_id= $this->scategory_id;
+        $product->brand_id= $this->brand_id;
+        $product->model_id= $this->modelnumber_id;
+        $product->is_exchange= $this->for_exchange;
+        $product->is_sell= $this->for_sell;
+        $product->is_rent= $this->for_rent;
+        $product->prices= $this->prices;
+        $product->address= $this->address;
+        $product->lat= $this->lat;
+        $product->long= $this->long;
+        $product->country_id= $this->country_id;
+        $product->state_id= $this->state_id;
+        $product->city_id= $this->city_id;
+        $product->zipcode= $this->zipcode; 
 
-        $imageName= Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->storeAs('products',$imageName);
-        $product->image = $imageName;
+        $product->meta_keywords= $this->meta_keywords;
+        $product->meta_description= $this->meta_description;
+        $product->owner_name= $this->owner_name;
+        $product->contact_number= $this->contact_number;
+        $product->email_id= $this->email_id;
+
+        $imageNamef= Carbon::now()->timestamp.'.'.$this->featimage->extension();
+        $this->featimage->storeAs('products/feat',$imageName);
+        $product->featimage = $imageNamef;
+
+        
+        $imageNamet= Carbon::now()->timestamp.'.'.$this->thumbimage->extension();
+        $this->thumbimage->storeAs('products/thumb',$imageName);
+        $product->thumbimage = $imageNamet;
+
 
         if($this->images)
         {
@@ -228,64 +243,17 @@ class AddProductComponent extends Component
             foreach($this->images as $key=>$image)
             {
                 $imgName = Carbon::now()->timestamp. $key.'.'.$image->extension();
-                $image->storeAs('products',$imgName);
+                $image->storeAs('products/image',$imgName);
                 $imagesname = $imagesname.','.$imgName;
             }
             $product->images = $imagesname;
-        }
-
-        $product->category_id= $this->category_id;
-        if($this->scategory_id)
-        {
-            $product->subcategory_id = $this->scategory_id;
-        }
-        $product->save();
-
-        foreach($this->attribute_values as $key=>$attribute_value)
-        {
-            $avalues = explode(",",$attribute_value);
-            foreach($avalues as $avalue)
-            {
-                $attr_value = new AttributeValue();
-                $attr_value->product_attribute_id = $key;
-                $attr_value->value = $avalue;
-                $attr_value->product_id = $product->id;
-                $attr_value->save();
-            }
-        }
-        $j=1;
-        foreach($this->para as $key => $tdata)
-        {
-            $product_varaint = new ProductVariant();
-            $product_varaint->varaint_detail = $tdata;
-            $product_varaint->product_id = $product->id;
-            $product_varaint->v_SKU = $this->skus[$key];
-            $product_varaint->v_regular_price = $this->mrps[$key];
-            $product_varaint->v_sale_price = $this->pris[$key];
-            $product_varaint->v_quantity = $this->qtyes[$key];
-            $product_varaint->v_stock_status = 'instock';
-
-            if($this->attr_image[$key])
-            {
-                $imagevsname = '';
-               
-                foreach($this->attr_image[$key] as $key1=>$vimage)
-                {
-                    $vimgName = Carbon::now()->timestamp. $key1.$j.'vp.'.$vimage->extension();
-                    $vimage->storeAs('products',$vimgName);
-                    $imagevsname = $imagevsname.','.$vimgName;
-                   
-                }
-                $product_varaint->v_images = $imagevsname;
-            }
-            $j++;
-
-            $product_varaint->save();
-
-        }
+        }      
         
-        //dd($this->attribute_values);
-        //$fgh =$this->tablepara($this->attribute_values);
+        $product->exchange_for= $this->exchange_for;
+
+        $product->name= $this->name;
+        $product->slug=$this->slug;    
+        $product->save();    
         Session()->flash('message','Product has been Created Successfully!');
 
     }
