@@ -129,36 +129,33 @@ class AddProductComponent extends Component
             'option_details'=>'required',
             's_id'=>'required',
             'b_id'=>'required',
-
-
             'for_exchange'=>'required',
             'for_sell'=>'required',
-        'for_rent'=>'required',
-        'prices'=>'required',
-        'address'=>'required',
-        'lat'=>'required',
-        'long'=>'required',
-        'country_id'=>'required',
-        'state_id'=>'required',
-        'city_id'=>'required',
-        'st_id'=>'required',
-        'click_location'=>'required',
-        'zipcode'=>'required', 
+            'for_rent'=>'required',
+            'prices'=>'required',
+            'address'=>'required',
+            'lat'=>'required',
+            'long'=>'required',
+            'country_id'=>'required',
+            'state_id'=>'required',
+            'city_id'=>'required',
+            'st_id'=>'required',
+            'click_location'=>'required',
+            'zipcode'=>'required', 
 
-        'meta_keywords'=>'required',
-        'meta_description'=>'required',
-        'owner_name'=>'required',
-        'contact_number'=>'required',
-        'email_id'=>'required',
+            'meta_keywords'=>'required',
+            'meta_description'=>'required',
+            'owner_name'=>'required',
+            'contact_number'=>'required',
+            'email_id'=>'required',
 
-        'featimage'=>'required',
-        'images'=>'required',
-        'thumbimage'=>'required',
-        'exchange_for'=>'required',
+            'featimage'=>'required',
+            'images'=>'required',
+            'thumbimage'=>'required',
+            'exchange_for'=>'required',
 
-        'name'=>'required',
-        'slug'=>'required',
-
+            'name'=>'required',
+            'slug'=>'required',
         ]);
     }
 
@@ -272,18 +269,11 @@ public function render()
         $countries = Country::all();
         $states = State::where('country_id',$this->country_id)->get();
         $cities = City::where('state_id',$this->st_id)->get();
-        // return view('livewire.product.add-product-component');
-
-
-        //return view('livewire.admin1.product.add-product-admin1');
        
         return view('livewire.admin1.product.add-product-component',[
             'categories'=>$categories,'scategories'=>$scategories,'brands'=>$brands,
             'modelnumbers'=>$modelnumbers,'attributes'=>$attributes,'attributeoptions'=>$attributeoptions,
             'countries'=>$countries,'states'=>$states,'cities'=>$cities])->layout('layouts.admin1');
-
-
-        //return view('livewire.admin1.product.add-product-component')->layout('layouts.admin1');
 
     }
 }
