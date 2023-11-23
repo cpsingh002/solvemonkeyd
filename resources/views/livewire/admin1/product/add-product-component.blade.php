@@ -109,9 +109,10 @@
                                                     <div class="mb-4">
                                                         <label for="form-banner" class="form-label">Attributes </label>
                                                             <div class="col-md-12">
-                                                                @foreach($attributes as $key1=> $attribute)
+                                                                @foreach($attributes as $key1 => $attribute)
                                                                     <label>{{$attribute->attribute}}</label>
-                                                                    <select class="form-control" wire:model="attributeoption_id.{{$key1}}">
+                                                                    <input type="hidden" value="{{$attribute->id}}" wire:model="dfh.{{$key1}}">
+                                                                    <select class="form-control" wire:model="attributeoption_id.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" >
                                                                         @foreach($attribute->attributeoptions as $attributeoption)
                                                                         <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
                                                                         @endforeach
@@ -124,9 +125,17 @@
                                                     <div class="mb-4">
                                                         <label class="form-label">Title</label>
                                                         <input type="text" placeholder="Title"
-                                                            class="form-control" wire:model="pname" />
-                                                        @error('pname') <p class="text-danger">{{$message}}</p>
+                                                            class="form-control" wire:model="name" wire:keyup="generateslug" />
+                                                        @error('name') <p class="text-danger">{{$message}}</p>
                                                         @enderror
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label for="form-category/slug" class="form-label">Category Slug</label>
+                                                        <div class="input-group input-group--sa-slug">
+                                                            <input type="text" placeholder="Category Slug" class="form-control"
+                                                                wire:model="slug" />
+                                                            @error('slug') <p class="text-danger">{{$message}}</p> @enderror
+                                                        </div>
                                                     </div>
                                                     <div class="mb-4">
                                                         <label class="form-label">Description
@@ -144,8 +153,8 @@
                                                                     Exchange</label>
                                                                 <div class="input-group input-group--sa-slug">
                                                                     <select class="form-select mt-3" wire:model="for_exchange">
-                                                                        <option selected="">Yes</option>
-                                                                        <option>No</option>
+                                                                        <option  value="1">Yes</option>
+                                                                        <option value="0">No</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -156,8 +165,8 @@
                                                                     Rent</label>
                                                                 <div class="input-group input-group--sa-slug">
                                                                     <select class="form-select mt-3" wire:model="for_rent">
-                                                                        <option selected="">Yes</option>
-                                                                        <option>No</option>
+                                                                        <option value="1">Yes</option>
+                                                                        <option value="0">No</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -168,8 +177,8 @@
                                                                     Sell</label>
                                                                 <div class="input-group input-group--sa-slug">
                                                                     <select class="form-select mt-3" wire:model="for_sell">
-                                                                        <option selected="">Yes</option>
-                                                                        <option>No</option>
+                                                                        <option value="1">Yes</option>
+                                                                        <option value="0" >No</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -359,7 +368,7 @@
                                                         <label class="form-label">Email</label>
                                                             <div class="input-group input-group--sa-slug">
                                                                 <input type="email" placeholder="email_id"
-                                                                    class="form-control" wire:model="price" />
+                                                                    class="form-control" wire:model="email_id" />
                                                                 @error('email_id') <p class="text-danger">
                                                                     {{$message}}</p>
                                                                 @enderror

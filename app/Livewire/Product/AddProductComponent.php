@@ -3,6 +3,8 @@
 namespace App\Livewire\Product;
 
 use Livewire\Component;
+use App\Models\Product;
+use App\Models\ProductAttribute;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Brand;
@@ -63,10 +65,18 @@ class AddProductComponent extends Component
 
     public $icon;
     public $categorythum;
+    public $attributeoptionid;
+    public $dfh;
+    public function mount()
+    {
+        $this->for_exchange = 1;
+        $this->for_sell = 1;
+        $this->for_rent = 1;
+    }
 
     public function generateslug()
     {
-        $this->slug = Str::slug($this->title);
+        $this->slug = Str::slug($this->name);
     }
 
     public function changeSubcategory()
@@ -125,10 +135,6 @@ class AddProductComponent extends Component
             'brand_id'=>'required',
             'attribute_id'=>'required',
             'modelnumber_id'=>'required',
-            'attributeoption_id'=>'required',
-            'option_details'=>'required',
-            's_id'=>'required',
-            'b_id'=>'required',
             'for_exchange'=>'required',
             'for_sell'=>'required',
             'for_rent'=>'required',
@@ -139,8 +145,6 @@ class AddProductComponent extends Component
             'country_id'=>'required',
             'state_id'=>'required',
             'city_id'=>'required',
-            'st_id'=>'required',
-            'click_location'=>'required',
             'zipcode'=>'required', 
 
             'meta_keywords'=>'required',
@@ -158,20 +162,32 @@ class AddProductComponent extends Component
             'slug'=>'required',
         ]);
     }
-
-    public function addProduct(Request $request)
+    public function changehghg($at_id, $key)
     {
-        //dd($request);
+        //dd($this->attributeoption_id[$key]);
+       // dd($at_id,$key,$this->attributeoption_id.$key);
+    }
+    public function addProduct()
+    {
+        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        foreach($at as $key => $atsd){
+           // dd($this->dfh.$key);
+           $fdg= $this->attributeoption_id[$key];
+           dd($fdg);
+            $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
+           // dd($sdgh);
+         
+
+        }
+        dd($sdgh);
+       // dd($this->attributeoptionid.'0');
+        
         $this->validate([
             'category_id'=>'required',
             'scategory_id'=>'required',
             'brand_id'=>'required',
             'attribute_id'=>'required',
             'modelnumber_id'=>'required',
-            'attributeoption_id'=>'required',
-            'option_details'=>'required',
-            's_id'=>'required',
-            'b_id'=>'required',
             'for_exchange'=>'required',
             'for_sell'=>'required',
             'for_rent'=>'required',
@@ -182,9 +198,7 @@ class AddProductComponent extends Component
             'country_id'=>'required',
             'state_id'=>'required',
             'city_id'=>'required',
-            'st_id'=>'required',
-            'click_location'=>'required',
-            'zipcode'=>'required', 
+             'zipcode'=>'required', 
 
             'meta_keywords'=>'required',
             'meta_description'=>'required',
@@ -212,7 +226,7 @@ class AddProductComponent extends Component
         $product->prices= $this->prices;
         $product->address= $this->address;
         $product->lat= $this->lat;
-        $product->long= $this->long;
+        $product->lang= $this->long;
         $product->country_id= $this->country_id;
         $product->state_id= $this->state_id;
         $product->city_id= $this->city_id;
@@ -225,12 +239,12 @@ class AddProductComponent extends Component
         $product->email_id= $this->email_id;
 
         $imageNamef= Carbon::now()->timestamp.'.'.$this->featimage->extension();
-        $this->featimage->storeAs('products/feat',$imageName);
+        $this->featimage->storeAs('product/feat',$imageNamef);
         $product->featimage = $imageNamef;
 
         
         $imageNamet= Carbon::now()->timestamp.'.'.$this->thumbimage->extension();
-        $this->thumbimage->storeAs('products/thumb',$imageName);
+        $this->thumbimage->storeAs('product/thumb',$imageNamet);
         $product->thumbimage = $imageNamet;
 
 
@@ -240,7 +254,7 @@ class AddProductComponent extends Component
             foreach($this->images as $key=>$image)
             {
                 $imgName = Carbon::now()->timestamp. $key.'.'.$image->extension();
-                $image->storeAs('products/image',$imgName);
+                $image->storeAs('product/image',$imgName);
                 $imagesname = $imagesname.','.$imgName;
             }
             $product->images = $imagesname;
@@ -251,6 +265,21 @@ class AddProductComponent extends Component
         $product->name= $this->name;
         $product->slug=$this->slug;    
         $product->save();    
+        
+        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        foreach($at as $key => $atsd){
+           // dd($this->dfh.$key);
+           // $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
+           // dd($sdgh);
+           $PrAt= new ProductAttribute();
+           $PrAt->product_id = $product->id;
+           $PrAt->attribute_id = $atsd->id;
+           $PrAt->attoption_id  = $this->attributeoption_id.$key;
+           $PrAt->save();
+
+        }
+       // dd($sdgh);
+       // dd($this->attributeoptionid.'0');
         Session()->flash('message','Product has been Created Successfully!');
 
     }
