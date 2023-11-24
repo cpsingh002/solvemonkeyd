@@ -79,7 +79,7 @@ class EditProductComponent extends Component
   public $newfeatimage;
     public function mount($pid)
     {
-      $product = Product::find($pid);
+        $product = Product::find($pid);
        $this->category_id = $product->category_id;
        $this->scategory_id= $product->subcategory_id;
        $this->brand_id = $product->brand_id;
@@ -243,7 +243,7 @@ class EditProductComponent extends Component
            
     //     }
     }
-    public function addProduct()
+    public function updateProduct()
     {
         // $this->validate([
         //     'inputs'=>'required',

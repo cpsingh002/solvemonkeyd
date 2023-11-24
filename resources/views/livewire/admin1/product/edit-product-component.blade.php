@@ -35,7 +35,7 @@
                                         @if(Session::has('message'))
                                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                         @endif
-                                        <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent="addProduct">
+                                        <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent="updateProduct">
                                             <div class="mb-3">
                                                 <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                             </div>
