@@ -275,14 +275,18 @@
                                                             
                                                     <p>Get Location cordenat using option</p>
                                                                     
-                                                    <input name="cureent_location" id="different-add" value="1" type="radio" wire:model="cureent_location" wire:click="currentlocation">
+                                                    <input name="cureent_location" id="different-add" value="1" type="radio" wire:model="cureent_location" wire:click="currentlocation" >
                                                     <label for="html">Current Location</label><br>
                                                     <input name="cureent_location" id="different-add" class="different-add-map" value="1" type="radio" wire:model="click_location" onclick="show2();" >
                                                     <label for="css">Click on map</label><br>
                                             
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <div id="mapa" style="display:none;"></div>
+                                                            <div id="map-container"  style="display:none;">
+                                                            <div id="mapa" style="overflow: hidden;position: sticky !important;top: 0;"></div>
+                                                            </div>
+
+                                                            
                                                         </div>
                                                     </div>
                                                             
@@ -424,8 +428,17 @@
 
 
     <script>
-    function show2(){
-        document.getElementById('mapa').style.display = 'block';
+    // function show2(){
+    //     // $("#box").hide();
+    //     alert("rrr")
+    //     document.getElementById('mapa').style.display = 'block';
+    //     }
+
+        function show2(){
+            // alert("ee")
+        // $("#mapa").toggle();
+        // alert("rrr")
+        document.getElementById('map-container').style.display = 'block';
         }
     </script>
 
@@ -454,9 +467,16 @@
                 addMarker(event.latLng);
                 $('#lat').val(event.latLng.lat());
                 $('#long').val(event.latLng.lng());
+<<<<<<< HEAD
                 @this.set('lat',event.latLng.lat());
                 @this.set('long',event.latLng.lng());
                // document.getElementById("text").innerHTML = event.latLng.lat() + ',' + event.latLng.lng();
+=======
+
+                @this.set('lat',event.latLng.lat());
+                @this.set('long',event.latLng.lng());
+               
+>>>>>>> 84712acfaa40ac794f97625088a7999a162fb3dd
             });
 
 

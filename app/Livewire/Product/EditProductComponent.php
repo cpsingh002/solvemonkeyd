@@ -370,7 +370,7 @@ class EditProductComponent extends Component
                 $imagesname = $imagesname.','.$imgName;
             }
             $product->images = $imagesname;      
-        
+        }
         $product->exchange_for= $this->exchange_for;
 
         $product->name= $this->name;
