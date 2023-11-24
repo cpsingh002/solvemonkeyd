@@ -32,42 +32,34 @@
                              <tr>
                                  <th>Id</th>
                                  <th>Title</th>
-                                 <th>Description</th>
+                                 <th>SLug</th>
                                  <th>Price</th>
-                                 <th>City</th>
+                                 <th>Image</th>
                                  <th>Address</th>
                                  <th>Tag</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
                          <tbody>
-                             {{--@foreach($packages as $package)
+                             @foreach($products as $product)
                              <tr>
-<<<<<<< Updated upstream
-                                 <td>{{$package->id}}</td>
-                                 <td>{{$package->pname}}</td>
-                                 <td>{{$package->ptype}}</td>
-=======
+
                                  <td>{{$product->id}}</td>
                                  <td>{{$product->name}}</td>
                                  <td>{{$product->slug}}</td>
                                  <td>{{$product->prices}}</td>
                                  <td><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}" width="60" /></td>
                                  <td>{{$product->address}}</td>
+
                                  <td>{{$product->meta_keywords}}</td>
->>>>>>> Stashed changes
-                                 <td>
-                                     {{$package->price}}
-                                 </td>
-                                 <td>{{$package->validity}}</td>
-                                 <td>
-                                     <a href="{{route('admin.editpackage',['pid'=>$package->id])}}"><i
+                            <td>
+                                     <a href="{{route('admin.editpackage',['pid'=>$product->id])}}"><i
                                              class="fa fa-edit "></i></a>
-                                     <a href="#" onclick="confirm('Are you sure, You want to delet this package') || event.stopImmediatePropagation()"
-                                         wire:click.prevent="deletePackage({{$package->id}})"><i class="fa fa-times  text-danger ml-2"></i></a>
+                                     <a href="#" onclick="confirm('Are you sure, You want to delet this product') || event.stopImmediatePropagation()"
+                                         wire:click.prevent="deleteCategory({{$product->id}})"><i class="fa fa-times  text-danger ml-2"></i></a>
                                  </td>
                              </tr>
-                             @endforeach--}}
+                             @endforeach
                          </tbody>
                      </table>
                  </div>

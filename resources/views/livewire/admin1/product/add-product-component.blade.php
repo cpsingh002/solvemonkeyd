@@ -1,15 +1,13 @@
-<!-- sa-app__toolbar / end -->
-<!-- sa-app__body -->
 
-<style>
-    #mapa{
-        position: sticky !important;
-        margin-top:2%;
-        border-radius:10px;
-        height:450px;
-    }
-    </style>
 <div id="top" class="sa-app__body">
+    <style>
+        #mapa{
+            position: sticky !important;
+            margin-top:2%;
+            border-radius:10px;
+            height:450px;
+        }
+    </style>
     <div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
         <div class="container">
             <div class="py-5">
@@ -111,9 +109,10 @@
                                                     <div class="mb-4">
                                                         <label for="form-banner" class="form-label">Attributes </label>
                                                             <div class="col-md-12">
-                                                                @foreach($attributes as $attribute)
+                                                                @foreach($attributes as $key1 => $attribute)
                                                                     <label>{{$attribute->attribute}}</label>
-                                                                    <select class="form-control" wire:model="attributeoption_id.{{$key1}}">
+                                                                    <!-- <input type="hidden" value="{{$attribute->id}}" wire:model="dfh.{{$key1}}"> -->
+                                                                    <select class="form-control" wire:model="attribute_arr.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" >
                                                                         @foreach($attribute->attributeoptions as $attributeoption)
                                                                         <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
                                                                         @endforeach
@@ -126,9 +125,17 @@
                                                     <div class="mb-4">
                                                         <label class="form-label">Title</label>
                                                         <input type="text" placeholder="Title"
-                                                            class="form-control" wire:model="pname" />
-                                                        @error('pname') <p class="text-danger">{{$message}}</p>
+                                                            class="form-control" wire:model="name" wire:keyup="generateslug" />
+                                                        @error('name') <p class="text-danger">{{$message}}</p>
                                                         @enderror
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label for="form-category/slug" class="form-label">Category Slug</label>
+                                                        <div class="input-group input-group--sa-slug">
+                                                            <input type="text" placeholder="Category Slug" class="form-control"
+                                                                wire:model="slug" />
+                                                            @error('slug') <p class="text-danger">{{$message}}</p> @enderror
+                                                        </div>
                                                     </div>
                                                     <div class="mb-4">
                                                         <label class="form-label">Description
@@ -146,8 +153,8 @@
                                                                     Exchange</label>
                                                                 <div class="input-group input-group--sa-slug">
                                                                     <select class="form-select mt-3" wire:model="for_exchange">
-                                                                        <option selected="">Yes</option>
-                                                                        <option>No</option>
+                                                                        <option  value="1">Yes</option>
+                                                                        <option value="0">No</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -158,8 +165,8 @@
                                                                     Rent</label>
                                                                 <div class="input-group input-group--sa-slug">
                                                                     <select class="form-select mt-3" wire:model="for_rent">
-                                                                        <option selected="">Yes</option>
-                                                                        <option>No</option>
+                                                                        <option value="1">Yes</option>
+                                                                        <option value="0">No</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -170,8 +177,8 @@
                                                                     Sell</label>
                                                                 <div class="input-group input-group--sa-slug">
                                                                     <select class="form-select mt-3" wire:model="for_sell">
-                                                                        <option selected="">Yes</option>
-                                                                        <option>No</option>
+                                                                        <option value="1">Yes</option>
+                                                                        <option value="0" >No</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -284,8 +291,8 @@
                                                         @error('zipcode') <p class="text-danger">{{$message}}</p>
                                                         @enderror
                                                     </div>
-                                                    <input type="text" name="lat" wire:model="lat" readonly>
-                                                    <input type="text" name="long" wire:model="long" readonly>
+                                                    <input type="text" name="lat" id="lat" wire:model="lat" readonly>
+                                                    <input type="text" name="long" id="long" wire:model="long" readonly>
                                                     
                                                     <div class="mb-4">
                                                         <label class="form-label">Address</label>
@@ -298,12 +305,7 @@
                                                         </div>
                                                     </div>
                                                             
-                                                            <!-- <div class="mb-4 text-center">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Next</button>
-                                                            </div> -->
-                                                            <!-- </p> -->
-                                                        <!-- </div>                          -->
+                                                            
                                                     <div class="mb-4">
                                                         <label for="formFile-1" class="form-label">Thumbnail Images</label>
                                                         <input type="file" class="form-control"  id="formFile-1" wire:model="thumbimage">
@@ -349,10 +351,7 @@
                                                             </p> @enderror
                                                         </div>
                                                     </div>
-                                                            <!-- <div class="mb-4 text-center">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Next</button>
-                                                            </div> -->
+                                                            
                                                     <div class="mb-4">
                                                         <label class="form-label">Owner Name</label>
                                                         <input type="text" placeholder="Owner Name"
@@ -373,7 +372,7 @@
                                                         <label class="form-label">Email</label>
                                                             <div class="input-group input-group--sa-slug">
                                                                 <input type="email" placeholder="email_id"
-                                                                    class="form-control" wire:model="price" />
+                                                                    class="form-control" wire:model="email_id" />
                                                                 @error('email_id') <p class="text-danger">
                                                                     {{$message}}</p>
                                                                 @enderror
@@ -389,10 +388,7 @@
                                                                 @enderror
                                                             </div>
                                                     </div>
-                                                         <!-- <div class="text-center p-3">
-                                                                <h2>Thank You</h2>
-                                                                <p>Please Check all information before submission...</p>
-                                                            </div> -->
+                                                         
 
                                                     <div class="mb-4 text-center">
                                                         <button type="submit"
@@ -439,7 +435,7 @@
         document.getElementById('map-container').style.display = 'block';
         }
     </script>
-</script>
+
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5fD8-BwH8kMsjb-HQS_4NG0f7FRcHS4&callback=initMap"></script>
 
@@ -463,16 +459,12 @@
             map.addListener('click', function(event) {
                 clearMarkers();
                 addMarker(event.latLng);
-<<<<<<< Updated upstream
-                document.getElementById("text").innerHTML = event.latLng.lat() + ',' + event.latLng.lng();
-=======
                 $('#lat').val(event.latLng.lat());
                 $('#long').val(event.latLng.lng());
 
                 @this.set('lat',event.latLng.lat());
                 @this.set('long',event.latLng.lng());
-               // document.getElementById("text").innerHTML = event.latLng.lat() + ',' + event.latLng.lng();
->>>>>>> Stashed changes
+               
             });
 
 

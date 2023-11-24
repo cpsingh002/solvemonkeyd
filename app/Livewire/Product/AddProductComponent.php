@@ -3,6 +3,8 @@
 namespace App\Livewire\Product;
 
 use Livewire\Component;
+use App\Models\Product;
+use App\Models\ProductAttribute;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Brand;
@@ -63,16 +65,28 @@ class AddProductComponent extends Component
 
     public $icon;
     public $categorythum;
+    public $attributeoptionid;
+    public $dfh;
+
+    public $inputs = [];
+    public $attribute_arr = [];
+    public function mount()
+    {
+        $this->for_exchange = 1;
+        $this->for_sell = 1;
+        $this->for_rent = 1;
+    }
 
     public function generateslug()
     {
-        $this->slug = Str::slug($this->title);
+        $this->slug = Str::slug($this->name);
     }
 
     public function changeSubcategory()
     {
         $this->scategory_id = 0;
         $this->option_details='';
+
         
     }
     public function changeattribute()
@@ -81,6 +95,12 @@ class AddProductComponent extends Component
         $this->s_id = $this->scategory_id;
         $this->option_details='';
         $this->brand_id = 0;
+        $this->inputs=[];
+        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        foreach($at as $sttt)
+        {
+            $this->inputs[$sttt->id]=0;
+        }
     }
     public function changebrands()
     {
@@ -125,102 +145,132 @@ class AddProductComponent extends Component
             'brand_id'=>'required',
             'attribute_id'=>'required',
             'modelnumber_id'=>'required',
-            'attributeoption_id'=>'required',
-            'option_details'=>'required',
-            's_id'=>'required',
-            'b_id'=>'required',
-
-
             'for_exchange'=>'required',
             'for_sell'=>'required',
-        'for_rent'=>'required',
-        'prices'=>'required',
-        'address'=>'required',
-        'lat'=>'required',
-        'long'=>'required',
-        'country_id'=>'required',
-        'state_id'=>'required',
-        'city_id'=>'required',
-        'st_id'=>'required',
-        'click_location'=>'required',
-        'zipcode'=>'required', 
+            'for_rent'=>'required',
+            'prices'=>'required',
+            'address'=>'required',
+            'lat'=>'required',
+            'long'=>'required',
+            'country_id'=>'required',
+            'state_id'=>'required',
+            'city_id'=>'required',
+            'zipcode'=>'required', 
 
-        'meta_keywords'=>'required',
-        'meta_description'=>'required',
-        'owner_name'=>'required',
-        'contact_number'=>'required',
-        'email_id'=>'required',
+            'meta_keywords'=>'required',
+            'meta_description'=>'required',
+            'owner_name'=>'required',
+            'contact_number'=>'required',
+            'email_id'=>'required',
 
-        'featimage'=>'required',
-        'images'=>'required',
-        'thumbimage'=>'required',
-        'exchange_for'=>'required',
+            'featimage'=>'required',
+            'images'=>'required',
+            'thumbimage'=>'required',
+            'exchange_for'=>'required',
 
-        'name'=>'required',
-        'slug'=>'required',
-
+            'name'=>'required',
+            'slug'=>'required',
         ]);
     }
-
-    public function addProduct(Request $request)
+    public function changehghg($at_id, $key)
     {
-        dd($request);
+        //dd($this->attribute_arr[$key]);
+       // dd($at_id,$key,$this->attributeoption_id.$key);
+       $this->inputs[$at_id] =$this->attribute_arr[$key];
+    //    if(!in_array($at_id,$this->attributeoption_id))
+    //     {
+    //         array_push($this->inputs,$at_id);
+    //         array_push($this->attribute_arr,$this->attributeoption_id);
+           
+    //     }
+    }
+    public function addProduct()
+    {
+        // $this->validate([
+        //     'inputs'=>'required',
+        //     'attribute_arr'=>'required']);
+        //dd($this->attribute_arr['1']);
+    //     dd($this->inputs,$this->attribute_arr);
+    //     $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+    //     foreach($at as $key => $atsd){
+    //        // dd($this->dfh.$key);
+    //        $fdg= $this->attributeoption_id[$key];
+    //        dd($fdg);
+    //         $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
+    //        // dd($sdgh);
+         
+
+    //     }
+    //     dd($sdgh);
+    //    // dd($this->attributeoptionid.'0');
+        
         $this->validate([
             'category_id'=>'required',
             'scategory_id'=>'required',
             'brand_id'=>'required',
             'attribute_id'=>'required',
             'modelnumber_id'=>'required',
-            'attributeoption_id'=>'required',
-            'option_details'=>'required',
-            's_id'=>'required',
-            'b_id'=>'required',
-
-
             'for_exchange'=>'required',
             'for_sell'=>'required',
-        'for_rent'=>'required',
-        'prices'=>'required',
-        'address'=>'required',
-        'lat'=>'required',
-        'long'=>'required',
-        'country_id'=>'required',
-        'state_id'=>'required',
-        'city_id'=>'required',
-        'st_id'=>'required',
-        'click_location'=>'required',
-        'zipcode'=>'required', 
+            'for_rent'=>'required',
+            'prices'=>'required',
+            'address'=>'required',
+            'lat'=>'required',
+            'long'=>'required',
+            'country_id'=>'required',
+            'state_id'=>'required',
+            'city_id'=>'required',
+             'zipcode'=>'required', 
 
-        'meta_keywords'=>'required',
-        'meta_description'=>'required',
-        'owner_name'=>'required',
-        'contact_number'=>'required',
-        'email_id'=>'required',
+            'meta_keywords'=>'required',
+            'meta_description'=>'required',
+            'owner_name'=>'required',
+            'contact_number'=>'required',
+            'email_id'=>'required',
 
-        'featimage'=>'required',
-        'images'=>'required',
-        'thumbimage'=>'required',
-        'exchange_for'=>'required',
+            'featimage'=>'required',
+            'images'=>'required',
+            'thumbimage'=>'required',
+            'exchange_for'=>'required',
 
-        'name'=>'required',
-        'slug'=>'required',
+            'name'=>'required',
+            'slug'=>'required|unique:products',
+            'inputs'=>'required',
+           'attribute_arr'=>'required'
         ]);
 
         $product =new Product();
-        $product->name = $this->name;
-        $product->slug = $this->slug;
-        $product->short_description =  $this->short_description;
-        $product->description = $this->description;
-        $product->regular_price= $this->regular_price;
-        $product->sale_price = $this->sale_price;
-        $product->SKU = $this->SKU;
-        $product->stock_status = $this->stock_status;
-        $product->featured = $this->featured;
-        $product->quantity = $this->quantity;
+        $product->category_id= $this->category_id;
+        $product->subcategory_id= $this->scategory_id;
+        $product->brand_id= $this->brand_id;
+        $product->model_id= $this->modelnumber_id;
+        $product->is_exchange= $this->for_exchange;
+        $product->is_sell= $this->for_sell;
+        $product->is_rent= $this->for_rent;
+        $product->prices= $this->prices;
+        $product->address= $this->address;
+        $product->lat= $this->lat;
+        $product->lang= $this->long;
+        $product->country_id= $this->country_id;
+        $product->state_id= $this->state_id;
+        $product->city_id= $this->city_id;
+        $product->zipcode= $this->zipcode; 
 
-        $imageName= Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->storeAs('products',$imageName);
-        $product->image = $imageName;
+        $product->meta_keywords= $this->meta_keywords;
+        $product->meta_description= $this->meta_description;
+        $product->owner_name= $this->owner_name;
+        $product->contact_number= $this->contact_number;
+        $product->email_id= $this->email_id;
+
+        $imageNamef= Carbon::now()->timestamp.'.'.$this->featimage->extension();
+        $this->featimage->storeAs('product/feat',$imageNamef);
+        $product->featimage = $imageNamef;
+
+        
+        $imageNamet= Carbon::now()->timestamp.'.'.$this->thumbimage->extension();
+        $this->thumbimage->storeAs('product/thumb',$imageNamet);
+        $product->thumbimage = $imageNamet;
+
 
         if($this->images)
         {
@@ -228,64 +278,32 @@ class AddProductComponent extends Component
             foreach($this->images as $key=>$image)
             {
                 $imgName = Carbon::now()->timestamp. $key.'.'.$image->extension();
-                $image->storeAs('products',$imgName);
+                $image->storeAs('product/image',$imgName);
                 $imagesname = $imagesname.','.$imgName;
             }
             $product->images = $imagesname;
-        }
-
-        $product->category_id= $this->category_id;
-        if($this->scategory_id)
-        {
-            $product->subcategory_id = $this->scategory_id;
-        }
-        $product->save();
-
-        foreach($this->attribute_values as $key=>$attribute_value)
-        {
-            $avalues = explode(",",$attribute_value);
-            foreach($avalues as $avalue)
-            {
-                $attr_value = new AttributeValue();
-                $attr_value->product_attribute_id = $key;
-                $attr_value->value = $avalue;
-                $attr_value->product_id = $product->id;
-                $attr_value->save();
-            }
-        }
-        $j=1;
-        foreach($this->para as $key => $tdata)
-        {
-            $product_varaint = new ProductVariant();
-            $product_varaint->varaint_detail = $tdata;
-            $product_varaint->product_id = $product->id;
-            $product_varaint->v_SKU = $this->skus[$key];
-            $product_varaint->v_regular_price = $this->mrps[$key];
-            $product_varaint->v_sale_price = $this->pris[$key];
-            $product_varaint->v_quantity = $this->qtyes[$key];
-            $product_varaint->v_stock_status = 'instock';
-
-            if($this->attr_image[$key])
-            {
-                $imagevsname = '';
-               
-                foreach($this->attr_image[$key] as $key1=>$vimage)
-                {
-                    $vimgName = Carbon::now()->timestamp. $key1.$j.'vp.'.$vimage->extension();
-                    $vimage->storeAs('products',$vimgName);
-                    $imagevsname = $imagevsname.','.$vimgName;
-                   
-                }
-                $product_varaint->v_images = $imagevsname;
-            }
-            $j++;
-
-            $product_varaint->save();
-
-        }
+        }      
         
-        //dd($this->attribute_values);
-        //$fgh =$this->tablepara($this->attribute_values);
+        $product->exchange_for= $this->exchange_for;
+
+        $product->name= $this->name;
+        $product->slug=$this->slug;    
+        $product->save();    
+        
+        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        foreach($at as $key => $atsd){
+           // dd($this->dfh.$key);
+           // $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
+           // dd($sdgh);
+           $PrAt= new ProductAttribute();
+           $PrAt->product_id = $product->id;
+           $PrAt->attribute_id = $atsd->id;
+           $PrAt->attoption_id  = $this->inputs[$atsd->id];
+           $PrAt->save();
+
+        }
+       // dd($sdgh);
+       // dd($this->attributeoptionid.'0');
         Session()->flash('message','Product has been Created Successfully!');
 
     }
@@ -304,18 +322,11 @@ public function render()
         $countries = Country::all();
         $states = State::where('country_id',$this->country_id)->get();
         $cities = City::where('state_id',$this->st_id)->get();
-        // return view('livewire.product.add-product-component');
-
-
-        //return view('livewire.admin1.product.add-product-admin1');
        
         return view('livewire.admin1.product.add-product-component',[
             'categories'=>$categories,'scategories'=>$scategories,'brands'=>$brands,
             'modelnumbers'=>$modelnumbers,'attributes'=>$attributes,'attributeoptions'=>$attributeoptions,
             'countries'=>$countries,'states'=>$states,'cities'=>$cities])->layout('layouts.admin1');
-
-
-        //return view('livewire.admin1.product.add-product-component')->layout('layouts.admin1');
 
     }
 }
