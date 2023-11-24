@@ -111,8 +111,8 @@
                                                             <div class="col-md-12">
                                                                 @foreach($attributes as $key1 => $attribute)
                                                                     <label>{{$attribute->attribute}}</label>
-                                                                    <input type="hidden" value="{{$attribute->id}}" wire:model="dfh.{{$key1}}">
-                                                                    <select class="form-control" wire:model="attributeoption_id.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" >
+                                                                    <!-- <input type="hidden" value="{{$attribute->id}}" wire:model="dfh.{{$key1}}"> -->
+                                                                    <select class="form-control" wire:model="attribute_arr.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" >
                                                                         @foreach($attribute->attributeoptions as $attributeoption)
                                                                         <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
                                                                         @endforeach

@@ -67,6 +67,9 @@ class AddProductComponent extends Component
     public $categorythum;
     public $attributeoptionid;
     public $dfh;
+
+    public $inputs = [];
+    public $attribute_arr = [];
     public function mount()
     {
         $this->for_exchange = 1;
@@ -83,6 +86,7 @@ class AddProductComponent extends Component
     {
         $this->scategory_id = 0;
         $this->option_details='';
+
         
     }
     public function changeattribute()
@@ -91,6 +95,12 @@ class AddProductComponent extends Component
         $this->s_id = $this->scategory_id;
         $this->option_details='';
         $this->brand_id = 0;
+        $this->inputs=[];
+        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        foreach($at as $sttt)
+        {
+            $this->inputs[$sttt->id]=0;
+        }
     }
     public function changebrands()
     {
@@ -164,23 +174,35 @@ class AddProductComponent extends Component
     }
     public function changehghg($at_id, $key)
     {
-        //dd($this->attributeoption_id[$key]);
+        //dd($this->attribute_arr[$key]);
        // dd($at_id,$key,$this->attributeoption_id.$key);
+       $this->inputs[$at_id] =$this->attribute_arr[$key];
+    //    if(!in_array($at_id,$this->attributeoption_id))
+    //     {
+    //         array_push($this->inputs,$at_id);
+    //         array_push($this->attribute_arr,$this->attributeoption_id);
+           
+    //     }
     }
     public function addProduct()
     {
-        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
-        foreach($at as $key => $atsd){
-           // dd($this->dfh.$key);
-           $fdg= $this->attributeoption_id[$key];
-           dd($fdg);
-            $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
-           // dd($sdgh);
+        // $this->validate([
+        //     'inputs'=>'required',
+        //     'attribute_arr'=>'required']);
+        //dd($this->attribute_arr['1']);
+    //     dd($this->inputs,$this->attribute_arr);
+    //     $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+    //     foreach($at as $key => $atsd){
+    //        // dd($this->dfh.$key);
+    //        $fdg= $this->attributeoption_id[$key];
+    //        dd($fdg);
+    //         $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
+    //        // dd($sdgh);
          
 
-        }
-        dd($sdgh);
-       // dd($this->attributeoptionid.'0');
+    //     }
+    //     dd($sdgh);
+    //    // dd($this->attributeoptionid.'0');
         
         $this->validate([
             'category_id'=>'required',
@@ -212,7 +234,9 @@ class AddProductComponent extends Component
             'exchange_for'=>'required',
 
             'name'=>'required',
-            'slug'=>'required',
+            'slug'=>'required|unique:products',
+            'inputs'=>'required',
+           'attribute_arr'=>'required'
         ]);
 
         $product =new Product();
@@ -274,7 +298,7 @@ class AddProductComponent extends Component
            $PrAt= new ProductAttribute();
            $PrAt->product_id = $product->id;
            $PrAt->attribute_id = $atsd->id;
-           $PrAt->attoption_id  = $this->attributeoption_id.$key;
+           $PrAt->attoption_id  = $this->inputs[$atsd->id];
            $PrAt->save();
 
         }
