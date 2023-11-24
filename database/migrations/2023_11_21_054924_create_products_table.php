@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
+            $table->string('short_description')->nullable();
+            $table->text('description');
             $table->bigInteger('category_id')->unsigned()->nullable();  
             $table->bigInteger('subcategory_id')->unsigned()->nullable();  
             $table->bigInteger('brand_id')->unsigned()->nullable();

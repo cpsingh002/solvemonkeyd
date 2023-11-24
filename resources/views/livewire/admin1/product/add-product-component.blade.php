@@ -138,11 +138,17 @@
                                                         </div>
                                                     </div>
                                                     <div class="mb-4">
-                                                        <label class="form-label">Description
-
-                                                        </label>
-                                                        <div class="input-group input-group--sa-slug">
-                                                        <textarea placeholder="Description" class="form-control mt-3" rows="2"></textarea>
+                                                        <label class="control-label">Short Description</label>
+                                                        <div class="input-group" wire:ignore>
+                                                            <textarea class ="form-control" id="short_description" placeholder="Short Description" wire:model="short_description"></textarea>
+                                                            @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label class="control-label">Description</label>
+                                                        <div class="input-group" wire:ignore>
+                                                            <textarea class ="form-control" id="description" placeholder="Description" wire:model="description"></textarea>
+                                                            @error('description') <p class="text-danger">{{$message}}</p> @enderror
                                                         </div>
                                                     </div>
 
@@ -448,6 +454,8 @@
                 addMarker(event.latLng);
                 $('#lat').val(event.latLng.lat());
                 $('#long').val(event.latLng.lng());
+                @this.set('lat',event.latLng.lat());
+                @this.set('long',event.latLng.lng());
                // document.getElementById("text").innerHTML = event.latLng.lat() + ',' + event.latLng.lng();
             });
 
@@ -474,5 +482,31 @@
         function clearMarkers() {
             setMapOnAll(null);
         }
+    </script>
+<script src="https://cdn.tiny.cloud/1/5949s82j52s02vlrmcq6l2c2gkzihao5gxjymat25ancman4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+        $(function(){
+            tinymce.init({
+                selector:'#short_description',
+                setup:function(editor){
+                    editor.on('Change',function(e){
+                        tinyMCE.triggerSave();
+                        var sd_data = $('#short_description').val();
+                        @this.set('short_description',sd_data);
+                    });
+                }
+            });
+
+            tinymce.init({
+                selector:'#description',
+                setup:function(editor){
+                    editor.on('Change',function(e){
+                        tinyMCE.triggerSave();
+                        var d_data = $('#description').val();
+                        @this.set('description',d_data);
+                    });
+                }
+            });
+        });
     </script>
 @endpush

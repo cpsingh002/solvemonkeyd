@@ -62,6 +62,8 @@ class AddProductComponent extends Component
 
     public $name;
     public $slug;
+    public $short_description;
+    public $description;
 
     public $icon;
     public $categorythum;
@@ -287,7 +289,9 @@ class AddProductComponent extends Component
         $product->exchange_for= $this->exchange_for;
 
         $product->name= $this->name;
-        $product->slug=$this->slug;    
+        $product->slug=$this->slug;   
+        $product->short_description =  $this->short_description;
+        $product->description = $this->description; 
         $product->save();    
         
         $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();

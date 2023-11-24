@@ -116,7 +116,7 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
 
     Route::get('/admin/products',ProductComponent::class)->name('admin.products');
     Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
-    Route::get('/admin/product/edit/{uid}',EditProductComponent::class)->name('admin.editproduct');
+    Route::get('/admin/product/edit/{pid}',EditProductComponent::class)->name('admin.editproduct');
     Route::get('/admin/banners',BannerComponent::class)->name('admin.banners');
     Route::get('/admin/banner/add',AddBannerComponent::class)->name('admin.addbanner');
     Route::get('/admin/banner/edit/{bid}',EditBannerComponent::class)->name('admin.editbanner');
