@@ -26,9 +26,9 @@
                      <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                      @endif
                      <div class="p-4"><input type="text" placeholder="Start typing to search for customers" class="form-control form-control--search mx-auto" id="table-search"></div>
-                     <div class="sa-divider"></div>
+                     <!-- <div class="sa-divider"></div> -->
                      <table class="sa-datatables-init" data-order="[[ 1, &quot;asc&quot; ]]" data-sa-search-input="#table-search" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
-                         <thead>
+                          <thead>
                              <tr>
                                  <th>Id</th>
                                  <th>Title</th>
@@ -43,9 +43,19 @@
                          <tbody>
                              {{--@foreach($packages as $package)
                              <tr>
+<<<<<<< Updated upstream
                                  <td>{{$package->id}}</td>
                                  <td>{{$package->pname}}</td>
                                  <td>{{$package->ptype}}</td>
+=======
+                                 <td>{{$product->id}}</td>
+                                 <td>{{$product->name}}</td>
+                                 <td>{{$product->slug}}</td>
+                                 <td>{{$product->prices}}</td>
+                                 <td><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}" width="60" /></td>
+                                 <td>{{$product->address}}</td>
+                                 <td>{{$product->meta_keywords}}</td>
+>>>>>>> Stashed changes
                                  <td>
                                      {{$package->price}}
                                  </td>
