@@ -41,6 +41,8 @@ use App\Livewire\AttributeOption\EditAttributeOptionComponent;
 
 use App\Http\Controllers\HomeController;
 
+use App\Livewire\User\AddUserProductComponent;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +70,12 @@ Route::get('/terms-and-condition',[HomeController::class,'termsCondition'])->nam
 Route::get('/privacy-policy',[HomeController::class,'privacyPolicy'])->name('privacy-policy');
 Route::get('/product-list',[HomeController::class,'productList'])->name('product-list');
 Route::get('/product-detail',[HomeController::class,'ProductDetails'])->name('product-detail');
-Route::get('/post-ad',[HomeController::class,'postAd'])->name('post-ad');
+Route::get('/post-ad',AddUserProductComponent::class)->name('post-ad');
+
+
+// Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
+
+
 Route::get('/package',[HomeController::class,'package'])->name('package');
 
 Route::get('/edit-ad',[HomeController::class,'editAd'])->name('edit-ad');

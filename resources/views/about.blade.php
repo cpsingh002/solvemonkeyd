@@ -96,7 +96,6 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-5 position-relative">
-
                     <div class="aboutImg aboutImg5 tilt-effect mr-40">
                         <img src="assets/img/gallery/about5.png" alt="images" class="bouncingAnimations">
                     </div>
