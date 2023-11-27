@@ -405,6 +405,9 @@
 
                                             </div>
                                         </form>
+                                        @if(Session::has('message'))
+                                        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                        @endif
                                     </div>
 
                                 </div>
@@ -467,16 +470,13 @@
                 addMarker(event.latLng);
                 $('#lat').val(event.latLng.lat());
                 $('#long').val(event.latLng.lng());
-<<<<<<< HEAD
-                @this.set('lat',event.latLng.lat());
-                @this.set('long',event.latLng.lng());
-               // document.getElementById("text").innerHTML = event.latLng.lat() + ',' + event.latLng.lng();
-=======
 
                 @this.set('lat',event.latLng.lat());
                 @this.set('long',event.latLng.lng());
-               
->>>>>>> 84712acfaa40ac794f97625088a7999a162fb3dd
+               // document.getElementById("text").innerHTML = event.latLng.lat() + ',' + event.latLng.lng();
+
+
+           
             });
 
 

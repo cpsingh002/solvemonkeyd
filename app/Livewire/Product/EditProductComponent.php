@@ -123,6 +123,7 @@ class EditProductComponent extends Component
 
      // dd($this->attribute_arr,$this->inputs);
      //dd($this->thumbimage);
+     //dd($this->inputs);
     }
 
     public function generateslug()
@@ -189,7 +190,6 @@ class EditProductComponent extends Component
             'category_id'=>'required',
             'scategory_id'=>'required',
             'brand_id'=>'required',
-            'attribute_id'=>'required',
             'modelnumber_id'=>'required',
             'for_exchange'=>'required',
             'for_sell'=>'required',
@@ -267,7 +267,7 @@ class EditProductComponent extends Component
             'category_id'=>'required',
             'scategory_id'=>'required',
             'brand_id'=>'required',
-            'attribute_id'=>'required',
+            
             'modelnumber_id'=>'required',
             'for_exchange'=>'required',
             'for_sell'=>'required',
@@ -296,7 +296,7 @@ class EditProductComponent extends Component
             
             'inputs'=>'required',
            'attribute_arr'=>'required',
-           'slug'=>'required|unique:products,slug,'.$this->p_id
+           'slug'=>'required|unique:products,slug,'.$this->pid
         ]);
 
         if($this->newthumbimage)
@@ -312,7 +312,7 @@ class EditProductComponent extends Component
             ]);
         }
 
-        $product = Product::find($this->p_id);
+        $product = Product::find($this->pid);
         $product->category_id= $this->category_id;
         $product->subcategory_id= $this->scategory_id;
         $product->brand_id= $this->brand_id;
@@ -381,11 +381,20 @@ class EditProductComponent extends Component
         
         $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
         foreach($at as $key => $atsd){
+            $PAT = ProductAttribute::where('product_id',$this->pid)->where('attribute_id',$atsd->id)->first();
+            if(isset($PAT)){
+// dd($this->inputs,$atsd->id);
+
+                $PAT->attoption_id  = $this->inputs[$atsd->id];
+                $PAT->save();
+            }else{
             $PrAt= new ProductAttribute();
            $PrAt->product_id = $product->id;
            $PrAt->attribute_id = $atsd->id;
-           $PrAt->attoption_id  = $this->inputs[$atsd->id];
            $PrAt->save();
+           
+            }
+            
 
         }
        // dd($sdgh);

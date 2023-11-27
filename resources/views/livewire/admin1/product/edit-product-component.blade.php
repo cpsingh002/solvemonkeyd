@@ -119,8 +119,7 @@
                                                                     </select>
                                                                 @endforeach
                                                             
-                                                            @error('attribute_id') <p class="text-danger">{{$message}}</p> @enderror
-                                                        </div>
+                                                            </div>
                                                     </div>
                                                     <div class="mb-4">
                                                         <label class="form-label">Title</label>
@@ -413,6 +412,9 @@
 
                                             </div>
                                         </form>
+                                        @if(Session::has('message'))
+                                        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                        @endif
                                     </div>
 
                                 </div>

@@ -50,15 +50,12 @@
                                  <td>{{$product->prices}}</td>
                                  <td><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}" width="60" /></td>
                                  <td>{{$product->address}}</td>
-<<<<<<< HEAD
+
                                  <td>
                                      <a href="{{route('admin.editproduct',['pid'=>$product->id])}}"><i
-=======
 
-                                 <td>{{$product->meta_keywords}}</td>
-                            <td>
-                                     <a href="{{route('admin.editpackage',['pid'=>$product->id])}}"><i
->>>>>>> 84712acfaa40ac794f97625088a7999a162fb3dd
+
+                                 
                                              class="fa fa-edit "></i></a>
                                      <a href="#" onclick="confirm('Are you sure, You want to delet this product') || event.stopImmediatePropagation()"
                                          wire:click.prevent="deleteCategory({{$product->id}})"><i class="fa fa-times  text-danger ml-2"></i></a>
