@@ -792,7 +792,7 @@
     @section('container')
     @show
 
-
+    {{$slot}}
 
 
 
@@ -846,8 +846,8 @@
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="current-password">
 
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -893,8 +893,8 @@
                     </div>
 
                     <div class="row mt-2">
-                        <p class="sinUp"><span>Don’t have an account? </span><a
-                                class="singApp popup-btn-register text-violet fw-bold">Sign Up</a></p>
+                        <p class="sinUp"><span>Don’t have an account? </span>
+                        <a class="singApp popup-btn-register text-violet fw-bold">Sign Up</a></p>
                     </div>
                 </form>
             </div>
