@@ -87,7 +87,9 @@ class AddUserProductComponent extends Component
 
     public function changeSubcategory()
     {
+        dd($this->category_id);
         $this->scategory_id = 0;
+        
         $this->option_details='';
 
         

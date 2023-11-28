@@ -789,8 +789,7 @@
     </header>
 
 
-    @section('container')
-    @show
+   
 
     {{$slot}}
 
@@ -1125,6 +1124,8 @@
     <script src="{{asset('assets/js/plugin.js')}}"></script>
 
     <script src="{{asset('assets/js/main.js')}}"></script>
+    @livewireScripts
+	@stack('scripts')
 </body>
 
 <!-- Mirrored from bytesed.com/tf/listocean/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Sep 2023 06:17:37 GMT -->

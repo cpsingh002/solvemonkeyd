@@ -31,7 +31,7 @@
                         </ul>
                         <span class="price">$0 <span class="subTittle"> /For Lifetime</span></span>
                         <div class="btn-wrapper">
-                            <a href="add_setting.html" class="cmn-btn-outline1">Get Started</a>
+                            <a href="#" class="cmn-btn-outline1">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                         </ul>
                         <span class="price">$49<span class="subTittle"> /For 3 Days</span></span>
                         <div class="btn-wrapper">
-                            <a href="add_setting.html" class="cmn-btn-outline1">Get Started</a>
+                            <a href="#" class="cmn-btn-outline1">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         </ul>
                         <span class="price">$99<span class="subTittle"> /For 4 days</span></span>
                         <div class="btn-wrapper">
-                            <a href="add_setting.html" class="cmn-btn-outline1">Get Started</a>
+                            <a href="#" class="cmn-btn-outline1">Get Started</a>
                         </div>
                     </div>
                 </div>

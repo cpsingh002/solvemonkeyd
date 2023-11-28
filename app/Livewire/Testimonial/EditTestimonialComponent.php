@@ -76,12 +76,12 @@ class EditTestimonialComponent extends Component
             $test->phone = $this->phone;
             $test->position = $this->position;
             $test->star = $this->star;
-            $test->short_description = $this->short_description;
+            $test->description = $this->short_description;
             if($this->newimage)
             {
-                //unlink('admin/category'.'/'.$test->image);
+                unlink('admin/testimonial'.'/'.$test->image);
                 $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
-                $this->categorythum->storeAs('category',$imageName);
+                $this->newimage->storeAs('testimonial',$imageName);
                 $test->image = $imageName;
             }
             $test->save();

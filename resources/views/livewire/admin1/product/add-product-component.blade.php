@@ -42,8 +42,7 @@
 
                                             <div class="row">
                                                 <div class="sa-example__body py-0">
-                                                    <!-- <div class="tab-content mt-4"> -->
-
+                                                   
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
