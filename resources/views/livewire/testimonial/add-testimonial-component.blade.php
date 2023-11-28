@@ -30,7 +30,7 @@
                                          @endif
 
                                          <form class="form-horizontal" enctype="multipart/form-data"
-                                             wire:submit.prevent="storeUser">
+                                             wire:submit.prevent="storeTestimonial">
                               
                                              <div class="mb-5">
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
@@ -39,7 +39,7 @@
 
                                                  <label for="form-banner/name" class="form-label">Name</label>
                                                  <input type="text" placeholder="User Name" class="form-control"
-                                                     wire:model="title" />
+                                                     wire:model="name" />
                                                  @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 

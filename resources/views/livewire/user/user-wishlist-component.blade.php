@@ -35,7 +35,7 @@
                                 </li>
                             </ul>
                             <div class="accessAccount">
-                                <a href="../login.html" class="account-btn"><i class="las la-sign-out-alt icon"></i>
+                                <a href="#" class="account-btn"><i class="las la-sign-out-alt icon"></i>
                                     Logout</a>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                             <img src="../assets/img/gallery/wishlist1.jpg" alt="images">
                                         </div>
                                         <div class="adsCaption">
-                                            <h5><a href="../add_details.html" class="adsTittle">A pair of sneakers for
+                                            <h5><a href="#" class="adsTittle">A pair of sneakers for
                                                     sell</a></h5>
                                             <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
                                             </p>

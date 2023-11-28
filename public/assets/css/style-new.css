@@ -9554,6 +9554,12 @@
     border: 1px solid #D0D5DD;
     position: relative;
     z-index: 1;
+    min-height: 270px;
+  }
+
+  .testimonialArea .testimonialCap .testimonialClient{
+    position:absolute;
+    bottom:15px;
   }
   .testimonialArea .testimonialCap::before {
     position: absolute;
@@ -9579,6 +9585,14 @@
   .testimonialArea .testimonialCap .testimonialClient .clientImg {
     margin-right: 15px;
   }
+
+  .testimonialArea .testimonialCap .testimonialClient .clientImg img{
+    height:60px;
+    width:60px;
+    border-radius:50%;
+  }
+
+
   .testimonialArea .testimonialCap .testimonialClient .clientText {
     text-align: left;
   }

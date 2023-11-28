@@ -87,7 +87,7 @@
                                     <img src="../assets/img/gallery/myList1.jpg" alt="images">
                                 </div>
                                 <div class="recentCaption">
-                                    <h5><a href="../add_details.html" class="featureTittle">Luxury couple apartment</a>
+                                    <h5><a href="#" class="featureTittle">Luxury couple apartment</a>
                                     </h5>
                                     <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
                                     <span class="featurePricing">$124.80</span>

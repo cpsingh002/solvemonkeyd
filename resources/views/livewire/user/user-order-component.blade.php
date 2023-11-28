@@ -42,7 +42,7 @@
                             <div class="col-sm-12">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="{{'/'}}">Home</a></li>
                                         <li class="breadcrumb-item"><a href="#"> Wishlist</a></li>
                                     </ol>
                                 </nav>
@@ -60,7 +60,7 @@
                                             <img src="../assets/img/gallery/wishlist1.jpg" alt="images">
                                         </div>
                                         <div class="adsCaption">
-                                            <h5><a href="../add_details.html" class="adsTittle">A pair of sneakers for
+                                            <h5><a href="#" class="adsTittle">A pair of sneakers for
                                                     sell</a></h5>
                                             <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
                                             </p>
@@ -68,7 +68,7 @@
                                         </div>
                                     </div>
                                     <div class="btn-wrapper mb-20">
-                                        <a href="wish_list.html" class="cmn-btn-outline5"><i
+                                        <a href="#" class="cmn-btn-outline5"><i
                                                 class="las la-heart icon"></i>Completed</a>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                             <img src="../assets/img/gallery/wishlist2.jpg" alt="images">
                                         </div>
                                         <div class="adsCaption">
-                                            <h5><a href="../add_details.html" class="adsTittle">Luxury couple
+                                            <h5><a href="#" class="adsTittle">Luxury couple
                                                     apartment</a></h5>
                                             <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
                                             </p>
@@ -92,7 +92,7 @@
                                         </div>
                                     </div>
                                     <div class="btn-wrapper mb-20">
-                                        <a href="wish_list.html" class="cmn-btn-outline5"><i
+                                        <a href="#" class="cmn-btn-outline5"><i
                                                 class="las la-heart icon"></i>Completed</a>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                                             <img src="../assets/img/gallery/wishlist1.jpg" alt="images">
                                         </div>
                                         <div class="adsCaption">
-                                            <h5><a href="../add_details.html" class="adsTittle">A pair of sneakers for
+                                            <h5><a href="#" class="adsTittle">A pair of sneakers for
                                                     sell</a></h5>
                                             <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
                                             </p>
@@ -115,7 +115,7 @@
                                         </div>
                                     </div>
                                     <div class="btn-wrapper mb-20">
-                                        <a href="wish_list.html" class="cmn-btn-outline5"><i
+                                        <a href="#" class="cmn-btn-outline5"><i
                                                 class="las la-heart icon"></i>Pending</a>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                                             <img src="../assets/img/gallery/wishlist2.jpg" alt="images">
                                         </div>
                                         <div class="adsCaption">
-                                            <h5><a href="../add_details.html" class="adsTittle">Luxury couple
+                                            <h5><a href="#" class="adsTittle">Luxury couple
                                                     apartment</a></h5>
                                             <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
                                             </p>
@@ -139,7 +139,7 @@
                                         </div>
                                     </div>
                                     <div class="btn-wrapper mb-20">
-                                        <a href="wish_list.html" class="cmn-btn-outline5"><i
+                                        <a href="#" class="cmn-btn-outline5"><i
                                                 class="las la-heart icon"></i>Completed</a>
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@
                                             <img src="../assets/img/gallery/wishlist1.jpg" alt="images">
                                         </div>
                                         <div class="adsCaption">
-                                            <h5><a href="../add_details.html" class="adsTittle">A pair of sneakers for
+                                            <h5><a href="#" class="adsTittle">A pair of sneakers for
                                                     sell</a></h5>
                                             <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
                                             </p>
@@ -162,7 +162,7 @@
                                         </div>
                                     </div>
                                     <div class="btn-wrapper mb-20">
-                                        <a href="wish_list.html" class="cmn-btn-outline5"><i
+                                        <a href="#" class="cmn-btn-outline5"><i
                                                 class="las la-heart icon"></i>Pending</a>
                                     </div>
                                 </div>
@@ -178,7 +178,7 @@
                                             <img src="../assets/img/gallery/wishlist2.jpg" alt="images">
                                         </div>
                                         <div class="adsCaption">
-                                            <h5><a href="../add_details.html" class="adsTittle">Luxury couple
+                                            <h5><a href="#" class="adsTittle">Luxury couple
                                                     apartment</a></h5>
                                             <p class="adsPera">Dallas, Texas ·<strong class="subCap">24hrs ago</strong>
                                             </p>
@@ -186,7 +186,7 @@
                                         </div>
                                     </div>
                                     <div class="btn-wrapper mb-20">
-                                        <a href="wish_list.html" class="cmn-btn-outline5"><i
+                                        <a href="#" class="cmn-btn-outline5"><i
                                                 class="las la-heart icon"></i>Pending</a>
                                     </div>
                                 </div>

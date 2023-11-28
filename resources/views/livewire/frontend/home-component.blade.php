@@ -814,6 +814,9 @@
                     data-nextArrow="<div class=&quot;next-icon&quot;><i class=&quot;las la-angle-right&quot;></i></div>"
                     data-responsive="[{&quot;breakpoint&quot;: 1800,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1600,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1400,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1200,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 991,&quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 768, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 576, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1}}]">
 
+                    @foreach($testimonial as $testimonials)
+                   
+
                     <div class="singleTestimonial">
                         <div class="testimonialCap">
                             <ul class="rattingList">
@@ -824,23 +827,23 @@
                                 <li class="listItems"><i class="las la-star icon"></i></li>
                             </ul>
                             <div class="testiPera">
-                                <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                    sold more than Rs 80,000 on this platform.
-                                    my all buyers are extremely happy</p>
+                                <p class="pera">{{$testimonials->description}}</p>
                             </div>
 
                             <div class="testimonialClient d-flex align-items-center">
                                 <div class="clientImg">
-                                    <img src="assets/img/gallery/client1.png" alt="images">
+                                    
+       
+                                    <img src="{{asset('admin/testimonial')}}/{{$testimonials->image}}" alt="images">
                                 </div>
                                 <div class="clientText">
-                                    <span class="clientName">Rian Saddine</span>
-                                    <p class="clinetDisCrip">Solve Monkey seller</p>
+                                    <span class="clientName">{{$testimonials->name}}</span>
+                                    <p class="clinetDisCrip">{{$testimonials->position}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    @endforeach
                     <div class="singleTestimonial">
                         <div class="testimonialCap">
                             <ul class="rattingList">

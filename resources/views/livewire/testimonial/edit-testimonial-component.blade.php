@@ -36,7 +36,7 @@
                                              <div class="mb-4">
                                                  <label for="form-banner/name" class="form-label">Name</label>
                                                  <input type="text" placeholder="User Name" class="form-control"
-                                                     wire:model="title" />
+                                                     wire:model="name" />
                                                  @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
@@ -45,7 +45,7 @@
                                                  <label for="form-banner/image" class="form-label">Email</label>
                                                  <div class="input-group input-group--sa-slug">
 
-                                                     <input type="email" class="input-file" wire:model="email" />
+                                                     <input type="email" class="form-control" wire:model="email" />
                                                      @error('email') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
@@ -54,7 +54,7 @@
                                                  <label for="form-banner/image" class="form-label">Phone</label>
                                                  <div class="input-group input-group--sa-slug">
 
-                                                     <input type="text" class="input-file" wire:model="phone" />
+                                                     <input type="text" class="form-control" wire:model="phone" />
                                                      @error('phone') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
@@ -63,30 +63,33 @@
                                                  <label for="form-banner/image" class="form-label">Position</label>
                                                  <div class="input-group input-group--sa-slug">
 
-                                                     <input type="text" placeholder="position" class="input-file"
+                                                     <input type="text" placeholder="position" class="form-control"
                                                          wire:model="position" />
                                                      @error('position') <p class="text-danger">{{$message}}</p>
                                                      @enderror
                                                  </div>
                                              </div>
 
-                                             <div class="mb-4">
+                                              <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Image</label>
                                                  <div class="input-group input-group--sa-slug">
 
-                                                     <input type="file" class="input-file" wire:model="image" />
-                                                     @if($image)
-                                                     <img src="{{$image->temporaryUrl()}}" width="120" />
-                                                     @endif
-                                                     @error('image') <p class="text-danger">{{$message}}</p> @enderror
+                                                     <input type="file" class="form-control" wire:model="newimage" />
+                                                     @if($newimage)
+                                                        <img src="{{$newimage->temporaryUrl()}}" width="120" />
+                                                    @else
+                                                        <img src="{{asset('admin/testimonial')}}/{{$image}}" width="120" />
+                                                    @endif
+                                                    
+                                                     @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
-                                             </div>
+                                             </div> 
 
                                              <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Short Description</label>
                                                  <div class="input-group input-group--sa-slug">
 
-                                                 <textarea class="input-file" id="short_description" placeholder="Short Description" wire:model="short_description"></textarea>
+                                                 <textarea class="form-control" id="short_description" placeholder="Short Description" wire:model="short_description"></textarea>
                                                  @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
                                                     
                                                  </div>
@@ -96,7 +99,7 @@
                                                  <label for="form-banner/image" class="form-label">Star</label>
                                                  <div class="input-group input-group--sa-slug">
 
-                                                     <input type="number" class="input-file" placeholder="5" wire:model="star" />
+                                                     <input type="number" class="form-control" placeholder="5" wire:model="star" />
                                                      @error('star') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>

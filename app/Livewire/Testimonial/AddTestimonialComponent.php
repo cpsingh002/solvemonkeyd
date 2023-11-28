@@ -53,17 +53,17 @@ class AddTestimonialComponent extends Component
                 'image'=>'required|mimes:jpeg,jpg,png',
             ]);
         }
-
+        
         $test = new Testimonial();
             $test->name = $this->name;
             $test->email = $this->email;
             $test->phone = $this->phone;
             $test->position = $this->position;
             $test->star = $this->star;
-            $test->short_description = $this->short_description;
+            $test->description = $this->short_description;
             if($this->image){
                 $imageName= Carbon::now()->timestamp.'.'.$this->image->extension();
-                $this->categorythum->storeAs('category',$imageName);
+                $this->image->storeAs('testimonial',$imageName);
                 $test->image = $imageName;
                 }
             $test->save();

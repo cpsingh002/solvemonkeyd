@@ -35,7 +35,7 @@
                          <thead>
                          <tr>
                                     <th>Id</th>
-                                    <th> Name</th>
+                                    <th>Name</th>
                                     <th>Email Id</th>
                                     <th>Phone Number</th>
                                     <th>Image</th>
