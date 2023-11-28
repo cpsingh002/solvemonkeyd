@@ -1,6 +1,6 @@
-@extends('layouts/base')
-@section('container')
-<main>
+<div>
+    {{-- Because she competes with no one, no one can compete with her. --}}
+    <main>
 
 
 
@@ -111,4 +111,4 @@
     </div>
 
 </main>
-@endsection
+</div>

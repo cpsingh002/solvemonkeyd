@@ -19,7 +19,7 @@
                                 <div class="listingDetails-Wrapper">
                                     <div class="listingDetails">
                                         <div class="row">
-                                        <form class="" action="" method="POST" enctype="multipart/form-data">
+                                        <form class=""  enctype="multipart/form-data">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="select-itms">
@@ -319,6 +319,6 @@
                 </div>
             </div>
         </div>
-    </main>
+
    
 </div>

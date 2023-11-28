@@ -42,7 +42,22 @@ use App\Livewire\AttributeOption\EditAttributeOptionComponent;
 use App\Http\Controllers\HomeController;
 
 use App\Livewire\User\AddUserProductComponent;
+use App\Livewire\Frontend\HomeComponent;
+use App\Livewire\Frontend\AboutComponent;
+use App\Livewire\Frontend\ContactComponent;
+use App\Livewire\Frontend\ProductDetailsComponent;
+use App\Livewire\Frontend\ProductListComponent;
+use App\Livewire\Frontend\FaqComponent;
+use App\Livewire\Frontend\PrivacyPolicyComponent;
+use App\Livewire\Frontend\TermsConditionComponent;
+use App\Livewire\Frontend\PackagesComponent;
 
+use App\Livewire\User\UserAccountComponent;
+use App\Livewire\User\MessageComponent;
+use App\Livewire\User\UserDashboardComponent;
+use App\Livewire\User\UserOrderComponent;
+use App\Livewire\User\UserWishlistComponent;
+use App\Livewire\User\ProductAdsComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,39 +70,46 @@ use App\Livewire\User\AddUserProductComponent;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/',HomeComponent::class);
+Route::get('/about',AboutComponent::class)->name('about');
+Route::get('/contact',ContactComponent::class)->name('contact');
+Route::get('/product-list',ProductListComponent::class)->name('product-list');
+Route::get('/product-detail',ProductDetailsComponent::class)->name('product-details');
+Route::get('/faq',FaqComponent::class)->name('faq');
+Route::get('/terms-and-condition',TermsConditionComponent::class)->name('terms-and-condition');
+Route::get('/privacy-policy',PrivacyPolicyComponent::class)->name('privacy-policy');
+Route::get('/packages',PackagesComponent::class)->name('package');
+
+Route::middleware(['auth:sanctum','verified'])->group(function(){
+    Route::get('/message',MessageComponent::class)->name('message');
+    Route::get('/user-order',UserOrderComponent::class)->name('user-order');
+    Route::get('/user-account',UserAccountComponent::class)->name('user-account');
+    Route::get('/user-dashboard',UserDashboardComponent::class)->name('user-dashboard');
+    Route::get('/wishlist',UserWishlistComponent::class)->name('wishlist');
+    Route::get('/user-ads',ProductAdsComponent::class)->name('user-ads');
 });
-
-
 
 // frontend routes
 // Route::post('login',[LoginController::class,'login']);
-Route::get('/about',[HomeController::class,'about'])->name('about');
-Route::get('/contact',[HomeController::class,'contact'])->name('contact');
-Route::get('/faq',[HomeController::class,'faq'])->name('faq');
-Route::get('/terms-and-condition',[HomeController::class,'termsCondition'])->name('terms-and-condition');
-Route::get('/privacy-policy',[HomeController::class,'privacyPolicy'])->name('privacy-policy');
-Route::get('/product-list',[HomeController::class,'productList'])->name('product-list');
-Route::get('/product-detail',[HomeController::class,'ProductDetails'])->name('product-detail');
+// Route::get('/about',[HomeController::class,'about'])->name('about');
+// Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+// Route::get('/faq',[HomeController::class,'faq'])->name('faq');
+// Route::get('/terms-and-condition',[HomeController::class,'termsCondition'])->name('terms-and-condition');
+// Route::get('/privacy-policy',[HomeController::class,'privacyPolicy'])->name('privacy-policy');
+// Route::get('/product-list',[HomeController::class,'productList'])->name('product-list');
+// Route::get('/product-detail',[HomeController::class,'ProductDetails'])->name('product-detail');
 Route::get('/post-ad',AddUserProductComponent::class)->name('post-ad');
-
-
 // Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
 
-
-Route::get('/package',[HomeController::class,'package'])->name('package');
-
+// Route::get('/package',[HomeController::class,'package'])->name('package');
 Route::get('/edit-ad',[HomeController::class,'editAd'])->name('edit-ad');
-
-
 //frontend user routes
-Route::get('/message',[HomeController::class,'message'])->name('message');
-Route::get('/user-order',[HomeController::class,'userOrder'])->name('user-order');
-Route::get('/user-account',[HomeController::class,'userAccount'])->name('user-account');
-Route::get('/user-ads',[HomeController::class,'userAds'])->name('user-ads');
-Route::get('/user-dashboard',[HomeController::class,'userDashboard'])->name('user-dashboard');
-Route::get('/wishlist',[HomeController::class,'wishlist'])->name('wishlist');
+// Route::get('/message',[HomeController::class,'message'])->name('message');
+// Route::get('/user-order',[HomeController::class,'userOrder'])->name('user-order');
+// Route::get('/user-account',[HomeController::class,'userAccount'])->name('user-account');
+// Route::get('/user-ads',[HomeController::class,'userAds'])->name('user-ads');
+// Route::get('/user-dashboard',[HomeController::class,'userDashboard'])->name('user-dashboard');
+// Route::get('/wishlist',[HomeController::class,'wishlist'])->name('wishlist');
 
 
 
@@ -96,13 +118,13 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth:sanctum','authadmin'])->group(function(){});
 
-Route::middleware(['auth:sanctum','verified'])->group(function(){
-    Route::get('/user/dashboard',[UserController::class,'index'])->name('user.dashboard');
+// Route::middleware(['auth:sanctum','verified'])->group(function(){
+//     Route::get('/user/dashboard',[UserController::class,'index'])->name('user.dashboard');
    
-    Route::get('/user/change-password',[UserController::class,'PasswordChange'])->name('user.changepassword');
-    Route::get('/user/profile',[UserController::class,'Profile'])->name('user.profile');
-    Route::get('/user/profile/edit',[UserController::class,'Editprofile'])->name('user.editprofile');
-});
+//     Route::get('/user/change-password',[UserController::class,'PasswordChange'])->name('user.changepassword');
+//     Route::get('/user/profile',[UserController::class,'Profile'])->name('user.profile');
+//     Route::get('/user/profile/edit',[UserController::class,'Editprofile'])->name('user.editprofile');
+// });
 
 Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/dashboard',DashboardComponent::class)->name('admin.dashboard');

@@ -1,6 +1,7 @@
-@extends('layouts/base')
-@section('container')
-<main>
+<div>
+    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
+
+    <main>
 
 
 
@@ -314,6 +315,4 @@
     </section>
 
 </main>
-
-
-@endsection
+</div>

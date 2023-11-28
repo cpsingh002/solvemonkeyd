@@ -1,6 +1,6 @@
-@extends('layouts/base')
-@section('container')
-<main>
+<div>
+    {{-- Care about people's approval and you will be their prisoner. --}}
+    <main>
 
 
 
@@ -22,4 +22,4 @@
     </div>
 
 </main>
-@endsection
+</div>

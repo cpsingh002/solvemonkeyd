@@ -1,7 +1,6 @@
-@extends('layouts/base')
-@section('container')
-
-<main>
+<div>
+    {{-- In work, do what you enjoy. --}}
+    <main>
 
     
     <div class="messagesArea section-padding2">
@@ -230,4 +229,4 @@
     </div>
 
 </main>
-@endsection
+</div>
