@@ -58,6 +58,8 @@ use App\Livewire\User\UserDashboardComponent;
 use App\Livewire\User\UserOrderComponent;
 use App\Livewire\User\UserWishlistComponent;
 use App\Livewire\User\ProductAdsComponent;
+use App\Livewire\User\Profile\UserEditProfileComponent;
+use App\Livewire\ThankyouComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +81,7 @@ Route::get('/faq',FaqComponent::class)->name('faq');
 Route::get('/terms-and-condition',TermsConditionComponent::class)->name('terms-and-condition');
 Route::get('/privacy-policy',PrivacyPolicyComponent::class)->name('privacy-policy');
 Route::get('/packages',PackagesComponent::class)->name('package');
+Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
 
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/message',MessageComponent::class)->name('message');
@@ -87,6 +90,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/user-dashboard',UserDashboardComponent::class)->name('user-dashboard');
     Route::get('/wishlist',UserWishlistComponent::class)->name('wishlist');
     Route::get('/user-ads',ProductAdsComponent::class)->name('user-ads');
+    Route::get('/user/profile/edit',UserEditProfileComponent::class)->name('user.editprofile');
 });
 
 // frontend routes

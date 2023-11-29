@@ -134,6 +134,17 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="listing">
+                    @foreach($categories as $category)
+                        <li class="singleServices wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="serviceIcon">
+                                <img src="{{asset('admin/category')}}/{{$category->categorythum}}" alt="{{$category->name}}">
+                            </div>
+                            <div class="serviceCap">
+                                <h4><a href="{{'/product-list'}}" class="title">{{$category->name}}</a></h4>
+                                <p class="info">{{$category->productcount->count()}} items</p>
+                            </div>
+                        </li>
+                    @endforeach
                     <li class="singleServices wow fadeInUp" data-wow-delay="0.1s">
                         <div class="serviceIcon">
                             <img src="assets/img/icon/services1.svg" alt="images">
@@ -249,6 +260,24 @@
                     data-nextArrow="<div class=&quot;next-icon&quot;><i class=&quot;las la-angle-right&quot;></i></div>"
                     data-responsive="[{&quot;breakpoint&quot;: 1800,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1600,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1400,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1200,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 991,&quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 768, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 576, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1}}]">
 
+                    @foreach($sellproducts  as $seproduct)
+                        <div class="singleFeature pb-24">
+                            <div class="featureImg">
+                                <a href="{{'/product-details'}}"><img src="{{asset('admin/product/feat')}}/{{$seproduct->featimage}}"
+                                        alt="{{$seproduct->name}}"></a>
+                            </div>
+                            <div class="featureCaption">
+                                <h4><a href="{{'/product-details'}}" class="featureTittle">{{$seproduct->name}}</a></h4>
+                                <p class="featureCap">{{$seproduct->state->name}},{{$seproduct->country->name}} · <strong class="subCap">24hrs ago</strong></p>
+                                <span class="featurePricing">Rs {{$seproduct->prices}}</span>
+                                <div class="btn-wrapper">
+                                    @if($seproduct->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
+                                    @if($seproduct->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
+                                    @if($seproduct->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                     <div class="singleFeature pb-24">
                         <div class="featureImg">
                             <a href="{{'/product-details'}}"><img src="assets/img/gallery/featuredImg1.jpg"
@@ -520,6 +549,29 @@
             </div>
         </div>
         <div class="row">
+            @foreach($exchnageproducts as $exproduct)
+                <div class="col-xl-4 col-lg-6">
+                    <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s">
+                        <div class="singleFlexitem mb-24">
+                            <div class="recentImg">
+                                <a href="{{'/product-details'}}"><img src="{{asset('admin/product/feat')}}/{{$exproduct->featimage}}"
+                                        alt="{{$exproduct->name}}"></a>
+                            </div>
+                            <div class="recentCaption">
+                                <h5><a href="{{'/product-details'}}" class="featureTittle">{{$exproduct->name}}</a>
+                                </h5>
+                                <p class="featureCap">{{$exproduct->state->name}},{{$exproduct->country->name}} · <strong class="subCap">24hrs ago</strong></p>
+                                <span class="featurePricing">Rs {{$exproduct->prices}}</span>
+                                <div class="btn-wrapper">
+                                    @if($exproduct->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
+                                    @if($exproduct->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
+                                    @if($exproduct->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
             <div class="col-xl-4 col-lg-6">
                 <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s">
                     <div class="singleFlexitem mb-24">
@@ -652,6 +704,25 @@
             </div>
         </div>
         <div class="row">
+            @foreach($products as $product)
+                <div class="col-lg-3">
+                    <div class="singleFeature mb-24">
+                        <div class="featureImg">
+                            <a href="{{'/product-details'}}"><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}" alt="{{$product->name}}"></a>
+                        </div>
+                        <div class="featureCaption">
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">{{$product->name}}</a></h4>
+                            <p class="featureCap">{{$product->state->name}},{{$product->country->name}} <strong class="subCap">12hrs ago</strong></p>
+                            <span class="featurePricing">Rs {{$product->prices}}</span>
+                            <div class="btn-wrapper">
+                                @if($product->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
+                                @if($product->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
+                                @if($product->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
             <div class="col-lg-3">
 
                 <div class="singleFeature mb-24">

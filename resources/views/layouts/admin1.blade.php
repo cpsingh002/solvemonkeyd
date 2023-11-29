@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{asset('admin1/vendor/fullcalendar/main.min.css')}}" />
     <link rel="stylesheet" href="{{asset('admin1/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('admin1/css/font-awesome.min')}}" />
+    @livewireStyles
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-97489509-8"></script>
     <script>
     window.dataLayer = window.dataLayer || [];

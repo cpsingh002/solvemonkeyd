@@ -13,4 +13,8 @@ class Category extends Model
     {
         return $this->hasMany(SubCategory::class,'category_id');
     }
+    public function productcount()
+    {
+        return $this->hasMany(Product::class,'category_id');
+    }
 }

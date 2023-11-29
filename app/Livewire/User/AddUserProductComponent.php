@@ -3,7 +3,7 @@
 namespace App\Livewire\User;
 
 use Livewire\Component;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\Category;
@@ -87,7 +87,7 @@ class AddUserProductComponent extends Component
 
     public function changeSubcategory()
     {
-        dd($this->category_id);
+       // dd($this->category_id);
         $this->scategory_id = 0;
         
         $this->option_details='';
@@ -292,7 +292,8 @@ class AddUserProductComponent extends Component
         $product->exchange_for= $this->exchange_for;
 
         $product->name= $this->name;
-        $product->slug=$this->slug;    
+        $product->slug=$this->slug;
+        $product->user_id = Auth::user()->id;    
         $product->save();    
         
         $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();

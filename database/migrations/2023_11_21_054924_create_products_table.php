@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('short_description')->nullable();
             $table->text('description');
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('category_id')->unsigned()->nullable();  
             $table->bigInteger('subcategory_id')->unsigned()->nullable();  
             $table->bigInteger('brand_id')->unsigned()->nullable();
@@ -42,7 +43,9 @@ return new class extends Migration
             $table->boolean('is_rent');
             $table->boolean('is_sell');
             $table->boolean('status');
+            $table->boolean('add_by');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('subcategory_id')->references('id')->on('sub_categories')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');

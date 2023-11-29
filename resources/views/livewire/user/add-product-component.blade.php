@@ -24,7 +24,7 @@
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Category</label>
-                                                            <select name="select" class="niceSelect" wire:model="category_id" wire:change="changeSubcategory"   >
+                                                            <select class="niceSelect" wire:model="category_id" wire:change="changeSubcategory"   >
                                                                 <option value="0">Select Category</option>
                                                                 @foreach($categories as $category)
                                                                 <option value="{{$category->id}}">{{$category->name}}
@@ -38,7 +38,7 @@
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Subcategory</label>
 
-                                                            <select name="select" class="niceSelect" wire:model="scategory_id" wire:change="changeattribute">
+                                                            <select  class="niceSelect" wire:model="scategory_id" wire:change="changeattribute">
                                                                 <option value="0">Select Sub Category</option>
                                                                 @foreach($scategories as $scategory)
                                                                 <option value="{{$scategory->id}}">{{$scategory->name}}
@@ -51,7 +51,7 @@
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Brand</label>
-                                                            <select name="select" class="niceSelect">
+                                                            <select  class="niceSelect">
                                                                 <option value="0">Select Brand Name</option>
                                                                 @foreach($brands as $brand)
                                                                 <option value="{{$brand->id}}">{{$brand->name}}</option>

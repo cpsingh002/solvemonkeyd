@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Livewire\User;
+namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Product;
 use Cart;
 use Illuminate\Support\Facades\Auth;
 
-class UserWishlistComponent extends Component
+class WishlistComponent extends Component
 {
     public function movetoCart($rowId)
     {
@@ -42,6 +42,6 @@ class UserWishlistComponent extends Component
         {
             Cart::instance('wishlist')->restore(auth::user()->email);
         }
-        return view('livewire.user.user-wishlist-component')->layout('layouts.base');
+        return view('livewire.wishlist-component')->layout('layouts.base');
     }
 }

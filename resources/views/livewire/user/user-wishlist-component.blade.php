@@ -53,52 +53,32 @@
                             </div>
                         </div>
 
-
-                        <div class="promoteAds">
-                            <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s">
-                                <div class="singlePromoteAds mb-24  wow fadeInUp social" data-wow-delay="0.0s">
-                                    <div class="adsCap">
-                                        <div class="adsImg">
-                                            <img src="../assets/img/gallery/wishlist1.jpg" alt="images">
-                                        </div>
-                                        <div class="adsCaption">
-                                            <h5><a href="#" class="adsTittle">A pair of sneakers for
-                                                    sell</a></h5>
-                                            <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
-                                            </p>
-                                            <span class="adsPricing">$330.80</span>
+                        @if(Cart::instance('wishlist')->count() > 0)
+                            <div class="promoteAds">
+                                @foreach(Cart::instance('wishlist')->content() as $item)
+                                    <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s">
+                                        <div class="singlePromoteAds mb-24  wow fadeInUp social" data-wow-delay="0.0s">
+                                            <div class="adsCap">
+                                                <div class="adsImg">
+                                                    <img src="{{asset('assets/images/products')}}/{{$item->model->image}}" alt="{{$item->model->name}}">
+                                                </div>
+                                                <div class="adsCaption">
+                                                    <h5><a href="#" class="adsTittle">{{$item->model->name}}</a></h5>
+                                                    <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
+                                                    </p>
+                                                    <span class="adsPricing">$330.80</span>
+                                                </div>
+                                            </div>
+                                            <div class="btn-wrapper mb-20">
+                                            <a href="#" wire:click.prevent="removeFromWishlist({{$item->model->id}})"><i class="fa fa-heart fill-heart"></i></a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="btn-wrapper mb-20">
-                                        <a href="{{'wishlist'}}" class="cmn-btn-outline5"><i
-                                                class="las la-heart icon"></i>Favourite</a>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-
-
-                            <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s">
-                                <div class="singlePromoteAds mb-24  wow fadeInUp social" data-wow-delay="0.2s">
-                                    <div class="adsCap">
-                                        <div class="adsImg">
-                                            <img src="../assets/img/gallery/wishlist2.jpg" alt="images">
-                                        </div>
-                                        <div class="adsCaption">
-                                            <h5><a href="{{'product-details'}}" class="adsTittle">Luxury couple
-                                                    apartment</a></h5>
-                                            <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
-                                            </p>
-                                            <span class="adsPricing">$120.34</span>
-                                        </div>
-                                    </div>
-                                    <div class="btn-wrapper mb-20">
-                                        <a href="{{'wishlist'}}" class="cmn-btn-outline5"><i
-                                                class="las la-heart icon"></i>Favourite</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        @else
+                            <p>No item in wishlist</p>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -57,73 +57,57 @@
                             </div>
                             <div class="recentCaption">
                                 <div class="cap">
-                                    <h5><a href="#" class="featureTittle">Cameron Williamson</a></h5>
-                                    <p class="featureCap">Member since 2019</p>
+                                    <h5><a href="#" class="featureTittle">{{Auth::user()->name}}</a></h5>
+                                    <p class="featureCap">Member since {{Auth::user()->created_at->format('Y')}}</p>
                                 </div>
                                 <div class="btn-wrapper">
-                                    <a href="#" class="cmn-btn-outline2">Edit Profile</a>
+                                    <a href="{{route('user.editprofile')}}" class="cmn-btn-outline2">Edit Profile</a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="infoSingle">
                             <ul class="listing">
-                                <li class="listItem"><i class="las la-map-marker-alt icon"></i>Ash Dr. San Jose, South
-                                    Dakota</li>
-                                <li class="listItem"><i class="lar la-envelope-open icon"></i><a
-                                        href="https://bytesed.com/cdn-cgi/l/email-protection" class="__cf_email__"
-                                        data-cfemail="1c6f696c6c736e685c447b79727573696f327f7371">[email&#160;protected]</a>
+                                <li class="listItem"><i class="las la-map-marker-alt icon"></i>@if(Auth::user()->city !=''){{Auth::user()->city}},{{Auth::user()->state}},{{Auth::user()->country}} @else <span>Not provided yet</span> @endif</li>
+                                <li class="listItem"><i class="lar la-envelope-open icon"></i>{{Auth::user()->email}}</a>
                                 </li>
-                                <li class="listItem"><i class="las la-phone icon"></i>(480) 555-0103</li>
+                                <li class="listItem"><i class="las la-phone icon"></i>@if(Auth::user()->phone !='') {{Auth::user()->phone}} @else <span>Not provided yet</span> @endif</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="myListing">
-
-                        <div class="singleFlexitem mb-24  wow fadeInUp social" data-wow-delay="0.0s">
-                            <div class="listCap">
-                                <div class="recentImg">
-                                    <img src="../assets/img/gallery/myList1.jpg" alt="images">
-                                </div>
-                                <div class="recentCaption">
-                                    <h5><a href="#" class="featureTittle">Luxury couple apartment</a>
-                                    </h5>
-                                    <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
-                                    <span class="featurePricing">$124.80</span>
-                                    <div class="btn-wrapper">
-                                        <span class="pro-btn1">RENOVETED</span>
-                                        <span class="pro-btn2">PROMOTED</span>
+                        @if(isset($products[0]))
+                            @foreach($products as $product)
+                                <div class="singleFlexitem mb-24  wow fadeInUp social" data-wow-delay="0.0s">
+                                    <div class="listCap">
+                                        <div class="recentImg">
+                                            <img src="../assets/img/gallery/myList1.jpg" alt="images">
+                                        </div>
+                                        <div class="recentCaption">
+                                            <h5><a href="#" class="featureTittle">Luxury couple apartment</a>
+                                            </h5>
+                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
+                                            <span class="featurePricing">$124.80</span>
+                                            <div class="btn-wrapper">
+                                                <span class="pro-btn1">RENOVETED</span>
+                                                <span class="pro-btn2">PROMOTED</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btn-wrapper mb-20">
+                                        <a href="#" class="cmn-btn-outline4 mr-10"><i class="lar la-eye icon"></i>44k</a>
+                                        <a href="#" class="cmn-btn4">Edit Ad</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="btn-wrapper mb-20">
-                                <a href="#" class="cmn-btn-outline4 mr-10"><i class="lar la-eye icon"></i>44k</a>
-                                <a href="#" class="cmn-btn4">Edit Ad</a>
-                            </div>
-                        </div>
-
-                        <div class="singleFlexitem mb-24  wow fadeInUp social" data-wow-delay="0.1s">
-                            <div class="listCap">
-                                <div class="recentImg">
-                                    <img src="../assets/img/gallery/myList2.jpg" alt="images">
-                                </div>
-                                <div class="recentCaption">
-                                    <h5><a href="../add_details.html" class="featureTittle">Beats Studio 3 Wireless Over
-                                            Ear</a></h5>
-                                    <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
-                                    <span class="featurePricing">$124.80</span>
-                                    <div class="btn-wrapper">
-                                        <span class="pro-btn1">RENOVETED</span>
-                                        <span class="pro-btn2">PROMOTED</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="btn-wrapper mb-20">
-                                <a href="#" class="cmn-btn-outline4 mr-10"><i class="lar la-eye icon"></i>44k</a>
-                                <a href="#" class="cmn-btn4">Edit Ad</a>
-                            </div>
-                        </div>
+                            @endforeach
+                        @else
+                        <p> no item add yet</p>
+                        @endif
+                        <a class="list-title" href="{{'/post-ad'}}">
+                            <p> Add more product for sell,rent and exchange</p>
+                        </a>
+                        
                     </div>
                 </div>
             </div>

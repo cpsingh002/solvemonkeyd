@@ -13,6 +13,13 @@
 
 
                             <ul class="listing listScroll">
+                                @foreach($categories as $category)
+                                    <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="{{asset('admin/category')}}/{{$category->icon}}" class="icon" alt="{{$category->name}}">
+                                        <span>{{$category->name}} <span class="itemNumber">(1,{{$category->productcount->count()}})</span></span>
+                                    </a></li>
+                                
+                                @endforeach
                                 <li class="listItem"><a href="{{'/product-list'}}" class="items">
                                         <img src="assets/img/icon/caticon1.svg" class="icon" alt="images">
                                         <span>Electronics <span class="itemNumber">(1,200)</span></span>
@@ -62,14 +69,14 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="input-form">
-                                                <input type="text" placeholder="Min">
+                                                <input type="text" placeholder="Min" wire:model="min_price" wire:change="minchange">
 
                                                 <div class="icon"><i class="las la-dollar-sign"></i></div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="input-form">
-                                                <input type="text" placeholder="Max">
+                                                <input type="text" placeholder="Max" wire:model="max_price" wire:change="maxchange">
 
                                                 <div class="icon"><i class="las la-dollar-sign"></i></div>
                                             </div>
@@ -190,6 +197,29 @@
 
                         <div class="gridView customTab-content customTab-content-1 active">
                             <div class="row ">
+                                @foreach($products as $product)
+                                    <div class="col-xl-4  col-lg-6  col-md-12 col-sm-6">
+                                        <div class="singleFeature mb-24">
+                                            <div class="featureImg">
+                                                <a href="{{'/product-detail'}}"><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}"
+                                                        alt="{{$product->name}}"></a>
+                                            </div>
+                                            <div class="featureCaption">
+                                                <h4><a href="{{'/product-detail'}}" class="featureTittle">Apple smartwatch
+                                                        6</a>
+                                                </h4>
+                                                <p class="featureCap">{{$product->state->name}},{{$product->country->name}} · <strong class="subCap">12hrs
+                                                        ago</strong></p>
+                                                <span class="featurePricing">Rs{{$product->prices}}</span>
+                                                <div class="btn-wrapper">
+                                                    @if($product->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
+                                                    @if($product->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
+                                                    @if($product->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                                 <div class="col-xl-4  col-lg-6  col-md-12 col-sm-6">
                                     <div class="singleFeature mb-24">
                                         <div class="featureImg">
@@ -372,6 +402,28 @@
 
                         <div class="listingView customTab-content customTab-content-2">
                             <div class="row ">
+                                @foreach($products as $product)
+                                    <div class="col-xl-6 col-lg-12">
+                                        <div class="singleFlexitem mb-24">
+                                            <div class="recentImg">
+                                                <a href="{{'/product-detail'}}"><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}"
+                                                        alt="{{$product->name}}"></a>
+                                            </div>
+                                            <div class="recentCaption">
+                                                <h5><a href="{{'/product-detail'}}" class="featureTittle">{{$product->name}}</a>
+                                                </h5>
+                                                <p class="featureCap">{{$product->state->name}},{{$product->country->name}} · <strong class="subCap">24hrs
+                                                        ago</strong></p>
+                                                <span class="featurePricing">Rs{{$product->prices}}</span>
+                                                <div class="btn-wrapper">
+                                                    @if($product->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
+                                                    @if($product->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
+                                                    @if($product->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                                 <div class="col-xl-6 col-lg-12">
                                     <div class="singleFlexitem mb-24">
                                         <div class="recentImg">
