@@ -101,6 +101,7 @@ class AddUserProductComponent extends Component
         $this->option_details='';
         $this->brand_id = 0;
         $this->inputs=[];
+       // dd($this->b_id,$this->category_id,$this->s_id);
         $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
         foreach($at as $sttt)
         {
@@ -179,35 +180,13 @@ class AddUserProductComponent extends Component
     }
     public function changehghg($at_id, $key)
     {
-        //dd($this->attribute_arr[$key]);
-       // dd($at_id,$key,$this->attributeoption_id.$key);
+       
        $this->inputs[$at_id] =$this->attribute_arr[$key];
-    //    if(!in_array($at_id,$this->attributeoption_id))
-    //     {
-    //         array_push($this->inputs,$at_id);
-    //         array_push($this->attribute_arr,$this->attributeoption_id);
-           
-    //     }
+   
     }
     public function addProduct()
     {
-        // $this->validate([
-        //     'inputs'=>'required',
-        //     'attribute_arr'=>'required']);
-        //dd($this->attribute_arr['1']);
-    //     dd($this->inputs,$this->attribute_arr);
-    //     $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
-    //     foreach($at as $key => $atsd){
-    //        // dd($this->dfh.$key);
-    //        $fdg= $this->attributeoption_id[$key];
-    //        dd($fdg);
-    //         $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
-    //        // dd($sdgh);
-         
-
-    //     }
-    //     dd($sdgh);
-    //    // dd($this->attributeoptionid.'0');
+          
         
         $this->validate([
             'category_id'=>'required',

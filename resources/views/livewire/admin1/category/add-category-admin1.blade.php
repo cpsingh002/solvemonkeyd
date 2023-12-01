@@ -63,8 +63,12 @@
                                              <div class="mb-4">
                                                  <label for="form-product/icon" class="form-label">Category Icon</label>
                                                  <div class="input-group input-group--sa-slug">
-                                                     <input type="text" placeholder="Category Icon" class="form-control"
+                                                     <input type="file" placeholder="Category Icon" class="form-control"
                                                          wire:model="icon" />
+                                                         @if($icon)
+                                                     <img src="{{$icon->temporaryUrl()}}" width="120" />
+                                                     @endif
+                                                     
                                                      @error('icon') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>

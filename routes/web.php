@@ -134,10 +134,10 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/dashboard',DashboardComponent::class)->name('admin.dashboard');
     Route::get('/admin/categories',CategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category/add',AddCategoryComponent::class)->name('admin.addcategory');
-    Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}',EditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/category/edit/{category_slug}',EditCategoryComponent::class)->name('admin.editcategory');
     Route::get('/admin/subcategories',SubCategoryComponent::class)->name('admin.subcategories');
     Route::get('/admin/subcategory/add',AddSubCategoryComponent::class)->name('admin.addsubcategory');
-    Route::get('/admin/subcategory/edit/{category_slug}/{scategory_slug?}',EditSubCategoryComponent::class)->name('admin.editsubcategory');
+    Route::get('/admin/subcategory/edit/{scategory_slug}',EditSubCategoryComponent::class)->name('admin.editsubcategory');
     Route::get('/admin/packages',Packagecomponent::class)->name('admin.packages');
     Route::get('/admin/package/add',AddPackagecomponent::class)->name('admin.addpackage');
     Route::get('/admin/package/edit/{pid}',EditPackagecomponent::class)->name('admin.editpackage');

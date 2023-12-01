@@ -65,7 +65,7 @@
                                     </ul>
                                 </td>
                                  <td>
-                                     <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="fa fa-edit"></i></a>
+                                     <a href="{{route('admin.editsubcategory',['scategory_slug'=>$category->slug])}}"><i class="fa fa-edit"></i></a>
                                      <a href="#" onclick="confirm('Are you sure, You want to delet this category') || event.stopImmediatePropagation()"
                                          wire:click.prevent="deleteCategory({{$category->id}})"><i class="fa fa-times ml-1 text-danger"></i></a>
                                  </td>

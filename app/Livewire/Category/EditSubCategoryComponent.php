@@ -22,12 +22,12 @@ class EditSubCategoryComponent extends Component
     public $icon;
     public $categorythum;
     public $newimage;
+    public $newicon;
 
-    public function mount($category_slug,$scategory_slug=null)
+    public function mount($scategory_slug)
     {
         //dd($scategory_slug);
-        if($scategory_slug)
-        {
+       
             $this->scategory_slug = $scategory_slug;
             $scategory = SubCategory::where('slug',$scategory_slug)->first();
             $this->scategory_id = $scategory->id;
@@ -37,15 +37,7 @@ class EditSubCategoryComponent extends Component
             $this->icon = $scategory->icon;
             $this->categorythum = $scategory->categorythum;
             //dd($this->slug);
-        }else{
-            $this->category_slug= $category_slug;
-            $category =Category::where('slug',$this->category_slug)->first();
-            $this->category_id = $category->id;
-            $this->name= $category->name;
-            $this->slug = $category->slug;
-            $this->icon = $category->icon;
-            $this->categorythum = $category->categorythum;
-        }
+        
     }
 
 
@@ -92,12 +84,17 @@ class EditSubCategoryComponent extends Component
                 'newimage'=>'required|mimes:jpeg,jpg,png',
             ]);
         }
-        if($this->scategory_id){
+      
             $scategory =  SubCategory::find($this->scategory_id);
             $scategory->name =$this->name;
             $scategory->slug = $this->slug;
             $scategory->category_id = $this->category_id;
-            $scategory->icon = $this->icon;
+            if($this->newicon){
+                //unlink('admin/category/icon'.'/'.$scategory->icon);
+                $imageNamei= Carbon::now()->timestamp.'.'.$this->newicon->extension();
+                $this->newicon->storeAs('category/icon',$imageNamei);
+                $scategory->icon = $imageNamei;
+            }
             if($this->newimage){
                 unlink('admin/category'.'/'.$scategory_id->categorythum);
                 $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
@@ -106,19 +103,7 @@ class EditSubCategoryComponent extends Component
             }
             $scategory->save();
             
-        }else{
-            $category = Category::find($this->category_id);
-            $category->name = $this->name;
-            $category->slug = $this->slug;
-            $category->icon = $this->icon;
-            if($this->newimage){
-                unlink('admin/category'.'/'.$category->categorythum);
-                $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
-                $this->newimage->storeAs('admin/category',$imageName);
-                $category->categorythum = $imageName;
-            }
-            $category->save();
-        }
+        
         session()->flash('message','Category has been upadted successfully !');
     }
     public function render()

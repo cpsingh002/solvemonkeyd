@@ -25,8 +25,11 @@
                              <div class="sa-entity-layout__main">
                                  <div class="card">
                                      <div class="card-body p-5">
+                                     @if(Session::has('message'))
+                                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                         @endif
 
-                                         <form class="form-horizontal" wire:submit.prevent="storeCategory">
+                                         <form class="form-horizontal" wire:submit.prevent="updateCategory">
                                              <div class="mb-5">
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
@@ -60,8 +63,13 @@
                                              <div class="form-group">
                                 <label class="col-md-4 control-label">Category Icon</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Category Icon" class="form-control input-md"  wire:model="icon"/>
-                                    @error('icon') <p class="text-danger">{{$message}}</p> @enderror
+                                    <input type="file" placeholder="Category Icon" class="form-control input-md"  wire:model="newicon"/>
+                                    @if($newicon)
+                                        <img src="{{$newicon>temporaryUrl()}}" width="120" />
+                                    @else
+                                        <img src="{{asset('admin/category/icon')}}/{{$icon}}" width="120" />
+                                    @endif
+                                    @error('newicon') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">

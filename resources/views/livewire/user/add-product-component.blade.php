@@ -24,7 +24,7 @@
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Category</label>
-                                                            <select class="niceSelect" wire:model="category_id" wire:change="changeSubcategory"   >
+                                                            <select class="form-control" wire:model="category_id" wire:change="changeSubcategory"   >
                                                                 <option value="0">Select Category</option>
                                                                 @foreach($categories as $category)
                                                                 <option value="{{$category->id}}">{{$category->name}}
@@ -38,7 +38,7 @@
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Subcategory</label>
 
-                                                            <select  class="niceSelect" wire:model="scategory_id" wire:change="changeattribute">
+                                                            <select  class="form-control" wire:model="scategory_id" wire:change="changeattribute">
                                                                 <option value="0">Select Sub Category</option>
                                                                 @foreach($scategories as $scategory)
                                                                 <option value="{{$scategory->id}}">{{$scategory->name}}
@@ -51,7 +51,7 @@
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Brand</label>
-                                                            <select  class="niceSelect">
+                                                            <select  class="form-control" wire:model="brand_id" wire:change="changebrands">
                                                                 <option value="0">Select Brand Name</option>
                                                                 @foreach($brands as $brand)
                                                                 <option value="{{$brand->id}}">{{$brand->name}}</option>
@@ -63,7 +63,7 @@
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Brand Model Number</label>
-                                                            <select name="select" class="niceSelect">
+                                                            <select name="select" class="form-control">
                                                                 @foreach($modelnumbers as $modelnumber)
                                                                 <option value="{{$modelnumber->id}}">
                                                                     {{$modelnumber->name}}
@@ -95,7 +95,7 @@
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Available for Exchange</label>
-                                                            <select name="select" class="niceSelect">
+                                                            <select name="select" class="form-control">
                                                                 <option value>Yes</option>
                                                                 <option value>No</option>
                                                             </select>
@@ -104,7 +104,7 @@
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Available for Rent</label>
-                                                            <select name="select" class="niceSelect">
+                                                            <select name="select" class="form-control">
                                                                 <option value>Yes</option>
                                                                 <option value>No</option>
                                                             </select>
@@ -113,7 +113,7 @@
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Available for Sell</label>
-                                                            <select name="select" class="niceSelect">
+                                                            <select name="select" class="form-control">
                                                                 <option value>Yes</option>
                                                                 <option value>No</option>
                                                             </select>
@@ -164,7 +164,7 @@
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">Country</label>
-                                                            <select name="select" class="niceSelect">
+                                                            <select name="select" class="form-control">
                                                                 <option value>Yes</option>
                                                                 <option value>No</option>
                                                             </select>
@@ -174,7 +174,7 @@
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">State</label>
-                                                            <select name="select" class="niceSelect">
+                                                            <select name="select" class="form-control">
                                                                 <option value>Yes</option>
                                                                 <option value>No</option>
                                                             </select>
@@ -184,7 +184,7 @@
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="select-itms">
                                                             <label class="infoTitle">City</label>
-                                                            <select name="select" class="niceSelect">
+                                                            <select name="select" class="form-control">
                                                                 <option value>Yes</option>
                                                                 <option value>No</option>
                                                             </select>
