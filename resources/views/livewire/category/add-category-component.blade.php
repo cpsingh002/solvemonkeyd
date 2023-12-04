@@ -66,7 +66,7 @@
                                                      <input type="file" placeholder="Category Icon" class="form-control"
                                                          wire:model="icon" />
                                                          @if($icon)
-                                                     <img src="{{$icon->temporaryUrl()}}" width="120" />
+                                                     <!-- <img src="{{$icon->temporaryUrl()}}" width="120" /> -->
                                                      @endif
                                                      
                                                      @error('icon') <p class="text-danger">{{$message}}</p> @enderror

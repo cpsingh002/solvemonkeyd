@@ -10,24 +10,24 @@
                     <div class="accountSidebar">
                         <ul class="listing listScroll">
                             <li class="listItem">
-                                <a href="{{'user-dashboard'}}" class="items active"> <i
+                                <a href="{{route('user-dashboard')}}" class="items active" > <i
                                         class="lar la-user-circle icon"></i> Dashboard</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'user-account'}}" class="items "> <i class="lar la-user-circle icon"></i> My
+                                <a href="{{route('user-account')}}" class="items "> <i class="lar la-user-circle icon"></i> My
                                     Account</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'user-ads'}}" class="items"><i class="las la-ad icon"></i> My Product Ads</a>
+                                <a href="{{route('user-ads')}}" class="items"><i class="las la-ad icon"></i> My Product Ads</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'user-order'}}" class="items"><i class="las la-ad icon"></i> My Orders</a>
+                                <a href="{{route('user-order')}}" class="items"><i class="las la-ad icon"></i> My Orders</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'wishlist'}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
+                                <a href="{{route('wishlist')}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'message'}}" class="items"> <i class="lar la-heart icon"></i> Chat</a>
+                                <a href="{{route('message')}}" class="items"> <i class="lar la-heart icon"></i> Chat</a>
                             </li>
                         </ul>
                         <div class="accessAccount">
@@ -82,22 +82,23 @@
                                 <div class="singleFlexitem mb-24  wow fadeInUp social" data-wow-delay="0.0s">
                                     <div class="listCap">
                                         <div class="recentImg">
-                                            <img src="../assets/img/gallery/myList1.jpg" alt="images">
+                                            <img src="{{asset('admin/product/feat')}}/{{$product->featimage}}" alt="{{$product->name}}" width="200px" hight="300px">
                                         </div>
                                         <div class="recentCaption">
-                                            <h5><a href="#" class="featureTittle">Luxury couple apartment</a>
+                                            <h5><a href="{{route('product.details',['slug'=>$product->slug])}}" class="featureTittle">{{$product->name}}</a>
                                             </h5>
-                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs ago</strong></p>
-                                            <span class="featurePricing">$124.80</span>
+                                            <p class="featureCap">{{$product->state->name}},{{$product->country->name}} · <strong class="subCap">24hrs ago</strong></p>
+                                            <span class="featurePricing">${{$product->prices}}</span>
                                             <div class="btn-wrapper">
-                                                <span class="pro-btn1">RENOVETED</span>
-                                                <span class="pro-btn2">PROMOTED</span>
+                                                @if($product->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
+                                                @if($product->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
+                                                @if($product->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
                                             </div>
                                         </div>
                                     </div>
                                     <div class="btn-wrapper mb-20">
                                         <a href="#" class="cmn-btn-outline4 mr-10"><i class="lar la-eye icon"></i>44k</a>
-                                        <a href="#" class="cmn-btn4">Edit Ad</a>
+                                        <a href="{{route('edit-ad',['pid'=>$product->id])}}" class="cmn-btn4">Edit Ad</a>
                                     </div>
                                 </div>
                             @endforeach

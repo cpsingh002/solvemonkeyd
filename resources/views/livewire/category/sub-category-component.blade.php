@@ -32,6 +32,7 @@
                                  <th>Sub Category Name</th>
                                  <th>Sub Category Image</th>
                                  <th>Sub Slug</th>
+                                 <th>Sub Icon</th>
                                  <th>Category</th>
                                  <th>Brands</th>
                                  <th>Attribute</th>
@@ -47,6 +48,7 @@
                                  <td>
                                      <div class="badge badge-sa-success">{{$category->slug}}</div>
                                  </td>
+                                 <td><img src="{{asset('admin/category/icon')}}/{{$category->icon}}" width="60"></td>
                                  <td>{{$category->category->name}}</td>
                                  <td>
                                     <ul class="sclist">

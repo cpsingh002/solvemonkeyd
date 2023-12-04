@@ -129,7 +129,7 @@
                                                         @enderror
                                                     </div>
                                                     <div class="mb-4">
-                                                        <label for="form-category/slug" class="form-label">Category Slug</label>
+                                                        <label for="form-category/slug" class="form-label">Product Slug</label>
                                                         <div class="input-group input-group--sa-slug">
                                                             <input type="text" placeholder="Category Slug" class="form-control"
                                                                 wire:model="slug" />
@@ -189,13 +189,13 @@
                                                             </div>
                                                         </div>
                                                     </div>                                                        
-                                                    <div class="mb-4">
+                                                    {{--<div class="mb-4">
                                                             <label class="form-label">Product Specification</label>
                                                             <input type="text" placeholder="Product Specification"
                                                                 class="form-control" wire:model="pname" />
                                                             @error('pname') <p class="text-danger">{{$message}}</p>
                                                             @enderror
-                                                    </div>
+                                                    </div>--}}
                                                     <div class="mb-4">
                                                         <label class="form-label">Price</label>
                                                         <div class="input-group input-group--sa-slug">
@@ -205,7 +205,7 @@
                                                             </p> @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="mb-4">
+                                                    {{--<div class="mb-4">
                                                     
                                                         <label class="form-label">How many year old</label>
                                                         <div class="input-group input-group--sa-slug">
@@ -227,7 +227,7 @@
                                                                 {{$message}}</p>
                                                             @enderror
                                                         </div>
-                                                    </div>
+                                                    </div>--}}
 
                                                     <div class="row">
                                                         <div class="col-md-4">

@@ -30,7 +30,7 @@
                 <div class="responsive-mobile-menu">
                     <div class="logo-wrapper">
                         <a href="{{'/'}}" class="logo">
-                            <img src="assets/img/logo/solve-logo.png" alt="images">
+                            <img src="{{asset('assets/img/logo/solve-logo.png')}}" alt="images">
                         </a>
                     </div>
 
@@ -44,9 +44,9 @@
 
                     <div class="collapse navbar-collapse" id="bizcoxx_main_menu">
                         <ul class="navbar-nav">
-                            <li><a href="{{'/product-list'}}">All Ads</a></li>
-                            <li><a href="{{'/about'}}">About us</a></li>
-                            <li><a href="{{'/contact'}}">contact</a></li>
+                            <li><a href="{{route('product-list')}}">All Ads</a></li>
+                            <li><a href="{{route('about')}}">About us</a></li>
+                            <li><a href="{{route('contact')}}">contact</a></li>
                         </ul>
                     </div>
 
@@ -69,23 +69,23 @@
                                 <ul>
 
                                     <li class="singleList">
-                                        <a href="{{'/product-list'}}" class="tittle"><i
+                                        <a href="{{route('product-list')}}" class="tittle"><i
                                                 class="las la-phone-volume icon"></i>
                                             Property</a>
                                     </li>
                                     <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="{{'/product-list'}}" class="tittle"><i
+                                        <a href="{{route('product-list')}}" class="tittle"><i
                                                 class="las la-sort-amount-up icon"></i>Vehicles</a>
                                         <div class="megamenuWrapper">
                                             <div class="singleMegamenu">
                                                 <h5 class="submenu-title">Tittle One</h5>
                                                 <div class="megamenu-product">
                                                     <ul class="product-items">
-                                                        <li><a href="{{'/product-list'}}" class="list">Car</a></li>
-                                                        <li><a href="{{'/product-list'}}" class="list">Bike</a></li>
-                                                        <li><a href="{{'/product-list'}}" class="list">Scooter</a></li>
-                                                        <li><a href="{{'/product-list'}}" class="list">Taxi</a></li>
-                                                        <li><a href="{{'/product-list'}}" class="list">Loading
+                                                        <li><a href="{{route('product-list')}}" class="list">Car</a></li>
+                                                        <li><a href="{{route('product-list')}}" class="list">Bike</a></li>
+                                                        <li><a href="{{route('product-list')}}" class="list">Scooter</a></li>
+                                                        <li><a href="{{route('product-list')}}" class="list">Taxi</a></li>
+                                                        <li><a href="{{route('product-list')}}" class="list">Loading
                                                                 Vehicle</a>
                                                         </li>
                                                     </ul>
@@ -103,7 +103,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems1.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems1.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -120,7 +120,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems2.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems2.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -137,7 +137,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems3.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems3.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -154,7 +154,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems4.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems4.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -171,7 +171,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems5.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems5.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -188,7 +188,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems6.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems6.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -205,7 +205,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems7.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems7.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -222,7 +222,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat1.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat1.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -239,7 +239,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems9.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems9.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -256,7 +256,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems4.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems4.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -280,7 +280,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat1.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat1.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -297,7 +297,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat2.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat2.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -314,7 +314,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat3.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat3.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -331,7 +331,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat4.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat4.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -348,7 +348,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat5.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat5.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -365,7 +365,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat6.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat6.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -382,7 +382,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat7.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat7.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -399,7 +399,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat8.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat8.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -416,7 +416,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat9.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat9.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -433,7 +433,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/phoneCat5.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/phoneCat5.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -457,7 +457,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/recentListings1.jpg"
+                                                                src="{{asset('assets/img/gallery/recentListings1.jpg')}}"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -474,7 +474,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/recentListings2.jpg"
+                                                                src="{{asset('assets/img/gallery/recentListings2.jpg')}}"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -491,7 +491,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/recentListings3.jpg"
+                                                                src="{{asset('assets/img/gallery/recentListings3.jpg')}}"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -508,7 +508,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/recentListings4.jpg"
+                                                                src="{{asset('assets/img/gallery/recentListings4.jpg')}}"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -525,7 +525,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems5.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems5.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -542,7 +542,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/recentListings6.jpg"
+                                                                src="{{asset('assets/img/gallery/recentListings6.jpg')}}"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -559,7 +559,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems9.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems9.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -576,7 +576,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems1.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems1.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -593,7 +593,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/catitems2.jpg" alt="images">
+                                                                src="{{asset('assets/img/gallery/catitems2.jpg')}}" alt="images">
                                                         </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -610,7 +610,7 @@
                                                 <div class="megamenu-product">
                                                     <div class="product-img">
                                                         <a href="{{'/product-list'}}"> <img
-                                                                src="assets/img/gallery/recentListings6.jpg"
+                                                                src="{{asset('assets/img/gallery/recentListings6.jpg')}}"
                                                                 alt="images"> </a>
                                                     </div>
                                                     <div class="megamenu-contents">
@@ -664,7 +664,7 @@
                                     <li class="list">
                                         <div class="chat-list-flex">
                                             <div class="item-icon">
-                                                <img src="assets/img/gallery/user.png" alt="img">
+                                                <img src="{{asset('assets/img/gallery/user.png')}}" alt="img">
                                             </div>
                                             <div class="chat-contents">
                                                 <a class="list-title" href="{{'/message'}}"> Rupak </a>
@@ -675,7 +675,7 @@
                                     <li class="list">
                                         <div class="chat-list-flex">
                                             <div class="item-icon">
-                                                <img src="assets/img/gallery/user.png" alt="img">
+                                                <img src="{{asset('assets/img/gallery/user.png')}}" alt="img">
                                             </div>
                                             <div class="chat-contents">
                                                 <a class="list-title" href="{{'/message'}}">Md. Shahin </a>
@@ -686,7 +686,7 @@
                                     <li class="list">
                                         <div class="chat-list-flex">
                                             <div class="item-icon">
-                                                <img src="assets/img/gallery/user.png" alt="img">
+                                                <img src="{{asset('assets/img/gallery/user.png')}}" alt="img">
                                             </div>
                                             <div class="chat-contents">
                                                 <a class="list-title" href="{{'/message'}}"> Shariful Rahman </a>
@@ -697,7 +697,7 @@
                                     <li class="list">
                                         <div class="chat-list-flex">
                                             <div class="item-icon">
-                                                <img src="assets/img/gallery/user.png" alt="img">
+                                                <img src="{{asset('assets/img/gallery/user.png')}}" alt="img">
                                             </div>
                                             <div class="chat-contents">
                                                 <a class="list-title" href="{{'/message'}}"> Suzon islam </a>
@@ -708,7 +708,7 @@
                                     <li class="list">
                                         <div class="chat-list-flex">
                                             <div class="item-icon">
-                                                <img src="assets/img/gallery/user.png" alt="img">
+                                                <img src="{{asset('assets/img/gallery/user.png')}}" alt="img">
                                             </div>
                                             <div class="chat-contents">
                                                 <a class="list-title" href="{{'/message'}}"> Md Zahid </a>
@@ -728,21 +728,21 @@
                         @if(Route::has('login'))
                         @auth
                         <li class="single userAccount">
-                            <button class="user"><img src="assets/img/gallery/user.png" alt="images"></button>
+                            <button class="user"><img src="{{asset('assets/img/gallery/user.png')}}" alt="images"></button>
                             <div class="userAccount-wrapper">
                                 <h6 class="ac-title">User Account</h6>
                                 <ul class="ac-list">
                                     <li class="list">
-                                        <a class="list-title" href="{{'user-account'}}"> <i
+                                        <a class="list-title" href="{{route('user-account')}}"> <i
                                                 class="lar la-user-circle icon"></i> My Account </a>
                                     </li>
                                     <li class="list">
-                                        <a class="list-title" href="{{'wishlist'}}"><i class="lar la-heart icon"></i>
+                                        <a class="list-title" href="{{route('wishlist')}}"><i class="lar la-heart icon"></i>
                                             Wishlist </a>
                                     </li>
 
                                     <li class="list">
-                                        <a class="list-title" href="{{'user-ads'}}"><i
+                                        <a class="list-title" href="{{route('user-ads')}}"><i
                                                 class="las la-address-card icon"></i> Product ADs </a>
                                     </li>
 
@@ -803,7 +803,7 @@
             </div>
             <h2 class="modialTittle">Post Your <span>Ad</span> ?</h2>
             <div class="btn-wrapper">
-                <a href="{{'/post-ad'}}" class="cmn-btn02">Yes , Post ad</a>
+                <a href="{{route('post-ad')}}" class="cmn-btn02">Yes , Post ad</a>
             </div>
         </div>
     </div>

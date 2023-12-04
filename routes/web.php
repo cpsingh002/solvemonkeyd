@@ -42,6 +42,7 @@ use App\Livewire\AttributeOption\EditAttributeOptionComponent;
 use App\Http\Controllers\HomeController;
 
 use App\Livewire\User\AddUserProductComponent;
+use App\Livewire\User\EditUserProductComponent;
 use App\Livewire\Frontend\HomeComponent;
 use App\Livewire\Frontend\AboutComponent;
 use App\Livewire\Frontend\ContactComponent;
@@ -51,6 +52,8 @@ use App\Livewire\Frontend\FaqComponent;
 use App\Livewire\Frontend\PrivacyPolicyComponent;
 use App\Livewire\Frontend\TermsConditionComponent;
 use App\Livewire\Frontend\PackagesComponent;
+use App\Livewire\Frontend\CategorySearchComponent;
+use App\Livewire\Frontend\BrandSearchComponent;
 
 use App\Livewire\User\UserAccountComponent;
 use App\Livewire\User\MessageComponent;
@@ -76,12 +79,14 @@ Route::get('/',HomeComponent::class);
 Route::get('/about',AboutComponent::class)->name('about');
 Route::get('/contact',ContactComponent::class)->name('contact');
 Route::get('/product-list',ProductListComponent::class)->name('product-list');
-Route::get('/product-detail',ProductDetailsComponent::class)->name('product-details');
+Route::get('/product/{slug}',ProductDetailsComponent::class)->name('product.details');
 Route::get('/faq',FaqComponent::class)->name('faq');
 Route::get('/terms-and-condition',TermsConditionComponent::class)->name('terms-and-condition');
 Route::get('/privacy-policy',PrivacyPolicyComponent::class)->name('privacy-policy');
 Route::get('/packages',PackagesComponent::class)->name('package');
 Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
+Route::get('/product-category/{category_slug}/{scategory_slug?}',CategorySearchComponent::class)->name('product.category');
+Route::get('product-brand/{brand_slug}',BrandSearchComponent::class)->name('product.brand');
 
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/message',MessageComponent::class)->name('message');
@@ -103,10 +108,11 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
 // Route::get('/product-list',[HomeController::class,'productList'])->name('product-list');
 // Route::get('/product-detail',[HomeController::class,'ProductDetails'])->name('product-detail');
 Route::get('/post-ad',AddUserProductComponent::class)->name('post-ad');
+
 // Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
 
 // Route::get('/package',[HomeController::class,'package'])->name('package');
-Route::get('/edit-ad',[HomeController::class,'editAd'])->name('edit-ad');
+Route::get('/edit-ad/{pid}',EditUserProductComponent::class)->name('edit-ad');
 //frontend user routes
 // Route::get('/message',[HomeController::class,'message'])->name('message');
 // Route::get('/user-order',[HomeController::class,'userOrder'])->name('user-order');

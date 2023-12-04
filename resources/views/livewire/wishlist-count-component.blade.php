@@ -1,6 +1,6 @@
 
     <li class="single">
-        <a href="{{'wishlist'}}" class="heart"><i class="lar la-heart icon"></i>
+        <a href="{{route('wishlist')}}" class="heart"><i class="lar la-heart icon"></i>
             <div class="left-info">
                 @if(Cart::instance('wishlist')->count() > 0)
                     <span class="index">{{Cart::instance('wishlist')->count()}}items</span>

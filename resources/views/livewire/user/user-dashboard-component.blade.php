@@ -12,24 +12,24 @@
                     <div class="accountSidebar">
                         <ul class="listing listScroll">
                             <li class="listItem">
-                                <a href="{{'user-dashboard'}}" class="items active"> <i
+                                <a href="{{route('user-dashboard')}}" class="items active" > <i
                                         class="lar la-user-circle icon"></i> Dashboard</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'user-account'}}" class="items "> <i class="lar la-user-circle icon"></i> My
+                                <a href="{{route('user-account')}}" class="items "> <i class="lar la-user-circle icon"></i> My
                                     Account</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'user-ads'}}" class="items"><i class="las la-ad icon"></i> My Product Ads</a>
+                                <a href="{{route('user-ads')}}" class="items"><i class="las la-ad icon"></i> My Product Ads</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'user-order'}}" class="items"><i class="las la-ad icon"></i> My Orders</a>
+                                <a href="{{route('user-order')}}" class="items"><i class="las la-ad icon"></i> My Orders</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'wishlist'}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
+                                <a href="{{route('wishlist')}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'message'}}" class="items"> <i class="lar la-heart icon"></i> Chat</a>
+                                <a href="{{route('message')}}" class="items"> <i class="lar la-heart icon"></i> Chat</a>
                             </li>
 
                         </ul>

@@ -53,6 +53,13 @@ class UserEditProfileComponent extends Component
             'country_id'=>'required',
             'zipcode' => 'required'
         ]);
+        if($this->newimage)
+        {
+            $this->validateOnly($fields,[
+                'newimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
+
     }
 
     public function updateProfile(){
@@ -66,6 +73,12 @@ class UserEditProfileComponent extends Component
             'country_id'=>'required',
             'zipcode' => 'required'
         ]);
+        if($this->newimage)
+        {
+            $this->validateOnly($fields,[
+                'newimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
 
         $user = User::find(Auth::user()->id);
         $user->name = $this->name;

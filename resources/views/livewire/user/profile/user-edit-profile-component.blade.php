@@ -10,24 +10,24 @@
                     <div class="accountSidebar">
                         <ul class="listing listScroll">
                             <li class="listItem">
-                                <a href="{{'user-dashboard'}}" class="items active"> <i
+                                <a href="{{route('user-dashboard')}}" class="items active" > <i
                                         class="lar la-user-circle icon"></i> Dashboard</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'user-account'}}" class="items "> <i class="lar la-user-circle icon"></i> My
+                                <a href="{{route('user-account')}}" class="items "> <i class="lar la-user-circle icon"></i> My
                                     Account</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'user-ads'}}" class="items"><i class="las la-ad icon"></i> My Product Ads</a>
+                                <a href="{{route('user-ads')}}" class="items"><i class="las la-ad icon"></i> My Product Ads</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'user-order'}}" class="items"><i class="las la-ad icon"></i> My Orders</a>
+                                <a href="{{route('user-order')}}" class="items"><i class="las la-ad icon"></i> My Orders</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'wishlist'}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
+                                <a href="{{route('wishlist')}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{'message'}}" class="items"> <i class="lar la-heart icon"></i> Chat</a>
+                                <a href="{{route('message')}}" class="items"> <i class="lar la-heart icon"></i> Chat</a>
                             </li>
                         </ul>
                         <div class="accessAccount">
@@ -47,28 +47,31 @@
                             </nav>
                         </div>
                     </div>
-
+                    @if(Session::has('message'))
+                        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                    @endif
 
                     <div class="accountWrapper mb-24">
-                        <form class=""  enctype="multipart/form-data">
+                    
+                        <form class="form-horizontal"  enctype="multipart/form-data" wire:submit.prevent="updateProfile">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <label class="infoTitle">Name</label>
                                     <div class="input-form input-form2">
-                                        <input type="text" placeholder="enter name here" wire:model="name">
+                                        <input type="text" placeholder="enter name here" class="form-control" wire:model="name">
                                         @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <label class="infoTitle">Email</label>
                                     <div class="input-form input-form2">
-                                        <input type="text"  value="{{$this->email}}" readonly>
+                                        <input type="text"  class="form-control" value="{{$this->email}}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <label class="infoTitle">Phone</label>
                                     <div class="input-form input-form2">
-                                        <input type="text" placeholder="enter mobile number here" wire:model="phone">
+                                        <input type="text" placeholder="enter mobile number here" class="form-control" wire:model="phone">
                                     </div>
                                     @error('phone') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
@@ -120,29 +123,35 @@
                                 <div class="col-lg-8">
                                     <label class="infoTitle">Address</label>
                                     <div class="input-form input-form2">
-                                        <input type="text" placeholder="Enter address here" wire:model="address">
+                                        <input type="text" placeholder="Enter address here" class="form-control" wire:model="address">
                                     </div>
                                     @error('address') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                                 <div class="col-lg-4">
                                     <label class="infoTitle">Zipcode</label>
                                     <div class="input-form input-form2">
-                                        <input type="text" placeholder="enter zipcode here" wire:model="zipcode">
+                                        <input type="text" placeholder="enter zipcode here" class="form-control" wire:model="zipcode">
                                     </div>
                                     @error('zipcode') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
 
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Profile</label>
+                                <label class="col-md-4 control-label infoTitle">Profile</label>
                                 <div class="col-md-4">
-                                    <input type ="file" class ="input-file" wire:model="newimage"/>
+                                    <input type ="file" class ="input-file" class="form-control" wire:model="newimage"/>
                                     @if($newimage)
                                         <img src="{{$newimage->temporaryUrl()}}" width="120" />
                                     @else
                                         <img src="{{asset('admin/userprofile')}}/{{$profile}}" width="120" />
                                     @endif
                                     @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="btn-wrapper mb-10">
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                         </form>

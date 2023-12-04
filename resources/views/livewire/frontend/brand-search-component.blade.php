@@ -14,18 +14,69 @@
 
                             <ul class="listing listScroll">
                                 @foreach($categories as $category)
-                                    <li class="listItem"><a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="items">
+                                    <li class="listItem"><a href="{{'/product-list'}}" class="items">
                                         <img src="{{asset('admin/category')}}/{{$category->icon}}" class="icon" alt="{{$category->name}}">
                                         <span>{{$category->name}} <span class="itemNumber">(1,{{$category->productcount->count()}})</span></span>
                                     </a></li>
                                 
                                 @endforeach
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon1.svg" class="icon" alt="images">
+                                        <span>Electronics <span class="itemNumber">(1,200)</span></span>
+                                    </a></li>
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon2.svg" class="icon" alt="images"> <span> Mobile
+                                            <span class="itemNumber">(1,299)</span></span>
+                                    </a></li>
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon3.svg" class="icon" alt="images"> <span>
+                                            Vehicles <span class="itemNumber">(1,200)</span></span>
+                                    </a></li>
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon4.svg" class="icon" alt="images"> <span>
+                                            Appliances <span class="itemNumber">(1,203)</span></span>
+                                    </a></li>
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon5.svg" class="icon" alt="images"> <span>
+                                            Fashions <span class="itemNumber">(1,110)</span></span>
+                                    </a></li>
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon6.svg" class="icon" alt="images"> <span>
+                                            Properties <span class="itemNumber">(1,200)</span></span>
+                                    </a></li>
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon7.svg" class="icon" alt="images"> <span> Pets
+                                            <span class="itemNumber">(1,012)</span></span>
+                                    </a></li>
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon8.svg" class="icon" alt="images"> <span>
+                                            Educations <span class="itemNumber">(1,301)</span></span>
+                                    </a></li>
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon9.svg" class="icon" alt="images"> <span>
+                                            Businesses <span class="itemNumber">(902)</span></span>
+                                    </a></li>
+                                <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                        <img src="assets/img/icon/caticon10.svg" class="icon" alt="images"> <span>
+                                            Sports <span class="itemNumber">(507)</span></span>
+                                    </a></li>
                             </ul>
-                            
+                            <h5 class="catTittle2">All Brands</h5>
+
+
+                           {{-- <ul class="listing listScroll">
+                                @foreach($brands as $brand)
+                                    <li class="listItem"><a href="{{'/product-list'}}" class="items">
+                                          <span>{{$brand->name}} <span class="itemNumber">(1,100)</span></span>
+                                    </a></li>
+                                
+                                @endforeach
+                            </ul>--}}
+
                             <div class="price mb-10">
                                 <h5 class="catTittle">Price</h5>
-                                <div class="picPrice">
-                            
+
+                                <form action="#" class="picPrice">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="input-form">
@@ -42,23 +93,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="price mb-10">
-                                <h5 class="catTittle">Type</h5>
-                                <div class="picPrice">
-                            
-                                    <div class="row">
-                                        <ul class="listing listScroll">
-                                            
-                                        <li class="list-item"><input type="checkbox" wire:model="for_sell" value="1" wire:change="maxchange">For Sell <span>(217)</span></li>
-                                        <li class="list-item"><input type="checkbox" wire:model="for_exchange" value="1" wire:change="maxchange">For Exchange <span>(217)</span></li>
-                                        <li class="list-item"><input type="checkbox" wire:model="for_rent" value="1" wire:change="maxchange">For Rent <span>(217)</span></li>
-                                            
-                                           
-                                        </ul>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
 
                             <div class="dateTime mb-30">

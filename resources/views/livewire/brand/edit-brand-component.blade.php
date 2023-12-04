@@ -33,6 +33,32 @@
                                              <div class="mb-5">
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
+                                             
+                                                
+                                                <div class="md-4">
+                                                    <label class="form-label">Category</label>
+                                                    <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
+                                                        <option value="">Select Category</option>
+                                                        @foreach($categories as $category)
+                                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                </div>
+                                            
+                                            
+                                                
+                                                <div class="md-4">
+                                                    <label class="form-label">Sub-Category</label>
+                                                    <select class="form-control" wire:model="scategory_id">
+                                                        <option value="0">Select Sub Category</option>
+                                                        @foreach($scategories as $scategory)
+                                                            <option value="{{$scategory->id}}">{{$scategory->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                </div>
+                                            
                                              <div class="mb-4">
                                                  <label for="form-banner/name" class="form-label">Title</label>
                                                  <input type="text" placeholder="Title" class="form-control"
@@ -61,30 +87,7 @@
                                                     @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
                                              </div>
-                                             <div class="form-group">
-                                                <label class="col-md-4 control-label">Category</label>
-                                                <div class="col-md-4">
-                                                    <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
-                                                        <option value="">Select Category</option>
-                                                        @foreach($categories as $category)
-                                                            <option value="{{$category->id}}">{{$category->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label">Sub-Category</label>
-                                                <div class="col-md-4">
-                                                    <select class="form-control" wire:model="scategory_id">
-                                                        <option value="0">Select Sub Category</option>
-                                                        @foreach($scategories as $scategory)
-                                                            <option value="{{$scategory->id}}">{{$scategory->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
-                                                </div>
-                                            </div>
+                                             
 
                                              <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Status</label>

@@ -9,23 +9,43 @@
 
                     <div class="col-xxl-3  col-xl-3 col-lg-4 col-md-5">
                         <div class="cateSidebar">
-                            <h5 class="catTittle2">All Categories</h5>
+                            <h5 class="catTittle2">All {{$category->name}}</h5>
 
 
                             <ul class="listing listScroll">
-                                @foreach($categories as $category)
-                                    <li class="listItem"><a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="items">
-                                        <img src="{{asset('admin/category')}}/{{$category->icon}}" class="icon" alt="{{$category->name}}">
-                                        <span>{{$category->name}} <span class="itemNumber">(1,{{$category->productcount->count()}})</span></span>
+                                @foreach($subcategories as $subcategory)
+                                    <li class="listItem"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$subcategory->slug])}}" class="items">
+                                        <img src="{{asset('admin/category')}}/{{$subcategory->icon}}" class="icon" alt="{{$subcategory->name}}">
+                                        <span>{{$subcategory->name}} <span class="itemNumber">(1,{{$subcategory->productcount->count()}})</span></span>
                                     </a></li>
                                 
                                 @endforeach
                             </ul>
-                            
+                            <h5 class="catTittle2">All Brands</h5>
+
+
+                            <ul class="listing listScroll">
+                                @foreach($brands as $brand)
+                                    <li class="list-item"><input type="checkbox" wire:model="brandtype" value="{{$brand->id}}" wire:click="brandseletc">{{$brand->name}} <span>(217)</span></li>
+                                                      
+                                @endforeach
+                            </ul>
+                            <h5 class="catTittle2">All Attributes</h5>
+
+
+                            <ul class="listing listScroll">
+                                @foreach($attributes as $attribute)
+                                <p>{{$attribute->attribute}} </p>
+                                        @foreach($attribute->attributeoptions as $acv)
+                                            <li class="list-item"><input type="checkbox" wire:model="attributetype" value="{{$acv->id}}" wire:click="brandseletc">{{$acv->option_details}} <span>(217)</span></li>
+                                        @endforeach          
+                                @endforeach
+                            </ul>attributes
+
                             <div class="price mb-10">
                                 <h5 class="catTittle">Price</h5>
+
                                 <div class="picPrice">
-                            
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="input-form">

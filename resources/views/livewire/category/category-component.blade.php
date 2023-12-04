@@ -35,6 +35,7 @@
                                  <th>Category Name</th>
                                  <th>Category Image</th>
                                  <th>Slug</th>
+                                 <th>Icon</th>
                                  <th>SubCategory</th>
                                  <th>Action</th>
                              </tr>
@@ -46,7 +47,10 @@
                                  <td>{{$category->name}}</td>
                                  <td><img src="{{asset('admin/category')}}/{{$category->categorythum}}" width="60"></td>
                                  <td>
-                                     <div class="badge badge-sa-success">{{$category->slug}}</div>
+                                    <div class="badge badge-sa-success">{{$category->slug}}</div>
+                                 </td>
+                                 <td>
+                                    <img src="{{asset('admin/category/icon')}}/{{$category->icon}}" width="60">
                                  </td>
                                  <td>
                                      <ul class="sclist">

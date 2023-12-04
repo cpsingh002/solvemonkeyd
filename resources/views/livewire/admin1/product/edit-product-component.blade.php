@@ -189,13 +189,13 @@
                                                             </div>
                                                         </div>
                                                     </div>                                                        
-                                                    <div class="mb-4">
-                                                            <label class="form-label">Product Specification</label>
-                                                            <input type="text" placeholder="Product Specification"
-                                                                class="form-control" wire:model="pname" />
-                                                            @error('pname') <p class="text-danger">{{$message}}</p>
-                                                            @enderror
-                                                    </div>
+                                                    {{--<div class="mb-4">
+                                                        <label class="form-label">Product Specification</label>
+                                                        <input type="text" placeholder="Product Specification"
+                                                            class="form-control" wire:model="pname" />
+                                                        @error('pname') <p class="text-danger">{{$message}}</p>
+                                                        @enderror
+                                                    </div>--}}
                                                     <div class="mb-4">
                                                         <label class="form-label">Price</label>
                                                         <div class="input-group input-group--sa-slug">
@@ -205,8 +205,7 @@
                                                             </p> @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="mb-4">
-                                                    
+                                                    {{--<div class="mb-4">
                                                         <label class="form-label">How many year old</label>
                                                         <div class="input-group input-group--sa-slug">
                                                             <input type="text" placeholder="Years"
@@ -215,7 +214,6 @@
                                                                 {{$message}}</p>
                                                             @enderror
                                                         </div>
-                                                        
                                                     </div>
                                                     <div class="mb-4">
                                                         <label for="form-package/validity"
@@ -227,7 +225,7 @@
                                                                 {{$message}}</p>
                                                             @enderror
                                                         </div>
-                                                    </div>
+                                                    </div>--}}
 
                                                     <div class="row">
                                                         <div class="col-md-4">
@@ -345,7 +343,7 @@
                                                                     @endif
                                                                 @endforeach
                                                             @endif
-                                                            @error('image') <p class="text-danger">{{$message}}</p> @enderror
+                                                            @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
                                                         
                                                     </div> 
                                                     <div class="mb-4">
