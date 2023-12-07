@@ -65,578 +65,7 @@
                                 <span class="allCat">All Categories</span><i class="las la-angle-down iconRight"></i>
                             </a>
 
-                            <div class="showSidebar">
-                                <ul>
-
-                                    <li class="singleList">
-                                        <a href="{{route('product-list')}}" class="tittle"><i
-                                                class="las la-phone-volume icon"></i>
-                                            Property</a>
-                                    </li>
-                                    <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="{{route('product-list')}}" class="tittle"><i
-                                                class="las la-sort-amount-up icon"></i>Vehicles</a>
-                                        <div class="megamenuWrapper">
-                                            <div class="singleMegamenu">
-                                                <h5 class="submenu-title">Tittle One</h5>
-                                                <div class="megamenu-product">
-                                                    <ul class="product-items">
-                                                        <li><a href="{{route('product-list')}}" class="list">Car</a></li>
-                                                        <li><a href="{{route('product-list')}}" class="list">Bike</a></li>
-                                                        <li><a href="{{route('product-list')}}" class="list">Scooter</a></li>
-                                                        <li><a href="{{route('product-list')}}" class="list">Taxi</a></li>
-                                                        <li><a href="{{route('product-list')}}" class="list">Loading
-                                                                Vehicle</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </li>
-                                    <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="{{'/product-list'}}" class="tittle"> <i
-                                                class="las la-headphones icon"></i>
-                                            Electronics </a>
-                                        <div class="megamenuWrapper">
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems1.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems2.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems3.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems4.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems5.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems6.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems7.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat1.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems9.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems4.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-tv icon"></i> TV
-                                            &amp;
-                                            Audio </a>
-                                        <div class="megamenuWrapper">
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat1.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat2.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat3.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat4.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat5.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat6.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat7.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat8.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat9.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/phoneCat5.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="singleList menu-item-has-children current-menu-item">
-                                        <a href="{{'/product-list'}}" class="tittle"><i
-                                                class="las la-keyboard icon"></i> Key
-                                            Board</a>
-                                        <div class="megamenuWrapper">
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/recentListings1.jpg')}}"
-                                                                alt="images"> </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/recentListings2.jpg')}}"
-                                                                alt="images"> </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/recentListings3.jpg')}}"
-                                                                alt="images"> </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/recentListings4.jpg')}}"
-                                                                alt="images"> </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems5.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/recentListings6.jpg')}}"
-                                                                alt="images"> </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems9.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems1.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/catitems2.jpg')}}" alt="images">
-                                                        </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="singleMegamenu">
-                                                <div class="megamenu-product">
-                                                    <div class="product-img">
-                                                        <a href="{{'/product-list'}}"> <img
-                                                                src="{{asset('assets/img/gallery/recentListings6.jpg')}}"
-                                                                alt="images"> </a>
-                                                    </div>
-                                                    <div class="megamenu-contents">
-                                                        <h4> <a href="{{'/product-list'}}" class="megamenu-title"> items
-                                                                Tittle </a> </h4>
-                                                        <div class="price">
-                                                            <h5 class="newPrice"> $33.00 </h5>
-                                                            <span class="prevPrice"> $50.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="singleList">
-                                        <a href="{{'/product-list'}}" class="tittle"><i class="las la-mouse icon"></i>
-                                            Mouse
-                                            Electronics </a>
-                                    </li>
-                                    <li class="singleList">
-                                        <a href="{{'/product-list'}}" class="tittle"><i
-                                                class="las la-laptop icon"></i>Jewelry
-                                            Watches </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            @livewire('category-list-component')
                         </div>
 
                     </div>
@@ -654,6 +83,13 @@
                 <div class="nav-right-content">
 
                     <ul class="header-cart">
+                        
+                        @livewire('wishlist-count-component')
+
+
+
+                        @if(Route::has('login'))
+                        @auth
                         <li class="single chatBar">
                             <button class="chat"><i class="lab la-rocketchat icon"></i><span
                                     class="text">Chat</span></button>
@@ -721,12 +157,6 @@
                             </div>
 
                         </li>
-                        @livewire('wishlist-count-component')
-
-
-
-                        @if(Route::has('login'))
-                        @auth
                         <li class="single userAccount">
                             <button class="user"><img src="{{asset('assets/img/gallery/user.png')}}" alt="images"></button>
                             <div class="userAccount-wrapper">
@@ -816,7 +246,7 @@
             </div>
             <h2 class="modialTittle">Login <span>Here</span> </h2>
             <div class="card-body">
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="#" id="frmLogin">
                     @csrf
 
                     <div class="row mb-3">
@@ -841,7 +271,7 @@
 
                         <div class="col-md-6">
                             <input id="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" name="password" required
+                                class="form-control @error('password') is-invalid @enderror" name="password" 
                                 autocomplete="current-password">
 
                                 @error('password')
@@ -851,7 +281,7 @@
                             @enderror
                         </div>
                     </div>
-
+<div id="login_msg"></div>
                     <div class="row mb-3">
                         <div class="col-md-10 m-auto">
                             <div class="form-check1">
@@ -910,7 +340,7 @@
             </div>
             <h2 class="modialTittle">Register <span>Here</span> </h2>
             <div class="card-body">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="#" id="frmRegistar">
                     @csrf
 
                     <div class="row mb-3">
@@ -925,6 +355,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                            <div id="name_error" class="field_error text-danger"></div>
                         </div>
                     </div>
 
@@ -941,6 +372,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                            <div id="email_error" class="field_error text-danger"></div>
                         </div>
                     </div>
 
@@ -958,6 +390,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                            
                         </div>
                     </div>
 
@@ -969,8 +402,12 @@
                             <input id="password-confirm" type="password" class="form-control"
                                 name="password_confirmation" required autocomplete="new-password">
                         </div>
+                        <div id="password_error" class="field_error text-danger"></div>
                     </div>
-
+                    <div id="checkboxed_error" class="field_error text-danger"></div>
+                    <div id="thank_you_msg" class="field_error text-center text-success"></div>
+                    <div id="register_msg" class= "msg-show text-center text-danger"></div>
+               
                     <div class="row mb-0">
                         <div class="col-md-12 text-center">
                             <div class="btn-wrapper">
@@ -1005,6 +442,49 @@
     <script src="{{asset('assets/js/plugin.js')}}"></script>
 
     <script src="{{asset('assets/js/main.js')}}"></script>
+    <script>
+        jQuery('#frmRegistar').submit(function(e){
+    
+    e.preventDefault();
+     jQuery('.field_error').html('');
+    jQuery.ajax({
+        url:'{{ route('uregisteor') }}',
+        data:jQuery('#frmRegistar').serialize(),
+        type:'post',
+        success:function(result){
+            if(result.status=="error"){
+                jQuery.each(result.error,function(key,val){
+                jQuery('#'+key+'_error').html(val[0]);
+            });
+               
+            }
+            if(result.status=="success"){
+                // jQuery('#register_msg').html(result.msg);
+                jQuery('#frmRegistar')[0].reset();
+                jQuery('#thank_you_msg').html(result.msg);
+            }
+        }
+    });
+});
+
+jQuery('#frmLogin').submit(function(e){
+  jQuery('#login_msg').html("");
+  e.preventDefault();
+  jQuery.ajax({
+    url:'{{ route('ulogin') }}',
+    data:jQuery('#frmLogin').serialize(),
+    type:'post',
+    success:function(result){
+      if(result.status=="error"){
+        jQuery('#login_msg').html(result.msg);
+      }
+      if(result.status=="success"){
+       window.location.reload();
+      }
+    }
+  });
+});
+    </script>
     @livewireScripts
 	@stack('scripts')
 </body>

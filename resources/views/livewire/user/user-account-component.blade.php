@@ -10,11 +10,11 @@
                     <div class="accountSidebar">
                         <ul class="listing listScroll">
                             <li class="listItem">
-                                <a href="{{route('user-dashboard')}}" class="items active" > <i
+                                <a href="{{route('user-dashboard')}}" class="items" > <i
                                         class="lar la-user-circle icon"></i> Dashboard</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{route('user-account')}}" class="items "> <i class="lar la-user-circle icon"></i> My
+                                <a href="{{route('user-account')}}" class="items active"> <i class="lar la-user-circle icon"></i> My
                                     Account</a>
                             </li>
                             <li class="listItem">

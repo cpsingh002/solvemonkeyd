@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 class LoginController extends Controller
 {
     /*
@@ -28,7 +29,7 @@ class LoginController extends Controller
      * @var string
      */
     
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo =  RouteServiceProvider::HOME; 
 
     /**
      * Create a new controller instance.
@@ -37,17 +38,60 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        // if(Auth::user()->user_type == AMD){
+        //     $redirectTo =  RouteServiceProvider::HOME;
+        // }else{
+        //     $redirectTo =  RouteServiceProvider::Dasbord;
+        // }
         $this->middleware('guest')->except('logout');
     }
-    // public function login(Request $request)
-    // {
-    //     //dd($request);
-    //     $credentials = $request->only('email', 'password');
-    //     // dd($user_type);
-    //     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-    //     dd('hello');
-    //     }else{
-    //         dd('sds');
-    //     }
-    // }
+    public function uloginauth(Request $request)
+    {
+        
+        $valid=Validator::make($request->all(),[
+            
+            'email'=>'required',
+            'password'=>'required',
+            
+            
+        ],[
+           'email.required'=>'The Email field is required.',
+                    
+                    'password.required'=>'The Password field is required.',
+                    ]);
+     if(!$valid->passes()){
+                return response()->json(['status'=>'error','msg'=>'Email and password field are required']);
+           }
+
+           if ($this->attemptLogin($request)) {
+            if ($request->hasSession()) {
+                $request->session()->put('auth.password_confirmed_at', time());
+            }
+            return response()->json(['status'=>'success','msg'=>'msg']);
+        }else{
+                return response()->json(['status'=>'error','msg'=>'Email and password are not matched']);
+        }
+
+    }
+
+    public function adminlogin(Request $request)
+    {
+        //dd($request);
+        return view('auth.adminlogin');
+    }
+
+    public function adminloginauth(Request $request)
+    {
+        //dd($request);
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) {
+            if ($request->hasSession()) {
+                $request->session()->put('auth.password_confirmed_at', time());
+            }
+            //dd(Auth::user());
+            //return $this->sendLoginResponse($request);
+            return redirect('admin/brands');
+        }
+    }
 }

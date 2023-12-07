@@ -137,10 +137,10 @@
                     @foreach($categories as $category)
                         <li class="singleServices wow fadeInUp" data-wow-delay="0.1s">
                             <div class="serviceIcon">
-                                <img src="{{asset('admin/category')}}/{{$category->categorythum}}" alt="{{$category->name}}">
+                                <img src="{{asset('admin/category/icon')}}/{{$category->icon}}" alt="{{$category->name}}">
                             </div>
                             <div class="serviceCap">
-                                <h4><a href="{{'/product-list'}}" class="title">{{$category->name}}</a></h4>
+                                <h4><a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="title">{{$category->name}}</a></h4>
                                 <p class="info">{{$category->productcount->count()}} items</p>
                             </div>
                         </li>
@@ -263,11 +263,11 @@
                     @foreach($sellproducts  as $seproduct)
                         <div class="singleFeature pb-24">
                             <div class="featureImg">
-                                <a href="{{'/product-details'}}"><img src="{{asset('admin/product/feat')}}/{{$seproduct->featimage}}"
+                                <a href="{{route('product.details',['slug'=>$seproduct->slug])}}"><img src="{{asset('admin/product/feat')}}/{{$seproduct->featimage}}"
                                         alt="{{$seproduct->name}}"></a>
                             </div>
                             <div class="featureCaption">
-                                <h4><a href="{{'/product-details'}}" class="featureTittle">{{$seproduct->name}}</a></h4>
+                                <h4><a href="{{route('product.details',['slug'=>$seproduct->slug])}}" class="featureTittle">{{$seproduct->name}}</a></h4>
                                 <p class="featureCap">{{$seproduct->state->name}},{{$seproduct->country->name}} · <strong class="subCap">24hrs ago</strong></p>
                                 <span class="featurePricing">Rs {{$seproduct->prices}}</span>
                                 <div class="btn-wrapper">
@@ -391,17 +391,19 @@
             </div>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 ">
+            @foreach($categories as $category)
             <div class="col">
                 <div class="singleCategories wow fadeInLeft mb-24" data-wow-delay=".2s">
-                    <a href="{{'/product-list'}}" class="catThumb">
-                        <img src="assets/img/gallery/explore1.jpg" alt="images">
+                    <a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="catThumb">
+                        <img src="{{asset('admin/category')}}/{{$category->categorythum}}" alt="{{$category->slug}}">
                     </a>
                     <div class="catCaptions">
-                        <h6> <a href="{{'/product-list'}}" class="tittle"> Electronics </a> </h6>
-                        <p class="pera">12,990 items</p>
+                        <h6> <a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="tittle"> {{$category->name}} </a> </h6>
+                        <p class="pera">{{$category->productcount->count()}} items</p>
                     </div>
                 </div>
             </div>
+            @endforeach
             <div class="col">
                 <div class="singleCategories wow fadeInLeft mb-24" data-wow-delay=".2s">
                     <a href="{{'/product-list'}}" class="catThumb">
@@ -520,9 +522,9 @@
                             injected humo or randomised words which don't look even slightlys</p>
                     </div>
                     <div class="btn-wrapper">
-                        <a href="{{'/post-ad'}}" class="cmn-btn2 mr-15 mb-10 wow fadeInLeft"
+                        <a href="{{route('post-ad')}}" class="cmn-btn2 mr-15 mb-10 wow fadeInLeft"
                             data-wow-delay="0.3s">Post your ad</a>
-                        <a href="{{'/product-list'}}" class="cmn-btn3 mb-10 wow fadeInRight" data-wow-delay="0.3s">Browse
+                        <a href="{{route('product-list')}}" class="cmn-btn3 mb-10 wow fadeInRight" data-wow-delay="0.3s">Browse
                             ads</a>
                     </div>
                 </div>
@@ -530,7 +532,7 @@
             <div class="col-xxl-6 col-xl-5 col-lg-6 col-md-11">
 
                 <div class="aboutImg tilt-effect wow fadeInRight" data-wow-delay="0.1s">
-                    <img src="assets/img/gallery/about.png" alt="images" class="bouncingAnimation ">
+                    <img src="{{asset('assets/img/gallery/about.png')}}" alt="images" class="bouncingAnimation ">
                 </div>
             </div>
         </div>
@@ -554,11 +556,11 @@
                     <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <a href="{{'/product-details'}}"><img src="{{asset('admin/product/feat')}}/{{$exproduct->featimage}}"
+                                <a href="{{route('product.details',['slug'=>$exproduct->slug])}}"><img src="{{asset('admin/product/feat')}}/{{$exproduct->featimage}}"
                                         alt="{{$exproduct->name}}"></a>
                             </div>
                             <div class="recentCaption">
-                                <h5><a href="{{'/product-details'}}" class="featureTittle">{{$exproduct->name}}</a>
+                                <h5><a href="{{route('product.details',['slug'=>$exproduct->slug])}}" class="featureTittle">{{$exproduct->name}}</a>
                                 </h5>
                                 <p class="featureCap">{{$exproduct->state->name}},{{$exproduct->country->name}} · <strong class="subCap">24hrs ago</strong></p>
                                 <span class="featurePricing">Rs {{$exproduct->prices}}</span>
@@ -708,10 +710,10 @@
                 <div class="col-lg-3">
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
-                            <a href="{{'/product-details'}}"><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}" alt="{{$product->name}}"></a>
+                            <a href="{{route('product.details',['slug'=>$product->slug])}}"><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}" alt="{{$product->name}}"></a>
                         </div>
                         <div class="featureCaption">
-                            <h4><a href="{{'/product-details'}}" class="featureTittle">{{$product->name}}</a></h4>
+                            <h4><a href="{{route('product.details',['slug'=>$product->slug])}}" class="featureTittle">{{$product->name}}</a></h4>
                             <p class="featureCap">{{$product->state->name}},{{$product->country->name}} <strong class="subCap">12hrs ago</strong></p>
                             <span class="featurePricing">Rs {{$product->prices}}</span>
                             <div class="btn-wrapper">
@@ -885,35 +887,41 @@
                     data-nextArrow="<div class=&quot;next-icon&quot;><i class=&quot;las la-angle-right&quot;></i></div>"
                     data-responsive="[{&quot;breakpoint&quot;: 1800,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1600,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1400,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 1200,&quot;settings&quot;: {&quot;slidesToShow&quot;: 4}},{&quot;breakpoint&quot;: 991,&quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 768, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},{&quot;breakpoint&quot;: 576, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1}}]">
 
-                    @foreach($testimonial as $testimonials)
+                    @foreach($testimonials as $testimonial)
                    
 
-                    <div class="singleTestimonial">
-                        <div class="testimonialCap">
-                            <ul class="rattingList">
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                            </ul>
-                            <div class="testiPera">
-                                <p class="pera">{{$testimonials->description}}</p>
-                            </div>
-
-                            <div class="testimonialClient d-flex align-items-center">
-                                <div class="clientImg">
-                                    
-       
-                                    <img src="{{asset('admin/testimonial')}}/{{$testimonials->image}}" alt="images">
+                        <div class="singleTestimonial">
+                            <div class="testimonialCap">
+                                <ul class="rattingList">
+                                    @for ($i = 0; $i <= $testimonial->star; $i++)
+                                        <i class="fa fa-star"></i>
+                                    @endfor
+                                    @for($i=0; $i< 5-$testimonial->star; $i++)
+                                        <i class="fa fa-star star-gray"></i>
+                                    @endfor
+                                    <li class="listItems"><i class="las la-star icon"></i></li>
+                                    <li class="listItems"><i class="las la-star icon"></i></li>
+                                    <li class="listItems"><i class="las la-star icon"></i></li>
+                                    <li class="listItems"><i class="las la-star icon"></i></li>
+                                    <li class="listItems"><i class="las la-star icon"></i></li>
+                                </ul>
+                                <div class="testiPera">
+                                    <p class="pera">{{$testimonial->description}}</p>
                                 </div>
-                                <div class="clientText">
-                                    <span class="clientName">{{$testimonials->name}}</span>
-                                    <p class="clinetDisCrip">{{$testimonials->position}}</p>
+
+                                <div class="testimonialClient d-flex align-items-center">
+                                    <div class="clientImg">
+                                        
+            
+                                        <img src="{{asset('admin/testimonial')}}/{{$testimonial->image}}" alt="images">
+                                    </div>
+                                    <div class="clientText">
+                                        <span class="clientName">{{$testimonial->name}}</span>
+                                        <p class="clinetDisCrip">{{$testimonial->position}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                     <div class="singleTestimonial">
                         <div class="testimonialCap">

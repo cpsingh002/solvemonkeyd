@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -69,5 +70,25 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+
+    public function uregisteor(Request $request)
+    {
+       // Ivalid = $this->validator($request->all())->validate();
+        $valid=Validator::make($request->all(),[
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        if(!$valid->passes()){
+            return response()->json(['status'=>'error','error'=>$valid->errors()->toArray()]);
+        }else{
+
+            event(new Registered($user = $this->create($request->all())));
+            return response()->json(['status'=>"success",'msg'=>"Thank you for your interest in Solvemonkey – now you can login."]);
+        }
+
+
     }
 }

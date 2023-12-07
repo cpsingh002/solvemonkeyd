@@ -63,6 +63,13 @@
                                                      @enderror
                                                  </div>
                                              </div>
+                                             <div class="mb-4">
+                                                <label class="control-label">Description</label>
+                                                <div class="input-group" wire:ignore>
+                                                    <textarea class ="form-control" id="description" placeholder="Description" wire:model="description"></textarea>
+                                                    @error('description') <p class="text-danger">{{$message}}</p> @enderror
+                                                </div>
+                                            </div>
 
                                              <div class="mb-4">
                                                  <label for="form-package/upto" class="form-label">Package Upto</label>
@@ -98,17 +105,21 @@
 
 
  @push('scripts')
- <!-- <script>
-$(function() {
-    $('#sale-date').datetimepicker({
-            format: 'Y-MM-DD hh:mm:ss',
-        })
-        .on('dp.change', function(ev) {
-            var data = $('#sale-date').val();
-            @this.set('sale_date', data);
+ <script src="https://cdn.tiny.cloud/1/5949s82j52s02vlrmcq6l2c2gkzihao5gxjymat25ancman4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        $(function(){
+            tinymce.init({
+                selector:'#description',
+                setup:function(editor){
+                    editor.on('Change',function(e){
+                        tinyMCE.triggerSave();
+                        var d_data = $('#description').val();
+                        @this.set('description',d_data);
+                    });
+                }
+            });
         });
-});
- </script> -->
+    </script>
  @endpush
  <!-- sa-app__body / end -->
  <!-- sa-app__footer -->

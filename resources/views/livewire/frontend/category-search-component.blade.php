@@ -34,13 +34,15 @@
 
 
                             <ul class="listing listScroll">
+                                @if($attributes != null)
                                 @foreach($attributes as $attribute)
                                 <p>{{$attribute->attribute}} </p>
                                         @foreach($attribute->attributeoptions as $acv)
                                             <li class="list-item"><input type="checkbox" wire:model="attributetype" value="{{$acv->id}}" wire:click="brandseletc">{{$acv->option_details}} <span>(217)</span></li>
                                         @endforeach          
                                 @endforeach
-                            </ul>attributes
+                                @endif
+                            </ul>
 
                             <div class="price mb-10">
                                 <h5 class="catTittle">Price</h5>

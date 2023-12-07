@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class UserWishlistComponent extends Component
 {
-    public function movetoCart($rowId)
-    {
-        $item = Cart::instance('wishlist')->get($rowId);
-        Cart::instance('wishlist')->remove($rowId);
-        Cart::instance('cart')->add($item->id,$item->name,1,$item->price)->associate('App\Models\Product');
-        $this->emitTo('wishlist-count-component','refreshComponent');
-        $this->emitTo('cart-count-component','refreshComponent');
-    }
+    // public function movetoCart($rowId)
+    // {
+    //     $item = Cart::instance('wishlist')->get($rowId);
+    //     Cart::instance('wishlist')->remove($rowId);
+    //     Cart::instance('cart')->add($item->id,$item->name,1,$item->price)->associate('App\Models\Product');
+    //     $this->emitTo('wishlist-count-component','refreshComponent');
+    //     $this->emitTo('cart-count-component','refreshComponent');
+    // }
     // public function store($product_id,$product_name,$product_price)
     // {
 
@@ -31,7 +31,7 @@ class UserWishlistComponent extends Component
             if($witem->id == $product_id)
             {
                 Cart::instance('wishlist')->remove($witem->rowId);
-                $this->emitTo('wishlist-count-component','refreshComponent');
+                $this->dispatch('wishlist-count-component','refreshComponent');
                 return;
             }
         }

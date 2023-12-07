@@ -13,14 +13,15 @@ class AddPackagecomponent extends Component
     public $ptype;
     public $price;
     public $validity;
-
+    public $description;
     public function updated($fields)
     {
         $this->validateOnly($fields,[
             'pname'=>'required|unique:packages',
             'ptype'=>'required|unique:packages',
             'price'=>'required',
-            'validity'=>'required'
+            'validity'=>'required',
+            'description' =>'required'
         ]);
     }
 
@@ -30,7 +31,8 @@ class AddPackagecomponent extends Component
             'pname'=>'required|unique:packages',
             'ptype'=>'required|unique:packages',
             'price'=>'required',
-            'validity'=>'required'
+            'validity'=>'required',
+            'description' =>'required'
         ]);
         
        
@@ -40,6 +42,7 @@ class AddPackagecomponent extends Component
             $package->ptype = $this->ptype;
             $package->price = $this->price;
             $package->validity = $this->validity;
+            $package->description = $this->description;
             $package->up_to = $this->up_to;
             $package->status = '1';
             $package->save();
@@ -49,8 +52,8 @@ class AddPackagecomponent extends Component
 
     public function render()
     {
-        // return view('livewire.package.add-packagecomponent')->layout('layouts.admin');
+         return view('livewire.package.add-packagecomponent')->layout('layouts.admin1');
 
-        return view('livewire.admin1.package.add-package-admin1')->layout('layouts.admin1');
+       // return view('livewire.admin1.package.add-package-admin1')->layout('layouts.admin1');
     }
 }

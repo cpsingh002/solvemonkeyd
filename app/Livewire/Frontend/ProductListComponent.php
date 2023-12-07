@@ -44,19 +44,32 @@ class ProductListComponent extends Component
     public function render()
     {
        // dd($this->for_rent);
-       if($this->for_sell || $this->for_rent || $this->for_exchange){
-        $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where(function ($query) {
-            $query->where('is_sell',$this->for_sell)
-            ->orwhere('is_rent',$this->for_rent)
-                  ->orWhere('is_exchange', '=', $this->for_exchange);
-        })->paginate(20);
-       
-       }else{
-        $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->paginate(20);
+    //    $query=DB::table('products');
+        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price]);
+       if($this->for_sell){
+        $query=$query->where('is_sell',$this->for_sell);
+       }
+       if($this->for_rent){
+        $query=$query->where('is_rent',$this->for_rent);
+       }
+       if($this->for_exchange){
+        $query=$query->where('is_exchange',$this->for_exchange);
        }
 
+    //    if($this->for_sell || $this->for_rent || $this->for_exchange){
+    //     $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where(function ($query) {
+    //         $query->where('is_sell',$this->for_sell)
+    //         ->orwhere('is_rent',$this->for_rent)
+    //               ->orWhere('is_exchange', '=', $this->for_exchange);
+    //     })->paginate(20);
+       
+    //    }else{
+    //     $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->paginate(20);
+    //    }
+        $query=$query->distinct()->select('products.*');
+        $products=$query->paginate(20);
       
-       // dd($products);
+     //dd($products);
         $brands = Brand::all();
         $categories = Category::all();
         return view('livewire.frontend.product-list-component',['categories'=>$categories,'products'=>$products,'brands'=>$brands])->layout('layouts.base');

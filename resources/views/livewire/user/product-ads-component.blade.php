@@ -12,7 +12,7 @@
                 <div class="accountSidebar">
                     <ul class="listing listScroll">
                         <li class="listItem">
-                            <a href="{{'user-account'}}" class="items active"> <i
+                            <a href="{{'user-account'}}" class="items "> <i
                                     class="lar la-user-circle icon"></i> Dashboard</a>
                         </li>
                         <li class="listItem">
@@ -20,10 +20,10 @@
                                 Account</a>
                         </li>
                         <li class="listItem">
-                            <a href="{{'user-ads'}}" class="items"><i class="las la-ad icon"></i> My Product Ads</a>
+                            <a href="{{'user-ads'}}" class="items active"><i class="las la-ad icon"></i> My Product Ads</a>
                         </li>
                         <li class="listItem">
-                            <a href="{{'order'}}" class="items"><i class="las la-ad icon"></i> My Orders</a>
+                            <a href="{{'user-order'}}" class="items"><i class="las la-ad icon"></i> My Orders</a>
                         </li>
                         <li class="listItem">
                             <a href="{{'wishlist'}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>

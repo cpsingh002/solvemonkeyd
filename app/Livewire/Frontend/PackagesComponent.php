@@ -3,11 +3,13 @@
 namespace App\Livewire\Frontend;
 
 use Livewire\Component;
+use App\Models\Package;
 
 class PackagesComponent extends Component
 {
     public function render()
     {
-        return view('livewire.frontend.packages-component')->layout('layouts.base');
+        $packages = Package::all();
+        return view('livewire.frontend.package-component',['packages'=>$packages])->layout('layouts.base');
     }
 }

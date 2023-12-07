@@ -71,23 +71,50 @@ class CategorySearchComponent extends Component
             $filter= "";
         }
         
-
-        if($this->brandtype != null)
-        {
-            // dd($this->brandtype);
-            if($this->for_sell || $this->for_rent || $this->for_exchange){
-                $products =Product::Leftjoin('product_attributes','product_attributes.product_id','=','products.id')->select('products.*')->whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)
-                    ->where(function ($query) { $query->where('is_sell',$this->for_sell)
-                        ->orwhere('is_rent',$this->for_rent)->orWhere('is_exchange', '=', $this->for_exchange)->orWhereIn('product_attributes.attoption_id',$this->attributetype);
-                    })->distinct('products.name')->paginate(20);
-            }else{
-                $products =Product::Leftjoin('product_attributes','product_attributes.product_id','=','products.id')->select('products.*')->whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)
-                ->where(function ($query) { $query->orWhereIn('product_attributes.attoption_id',$this->attributetype);
-                })->distinct('products.name')->paginate(20);
-            }
-        }else{
-                $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->paginate(20);
+        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price]);
+        $query=$query->leftJoin('product_attributes','product_attributes.product_id','=','products.id');
+        if($this->for_sell){
+         $query=$query->where('is_sell',$this->for_sell);
         }
+        if($this->for_rent){
+         $query=$query->where('is_rent',$this->for_rent);
+        }
+        if($this->for_exchange){
+         $query=$query->where('is_exchange',$this->for_exchange);
+        }
+        if($this->category_slug){
+            $query=$query->where('category_id',$category->id);
+        }
+        if($this->scategory_slug){
+            $query=$query->where('subcategory_id',$scategory->id);
+        }
+        if($this->brandtype !=null){
+            $query=$query->whereIn('brand_id',$this->brandtype);
+        }
+        if($this->attributetype)
+        {
+            $query=$query-> WhereIn('product_attributes.attoption_id',$this->attributetype);
+        }
+
+        $query=$query->distinct('products.name')->select('products.*');
+        $products=$query->paginate(20);
+        
+        // if($this->brandtype != null)
+        // {
+        //     // dd($this->brandtype);
+        //     if($this->for_sell || $this->for_rent || $this->for_exchange){
+        //         $products =Product::Leftjoin('product_attributes','product_attributes.product_id','=','products.id')->select('products.*')->whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)
+        //             ->where(function ($query) { $query->where('is_sell',$this->for_sell)
+        //                 ->orwhere('is_rent',$this->for_rent)->orWhere('is_exchange', '=', $this->for_exchange)->orWhereIn('product_attributes.attoption_id',$this->attributetype);
+        //             })->distinct('products.name')->paginate(20);
+        //     }else{
+        //         $products =Product::Leftjoin('product_attributes','product_attributes.product_id','=','products.id')->select('products.*')->whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)
+        //         ->where(function ($query) { $query->orWhereIn('product_attributes.attoption_id',$this->attributetype);
+        //         })->distinct('products.name')->paginate(20);
+        //     }
+        // }else{
+        //         $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->paginate(20);
+        // }
 
         //$products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)->paginate(20);
        // dd($products);
@@ -97,7 +124,7 @@ class CategorySearchComponent extends Component
         $attributes = Attribute::where('subcategory_id', $scategory->id)->get();
         $attributeoptions = AttributeOption::where('subcategory_id', $scategory->id)->get();
        // dd($attributes,$attributeoptions);
-    }
+        }
 
        // dd($scategory,$category);
         return view('livewire.frontend.category-search-component',['subcategories'=>$subcategories,'products'=>$products,

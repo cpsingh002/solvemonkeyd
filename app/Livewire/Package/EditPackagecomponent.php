@@ -11,6 +11,7 @@ class EditPackagecomponent extends Component
     public $pname;
     public $ptype;
     public $price;
+    public $description;
     public $validity;
     public $pid;
     public $p_id;
@@ -27,6 +28,7 @@ class EditPackagecomponent extends Component
             $this->ptype = $package->ptype;
             $this->price = $package->price;
             $this->validity = $package->validity;
+            $this->description = $package->description;
             $this->p_id = $package->id;
     
     }
@@ -36,7 +38,8 @@ class EditPackagecomponent extends Component
             'pname'=>'required',
             'ptype'=>'required',
             'price'=>'required',
-            'validity'=>'required'
+            'validity'=>'required',
+            'description'=>'required'
         ]);
     }
 
@@ -46,7 +49,8 @@ class EditPackagecomponent extends Component
             'pname'=>'required',
             'ptype'=>'required',
             'price'=>'required',
-            'validity'=>'required'
+            'validity'=>'required',
+            'description'=>'required'
         ]);
         
             
@@ -57,7 +61,7 @@ class EditPackagecomponent extends Component
             $package->price = $this->price;
             $package->validity = $this->validity;
             $package->up_to = $this->up_to;
-            
+            $package->description = $this->description;         
             $package->save();
         
         session()->flash('message','Package has been upadted successfully !');

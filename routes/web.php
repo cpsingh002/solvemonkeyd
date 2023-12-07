@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Livewire\DashboardComponent;
 use App\Livewire\Category\CategoryComponent;
@@ -74,7 +75,11 @@ use App\Livewire\ThankyouComponent;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/ulogin',[LoginController::class,'ulogin']);
+Route::post('/ulogin',[LoginController::class,'uloginauth'])->name('ulogin');
+Route::post('/uregisteor',[RegisterController::class,'uregisteor'])->name('uregisteor');
+Route::get('/adminlogin',[LoginController::class,'adminlogin']);
+Route::post('/adminlogin',[LoginController::class,'adminloginauth'])->name('adminlogin');
 Route::get('/',HomeComponent::class);
 Route::get('/about',AboutComponent::class)->name('about');
 Route::get('/contact',ContactComponent::class)->name('contact');

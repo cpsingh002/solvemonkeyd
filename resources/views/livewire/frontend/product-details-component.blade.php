@@ -93,10 +93,10 @@
                                 @php
                                     $images = explode(",",$product->images);
                                 @endphp
-                                @foreach($images as $image)
+                                @foreach($images as $key=>$image)
                                     @if($image)
                                         <div class="single-thumb">
-                                            <a class="thumb-link" data-toggle="tab" href="#image-02">
+                                            <a class="thumb-link" data-toggle="tab" href="#image-0{{$key+2}}">
                                                 <img src="{{asset('admin/product/image')}}/{{$image}}" alt="thumb">
                                             </a>
                                         </div>
@@ -192,7 +192,11 @@
                     <div class="sellerMessage mb-24">
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
-                                <img src="assets/img/gallery/seller1.png" alt="images">
+                                @if(Auth::check())
+                                <img src="{{asset('admin/userprofile')}}/{{Auth::user()->profile}}" alt="images">
+                                @else
+                                <img src="{{asset('admin/userprofile/solve.png')}}" alt="images">
+                                @endif
                             </div>
                             <div class="recentCaption">
                                 <h5><a href="{{'product-details'}}" class="featureTittle">{{$product->owner_name}} <img
@@ -200,20 +204,31 @@
                                 <p class="featureCap">Member since 2019</p>
                             </div>
                         </div>
-                        <form action="#" class="contactSeller">
+                        <div class="singleFlexitem mb-24">
+                        <div id="mapproduct" class="map-item" style="padding-bottom: 50%;overflow: hidden;position: relative;width: 100%;"> </div>
+                        </div>
+                         <form action="#" class="contactSeller">
                             <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="input-form">
-                                        <input type="text" placeholder="{{$product->contact_number}}">
+                                
+                                
+                                    @if($haveCouponCode == 1)
+                                    <div class="col-lg-8">
+                                        <div class="input-form">
+                                            <input type="text" value="{{$product->contact_number}}" readonly>
 
-                                        <div class="icon"><i class="las la-phone"></i></div>
+                                            <div class="icon"><i class="las la-phone"></i></div>
+                                        </div>
                                     </div>
-                                </div>
+                                    @endif
+                                    @if(Session::has('message'))
+                                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                    @endif
                                 <div class="col-lg-4">
                                     <div class="btn-wrapper mb-20">
-                                        <a href="#" class="cmn-btn-outline3 w-100">Reveal Contact</a>
+                                        <a href="#" class="cmn-btn-outline3 w-100" wire:click.prevent="checkplan">Reveal Contact</a>
                                     </div>
                                 </div>
+                                
                             </div>
                         </form>
                         <div class="btn-wrapper">
@@ -290,4 +305,29 @@
 
 </main>
 </div>
- 
+@push('scripts')
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5fD8-BwH8kMsjb-HQS_4NG0f7FRcHS4&callback=drawMap" async></script>
+    <script type="text/javascript">
+        var map;
+            function drawMap() {              
+                var mapOptions = {
+                    zoom: 15,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    mapTypeControl: true,
+                    fullscreenControl: false 
+                }
+                        
+                var myLatlng = new google.maps.LatLng(<?php echo (float)$product->lat;?>, <?php echo (float)$product->lang;?>);
+                mapOptions.center = new google.maps.LatLng(<?php echo $product->lat;?>, <?php echo $product->lang;?>) // London
+                map = new google.maps.Map(document.getElementById("mapproduct"), mapOptions);
+                var marker = new google.maps.Marker({
+                                position: myLatlng,
+                                map: map,
+                                icon: "{{asset('frontend/img/p (1).png')}}",
+                                title: "<?php echo $product->name;?>",
+                            });
+    
+                    
+                }
+                </script>  
+ @endpush

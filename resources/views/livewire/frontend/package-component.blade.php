@@ -14,6 +14,29 @@
                     </div>
                 </div>
                 <div class="row">
+                    @foreach($packages as $package)
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="singlePrice mb-24 wow fadeInLeft" data-wow-delay="0.0s">
+                            <h4 class="priceTittle">{{$package->pname}}</h4>
+                            <ul class="listing">
+                                <li class="listItem"><i class="las la-check icon"></i>
+                                    <blockquote class="priceTag">Your ad will be promoted for 3 days</blockquote>
+                                </li>
+                                <li class="listItem"><i class="las la-check icon"></i>
+                                    <blockquote class="priceTag">Get upto 10x times more responses</blockquote>
+                                </li>
+                                <li class="listItem"><i class="las la-check icon"></i>
+                                    <blockquote class="priceTag">Your Ad will be featured for 1st day</blockquote>
+                                </li>
+                            </ul>
+                            <span class="price">${{$package->price}} <span class="subTittle"> /{{$package->validity}}</span></span>
+                            <div class="btn-wrapper">
+                                <a href="add_setting.html" class="cmn-btn-outline1">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                     <div class="col-lg-4 col-md-6">
 
                         <div class="singlePrice mb-24 wow fadeInLeft" data-wow-delay="0.0s">

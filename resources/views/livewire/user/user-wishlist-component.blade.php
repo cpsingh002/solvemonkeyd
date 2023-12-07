@@ -11,7 +11,7 @@
                         <div class="accountSidebar">
                             <ul class="listing listScroll">
                                 <li class="listItem">
-                                    <a href="{{route('user-dashboard')}}" class="items active" > <i
+                                    <a href="{{route('user-dashboard')}}" class="items" > <i
                                             class="lar la-user-circle icon"></i> Dashboard</a>
                                 </li>
                                 <li class="listItem">
@@ -25,7 +25,7 @@
                                     <a href="{{route('user-order')}}" class="items"><i class="las la-ad icon"></i> My Orders</a>
                                 </li>
                                 <li class="listItem">
-                                    <a href="{{route('wishlist')}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
+                                    <a href="{{route('wishlist')}}" class="items active"> <i class="lar la-heart icon"></i> Wishlist</a>
                                 </li>
                                 <li class="listItem">
                                     <a href="{{route('message')}}" class="items"> <i class="lar la-heart icon"></i> Chat</a>
@@ -57,17 +57,17 @@
                                         <div class="singlePromoteAds mb-24  wow fadeInUp social" data-wow-delay="0.0s">
                                             <div class="adsCap">
                                                 <div class="adsImg">
-                                                    <img src="{{asset('assets/images/products')}}/{{$item->model->image}}" alt="{{$item->model->name}}">
+                                                    <img src="{{asset('admin/product/feat')}}/{{$item->model->featimage}}" alt="{{$item->model->name}}" width="200px">
                                                 </div>
                                                 <div class="adsCaption">
-                                                    <h5><a href="#" class="adsTittle">{{$item->model->name}}</a></h5>
-                                                    <p class="adsPera">Dallas, Texas · <strong class="subCap">24hrs ago</strong>
+                                                    <h5><a href="{{route('product.details',['slug'=>$item->model->slug])}}" class="adsTittle">{{$item->model->name}}</a></h5>
+                                                    <p class="adsPera">{{$item->model->state->name}},{{$item->model->country->name}} · <strong class="subCap">24hrs ago</strong>
                                                     </p>
-                                                    <span class="adsPricing">$330.80</span>
+                                                    <span class="adsPricing">${{$item->model->prices}}</span>
                                                 </div>
                                             </div>
                                             <div class="btn-wrapper mb-20">
-                                            <a href="#" wire:click.prevent="removeFromWishlist({{$item->model->id}})"><i class="fa fa-heart fill-heart"></i></a>
+                                            <a href="#" wire:click.prevent="removeFromWishlist({{$item->model->id}})"><i class="fa fa-heart fill-heart">ji</i></a>
                                             </div>
                                         </div>
                                     </div>
