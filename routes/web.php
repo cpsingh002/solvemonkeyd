@@ -40,8 +40,6 @@ use App\Livewire\AttributeOption\AttributeOptionComponent;
 use App\Livewire\AttributeOption\AddAttributeOptionComponent;
 use App\Livewire\AttributeOption\EditAttributeOptionComponent;
 
-use App\Http\Controllers\HomeController;
-
 use App\Livewire\User\AddUserProductComponent;
 use App\Livewire\User\EditUserProductComponent;
 use App\Livewire\Frontend\HomeComponent;
@@ -65,6 +63,15 @@ use App\Livewire\User\ProductAdsComponent;
 use App\Livewire\User\Profile\UserEditProfileComponent;
 use App\Livewire\ThankyouComponent;
 
+
+use App\Livewire\BrandTest\BrandTesTComponent;
+use App\Livewire\BrandTest\AddBrandTesTComponent;
+use App\Livewire\BrandTest\EditBrandTesTComponent;
+use App\Livewire\AttributeTest\AttributeTestComponent;
+use App\Livewire\AttributeTest\AddAttributeTestComponent;
+use App\Livewire\AttributeTest\EditAttributeTestComponent;
+
+use App\Livewire\Frontend\SearchComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,7 +87,6 @@ Route::post('/ulogin',[LoginController::class,'uloginauth'])->name('ulogin');
 Route::post('/uregisteor',[RegisterController::class,'uregisteor'])->name('uregisteor');
 Route::get('/adminlogin',[LoginController::class,'adminlogin']);
 Route::post('/adminlogin',[LoginController::class,'adminloginauth'])->name('adminlogin');
-Route::get('/',HomeComponent::class);
 Route::get('/about',AboutComponent::class)->name('about');
 Route::get('/contact',ContactComponent::class)->name('contact');
 Route::get('/product-list',ProductListComponent::class)->name('product-list');
@@ -92,6 +98,9 @@ Route::get('/packages',PackagesComponent::class)->name('package');
 Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
 Route::get('/product-category/{category_slug}/{scategory_slug?}',CategorySearchComponent::class)->name('product.category');
 Route::get('product-brand/{brand_slug}',BrandSearchComponent::class)->name('product.brand');
+Route::get('/',HomeComponent::class)->name('/');
+Route::get('/searchs', SearchComponent::class)->name('searchs');
+Route::get('/search/{s}/{c?}/{text}',SearchComponent::class)->name('search');
 
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/message',MessageComponent::class)->name('message');
@@ -104,28 +113,13 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
 });
 
 // frontend routes
-// Route::post('login',[LoginController::class,'login']);
-// Route::get('/about',[HomeController::class,'about'])->name('about');
-// Route::get('/contact',[HomeController::class,'contact'])->name('contact');
-// Route::get('/faq',[HomeController::class,'faq'])->name('faq');
-// Route::get('/terms-and-condition',[HomeController::class,'termsCondition'])->name('terms-and-condition');
-// Route::get('/privacy-policy',[HomeController::class,'privacyPolicy'])->name('privacy-policy');
-// Route::get('/product-list',[HomeController::class,'productList'])->name('product-list');
-// Route::get('/product-detail',[HomeController::class,'ProductDetails'])->name('product-detail');
+
 Route::get('/post-ad',AddUserProductComponent::class)->name('post-ad');
 
 // Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
 
-// Route::get('/package',[HomeController::class,'package'])->name('package');
 Route::get('/edit-ad/{pid}',EditUserProductComponent::class)->name('edit-ad');
 //frontend user routes
-// Route::get('/message',[HomeController::class,'message'])->name('message');
-// Route::get('/user-order',[HomeController::class,'userOrder'])->name('user-order');
-// Route::get('/user-account',[HomeController::class,'userAccount'])->name('user-account');
-// Route::get('/user-ads',[HomeController::class,'userAds'])->name('user-ads');
-// Route::get('/user-dashboard',[HomeController::class,'userDashboard'])->name('user-dashboard');
-// Route::get('/wishlist',[HomeController::class,'wishlist'])->name('wishlist');
-
 
 
 Auth::routes(['verify' => true]);
@@ -181,5 +175,13 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/attributeoptions',AttributeOptionComponent::class)->name('admin.attributeoptions');
     Route::get('/admin/attributeoption/add',AddAttributeOptionComponent::class)->name('admin.addattributeoption');
     Route::get('/admin/attributeoption/edit/{oid}',EditAttributeOptionComponent::class)->name('admin.editattributeoption');
+
+    Route::get('/admin/testbrands',BrandTestComponent::class)->name('admin.testbrands');
+    Route::get('/admin/testbrand/add',AddBrandTestComponent::class)->name('admin.testaddbrand');
+    Route::get('/admin/testbrand/edit/{bid}',EditBrandTestComponent::class)->name('admin.testeditbrand');
+
+    Route::get('/admin/testattributes',AttributeTestComponent::class)->name('admin.testattributes');
+    Route::get('/admin/testattribute/add',AddAttributeTestComponent::class)->name('admin.testaddattribute');
+    Route::get('/admin/testattribute/edit/{aid}',EditAttributeTestComponent::class)->name('admin.testeditattribute');
    
 });

@@ -234,7 +234,7 @@
                                                             <div class="mb-4">
                                                                 <label class="form-label">Country</label>
                                                                 <select class="form-control" wire:model="country_id" wire:change.prevent="changecountry">
-                                                                    <option value="0">Select Country</option>
+                                                                    <option value="">Select Country</option>
                                                                     @foreach($countries as $country)
                                                                     <option value="{{$country->id}}">{{$country->name}}</option>
                                                                     @endforeach
@@ -246,7 +246,7 @@
                                                             <div class="mb-4">
                                                                 <label class="form-label">State</label>
                                                                 <select class="form-control" wire:model="state_id" wire:change.prevent="changestate" >
-                                                                    <option value="0">Select State</option>
+                                                                    <option value="">Select State</option>
                                                                     @foreach($states as $state)
                                                                     <option value="{{$state->id}}">{{$state->name}}</option>
                                                                     @endforeach
@@ -260,7 +260,7 @@
                                                             <div class="mb-4">
                                                                 <label class="form-label">City</label>
                                                                 <select class="form-control" wire:model="city_id">
-                                                                        <option value="0">Select City</option>
+                                                                        <option value="">Select City</option>
                                                                         @foreach($cities as $city)
                                                                             <option value="{{$city->id}}">{{$city->city}}</option>
                                                                         @endforeach

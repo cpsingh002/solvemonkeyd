@@ -1,23 +1,22 @@
 <?php
 
-namespace App\Livewire\Brand;
+namespace App\Livewire\BrandTest;
 
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithPagination;
 use App\Models\SubCategory;
-use App\Models\Brand;
+use App\Models\BrandTest;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
 
-
-class EditBrandComponent extends Component
+class EditBrandTestComponent extends Component
 {
     use WithFileUPloads;
     public $title;
     public $slug;
-    public $category_id;
+    public $category_id=[];
     public $image;
     Public $scategory_id;
     public $status;
@@ -25,17 +24,18 @@ class EditBrandComponent extends Component
     public $b_id;
     public $newimage;
 
-    public function mount($bid)
+
+      public function mount($bid)
     {
         //dd($scategory_slug);
         
         
             $this->b_id= $bid;
-            $brand =Brand::where('id',$this->b_id)->first();
+            $brand =BrandTest::where('id',$this->b_id)->first();
             $this->title = $brand->name;
             $this->slug= $brand->slug;
-            $this->category_id = $brand->category_id;
-            $this->scategory_id = $brand->subcategory_id;
+            $this->category_id = json_decode($brand->category_idarray);
+            $this->scategory_id = json_decode($brand->subcategory_idarray);
             
             $this->image = $brand->image;
             $this->status = $brand->status;
@@ -81,8 +81,8 @@ class EditBrandComponent extends Component
         $brand = Brand::find($this->b_id);
         $brand->name = $this->title;
         $brand->slug = $this->slug;
-        $brand->category_id  = $this->category_id;
-        $brand->subcategory_id  = $this->scategory_id;
+        $brand->category_idarray  = $this->category_id;
+        $brand->subcategory_idarray  = $this->scategory_id;
             if($this->newimage){
                 unlink('admin/brand'.'/'.$brand->image);
                 $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
@@ -100,8 +100,7 @@ class EditBrandComponent extends Component
     public function render()
     {
         $categories=Category::all();
-        $scategories = SubCategory::where('category_id',$this->category_id)->get();
-    
-        return view('livewire.brand.edit-brand-component',['categories'=>$categories,'scategories'=>$scategories])->layout('layouts.admin1');
+        $scategories = SubCategory::whereIn('category_id',$this->category_id)->get();        
+        return view('livewire.brand-test.edit-brand-test-component',['categories'=>$categories,'scategories'=>$scategories])->layout('layouts.admin1');
     }
 }

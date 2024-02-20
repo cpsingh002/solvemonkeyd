@@ -98,25 +98,6 @@ class CategorySearchComponent extends Component
 
         $query=$query->distinct('products.name')->select('products.*');
         $products=$query->paginate(20);
-        
-        // if($this->brandtype != null)
-        // {
-        //     // dd($this->brandtype);
-        //     if($this->for_sell || $this->for_rent || $this->for_exchange){
-        //         $products =Product::Leftjoin('product_attributes','product_attributes.product_id','=','products.id')->select('products.*')->whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)
-        //             ->where(function ($query) { $query->where('is_sell',$this->for_sell)
-        //                 ->orwhere('is_rent',$this->for_rent)->orWhere('is_exchange', '=', $this->for_exchange)->orWhereIn('product_attributes.attoption_id',$this->attributetype);
-        //             })->distinct('products.name')->paginate(20);
-        //     }else{
-        //         $products =Product::Leftjoin('product_attributes','product_attributes.product_id','=','products.id')->select('products.*')->whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)
-        //         ->where(function ($query) { $query->orWhereIn('product_attributes.attoption_id',$this->attributetype);
-        //         })->distinct('products.name')->paginate(20);
-        //     }
-        // }else{
-        //         $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->paginate(20);
-        // }
-
-        //$products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)->paginate(20);
        // dd($products);
         $brands = Brand::where('category_id',$category_id)->get();
         $subcategories = Subcategory::where('category_id',$category_id)->get();

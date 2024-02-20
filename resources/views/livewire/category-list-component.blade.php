@@ -27,7 +27,7 @@
                     @endif
         </li>
         @endforeach
-        <li class="singleList menu-item-has-children current-menu-item">
+        <!-- <li class="singleList menu-item-has-children current-menu-item">
             <a href="{{'/product-list'}}" class="tittle"> <i
                     class="las la-headphones icon"></i>
                 Electronics </a>
@@ -567,6 +567,6 @@
             <a href="{{'/product-list'}}" class="tittle"><i
                     class="las la-laptop icon"></i>Jewelry
                 Watches </a>
-        </li>
+        </li> -->
     </ul>
 </div>

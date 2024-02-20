@@ -1,6 +1,6 @@
 
 
-   <div> 
+<div> 
 
 <div class="sliderArea plr ">
     <div class="slider-active">
@@ -20,16 +20,25 @@
                         <form action="{{route('searchs')}}" class="search-box" method="get">
                             <div class="select-form" data-animation="fadeInLeft" data-delay="0.4s">
                                 <div class="select-itms">
-                                    <select name="s" class="niceSelect">
+                                    
+                                    <select class="form-control" name="s" id="namegh" wire:model ="state_id" wire:change="changeState"/ >
                                         <option value>Select State</option>
                                         @foreach($states as $state)
                                         <option value="{{$state->id}}">{{$state->name}}</option>
                                         @endforeach
                                         
                                     </select>
+                                </div>
+                                <div class="select-itms">
+                                    <select class="form-control"  name ="c" wire:model ="state_id">
+                                        <option value>Select City</option>
+                                        @foreach($citys as $city)
+                                        <option value="{{$city->id}}">{{$city->city}}</option>
+                                        @endforeach
+                                        
+                                    </select>
                                     <i class="las la-map-marker-alt  icon"></i>
                                 </div>
-                                
                             </div>
 
                             <div class="searchBox-wrapper">
@@ -245,20 +254,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="{{route('product.details',['slug'=>$seproduct->slug])}}" class="featureTittle">{{$seproduct->name}}</a></h4>
-                                <p class="featureCap">{{$seproduct->state->name}},{{$seproduct->country->name}} · <strong class="subCap">
-                                    @php 
-                                        $to = now(); 
-                                        $from = $seproduct->created_at;
-                                        $res= $to->diffInDays($from); 
-                                        //dd($res);
-                                    @endphp 
-                                    @if($res <  1) 
-                                        Today
-                                    @elseif(($res > 1 ) && ($res <  7))  
-                                        {{$seproduct->created_at->format('D')}} 
-                                    @else 
-                                        {{$seproduct->created_at->format('M Y')}} 
-                                    @endif</strong></p>
+                                <p class="featureCap">{{$seproduct->state->name}},{{$seproduct->country->name}} · <strong class="subCap">24hrs ago</strong></p>
                                 <span class="featurePricing">Rs {{$seproduct->prices}}</span>
                                 <div class="btn-wrapper">
                                     @if($seproduct->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
@@ -268,7 +264,101 @@
                             </div>
                         </div>
                     @endforeach
-                    
+                    <div class="singleFeature pb-24">
+                        <div class="featureImg">
+                            <a href="{{'/product-details'}}"><img src="assets/img/gallery/featuredImg1.jpg"
+                                    alt="images"></a>
+                        </div>
+                        <div class="featureCaption">
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Apple smartwatch 6</a></h4>
+                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                            <span class="featurePricing">Rs 139.40</span>
+                            <div class="btn-wrapper">
+                                <span class="pro-btn1">Sell</span>
+                                <span class="pro-btn2">Exchange</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="singleFeature pb-24">
+                        <div class="featureImg">
+                            <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featuredImg2.jpg"
+                                    alt="images"></a>
+                        </div>
+                        <div class="featureCaption">
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Samsung M32</a></h4>
+                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                            <span class="featurePricing">Rs 139.40</span>
+                            <div class="btn-wrapper">
+                                <span class="pro-btn1">Sell</span>
+                                <span class="pro-btn2">Exchange</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="singleFeature pb-24">
+                        <div class="featureImg">
+                            <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featuredImg3.jpg"
+                                    alt="images"></a>
+                        </div>
+                        <div class="featureCaption">
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Persian cat</a></h4>
+                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                            <span class="featurePricing">Rs 139.40</span>
+                            <div class="btn-wrapper">
+                                <span class="pro-btn1">Sell</span>
+                                <span class="pro-btn2">Exchange</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="singleFeature pb-24">
+                        <div class="featureImg">
+                            <a href="{{'/product-details'}}"><img src="assets/img/gallery/featuredImg4.jpg"
+                                    alt="images"></a>
+                        </div>
+                        <div class="featureCaption">
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Beats headphone</a></h4>
+                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                            <span class="featurePricing">Rs 139.40</span>
+                            <div class="btn-wrapper">
+                                <span class="pro-btn1">Sell</span>
+                                <span class="pro-btn2">Exchange</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="singleFeature pb-24">
+                        <div class="featureImg">
+                            <a href="{{'/product-details'}}"><img src="assets/img/gallery/featuredImg5.jpg"
+                                    alt="images"></a>
+                        </div>
+                        <div class="featureCaption">
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">4 Bed 2 storey house</a></h4>
+                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                            <span class="featurePricing">Rs 139.40</span>
+                            <div class="btn-wrapper">
+                                <span class="pro-btn1">Sell</span>
+                                <span class="pro-btn2">Exchange</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="singleFeature pb-24">
+                        <div class="featureImg">
+                            <a href="{{'/product-details'}}"> <img src="assets/img/gallery/featuredImg1.jpg"
+                                    alt="images"></a>
+                        </div>
+                        <div class="featureCaption">
+                            <h4><a href="{{'/product-details'}}" class="featureTittle">Apple smartwatch 6</a></h4>
+                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                            <span class="featurePricing">Rs 139.40</span>
+                            <div class="btn-wrapper">
+                                <span class="pro-btn1">Sell</span>
+                                <span class="pro-btn2">Exchange</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -934,3 +1024,16 @@
 
 
 </div>
+@push('scripts')
+    <script>
+        
+            // $('#namegh').on('change',function(ev){
+            //     //alert('gfhfgh');
+            //     var data = $('#namegh').val();
+            //     alert(data);
+            //     @this.set('state_id',data);
+            // });
+        
+        
+    </script>
+@endpush
