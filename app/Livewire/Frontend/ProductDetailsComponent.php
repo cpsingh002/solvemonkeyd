@@ -16,6 +16,8 @@ class ProductDetailsComponent extends Component
 {
     public $slug;
     public $haveCouponCode;
+    public $productid;
+    public $userid; 
     public function mount($slug)
     {
         $this->slug = $slug;
@@ -140,6 +142,8 @@ class ProductDetailsComponent extends Component
         $product= Product::where('slug',$this->slug)->first();
         if($product->id)
         {
+            $this->productid = $product->id;
+            $this->userid = $product->user_id;
             $this->productCount($product->id);
         }
         $dis1="";
@@ -176,6 +180,56 @@ class ProductDetailsComponent extends Component
         'related_products'=>$related_products,'pattributes'=>$pattributes,'dis1'=>$dis1,'dis2'=>$dis2])->layout('layouts.base');
     }
     
-    
+    public function ProductChat($id)
+    {
+
+        if(Auth::check()){
+            
+            if($this->userid != Auth::id()){
+                $user_id=Auth::user()->id;
+                if(Auth::user()->planpurchadeactive)
+                {        
+                    if(Auth::user()->planpurchade){
+                    //  $product= Product::where('slug',$this->slug)->first();
+                        $visited= UserProductVisit::where('user_id',$user_id)->where('status',1)->count();
+                        $package=Auth::user()->planpurchade;
+                        $validityCount=$package->validitycount->count;
+                        $validityUpto=$package->created_at->addDays($package->validitycount->validity);
+                    // if($validityUpto->gt(now()))
+                        //{
+                            if($validityCount>$visited)
+                            {
+                                //$this->detailCount(Auth::user()->id);
+                                //$this->haveCouponCode = 1;
+                                $this->dispatch('show-chat');
+                                // return redirect()->route('message',['uuid'=>$this->userid,'pid'=>$this->productid]);
+                            }else{
+                                UserProductVisit::where('user_id',$user_id)->update(['status' => 0]);
+                                $package->status=0;
+                                $package->save();
+                                session()->flash('message','your plan limit is over!');
+                            }
+                        //}else{
+                        //  session()->flash('message','your plan is expired!');
+                        //}
+                    }else{
+                        session()->flash('message','your plan limit is over!');
+                    }
+                }else{
+                        session()->flash('message','For sell information first buy a plan!');
+                        return redirect()->route('package');
+                }
+            }else{
+                session()->flash('message','This listing Is added by you!');
+                return;
+            }
+        }else{
+            session()->flash('message','For Sell Information Login first!');
+            return;
+        }
+            
+        // $this->js('window.location.reload()');
+        
+    }
     
 }

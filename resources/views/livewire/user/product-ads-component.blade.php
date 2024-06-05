@@ -134,6 +134,9 @@
                         <li class="listItem">
                             <a href="{{'wishlist'}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
                         </li>
+                        <li class="listItem">
+                            <a href="{{route('message')}}" class="items"> <i class="lar la-heart icon"></i> Chat</a>
+                        </li>
                        
                     </ul>
                     <div class="accessAccount">

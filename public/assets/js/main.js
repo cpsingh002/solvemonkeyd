@@ -144,6 +144,13 @@
            $('#modal-wrapper-login').css('display','none' );
         });
 
+        // $(document).on('click', '.popup-btn-chat', function() {
+            //   alert("ddd")
+            //     $('#modal-wrapper-chat,.modal-wrapper-box').css('display','block' );
+            //    $('.body-overlay-desktop').addClass('active');
+            //    $('#modal-wrapper-register').css('display','none');
+            // });
+
 
 
 
