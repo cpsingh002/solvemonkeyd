@@ -9,4 +9,8 @@ class Package extends Model
 {
     use HasFactory;
     protected $table = "packages";
+    public function p_purchase()
+    {
+        return $this->hasMany(PackagePurchase::class,'package_id');
+    }
 }

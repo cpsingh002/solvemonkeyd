@@ -12,7 +12,7 @@
                          <h1 class="h3 m-0">Edit Banner</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.banners')}}" class="btn btn-primary">All Banner</a>
+                         <a href="{{route('admin.banners')}}" class="btn btn-primary">All Banners</a>
                      </div>
 
                  </div>
@@ -32,13 +32,13 @@
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-category/name" class="form-label">Title</label>
+                                                 <label for="form-category/name" class="form-label">Title<span class="text-danger"> *</span></label>
                                                  <input type="text" placeholder="Title" class="form-control"
                                                      wire:model="title" />
                                                  @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-category/slug" class="form-label">Sub Title</label>
+                                                 <label for="form-category/slug" class="form-label">Sub-Title<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="text" placeholder="Sub Title" class="form-control"
                                                          wire:model="subtitle" />
@@ -47,7 +47,7 @@
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-category/slug" class="form-label">Price</label>
+                                                 <label for="form-category/slug" class="form-label">Price<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="text" placeholder="Price" class="form-control"
                                                          wire:model="price" />
@@ -56,7 +56,7 @@
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-category/slug" class="form-label">Link</label>
+                                                 <label for="form-category/slug" class="form-label">Link<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="text" placeholder="Link" class="form-control"
                                                          wire:model="link" />
@@ -65,7 +65,7 @@
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-category/slug" class="form-label">Image</label>
+                                                 <label for="form-category/slug" class="form-label">Image<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="file" class="form-control" wire:model="newimage" />
                                                      @if($newimage)
@@ -84,7 +84,7 @@
                                                      class="form-label">Status</label>
 
                                                  <select class="form-control input-md" wire:model="status">
-                                                     <option value="0">Inactive</option>
+                                                     <option value="0">Deactive</option>
                                                      <option value="1">Active</option>
                                                  </select>
 

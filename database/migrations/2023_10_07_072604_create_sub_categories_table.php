@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('icon')->nullable();
             $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->boolean('is_home')->default('0');
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });

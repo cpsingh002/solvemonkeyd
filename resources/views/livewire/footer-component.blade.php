@@ -2,62 +2,67 @@
         <div class="footerWrapper plr">
             <div class="footer-area footer-padding">
                 <div class="container-fluid">
-                    <div class="row justify-content-between">
-                        <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-8">
+                    <div class="row  ">
+                        <div class="col-xxl-3 col-xl-3 col-md-3 col-sm-8  col-6">
                             <div class="footer-widget widget">
                                 <div class="footer-tittle footer-tittle2">
                                     <div class="footer-logo mb-20">
-                                        <a href="{{'/'}}"><img src="assets/img/logo/solve-logo.png" alt="images"></a>
+                                        <a  href="{{route('/')}}"><img class="logoed" src="{{asset('assets/img/logo/solve-logo1.png')}}" alt="images"></a>
                                     </div>
                                     <ul class="listing">
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="#"
-                                                class="singleLinks"><i class="las la-map-marker icon"></i>Surat</a></li>
+                                                class="singleLinks "><i id="mailed" class="las la-map-marker icon"></i>{{$website->address}}</a></li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a href="#"
-                                                class="singleLinks"><i class="las la-phone icon"></i>9999056788</a>
+                                                class="singleLinks "><i class="las la-phone icon"></i>{{$website->phone}}</a>
                                         </li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="#"
-                                                class="singleLinks"><i class="las la-envelope icon"></i><span
-                                                    class="__cf_email__">info@exchangesab.com</span></a>
+                                                class="singleLinks "><i id="mailed" class="las la-envelope icon"></i><span
+                                                    class="__cf_email__">{{$website->email}}</span></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col-xxl-3 col-xl-3 col-md-3 col-sm-6 col-6 ">
                             <div class="footer-widget widget">
                                 <div class="footer-tittle">
                                     <h4 class="footerTittle">Categories</h4>
                                     <ul class="listing">
                                         @foreach($categories as $category)
                                             <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a
-                                                href="{{'product-list'}}" class="singleLinks"> {{$category->name}}</a></li>
+                                                href="{{route('product.category',['category_slug'=>$category->slug])}}" class="singleLinks ww-70"> {{$category->name}}</a></li>
+                                        @endforeach
+                                       
+                                       @foreach($subcategories as $scategory)
+                                            <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a
+                                                href="{{route('product.category',['category_slug'=>$scategory->category->slug,'scategory_slug'=>$scategory->slug])}}" class="singleLinks ww-70"> {{$scategory->name}}</a></li>
                                         @endforeach
                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col-xxl-3 col-xl-3  col-md-3 col-sm-6 col-6 ">
                             <div class="footer-widget widget">
                                 <div class="footer-tittle">
                                     <h4 class="footerTittle">Help & support</h4>
                                     <ul class="listing">
 
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{'contact'}}"
-                                                class="singleLinks"> Contact</a></li>
-                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{'faq'}}"
-                                                class="singleLinks"> Faq</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{route('contact')}}"
+                                                class="singleLinks ww-70"> Contact</a></li>
+                                        <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{route('faq')}}"
+                                                class="singleLinks ww-70"> Faq</a></li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a
-                                                href="{{'terms-and-condition'}}" class="singleLinks"> Terms and
+                                                href="{{route('terms-and-condition')}}" class="singleLinks singles"> Terms and
                                                 Conditions</a></li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a
-                                                href="{{'privacy-policy'}}" class="singleLinks"> Privacy Policy</a></li>
+                                                href="{{route('privacy-policy')}}" class="singleLinks ww-70"> Privacy Policy</a></li>
 
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-xl-3 col-lg-6">
+                        <div class="col-xxl-3 col-xl-3  col-md-3 col-sm-6 col-6 ">
                             <div class="footer-widget widget">
                                 <div class="footer-tittle footer-tittle2">
                                     <h4 class="footerTittle">Newsletter</h4>
@@ -69,7 +74,7 @@
                                 </div>
 
                                 <div class="footer-form mt-10 wow fadeInRight" data-wow-delay="0.1s">
-                                    <div class="form-row mb-20">
+                                    <div class="form-row mb-21">
                                         <form class="newsletter-footer" target="_blank" action="#" method="get">
                                             <input class="input" type="email" name="email"
                                                 placeholder="Your Email Address">
@@ -98,8 +103,7 @@
                         <div class="row">
                             <div class="col-xl-12 ">
                                 <div class="footer-copy-right text-center">
-                                    <p class="pera wow fadeInDown" data-wow-delay="0.0s">© Copyright 2023. All Rights
-                                        Reserved</p>
+                                    <p class="pera wow fadeInDown" data-wow-delay="0.0s">Copyright © Solve Monkey 2024. <a href="https://softhunters.in/">Softhunters Technology </a></p>
                                 </div>
                             </div>
                         </div>

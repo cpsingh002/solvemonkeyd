@@ -28,5 +28,25 @@ class Product extends Model
         return $this->belongsTo(SubCategory::class,'subcategory_id');
     }
 
+     public function users()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+    public function productCount()
+    {
+        return $this->hasOne(ProductVisit::class,'product_id');
+    }
     
+     public function city1()
+    {
+        return $this->belongsTo(City::class,'city_id1');
+    }
+    public function city3()
+    {
+        return $this->belongsTo(City::class,'city_id3');
+    }
+    public function city2()
+    {
+        return $this->belongsTo(City::class,'city_id2');
+    }
 }

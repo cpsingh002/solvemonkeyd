@@ -39,6 +39,8 @@ class UserEditProfileComponent extends Component
         $this->state_id = $user->state;
         $this->country_id = $user->country;
         $this->zipcode = $user->zipcode;
+        $this->st_id=$this->state_id;
+
 
     }
     public function updated($fields)
@@ -75,7 +77,7 @@ class UserEditProfileComponent extends Component
         ]);
         if($this->newimage)
         {
-            $this->validateOnly($fields,[
+            $this->validate([
                 'newimage'=>'required|mimes:jpeg,jpg,png',
             ]);
         }
@@ -91,9 +93,9 @@ class UserEditProfileComponent extends Component
         
         if($this->newimage)
         {
-            if($this->image)
+            if($this->profile)
             {
-                unlink('assets/admin/userprofile/'.$this->image);
+                unlink('assets/admin/userprofile/'.$this->profile);
             }
             $imgName = Carbon::now()->timestamp.'.'.$this->newimage->extension();
             $this->newimage->storeAs('userprofile',$imgName);

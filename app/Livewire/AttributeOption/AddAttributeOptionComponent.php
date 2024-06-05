@@ -17,12 +17,35 @@ class AddAttributeOptionComponent extends Component
     public $option_details;
     public $status;
     public $s_id;
+    
     public function mount()
     {
         $this->status = 0;
     }
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            
+            'category_id'=>'required',
+            'scategory_id' =>'required',
+            'attribute_id'=>'required',
+            'option_details'=>'required',
+        ]);
+    }
     public function addAttributeOption()
     {
+        $this->validate([
+           
+            'category_id'=>'required',
+            'scategory_id' =>'required',
+            'attribute_id'=>'required',
+            'option_details'=>'required',
+        ],[
+            'attribute_id.required'=>'The attribute field is required.',
+            'category_id.required'=>'The category field is required.',
+            'scategory_id.required'=>'The sub-category field is required.'
+            ]);
+        
         $slider = new AttributeOption();
         $slider->category_id = $this->category_id;
         $slider->subcategory_id = $this->scategory_id;
@@ -45,10 +68,10 @@ class AddAttributeOptionComponent extends Component
 
     public function render()
     {
-        $categories=Category::all();
-        $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $categories=Category::where('status','!=',3)->get();
+        $scategories = Subcategory::where('category_id',$this->category_id)->where('status','!=',3)->get();
         
-        $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
       
         return view('livewire.attribute-option.add-attribute-option-component',['categories'=>$categories,'scategories'=>$scategories,'attributes'=>$attributes])->layout('layouts.admin1');
     }

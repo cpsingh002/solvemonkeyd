@@ -1,23 +1,23 @@
 <div class="showSidebar">
     <ul>
-        <li class="singleList">
+      {{--  <li class="singleList">
             <a href="{{route('product-list')}}" class="tittle"><i
                     class="las la-phone-volume icon"></i>
                 Property</a>
-        </li>
+        </li> --}}
         @foreach($categories as $category)
         <li class="singleList menu-item-has-children current-menu-item">
             <a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="tittle"><i
                     class="las la-sort-amount-up icon"></i>{{$category->name}}</a>
                     <!-- {{$category->subCategories}} -->
-                    @if(count($category->subCategories) != 0)
+                    @if(count($category->subCategoriesHead) != 0)
                         <div class="megamenuWrapper">
                             <div class="singleMegamenu">
                                 <h5 class="submenu-title">{{$category->name}}</h5>
                                 <div class="megamenu-product">
                                     <ul class="product-items">
-                                        @foreach($category->subCategories as $scategory)
-                                            <li><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}" class="list">{{$scategory->name}}</a></li>
+                                        @foreach($category->subCategoriesHead as $scategory)
+                                            <li><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}" class="tittle">{{$scategory->name}}</a></li>
                                         @endforeach 
                                     </ul>
                                 </div>
@@ -27,7 +27,7 @@
                     @endif
         </li>
         @endforeach
-        <!-- <li class="singleList menu-item-has-children current-menu-item">
+       {{-- <li class="singleList menu-item-has-children current-menu-item">
             <a href="{{'/product-list'}}" class="tittle"> <i
                     class="las la-headphones icon"></i>
                 Electronics </a>
@@ -567,6 +567,6 @@
             <a href="{{'/product-list'}}" class="tittle"><i
                     class="las la-laptop icon"></i>Jewelry
                 Watches </a>
-        </li> -->
+        </li> --}}
     </ul>
 </div>

@@ -42,11 +42,11 @@ class BrandSearchComponent extends Component
             $brand_name = $brand->name;
         }
 
-        $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('brand_id',$brand_id)->paginate(20);
+        $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('brand_id',$brand_id)->where('status',1)->paginate(20);
         //dd($products);
         //$brands = Brand::where('category_id',$category_id)->get();
-        $categories = Category::where('category_id',$brand->category_id)->get();
-        $subcategories = Subcategory::where('category_id',$brand->subcategory_id)->get();
+        $categories = Category::where('category_id',$brand->category_id)->where('status',1)->get();
+        $subcategories = Subcategory::where('category_id',$brand->subcategory_id)->where('status',1)->get();
         return view('livewire.frontend.brand-search-component',['products'=>$product,'bname'=>$brand_name,'categories'=>$categories])->layout('layouts.base');
     }
 }

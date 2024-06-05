@@ -5,13 +5,15 @@ namespace App\Livewire\Frontend;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Subcategory;
+use App\Models\SubCategory;
 use App\Models\Brand;
 use App\Models\Attribute;
 use App\Models\AttributeOption;
 use App\Models\ModelNumber;
 use Livewire\WithPagination;
 use Cart;
+use App\Models\State;
+use App\Models\City;
 
 class CategorySearchComponent extends Component
 {
@@ -26,14 +28,20 @@ class CategorySearchComponent extends Component
     public $for_sell;
     public $for_exchange;
     public $for_rent;
-
+    public $for_sell_count;
+    public $for_rent_count;
+    public $for_exchange_count;
+    public $state_id;
+    public $city_id;
+    public $text;
+    
     public function mount($category_slug,$scategory_slug=null)
     {
         $this->sorting="default";
         $this->pagesize="12";
         $this->category_slug = $category_slug;
-        $this->min_price =1;
-        $this->max_price=60000;
+        $this->min_price = Product::where('status',1)->min('prices');
+        $this->max_price = Product::where('status',1)->max('prices');
         $this->scategory_slug = $scategory_slug;
     }
     public function maxchange()
@@ -46,6 +54,29 @@ class CategorySearchComponent extends Component
         //dd($this->brandtype);
         //dd($this->attributetype);
         return;
+    }
+    public function resetfilter()
+    {
+        $this->for_sell=null;
+        $this->for_rent=null;
+        $this->for_exchange=null;
+        $this->brandtype=null;
+        $this->attributetype=null;
+        $this->min_price = Product::where('status',1)->min('prices');
+        $this->max_price = Product::where('status',1)->max('prices');
+        return;
+
+    }
+     public function changeState()
+    {
+    //dd($this->state_id);
+        $this->city_id = 0;
+        return;
+    }
+    
+    public function chnagecity()
+    {
+       // dd($this->city_id);
     }
     public function render()
     {
@@ -71,7 +102,10 @@ class CategorySearchComponent extends Component
             $filter= "";
         }
         
-        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price]);
+        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('status',1);
+        $this->for_rent_count=Product::where('is_rent',1)->where('category_id',$category_id)->where('status',1)->count();
+        $this->for_sell_count=Product::where('is_sell',1)->where('category_id',$category_id)->where('status',1)->count();
+        $this->for_exchange_count=Product::where('is_exchange',1)->where('category_id',$category_id)->where('status',1)->count();
         $query=$query->leftJoin('product_attributes','product_attributes.product_id','=','products.id');
         if($this->for_sell){
          $query=$query->where('is_sell',$this->for_sell);
@@ -95,21 +129,48 @@ class CategorySearchComponent extends Component
         {
             $query=$query-> WhereIn('product_attributes.attoption_id',$this->attributetype);
         }
-
+        if($this->state_id){
+            $query=$query->where('state_id',$this->state_id);
+       }
+       if($this->city_id){
+            $query=$query->where('city_id',$this->city_id);
+       }
         $query=$query->distinct('products.name')->select('products.*');
-        $products=$query->paginate(20);
+        $products=$query->paginate(10);
+        
+        // if($this->brandtype != null)
+        // {
+        //     // dd($this->brandtype);
+        //     if($this->for_sell || $this->for_rent || $this->for_exchange){
+        //         $products =Product::Leftjoin('product_attributes','product_attributes.product_id','=','products.id')->select('products.*')->whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)
+        //             ->where(function ($query) { $query->where('is_sell',$this->for_sell)
+        //                 ->orwhere('is_rent',$this->for_rent)->orWhere('is_exchange', '=', $this->for_exchange)->orWhereIn('product_attributes.attoption_id',$this->attributetype);
+        //             })->distinct('products.name')->paginate(20);
+        //     }else{
+        //         $products =Product::Leftjoin('product_attributes','product_attributes.product_id','=','products.id')->select('products.*')->whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)
+        //         ->where(function ($query) { $query->orWhereIn('product_attributes.attoption_id',$this->attributetype);
+        //         })->distinct('products.name')->paginate(20);
+        //     }
+        // }else{
+        //         $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->paginate(20);
+        // }
+
+        //$products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where($filter.'category_id',$category_id)->whereIn('brand_id',$this->brandtype)->paginate(20);
        // dd($products);
-        $brands = Brand::where('category_id',$category_id)->get();
-        $subcategories = Subcategory::where('category_id',$category_id)->get();
+        $brands = Brand::where('category_id',$category_id)->where('status',1)->get();
+        $subcategories = SubCategory::where('category_id',$category_id)->where('status',1)->get();
         if($this->scategory_slug){
-        $attributes = Attribute::where('subcategory_id', $scategory->id)->get();
-        $attributeoptions = AttributeOption::where('subcategory_id', $scategory->id)->get();
+        $attributes = Attribute::where('subcategory_id', $scategory->id)->where('status',1)->get();
+        $attributeoptions = AttributeOption::where('subcategory_id', $scategory->id)->where('status',1)->get();
+         
        // dd($attributes,$attributeoptions);
         }
-
+$states = State::where('country_id','101')->get();
+        $cities= City::where('state_id',$this->state_id)->get();
        // dd($scategory,$category);
         return view('livewire.frontend.category-search-component',['subcategories'=>$subcategories,'products'=>$products,
         'brands'=>$brands,'category_name'=>$category_name,'scategory'=>$scategory,'category'=>$category,
-        'attributes'=>$attributes,'attributeoptions'=>$attributeoptions])->layout('layouts.base');
+        'attributes'=>$attributes,'attributeoptions'=>$attributeoptions,
+        'states'=>$states,'cities'=>$cities])->layout('layouts.base');
     }
 }

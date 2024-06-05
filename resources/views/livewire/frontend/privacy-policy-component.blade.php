@@ -11,6 +11,7 @@
                                 <div class="text-center">
                                     <h1 class="fw-bold text-orange">Privacy Policy</h1>
                                 </div>
+                                {!! $pp !!}
                             </div>
                         </div>
                     </div>

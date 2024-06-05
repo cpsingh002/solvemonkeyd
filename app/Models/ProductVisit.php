@@ -9,4 +9,8 @@ class ProductVisit extends Model
 {
     use HasFactory;
     protected $table="product_visits";
+    public function product()  
+{
+  return $this->belongsTo(Product::class, 'product_id'); 
+}
 }

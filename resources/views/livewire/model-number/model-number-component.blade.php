@@ -8,10 +8,10 @@
                      <nav class="mb-2" aria-label="breadcrumb">
 
                      </nav>
-                     <h1 class="h3 m-0">All Brands Model Number</h1>
+                     <h1 class="h3 m-0">All Brands Model's</h1>
                  </div>
                  <div class="col-auto d-flex">
-                     <a href="{{route('admin.addmodelnumber')}}" class="btn btn-primary">Add Model Number</a>
+                     <a href="{{route('admin.addmodelnumber')}}" class="btn btn-primary">Add Model</a>
                  </div>
              </div>
          </div>
@@ -19,12 +19,12 @@
      <div class="mx-xxl-3 px-4 px-sm-5 pb-6">
          <div class="sa-layout">
              <!-- <div class="sa-layout__backdrop" data-sa-layout-sidebar-close=""></div> -->
-
-             <div class="sa-layout__content">
+                @if(Session::has('message'))
+                 <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                @endif
+             <div class="sa-layout__content" wire:ignore>
                  <div class="card">
-                     @if(Session::has('message'))
-                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                     @endif
+                    
                      <div class="p-4"><input type="text" placeholder="Start typing to search for customers" class="form-control form-control--search mx-auto" id="table-search"></div>
                      <!-- <div class="sa-divider"></div> -->
                      <table class="sa-datatables-init" data-order="[[ 1, &quot;asc&quot; ]]" data-sa-search-input="#table-search" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
@@ -36,6 +36,7 @@
                                 <th>Brand</th>
                                 <th>Category</th>
                                 <th>Sub Category</th>
+                                <th>Status</th>
                                 <th>Action</th>
                              </tr>
                          </thead>
@@ -48,14 +49,15 @@
                                  <td>{{$modelnumber->brand->name}}</td>
                                  <td>{{$modelnumber->category->name }}</td>
                                  <td>{{$modelnumber->subcategory->name }}</td>
-                                 
+                                 <td>@if($modelnumber->status==1) 
+                                    <a href="#" wire:click.prevent='changeActive({{$modelnumber->id}})' onclick="confirm('Are you sure you want to de-active this Model?') || event.stopImmediatePropagation()">Active </a>
+                                    @else <a href="#" wire:click.prevent='changeDeactive({{$modelnumber->id}})' onclick="confirm('Are you sure you want to active this Model?') || event.stopImmediatePropagation()">Deactive </a> @endif
+                                </td>
                                  <td>
-                                     <a href="{{route('admin.editmodelnumber',['mid'=> $modelnumber->id])}}"><i
-                                             class="fa fa-edit fa-2x"></i></a>
+                                     <a href="{{route('admin.editmodelnumber',['mid'=> $modelnumber->id])}}"><i class="fa fa-edit"></i></a>
                                      <a href="#"
-                                         onclick="confirm('Are you sure, You want to delet this Model Number') || event.stopImmediatePropagation()"
-                                         wire:click.prevent="deleteModel({{$modelnumber->id}})" style="margin-left:10px;"><i
-                                             class="fa fa-times fa-2x text-danger"></i></a>
+                                         onclick="confirm('Are you sure you want to delete this Model?') || event.stopImmediatePropagation()"
+                                         wire:click.prevent="deleteModel({{$modelnumber->id}})" style="margin-left:10px;"><i class="fa fa-times ml-1 text-danger"></i></a>
                                  </td>
                              </tr>
                              @endforeach 

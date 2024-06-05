@@ -32,9 +32,36 @@ class EditBannerComponent extends Component
         $this->bid = $slider->id;
 
     }
+    public function updated($fields)
+    {
+        if($this->newimage)
+        {
+            $this->validateOnly($fields,[
+                'newimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
+        $this->validateOnly($fields,[
+            'title'=>'required',
+            'subtitle'=>'required',
+            'price' =>'required'
+        ]);
+    }
 
     public function updateSlider()
     {
+        $this->validateOnly($fields,[
+            'title'=>'required',
+            'subtitle'=>'required',
+            'price' =>'required',
+            ]);
+        
+        if($this->newimage)
+        {
+            $this->validateOnly($fields,[
+                'newimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
+        
         $slider = Banner::find($this->bid);
         $slider->title = $this->title;
         $slider->subtitle = $this->subtitle;
@@ -42,6 +69,7 @@ class EditBannerComponent extends Component
         $slider->link = $this->link;
         $slider->status= $this->status;
         if($this->newimage){
+             unlink('admin/sliders'.'/'.$slider->image);
             $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
             $this->newimage->storeAs('sliders',$imageName);
             $slider->image = $imageName;

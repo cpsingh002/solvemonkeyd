@@ -13,12 +13,21 @@ class UserComponent extends Component
 {
     use withPagination;
     Public $newpassword;
+    public function DeleteUser($id)
+    {
+        $category = User::find($id);
+        $category->is_active = 3;
+        $category->save();
+        session()->flash('message','User has been Deleted successfully!');
+        $this->js('window.location.reload()');
+    }
     public function DeactiveUser($id)
     {
         $category = User::find($id);
         $category->is_active = 0;
         $category->save();
         session()->flash('message','User has been Deactive successfully!');
+        $this->js('window.location.reload()');
     }
     public function ActiveUser($id)
     {
@@ -26,6 +35,7 @@ class UserComponent extends Component
         $category->is_active = 1;
         $category->save();
         session()->flash('message','user has been active successfully!');
+        $this->js('window.location.reload()');
     }
     
     public function Changepassword($id)
@@ -37,7 +47,7 @@ class UserComponent extends Component
 
     public function render()
     {
-        $users=User::orderBy('id','ASC')->paginate(10);
+        $users=User::where('is_active','!=',3)->get();
         // return view('livewire.user.user-component',['users'=>$users])->layout('layouts.admin');
 
         return view('livewire.admin1.user.user-admin1',['users'=>$users])->layout('layouts.admin1');

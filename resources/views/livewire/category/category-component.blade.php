@@ -19,12 +19,12 @@
      <div class="mx-xxl-3 px-4 px-sm-5 pb-6">
          <div class="sa-layout">
              <!-- <div class="sa-layout__backdrop" data-sa-layout-sidebar-close=""></div> -->
-
-             <div class="sa-layout__content">
+                @if(Session::has('message'))
+                    <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                @endif
+             <div class="sa-layout__content" wire:ignore>
                  <div class="card">
-                     @if(Session::has('message'))
-                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                     @endif
+                     
 
                      <div class="p-4"><input type="text" placeholder="Start typing to search for customers" class="form-control form-control--search mx-auto" id="table-search"></div>
                      <!-- <div class="sa-divider"></div> -->
@@ -37,6 +37,7 @@
                                  <th>Slug</th>
                                  <th>Icon</th>
                                  <th>SubCategory</th>
+                                 <th>Status</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
@@ -54,20 +55,29 @@
                                  </td>
                                  <td>
                                      <ul class="sclist">
-                                         @foreach($category->subCategories as $scategory)
-                                         <li><i class="fa fa-caret-right"></i>{{$scategory->name}}
+                                         @foreach($category->subCategories as $key => $scategory)
+                                            @if($key==4)
+                                                <a href="{{route('admin.subcategories')}}">View more...</a>
+                                                @break
+                                            @endif
+                                            <li>{{$scategory->name}}
                                              <a href="{{route('admin.editsubcategory',['scategory_slug'=>$scategory->slug])}}"
                                                  class="slink"><i class="fa fa-edit"></i></a>
                                              <a href="#" onclick="confirm('Are you sure, You want to delet this sub-category') || event.stopImmediatePropagation()"
                                                  wire:click.prevent="deleteSubCategory({{$scategory->id}})" class="slink"><i class="fa fa-times text-danger"></i></a>
                                          </li>
+                                        
                                          @endforeach
                                      </ul>
                                  </td>
+                                 <td>@if($category->status==1) 
+                                    <a href="#" wire:click.prevent='changeActive({{$category->id}})' onclick="confirm('Are you sure you want to de-active this category?') || event.stopImmediatePropagation()">Active </a>
+                                    @else <a href="#" wire:click.prevent='changeDeactive({{$category->id}})' onclick="confirm('Are you sure you want to active this category?') || event.stopImmediatePropagation()">Deactive </a> @endif
+                                </td>
                                  <td>
                                      <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="fa fa-edit"></i></a>
-                                     <a href="#" onclick="confirm('Are you sure, You want to delet this category') || event.stopImmediatePropagation()"
-                                         wire:click.prevent="deleteCategory({{$category->id}})"><i class="fa fa-times ml-1 text-danger"></i></a>
+                                     <a href="#" onclick="confirm('Are you sure you want to delete this category?') || event.stopImmediatePropagation()"
+                                         wire:click.prevent="deleteCategory({{$category->id}})" style="margin-left:10px;"><i class="fa fa-times ml-1 text-danger"></i></a>
                                  </td>
                              </tr>
                              @endforeach

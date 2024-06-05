@@ -221,7 +221,7 @@
                                                 </h4>
                                                 <p class="featureCap">{{$product->state->name}},{{$product->country->name}} · <strong class="subCap">12hrs
                                                         ago</strong></p>
-                                                <span class="featurePricing">Rs{{$product->prices}}</span>
+                                                <span class="featurePricing">Rs{{number_format($product->prices)}}</span>
                                                 <div class="btn-wrapper">
                                                     @if($product->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
                                                     @if($product->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif

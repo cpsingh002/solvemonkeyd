@@ -13,7 +13,9 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-center"><h1 class="fw-bold text-orange">Terms and Condition</h1></div>
+                                
                             </div>   
+                             {!! $tc !!}
                         </div>
                     </div>
                 </div>

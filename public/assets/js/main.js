@@ -47,6 +47,12 @@
             $(this).siblings().removeClass('active');
             $(this).toggleClass('active');
         });
+        document.onclick = function(e){
+            if (!sidebarBtn.contains(e.target) && !box.contains(e.target) ) {
+                menu_icon_box.classList.remove("activeBg");
+                box.classList.remove("activeBg");
+            }
+        }
 
         /*-----------------------------------
             Custom Tab View
@@ -125,16 +131,34 @@
         });
 
         $(document).on('click', '.popup-btn-login', function() {
-           
-            $('#modal-wrapper-login,.modal-wrapper-box').css('display','block');
+        //   alert("ddd")
+            $('#modal-wrapper-login,.modal-wrapper-box').css('display','block' );
            $('.body-overlay-desktop').addClass('active');
+           $('#modal-wrapper-register').css('display','none');
         });
 
         $(document).on('click', '.popup-btn-register', function() {
            
             $('#modal-wrapper-register,.modal-wrapper-box').css('display','block');
            $('.body-overlay-desktop').addClass('active');
+           $('#modal-wrapper-login').css('display','none' );
         });
+
+
+
+
+$(".toggle-password").click(function() {
+    // alert("ee")
+    $(this).toggleClass("la-eye la-eye-slash");
+    input = $(this).parent().find("input");
+    if (input.attr("type") == "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+});
+
+
 
         /*-----------------------------------
             WOW active

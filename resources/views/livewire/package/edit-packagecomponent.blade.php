@@ -12,7 +12,7 @@
                          <h1 class="h3 m-0">Edit Packge</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.packages')}}" class="btn btn-primary">All Package</a>
+                         <a href="{{route('admin.packages')}}" class="btn btn-primary">All Packages</a>
                      </div>
 
                  </div>
@@ -33,51 +33,59 @@
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-package/name" class="form-label">Package Name</label>
+                                                 <label for="form-package/name" class="form-label">Package Name<span class="text-danger"> *</span></label>
                                                  <input type="text" placeholder="Package Name" class="form-control"
                                                      wire:model="pname" />
-                                                 @error('pname') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
+                                                 @error('pname') <p class="text-danger">{{$message}}</p> @enderror
                                              <div class="mb-4">
-                                                 <label for="form-package/type" class="form-label">Package Type</label>
+                                                 <label for="form-package/type" class="form-label">Package Type<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input class="form-control input-md" type="text"
                                                          placeholder="Package Type" wire:model="ptype" />
-                                                     @error('ptype') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
+                                                     @error('ptype') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-package/price" class="form-label">Package Price</label>
+                                                 <label for="form-package/price" class="form-label">Package Price<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input class="form-control input-md" type="text"
                                                          placeholder="Package Price" wire:model="price" />
-                                                     @error('price') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
+                                                     @error('price') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-package/validity" class="form-label">Package Validity</label>
+                                                 <label for="form-package/validity" class="form-label">Package Validity(In days)<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
-                                                     <input class="form-control input-md" type="text"
-                                                         placeholder="Package Validity" wire:model="validity" />
-                                                     @error('validity') <p class="text-danger">{{$message}}</p> @enderror
+                                                     <input class="form-control input-md" type="text" placeholder="Package Validity" wire:model="validity" />
                                                  </div>
+                                                     @error('validity') <p class="text-danger">{{$message}}</p> @enderror
+                                             </div>
+                                              <div class="mb-4">
+                                                 <label for="form-package/validity" class="form-label">Visiting Count<span class="text-danger"> *</span></label>
+                                                 <div class="input-group input-group--sa-slug">
+                                                     <input type="text" placeholder="Visiting Validity" class="form-control" wire:model="count" />
+                                                 </div>
+                                                  @error('count') <p class="text-danger">{{$message}}</p>
+                                                     @enderror
                                              </div>
                                              <div class="mb-4">
-                                                <label class="control-label">Description</label>
-                                                <div class="input-group" wire:ignore>
+                                                <label class="control-label">Description<span class="text-danger"> *</span></label>
+                                                <div  wire:ignore>
                                                     <textarea class ="form-control" id="description" placeholder="Description" wire:model="description"></textarea>
-                                                    @error('description') <p class="text-danger">{{$message}}</p> @enderror
                                                 </div>
+                                                    @error('description') <p class="text-danger">{{$message}}</p> @enderror
                                             </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-package/upto" class="form-label">Package Upto</label>
+                                                 <label for="form-package/upto" class="form-label">Package Valid Upto<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input class="form-control input-md" type="date" id="sale-date"
                                                          placeholder="YYYY/MM/DD hh:mm:ss" wire:model="up_to" />
                                                  </div>
+                                                    @error('count') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
 
@@ -106,21 +114,27 @@
  <!-- sa-app__body / end -->
  <!-- sa-app__footer -->
 
- @push('scripts')
- <script src="https://cdn.tiny.cloud/1/5949s82j52s02vlrmcq6l2c2gkzihao5gxjymat25ancman4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+@push('scripts')
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor.create( document.querySelector( '#description' ) )
+            .then(editor => {
+                editor.model.document.on('change:data', () => {
+                @this.set('description', editor.getData());
+                })
+            })
+        .catch( error => {
+            console.error( error );
+        } );
+                    
+</script>
     <script>
-        $(function(){
-            tinymce.init({
-                selector:'#description',
-                setup:function(editor){
-                    editor.on('Change',function(e){
-                        tinyMCE.triggerSave();
-                        var d_data = $('#description').val();
-                        @this.set('description',d_data);
-                    });
-                }
-            });
-        });
+//         tinymce.init({
+//   selector: '#description',  // change this value according to your HTML
+//   plugins: 'lists',
+//   toolbar: 'numlist bullist'
+// });
+
     </script>
      <script>
         $(function() {
@@ -130,4 +144,5 @@
             });
         });
     </script>
+    
  @endpush

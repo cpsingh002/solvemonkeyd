@@ -20,8 +20,26 @@ class AddAttributeComponent extends Component
     {
         $this->status = 0;
     }
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'aname'=>'required',
+            'category_id'=>'required',
+            'sub_category_id' =>'required'
+        ]);
+    }
     public function addAttribute()
     {
+        $this->validate([
+            'aname'=>'required',
+            'category_id'=>'required',
+            'sub_category_id' =>'required'
+        ],[
+            'aname.required'=>'The attribute name field is required.',
+            'category_id.required'=>'The category field is required.',
+            'sub_category_id.required'=>'The sub-category field is required.'
+            ]);
+
         $slider = new Attribute();
         $slider->attribute = $this->aname;
         $slider->category_id = $this->category_id;
@@ -37,8 +55,8 @@ class AddAttributeComponent extends Component
 
     public function render()
     {
-        $categories=Category::all();
-        $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $categories=Category::where('status','!=',3)->get();
+        $scategories = Subcategory::where('category_id',$this->category_id)->where('status','!=',3)->get();
 
         return view('livewire.attribute.add-attribute-component',['categories'=>$categories,'scategories'=>$scategories])->layout('layouts.admin1');
     }

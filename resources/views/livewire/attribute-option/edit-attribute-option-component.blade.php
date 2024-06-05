@@ -36,7 +36,7 @@
                                              <div class="mb-4">
                                                  <div>
                                                      <label for="form-category/category" class="form-label">
-                                                         Category</label>
+                                                         Category<span class="text-danger"> *</span></label>
 
                                                      <select class="form-select" wire:model="category_id" wire:change="changeSubcategory">
                                                          <option value="">None</option>
@@ -51,7 +51,7 @@
                                              <div class="mb-4">
                                                  <div>
                                                      <label for="form-category/sub-category" class="form-label">Sub
-                                                         Category</label>
+                                                         Category<span class="text-danger"> *</span></label>
 
                                                      <select class="form-select" wire:model="scategory_id" wire:change="changeattribute"/>
                                                          <option value="">None</option>
@@ -59,13 +59,13 @@
                                                          <option value="{{$scategory->id}}">{{$scategory->name}}</option>
                                                          @endforeach
                                                      </select>
-                                                     @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
+                                                     @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                             
 
                                              <div class="mb-4">
-                                                 <label for="form-banner/image" class="form-label">Attribute</label>
+                                                 <label for="form-banner/image" class="form-label">Attribute<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                     <select class="form-select" wire:model="attribute_id">
                                                          <option value="">None</option>
@@ -73,22 +73,22 @@
                                                          <option value="{{$attribute->id}}">{{$attribute->attribute}}</option>
                                                          @endforeach
                                                      </select>
-                                                     @error('attribute_id') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
+                                                     @error('attribute_id') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-banner/image" class="form-label">Option Details</label>
+                                                 <label for="form-banner/image" class="form-label">Option Details<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="text" placeholder="Attribute" class="form-control" wire:model="option_details" />
-                                                     @error('option_details') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
+                                                     @error('option_details') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Status</label>
                                                  <div class="input-group input-group--sa-slug">
 
                                                      <select class="form-select" wire:model="status">
-                                                         <option value="0">Inactive</option>
+                                                         <option value="0">Deactive</option>
                                                          <option value="1">Active</option>
                                                      </select>
                                                  </div>

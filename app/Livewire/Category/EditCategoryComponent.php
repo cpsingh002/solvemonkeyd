@@ -22,6 +22,7 @@ class EditCategoryComponent extends Component
     public $categorythum;
     public $newimage;
     public $newicon;
+    public $is_home;
 
     public function mount($category_slug)
     {
@@ -34,6 +35,7 @@ class EditCategoryComponent extends Component
             $this->slug = $category->slug;
             $this->icon = $category->icon;
             $this->categorythum = $category->categorythum;
+            $this->is_home=$category->is_home;
         
     }
 
@@ -87,24 +89,26 @@ class EditCategoryComponent extends Component
         }
         if($this->newicon)
         {
-            $this->validateOnly($fields,[
-                'newicon'=>'required|mimes:svg,png',
+            $this->validate([
+                'newicon'=>'required|mimes:jpeg,jpg,png',
             ]);
         }
         
             $category = Category::find($this->category_id);
             $category->name = $this->name;
             $category->slug = $this->slug;
+            $category->is_home=$this->is_home;
+            $category->is_home=$this->is_home;
             if($this->newicon){
-                //unlink('admin/category/icon'.'/'.$scategory->icon);
+               // unlink('admin/category/icon'.'/'.$category->icon);
                 $imageNamei= Carbon::now()->timestamp.'.'.$this->newicon->extension();
                 $this->newicon->storeAs('category/icon',$imageNamei);
                 $category->icon = $imageNamei;
             }
             if($this->newimage){
-               // unlink('admin/category'.'/'.$category->categorythum);
+                //unlink('admin/category'.'/'.$category->categorythum);
                 $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
-                $this->newimage->storeAs('admin/category',$imageName);
+                $this->newimage->storeAs('category',$imageName);
                 $category->categorythum = $imageName;
             }
             $category->save();
@@ -113,7 +117,7 @@ class EditCategoryComponent extends Component
     }
     public function render()
     {
-        $categories = Category::all();
+        $categories = Category::where('status','!=',3)->get();
          return view('livewire.category.edit-category-component',['categories'=>$categories])->layout('layouts.admin1');
 
 

@@ -30,8 +30,26 @@ class EditAttributeOptionComponent extends Component
         $this->s_id = $this->scategory_id;
 
     }
+    public function update($fields){
+        $this->validateOnly($fields,[
+            'option_details'=>'required',
+            'category_id'=>'required',
+            'scategory_id' =>'required',
+            'attribute_id'=>'required'
+        ]);
+    }
     public function updateAttributeOption()
     {
+        $this->validate([
+            'option_details'=>'required',
+            'category_id'=>'required',
+            'scategory_id' =>'required',
+            'attribute_id'=>'required'
+        ],[
+            'attribute_id.required'=>'The attribute field is required.',
+            'category_id.required'=>'The category field is required.',
+            'scategory_id.required'=>'The sub-category field is required.'
+            ]);
         $attribute = AttributeOption::find($this->oid);
         $attribute->option_details = $this->option_details;
         $attribute->category_id = $this->category_id;
@@ -56,10 +74,10 @@ class EditAttributeOptionComponent extends Component
 
     public function render()
     {
-        $categories=Category::all();
-        $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $categories=Category::where('status','!=',3)->get();
+        $scategories = Subcategory::where('category_id',$this->category_id)->where('status','!=',3)->get();
         
-        $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
       
         return view('livewire.attribute-option.edit-attribute-option-component',['categories'=>$categories,'scategories'=>$scategories,'attributes'=>$attributes])->layout('layouts.admin1');
     }

@@ -16,19 +16,19 @@
              </div>
          </div>
      </div>
-     <div class="mx-xxl-3 px-4 px-sm-5 pb-6">
+     <div  class="mx-xxl-3 px-4 px-sm-5 pb-6">
          <div class="sa-layout">
              <!-- <div class="sa-layout__backdrop" data-sa-layout-sidebar-close=""></div> -->
-
-             <div class="sa-layout__content">
-                 <div class="card">
-                     @if(Session::has('message'))
+                    @if(Session::has('message'))
                      <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                      @endif
+             <div class="sa-layout__content" wire:ignore>
+                 <div class="card" >
+                     
                      <div class="p-4"><input type="text" placeholder="Start typing to search for customers" class="form-control form-control--search mx-auto" id="table-search"></div>
                      <!-- <div class="sa-divider"></div> -->
-                     <table class="sa-datatables-init" data-order="[[ 1, &quot;asc&quot; ]]" data-sa-search-input="#table-search" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
-                         <thead>
+                     <table  class="sa-datatables-init" data-order="[[ 1, &quot;asc&quot; ]]" data-sa-search-input="#table-search" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                         <thead >
                              <tr>
                                  <th>Id</th>
                                  <th>Image</th>
@@ -37,6 +37,7 @@
                                  <th>Category</th>
                                  <th>Sub Category</th>
                                  <th>Model Number</th>
+                                 <th>Status</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
@@ -51,20 +52,27 @@
                                  <td>{{$brand->subcategory->name }}</td>
                                  <td>
                                     <ul class="sclist">
-                                        @foreach($brand->modelnumber as $scategory)
-                                            <li><i class="fa fa-caret-right"></i>{{$scategory->name}}</li>
+                                        @foreach($brand->modelnumber as $key => $scategory)
+                                        @if($key == 4)
+                                            <a href="{{route('admin.modelnumbers')}}">View more...</a>
+                                            @break
+                                        @endif
+                                            <li>{{$scategory->name}}</li>
                                             
                                         @endforeach
                                     </ul>
                                 </td>
-                                 
+                                 <td>@if($brand->status==1) 
+                                    <a href="#" wire:click.prevent='changeActive({{$brand->id}})' onclick="confirm('Are you sure you want to de-active this brand?') || event.stopImmediatePropagation()">Active </a>
+                                    @else <a href="#" onclick="confirm('Are you sure you want to Active this brand?') || event.stopImmediatePropagation()" wire:click.prevent='changeDeactive({{$brand->id}})'>Deactive </a> @endif
+                                </td>
                                  <td>
                                      <a href="{{route('admin.editbrand',['bid'=> $brand->id])}}"><i
-                                             class="fa fa-edit fa-2x"></i></a>
+                                             class="fa fa-edit"></i></a>
                                      <a href="#"
-                                         onclick="confirm('Are you sure, You want to delet this brand') || event.stopImmediatePropagation()"
+                                         onclick="confirm('Are you sure you want to delete this brand?') || event.stopImmediatePropagation()"
                                          wire:click.prevent="deleteBrand({{$brand->id}})" style="margin-left:10px;"><i
-                                             class="fa fa-times fa-2x text-danger"></i></a>
+                                             class="fa fa-times text-danger ml-2"></i></a>
                                  </td>
                              </tr>
                              @endforeach 

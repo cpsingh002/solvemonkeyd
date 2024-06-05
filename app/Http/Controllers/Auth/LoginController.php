@@ -67,6 +67,10 @@ class LoginController extends Controller
             if ($request->hasSession()) {
                 $request->session()->put('auth.password_confirmed_at', time());
             }
+            if(Auth::user()->is_active != 1){
+                Auth::logout();
+                return response()->json(['status'=>'error','msg'=>'Your Account is deactivated by Solve Monkey. Please reach out to info@solvemonkey.com. We apologize for the inconvenience.']);
+            }
             return response()->json(['status'=>'success','msg'=>'msg']);
         }else{
                 return response()->json(['status'=>'error','msg'=>'Email and password are not matched']);
@@ -91,7 +95,8 @@ class LoginController extends Controller
             }
             //dd(Auth::user());
             //return $this->sendLoginResponse($request);
-            return redirect('admin/brands');
+            return redirect('admin/dashboard');
         }
+        return $this->sendFailedLoginResponse($request);
     }
 }

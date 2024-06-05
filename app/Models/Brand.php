@@ -22,4 +22,8 @@ class Brand extends Model
     {
         return $this->hasMany(ModelNumber::class,'brand_id');
     }
+    public function brandcount()
+    {
+        return $this->hasMany(Product::class,'brand_id')->where('status',1);
+    }
 }

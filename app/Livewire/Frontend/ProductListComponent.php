@@ -10,27 +10,41 @@ use App\MOdels\Subcategory;
 use Livewire\WithPagination;
 use Cart;
 use Illuminate\Support\Facades\DB;
+use App\Models\State;
+use App\Models\City;
+use Livewire\Attributes\Url;
 
 class ProductListComponent extends Component
 {   
     use WithPagination;
+ 
     public $sorting;
     public $pagesize;
+    #[Url]
     public $min_price;
+    #[Url]
     public $max_price;
     public $colortype=[];
     public $sizetype = [];
+    #[Url]
     public $for_sell;
     public $for_exchange;
     public $for_rent;
     public $type =[];
+    public $for_sell_count;
+    public $for_rent_count;
+    public $for_exchange_count;
+    public $state_id;
+    public $city_id;
+    public $text;
+    public $state;
 
     public function mount()
     {
         $this->sorting="default";
         $this->pagesize="12";
-        $this->min_price =1;
-        $this->max_price=60000;
+        $this->min_price = Product::where('status',1)->min('prices');
+        $this->max_price = Product::where('status',1)->max('prices');
     }
     
     public function maxchange()
@@ -40,12 +54,33 @@ class ProductListComponent extends Component
         //dd($this->type);
         return;
     }
+    public function resetfilter()
+    {
+        $this->for_sell=null;
+        $this->for_rent=null;
+        $this->for_exchange=null;
+        $this->min_price = Product::where('status',1)->min('prices');
+        $this->max_price = Product::where('status',1)->max('prices');
+        return;
 
+    }
+    public function changeState()
+    {
+    //dd($this->state_id);
+        $this->city_id = 0;
+        return;
+    }
+    
+    public function chnagecity()
+    {
+       // dd($this->city_id);
+    }
     public function render()
     {
-       // dd($this->for_rent);
-    //    $query=DB::table('products');
-        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price]);
+        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('status',1);
+        $this->for_rent_count=Product::where('is_rent',1)->where('status',1)->count();
+        $this->for_sell_count=Product::where('is_sell',1)->where('status',1)->count();
+        $this->for_exchange_count=Product::where('is_exchange',1)->where('status',1)->count();
        if($this->for_sell){
         $query=$query->where('is_sell',$this->for_sell);
        }
@@ -55,23 +90,25 @@ class ProductListComponent extends Component
        if($this->for_exchange){
         $query=$query->where('is_exchange',$this->for_exchange);
        }
+       if($this->state_id){
+        $query=$query->where('state_id',$this->state_id);
+       }
+       if($this->city_id){
+        $query=$query->where('city_id',$this->city_id);
+       }
 
-    //    if($this->for_sell || $this->for_rent || $this->for_exchange){
-    //     $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where(function ($query) {
-    //         $query->where('is_sell',$this->for_sell)
-    //         ->orwhere('is_rent',$this->for_rent)
-    //               ->orWhere('is_exchange', '=', $this->for_exchange);
-    //     })->paginate(20);
-       
-    //    }else{
-    //     $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->paginate(20);
-    //    }
         $query=$query->distinct()->select('products.*');
-        $products=$query->paginate(20);
+        $products=$query->paginate(10);
       
-     //dd($products);
-        $brands = Brand::all();
-        $categories = Category::all();
-        return view('livewire.frontend.product-list-component',['categories'=>$categories,'products'=>$products,'brands'=>$brands])->layout('layouts.base');
+        //dd($products);
+        $brands = Brand::where('status',1)->get();
+        $categories = Category::where('status',1)->get();
+        $states = State::where('country_id','101')->get();
+        $cities= City::where('state_id',$this->state_id)->get();
+
+
+        return view('livewire.frontend.product-list-component',['categories'=>$categories,'products'=>$products,'brands'=>$brands,
+        'states'=>$states,'cities'=>$cities])->layout('layouts.base');
     }
+     
 }

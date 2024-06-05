@@ -26,10 +26,28 @@ class EditAttributeComponent extends Component
         $this->aid = $slider->id;
 
     }
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'aname'=>'required',
+            'category_id'=>'required',
+            'sub_category_id' =>'required'
+        ]);
+    }
 
     public function updateAttribute()
     {
-        $attribute = Attribute::find($this->bid);
+        $this->validate([
+            'aname'=>'required',
+            'category_id'=>'required',
+            'sub_category_id' =>'required'
+        ],[
+            'aname.required'=>'The attribute name field is required.',
+            'category_id.required'=>'The category field is required.',
+            'sub_category_id.required'=>'The sub-category field is required.'
+            ]);
+        
+        $attribute = Attribute::find($this->aid);
         $attribute->attribute = $this->aname;
         $attribute->category_id = $this->category_id;
         $attribute->subcategory_id =  $this->sub_category_id;
@@ -52,8 +70,8 @@ class EditAttributeComponent extends Component
 
     public function render()
     {
-        $categories=Category::all();
-        $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $categories=Category::where('status','!=',3)->get();
+        $scategories = Subcategory::where('category_id',$this->category_id)->where('status','!=',3)->get();
         
         return view('livewire.attribute.edit-attribute-component',['categories'=>$categories,'scategories'=>$scategories])->layout('layouts.admin1');
     }

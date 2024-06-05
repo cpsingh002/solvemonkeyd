@@ -42,7 +42,6 @@
                                     <th>Description</th>
                                     <th>Rating</th>
                                     <th>Status</th>
-                                    <th>Status Action</th>
                                     <th>Action</th>
                                 </tr>
 
@@ -53,30 +52,23 @@
                                         <td>{{$testimonial->id}}</td>
                                         <td>{{$testimonial->name}}/{{$testimonial->position}}</td>
                                         <td>{{$testimonial->email}}</td>
-                                        <td>{{$testimonial->image}}</td>
+                                        <td>{{$testimonial->phone}}</td>
+                                        <td><img src="{{asset('admin/testimonial')}}/{{$testimonial->image}}" width="60" /></td>
                                         <td>{{$testimonial->description}}</td>
                                         <td>{{$testimonial->star}}</td>
-                                        <td>
-                                        <td>@if($testimonial->status) ACtive @else Deactive @endif</td>
                                         <td>@if($testimonial->status)
-                                            <a href="#" onclick="confirm('Are you sure, You want to deactive this testimonial') || event.stopImmediatePropagation()" wire:click.prevent="DeactiveStatus({{$testimonial->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                            <a href="#" onclick="confirm('Are you sure, You want to de-active this testimonial?') || event.stopImmediatePropagation()" wire:click.prevent="DeactiveStatus({{$testimonial->id}})" style="margin-left:10px;">Active</a>
                                             @else
-                                            <a href="#" onclick="confirm('Are you sure, You want to active this testimonial') || event.stopImmediatePropagation()" wire:click.prevent="ActiveStatus({{$testimonial->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                            <a href="#" onclick="confirm('Are you sure you want to active this testimonial?') || event.stopImmediatePropagation()" wire:click.prevent="ActiveStatus({{$testimonial->id}})" style="margin-left:10px;">Deactive</a>
                                             @endif</td>
                                         <td>
-                                            <a href="{{route('admin.edittestimonial',['tid'=>$testimonial->id])}}"><i class="fa fa-edit fa-2x"></i></a>
-                                            @if($testimonial->verified)
-                                            <a href="#" onclick="confirm('Are you sure, You want to deverified this testimonial') || event.stopImmediatePropagation()" wire:click.prevent="DeVerifiedstatus({{$testimonial->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
-                                            @else
-                                            <a href="#" onclick="confirm('Are you sure, You want to verified this testimonial') || event.stopImmediatePropagation()" wire:click.prevent="Verifiedstatus({{$testimonial->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
-                                            @endif
+                                            <a href="{{route('admin.edittestimonial',['tid'=>$testimonial->id])}}"><i class="fa fa-edit "></i></a>
+                                            <a href="#" onclick="confirm('Are you sure you want to delete this testimonial?') || event.stopImmediatePropagation()" wire:click.prevent="DeleteTestimonial({{$testimonial->id}})" style="margin-left:10px;"><i class="fa fa-times text-danger"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
                          </tbody>
                      </table>
-
-                     {{$testimonials->links()}}
 
                  </div>
              </div>

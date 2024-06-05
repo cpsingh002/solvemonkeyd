@@ -33,13 +33,13 @@
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
                                              <div class="mb-4">
-                                                 <label class="form-label">User Name</label>
+                                                 <label class="form-label">User Name<span class="text-danger"> *</span></label>
                                                  <input type="text" placeholder="User Name" class="form-control"
                                                      wire:model="name" />
                                                  @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
-                                                 <label class="form-label">Email</label>
+                                                 <label class="form-label">Email<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="Email" placeholder="User Email" class="form-control" wire:model="email" />
                                                      @error('email') <p class="text-danger">{{$message}}</p> @enderror
@@ -47,7 +47,7 @@
                                              </div>
                                              <div class="mb-4">
                                                  <div>
-                                                     <label class="form-label">Phone</label>
+                                                     <label class="form-label">Contact Number<span class="text-danger"> *</span></label>
                                                      <div class="input-group input-group--sa-slug">
                                                          <input type="text" placeholder="User Phone No" class="form-control" wire:model="phone" />
                                                          @error('phone') <p class="text-danger">{{$message}}</p> @enderror
@@ -56,7 +56,7 @@
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-user/password" class="form-label">Password</label>
+                                                 <label for="form-user/password" class="form-label">Password<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input id="password" type="password"
                                                          class="form-control @error('password') is-invalid @enderror"
@@ -67,14 +67,21 @@
                                                      </span>
                                                      @enderror
                                                  </div>
+                                                         @error('password') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
 
                                              <div class="mb-4">
-                                                 <label for="form-user/confirm-password" class="form-label">Confirm Password</label>
+                                                 <label for="form-user/confirm-password" class="form-label">Confirm Password<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input id="password-confirm" type="password" class="form-control" wire:model="password_confirmation" required autocomplete="new-password">
-                                                 </div>
+                                                    @error('password')
+                                                     <span class="invalid-feedback" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                     </span>
+                                                     @enderror
+                                                </div>
+                                                @error('password') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
                                              

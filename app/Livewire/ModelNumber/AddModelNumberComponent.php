@@ -32,7 +32,7 @@ class AddModelNumberComponent extends Component
         $this->validateOnly($fields,[
             'title'=>'required',
             'slug'=>'required|unique:model_numbers',
-            
+            'scategory_id'=>'required',
             'brand_id'=>'required',
             'category_id'=>'required'
         ]);
@@ -42,9 +42,14 @@ class AddModelNumberComponent extends Component
         $this->validate([
             'title'=>'required',
             'slug' => 'required|unique:model_numbers',
+            'scategory_id'=>'required',
             'brand_id'=>'required',
             'category_id'=>'required'
-        ]);
+        ],[
+            'brand_id.required'=>'The brand field is required.',
+            'category_id.required'=>'The parent category field is required.',
+            'scategory_id.required'=>'The sub-category field is required.'
+            ]);
         
             $brand = new ModelNumber();
             $brand->name = $this->title;
@@ -63,13 +68,13 @@ class AddModelNumberComponent extends Component
     }
     public function render()
     {
-        $categories=Category::all();
-        $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $categories=Category::where('status','!=',3)->get();
+        $scategories = Subcategory::where('category_id',$this->category_id)->where('status','!=',3)->get();
         if($this->scategory_id){
-        $brands = Brand::where('subcategory_id',$this->scategory_id)->get();
+        $brands = Brand::where('subcategory_id',$this->scategory_id)->where('status','!=',3)->get();
         }else{
             // dd($this->scategory_id);
-        $brands = Brand::where('category_id',$this->category_id)->get();
+        $brands = Brand::where('category_id',$this->category_id)->where('status','!=',3)->get();
         }
         return view('livewire.model-number.add-model-number-component',['categories'=>$categories,'scategories'=>$scategories,'brands'=>$brands])->layout('layouts.admin1');
     }

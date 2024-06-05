@@ -23,4 +23,8 @@ class Attribute extends Model
     {
         return $this->hasMany(AttributeOption::class,'attribute_id');
     }
+    public function attributecount()
+    {
+        return $this->hasMany(ProductAttribute::class,'attoption_id');
+    }
 }

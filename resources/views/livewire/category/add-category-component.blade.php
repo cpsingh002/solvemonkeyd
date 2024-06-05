@@ -12,7 +12,7 @@
                          <h1 class="h3 m-0">Add Category for product</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.categories')}}" class="btn btn-primary">All Category</a>
+                         <a href="{{route('admin.categories')}}" class="btn btn-primary">All Categories</a>
                      </div>
 
                  </div>
@@ -33,20 +33,20 @@
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-category/name" class="form-label">Category Name</label>
+                                                 <label for="form-category/name" class="form-label">Category Name<span class="text-danger"> *</span></label>
                                                  <input type="text" placeholder="Category Name" class="form-control"
                                                      wire:model="name" wire:keyup="generateslug" />
                                                  @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-category/slug" class="form-label">Category Slug</label>
+                                                 <label for="form-category/slug" class="form-label">Category Slug<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="text" placeholder="Category Slug" class="form-control"
                                                          wire:model="slug" />
-                                                     @error('slug') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
+                                                     @error('slug') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
-                                             <div class="mb-4">
+                                          {{--   <div class="mb-4">
                                                  <div>
                                                      <label for="form-category/parent-category" class="form-label">Parent
                                                          Category</label>
@@ -58,34 +58,47 @@
                                                          @endforeach
                                                      </select>
                                                  </div>
-                                             </div>
+                                             </div> --}}
 
                                              <div class="mb-4">
-                                                 <label for="form-product/icon" class="form-label">Category Icon</label>
+                                                 <label for="form-product/icon" class="form-label">Category Icon (JPEG, JPG, PNG)<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
-                                                     <input type="file" placeholder="Category Icon" class="form-control"
+                                                     <input type="file" class="input-file"
                                                          wire:model="icon" />
                                                          @if($icon)
-                                                     <!-- <img src="{{$icon->temporaryUrl()}}" width="120" /> -->
+                                                      <img src="{{$icon->temporaryUrl()}}" width="120" /> 
                                                      @endif
                                                      
-                                                     @error('icon') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
+                                                     @error('icon') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
                                              <div class="mb-4">
                                                  <label for="form-product/image" class="form-label">Category
-                                                     Thumb</label>
+                                                     Thumbnail Image (JPEG, JPG, PNG)<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="file" class="input-file" wire:model="categorythum" />
                                                      @if($categorythum)
                                                      <img src="{{$categorythum->temporaryUrl()}}" width="120" />
                                                      @endif
-                                                     @error('categorythum') <p class="text-danger">{{$message}}</p>
-                                                     @enderror
+                                                     
                                                  </div>
+                                                 @error('categorythum') <p class="text-danger">{{$message}}</p>
+                                                     @enderror
                                              </div>
+                                            <div class="mb-4">
+                                                 <div>
+                                                     <label for="form-category/parent-category" class="form-label">For Show in Footer<span class="text-danger"> *</span>
+                                                         </label>
 
+                                                     <select class="form-select" wire:model="is_home">
+                                                         <option value="">Select</option>
+                                                         <option value="0">No</option>
+                                                         <option value="1">Yes</option>
+                                                     </select>
+                                                 </div>
+                                                     @error('is_home') <p class="text-danger">{{$message}}</p> @enderror
+                                             </div>
                                              <div class="mb-4 text-center">
                                                  <button type="submit" class="btn btn-primary">Submit</button>
                                              </div>

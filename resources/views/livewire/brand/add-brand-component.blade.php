@@ -12,7 +12,7 @@
                          <h1 class="h3 m-0">Add Brand</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.brands')}}" class="btn btn-primary">All Brand</a>
+                         <a href="{{route('admin.brands')}}" class="btn btn-primary">All Brands</a>
                      </div>
 
                  </div>
@@ -35,9 +35,9 @@
                                              </div>
                                              
 
-                                                <div class="md-4">
-                                                    <label class="form-label">Category</label>
-                                                    <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
+                                                <div class="inputed md-4">
+                                                    <label class="form-label">Category<span class="text-danger"> *</span></label>
+                                                    <select class="form-control color" wire:model="category_id" wire:change="changeSubcategory">
                                                         <option value="">Select Category</option>
                                                         @foreach($categories as $category)
                                                             <option value="{{$category->id}}">{{$category->name}}</option>
@@ -48,9 +48,9 @@
                                             
                                             
                                                 
-                                                <div class="md-4">
-                                                    <label class="form-label">Sub-Category</label>
-                                                    <select class="form-control" wire:model="scategory_id">
+                                                <div class=" inputed md-4">
+                                                    <label class="form-label">Sub-Category<span class="text-danger"> *</span></label>
+                                                    <select class="form-control color" wire:model="scategory_id">
                                                         <option value="0">Select Sub Category</option>
                                                         @foreach($scategories as $scategory)
                                                             <option value="{{$scategory->id}}">{{$scategory->name}}</option>
@@ -60,14 +60,14 @@
                                                 </div>
                                             
                                             <div class="mb-4">
-                                                 <label for="form-banner/name" class="form-label">Title</label>
+                                                 <label for="form-banner/name" class="form-label">Title<span class="text-danger"> *</span></label>
                                                  <input type="text" placeholder="Title" class="form-control"
                                                      wire:model="title" wire:keyup="generateslug" />
                                                  @error('title') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-banner/name" class="form-label">Slug</label>
+                                                 <label for="form-banner/name" class="form-label">Slug<span class="text-danger"> *</span></label>
                                                  <input type="text" placeholder="Slug" class="form-control"
                                                      wire:model="slug" />
                                                  @error('slug') <p class="text-danger">{{$message}}</p> @enderror
@@ -75,7 +75,7 @@
                                             
 
                                              <div class="mb-4">
-                                                 <label for="form-banner/image" class="form-label">Image</label>
+                                                 <label for="form-banner/image" class="form-label">Image<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
 
                                                      <input type="file" class="input-file" wire:model="image" />
@@ -83,6 +83,7 @@
                                                      <img src="{{$image->temporaryUrl()}}" width="120" />
                                                      @endif
                                                  </div>
+                                                 @error('image') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
                                              <div class="mb-4">
@@ -90,7 +91,7 @@
                                                  <div class="input-group input-group--sa-slug">
 
                                                      <select class="form-select" wire:model="status">
-                                                         <option value="0">Inactive</option>
+                                                         <option value="0">Deactive</option>
                                                          <option value="1">Active</option>
                                                      </select>
                                                  </div>

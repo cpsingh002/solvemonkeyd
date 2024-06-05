@@ -13,19 +13,34 @@ class CategoryComponent extends Component
     public function deleteCategory($id)
     {
         $category = Category::find($id);
-        $category->delete();
+        $category->status=3;
+        $category->save();
         session()->flash('message','Category has been deleted successfully!');
+        $this->js('window.location.reload()');
     }
-    public function deleteSubCategory($id)
-    {
-        $category = SubCategory::find($id);
-        $category->delete();
-        session()->flash('message','Sub-Category has been deleted successfully!');
+    // public function deleteSubCategory($id)
+    // {
+    //     $category = SubCategory::find($id);
+    //     $category->delete();
+    //     session()->flash('message','Sub-Category has been deleted successfully!');
+    // }
+    public function changeActive($id){
+        $category = Category::find($id);
+        $category->status=2;
+        $category->save();
+        session()->flash('message','Category has been deactivited successfully!');
+        $this->js('window.location.reload()');
     }
-
+    public function changeDeactive($id){
+        $category = Category::find($id);
+        $category->status=1;
+        $category->save();
+        session()->flash('message','Category has been activited successfully!');
+        $this->js('window.location.reload()');
+    }
     public function render()
     {
-        $categories=Category::paginate(5);
+        $categories=Category::where('status','!=',3)->get();
         // return view('livewire.category.category-component',['categories'=>$categories])->layout('layouts.admin');
 
         return view('livewire.category.category-component',['categories'=>$categories])->layout('layouts.admin1');

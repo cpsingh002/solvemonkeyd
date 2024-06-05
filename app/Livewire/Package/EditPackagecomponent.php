@@ -13,6 +13,7 @@ class EditPackagecomponent extends Component
     public $price;
     public $description;
     public $validity;
+    public $count;
     public $pid;
     public $p_id;
 
@@ -28,6 +29,7 @@ class EditPackagecomponent extends Component
             $this->ptype = $package->ptype;
             $this->price = $package->price;
             $this->validity = $package->validity;
+            $this->count=$package->count;
             $this->description = $package->description;
             $this->p_id = $package->id;
     
@@ -35,11 +37,13 @@ class EditPackagecomponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
-            'pname'=>'required',
             'ptype'=>'required',
             'price'=>'required',
             'validity'=>'required',
-            'description'=>'required'
+            'count'=>'required',
+            'description'=>'required',
+            'pname'=>'required|unique:packages,pname,'.$this->p_id,
+            'up_to' =>'required'
         ]);
     }
 
@@ -47,11 +51,18 @@ class EditPackagecomponent extends Component
     {
         $this->validate([
             'pname'=>'required',
-            'ptype'=>'required',
             'price'=>'required',
             'validity'=>'required',
-            'description'=>'required'
-        ]);
+            'count'=>'required',
+            'description'=>'required',
+            'ptype'=>'required|unique:packages,ptype,'.$this->p_id,
+            'up_to' =>'required'
+        ],[
+            'pname.required'=>'The package name field is required.',
+            'ptype.required'=>'The package type field is required.',
+            'count.required'=>'The visiting count field is required.',
+           'up_to.required'=>'The package valid upto field is required.'
+            ]);
         
             
      
@@ -60,6 +71,7 @@ class EditPackagecomponent extends Component
             $package->ptype = $this->ptype;
             $package->price = $this->price;
             $package->validity = $this->validity;
+            $package->count=$this->count;
             $package->up_to = $this->up_to;
             $package->description = $this->description;         
             $package->save();

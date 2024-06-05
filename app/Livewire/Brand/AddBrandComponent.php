@@ -20,7 +20,7 @@ class AddBrandComponent extends Component
     public $category_id;
     public $icon;
     public $image;
-    Public $scategory_id;
+    public $scategory_id;
     public $status;
 
     public function generateslug()
@@ -31,17 +31,26 @@ class AddBrandComponent extends Component
     {
         $this->validateOnly($fields,[
             'title'=>'required',
+            'category_id'=>'required',
+            'scategory_id'=>'required',
             'slug'=>'required|unique:brands',
-            'status'=>'required'
+            'status'=>'required',
+            'image'=>'required|mimes:jpeg,jpg,png',
         ]);
     }
     public function addBrand()
     {
         $this->validate([
             'title'=>'required',
+            'category_id'=>'required',
+            'scategory_id'=>'required',
             'slug' => 'required|unique:brands',
-            'status'=>'required'
-        ]);
+            'status'=>'required',
+            'image'=>'required|mimes:jpeg,jpg,png',
+        ],[
+            'category_id.required'=>'The category field is required.',
+            'scategory_id.required'=>'The sub-category field is required.'
+            ]);
         
             $brand = new Brand();
             $brand->name = $this->title;
@@ -64,8 +73,8 @@ class AddBrandComponent extends Component
     }
     public function render()
     {
-        $categories=Category::all();
-        $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $categories=Category::where('status','!=',3)->get();
+        $scategories = Subcategory::where('category_id',$this->category_id)->where('status','!=',3)->get();
         
         return view('livewire.brand.add-brand-component',['categories'=>$categories,'scategories'=>$scategories])->layout('layouts.admin1');
     }

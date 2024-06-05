@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from bytesed.com/tf/listocean/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Sep 2023 06:17:02 GMT -->
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords"
         content="ads, advertise, advertising, classified, classified ads, database, directory, jobs, listing, local, portal" />
     <meta name="description"
@@ -17,11 +17,21 @@
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/css/plugin.css')}}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- <link rel="stylesheet" href="{{asset('assets/css/main-style.css')}}"> -->
+     <!--<link rel="stylesheet" href="{{asset('assets/css/main-style.css')}}"> -->
 
     <link rel="stylesheet" href="{{asset('assets/css/style-new.css')}}">
+    
+    
+    
 </head>
+
+<!--<style>-->
+<!--     .fa-heart-o:before{content:"\f08a"}-->
+<!--    .fa-heart:before{content:"\f004"}-->
+<!--</style>-->
 
 <body>
     <header class="header-style-01">
@@ -30,67 +40,149 @@
                 <div class="responsive-mobile-menu">
                     <div class="logo-wrapper">
                         <a href="{{'/'}}" class="logo">
-                            <img src="{{asset('assets/img/logo/solve-logo.png')}}" alt="images">
+                           <img src="{{asset('assets/img/logo/solve-logo.png')}}" alt="images"> 
+                        {{--    <img src="{{asset('assets/img/solvemonkeygooglemap2.png')}}" alt="images"> --}}
                         </a>
                     </div>
 
-                    <a href="#0" class="click_show_icon"><i class="las la-ellipsis-v"></i> </a>
+                    <!--<a href="#0" class="click_show_icon"><i class="las la-ellipsis-v"></i> </a>-->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#bizcoxx_main_menu" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
-                <div class="NavWrapper">
+                <div class="NavWrapper ml-lg-50">
 
-                    <div class="collapse navbar-collapse" id="bizcoxx_main_menu">
-                        <ul class="navbar-nav">
+                    <div class="collapse navbar-collapse " id="bizcoxx_main_menu">
+                        <ul class="navbar-nav d-flex gap-lg-4">
                             <li><a href="{{route('product-list')}}">All Ads</a></li>
                             <li><a href="{{route('about')}}">About us</a></li>
-                            <li><a href="{{route('contact')}}">contact</a></li>
+                            <li><a href="{{route('contact')}}">Contact</a></li>
+                            <li><a href="{{route('comapny.offer')}}">Compnay Offer</a></li>
+                            <li>
+                               <div class="sibeBar-Wrapper d-lg-none d-md-block ">
+
+                        <div class="sideBar ">
+
+                            <a href="#" class="sidebarBtn ms-3">
+                                 <!--<i class="las la-bars iconLeft"></i>  -->
+                                <span class="allCat" id="drop_view">All Categories</span><i class="las la-angle-down iconRight"></i>
+                            </a>
+
+                            @livewire('category-list-component')
+                        </div>
+
+                    </div> 
+                            </li>
+                            
+                         
+                            <li><div class="d-md-block d-lg-none noned">
+                        <ul class="header-cart flex-column ml-60 ">
+                             <div class="" >
+                        @auth
+                            @livewire('wishlist-count-component')
+                        @endauth
+
+
+                        @if(Route::has('login'))
+                        @auth
+                       
+                       
+                        <li class="single userAccount d-flex gap-3 ">
+                            <button class="user"><img src="{{asset('assets/img/gallery/user.png')}}" alt="images"></button><span
+                                    class="text">User Account</span>
+                            <div class="userAccount-wrapper ">
+                                <h6 class="ac-title">User Account</h6>
+                                <ul class="ac-list">
+                                    <li class="list">
+                                        <a class="list-title" href="{{route('user-account')}}"> <i
+                                                class="lar la-user-circle icon"></i> My Account </a>
+                                    </li>
+                                    <li class="list">
+                                        <a class="list-title" href="{{route('wishlist')}}"><i class="fa fa-heart icon"></i>
+                                            Wishlist </a>
+                                    </li>
+
+                                    <li class="list">
+                                        <a class="list-title" href="{{route('user-ads')}}"><i
+                                                class="las la-address-card icon"></i> Product ADs </a>
+                                    </li>
+
+
+                                    <li class="list">
+                                        <a class="list-title" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                                class="las la-sign-out-alt icon"></i>Logout</a>
+                                    </li>
+                                    <form id="logout-form" method="POST" action="{{route('logout')}}">
+                                        @csrf
+                                    </form>
+                        </li>
+                    </ul>
+                </div>
+
+                </li>
+                       </div>
+                <li class="single">
+                    <div class="btn-wrapper">
+                        <a href="#" class="cmn-btn1 popup-modal">
+                            <i class="las la-plus-square"></i><span class="text">Post your ad</span>
+                        </a>
+                    </div>
+                </li>
+                @else
+                <li class="single" wire:ignore>
+                    <!-- <a title="Register or Login" href="{{route('login')}}">Login</a> -->
+
+
+                    <div class="btn-wrapper">
+                        <a href="#" class="cmn-btn1 popup-btn-login">
+                            <i class="las la-plus-square"></i><span class="text">Login</span>
+                        </a>
+                    </div>
+                </li>
+
+                @endif
+                @endif
+                </ul>
+                    </div></li>
                         </ul>
                     </div>
 
 
 
+                   <div class="sibeBar-Wrapper d-md-none d-lg-block d-none d-sm-block">
 
+                        <div class="sideBar ">
 
-
-
-                    <div class="sibeBar-Wrapper">
-
-                        <div class="sideBar">
-
-                            <a href="#" class="sidebarBtn">
-                                <!-- <i class="las la-bars iconLeft"></i>  -->
-                                <span class="allCat">All Categories</span><i class="las la-angle-down iconRight"></i>
+                            <a href="#" class="sidebarBtn ms-3">
+                                 <!--<i class="las la-bars iconLeft"></i>  -->
+                                <span class="allCat"  >All Categories</span><i class="las la-angle-down iconRight"></i>
                             </a>
 
                             @livewire('category-list-component')
                         </div>
 
                     </div>
-
-
-
-
-
-
-
-
+                    
+                    
+                   
+                    
+                   
 
                 </div>
 
                 <div class="nav-right-content">
 
                     <ul class="header-cart">
-                        
-                        @livewire('wishlist-count-component')
-
+                        @auth
+                            @livewire('wishlist-count-component')
+                        @endauth
 
 
                         @if(Route::has('login'))
                         @auth
-                        <li class="single chatBar">
+                       {{-- <li class="single chatBar">
                             <button class="chat"><i class="lab la-rocketchat icon"></i><span
                                     class="text">Chat</span></button>
 
@@ -156,7 +248,7 @@
                                 <a href="{{'/message'}}" class="all-chat"> See All Messages </a>
                             </div>
 
-                        </li>
+                        </li> --}}
                         <li class="single userAccount">
                             <button class="user"><img src="{{asset('assets/img/gallery/user.png')}}" alt="images"></button>
                             <div class="userAccount-wrapper">
@@ -167,7 +259,7 @@
                                                 class="lar la-user-circle icon"></i> My Account </a>
                                     </li>
                                     <li class="list">
-                                        <a class="list-title" href="{{route('wishlist')}}"><i class="lar la-heart icon"></i>
+                                        <a class="list-title" href="{{route('wishlist')}}"><i class="fa fa-heart icon"></i>
                                             Wishlist </a>
                                     </li>
 
@@ -273,6 +365,7 @@
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" 
                                 autocomplete="current-password">
+                                <i class="toggle-password la la-fw la-eye-slash"></i>
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -281,7 +374,7 @@
                             @enderror
                         </div>
                     </div>
-<div id="login_msg"></div>
+                    <div id="login_msg"></div>
                     <div class="row mb-3">
                         <div class="col-md-10 m-auto">
                             <div class="form-check1">
@@ -296,7 +389,7 @@
                                     </div>
                                     <div class="col-6">
                                         @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="btn btn-link buttoned" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                         @endif
@@ -384,6 +477,7 @@
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="new-password">
+                                <i class="toggle-password fa fa-fw fa-eye-slash"></i>
 
                             @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -417,6 +511,18 @@
                             </div>
                         </div>
                     </div>
+                    
+                    
+                    <!--<div class="row mt-2">-->
+                    <!--    <p class="sinUp"><span>Don’t have an account? </span>-->
+                    <!--    <a class="singApp popup-btn-register text-violet fw-bold">Sign Up</a></p>-->
+                    <!--</div>-->
+                    
+                    
+                    <div class="row mt-2">
+                        <p class="sinUp"><span>Do have an account?</span>
+                        <a class="singApp popup-btn-login text-violet fw-bold">Sign In</a></p>
+                    </div>
                 </form>
             </div>
         </div>
@@ -434,7 +540,7 @@
     </div>
 
 
-    <!-- <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('assets/js/popper.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.js')}}"></script>
@@ -442,6 +548,7 @@
     <script src="{{asset('assets/js/plugin.js')}}"></script>
 
     <script src="{{asset('assets/js/main.js')}}"></script>
+ 
     <script>
         jQuery('#frmRegistar').submit(function(e){
     
@@ -485,6 +592,29 @@ jQuery('#frmLogin').submit(function(e){
   });
 });
     </script>
+    
+    <script> 
+    btn.addEventListener('click', function(e){ 
+      e.stopPropagation();
+      view.classList.toggle('is_active');
+  }); // open menu
+    
+  for(var i = 0; i < viewItems.length; i++){
+    viewItems[i].addEventListener('click', function(e){
+      e.stopPropagation();
+      out.innerHTML = this.innerHTML;
+      view.classList.remove('is_active');
+    });
+  } 
+    function(){
+        if(view.classList.contains('is_active')){
+          view.classList.remove('is_active');
+          } 
+      }); 
+    
+    </script>
+    
+    
     @livewireScripts
 	@stack('scripts')
 </body>

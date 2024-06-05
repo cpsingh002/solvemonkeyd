@@ -43,13 +43,13 @@ class AddUserProductComponent extends Component
     public $for_rent;
     public $prices;
     public $address;
-    public $lat;
-    public $long;
+    // public $lat;
+    // public $long;
     public $country_id;
     public $state_id;
     public $city_id;
     public $st_id;
-    public $click_location;
+    // public $click_location;
     public $zipcode; 
 
     public $meta_keywords;
@@ -61,7 +61,7 @@ class AddUserProductComponent extends Component
     public $featimage;
     public $images;
     public $thumbimage;
-    Public $exchange_for;
+    public $exchange_for;
 
     public $name;
     public $slug;
@@ -70,14 +70,27 @@ class AddUserProductComponent extends Component
     public $categorythum;
     public $attributeoptionid;
     public $dfh;
+    
+    public $range;
+    public $in_range;
+    public $price_range;
+    public $short_description;
+    public $description;
+
 
     public $inputs = [];
     public $attribute_arr = [];
+     public $city_id1,$city_id2,$city_id3, $price_negotiable;
+     
     public function mount()
     {
         $this->for_exchange = 1;
         $this->for_sell = 1;
         $this->for_rent = 1;
+        $this->in_range=0;
+        $this->owner_name=Auth::user()->name;
+        $this->contact_number=Auth::user()->phone;
+        $this->email_id=Auth::user()->email;
     }
 
     public function generateslug()
@@ -102,7 +115,7 @@ class AddUserProductComponent extends Component
         $this->brand_id = 0;
         $this->inputs=[];
        // dd($this->b_id,$this->category_id,$this->s_id);
-        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
         foreach($at as $sttt)
         {
             $this->inputs[$sttt->id]=0;
@@ -129,35 +142,40 @@ class AddUserProductComponent extends Component
         
     }
 
-    public function currentlocation()
-    {
-        // $ip = $request->ip();
-        $ip='162.159.24.227';
-        // $data = \Location::get($ip);    
-        $currentUserInfo = Location::get($ip);
-        $this->lat = $currentUserInfo->latitude ;
-        $this->long = $currentUserInfo->longitude; 
-        $this->zipcode = $currentUserInfo->zipCode;
-        //dd($currentUserInfo);
-        return;
-    }
+    // public function currentlocation(Request $request)
+    // {
+    //      $ip = $request->ip();
+    //     //$ip='162.159.24.227';
+    //     // $data = \Location::get($ip);    
+    //     $currentUserInfo = Location::get($ip);
+    //     $this->lat = $currentUserInfo->latitude ;
+    //     $this->long = $currentUserInfo->longitude; 
+    //     $this->zipcode = $currentUserInfo->zipCode;
+    //     //dd($currentUserInfo);
+    //     return;
+    // }
 
+    public function ranges()
+    {
+        $this->in_range=$this->in_range;
+    }
 
     public function updated($fields)
     {
         $this->validateOnly($fields,[
             'category_id'=>'required',
             'scategory_id'=>'required',
-            'brand_id'=>'required',
-            'attribute_id'=>'required',
-            'modelnumber_id'=>'required',
+          //  'brand_id'=>'required',
+        // 'attribute_id'=>'required',
+        // 'modelnumber_id'=>'required',
             'for_exchange'=>'required',
             'for_sell'=>'required',
             'for_rent'=>'required',
-            'prices'=>'required',
+            'prices'=>'required|numeric',
+            'in_range'=>'required',
             'address'=>'required',
-            'lat'=>'required',
-            'long'=>'required',
+            // 'lat'=>'required',
+            // 'long'=>'required',
             'country_id'=>'required',
             'state_id'=>'required',
             'city_id'=>'required',
@@ -169,14 +187,24 @@ class AddUserProductComponent extends Component
             'contact_number'=>'required',
             'email_id'=>'required',
 
-            'featimage'=>'required',
             'images'=>'required',
-            'thumbimage'=>'required',
             'exchange_for'=>'required',
 
             'name'=>'required',
             'slug'=>'required',
         ]);
+        if($this->thumbimage)
+        {
+            $this->validateOnly($fields,[
+                'thumbimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
+        if($this->featimage)
+        {
+            $this->validateOnly($fields,[
+                'featimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
     }
     public function changehghg($at_id, $key)
     {
@@ -184,23 +212,27 @@ class AddUserProductComponent extends Component
        $this->inputs[$at_id] =$this->attribute_arr[$key];
    
     }
+    public function preview(){
+        $this->dispatch('openproductPreviewModal');
+    } 
     public function addProduct()
     {
-          
+          //dd($this->inputs,$this->attribute_arr);
         
         $this->validate([
             'category_id'=>'required',
             'scategory_id'=>'required',
-            'brand_id'=>'required',
-            'attribute_id'=>'required',
-            'modelnumber_id'=>'required',
+           // 'brand_id'=>'required',
+            //'attribute_id'=>'required',
+            //'modelnumber_id'=>'required',
             'for_exchange'=>'required',
             'for_sell'=>'required',
             'for_rent'=>'required',
-            'prices'=>'required',
+            'prices'=>'required|numeric',
+            'in_range'=>'required',
             'address'=>'required',
-            'lat'=>'required',
-            'long'=>'required',
+            // 'lat'=>'required',
+            // 'long'=>'required',
             'country_id'=>'required',
             'state_id'=>'required',
             'city_id'=>'required',
@@ -212,29 +244,55 @@ class AddUserProductComponent extends Component
             'contact_number'=>'required',
             'email_id'=>'required',
 
-            'featimage'=>'required',
             'images'=>'required',
-            'thumbimage'=>'required',
             'exchange_for'=>'required',
 
             'name'=>'required',
             'slug'=>'required|unique:products',
-            'inputs'=>'required',
-           'attribute_arr'=>'required'
-        ]);
+            // 'inputs'=>'required',
+        //   'attribute_arr'=>'required'
+        ],[
+            'category_id.required'=>'The category field is required.',
+            'scategory_id.required'=>'The sub-category field is required.',
+            'attribute_id.required'=>'The attribute field is required.',
+           'country_id.required'=>'The country field is required.',
+           'state_id.required'=>'The state field is required.',
+           'city_id.required'=>'The city is required.',
+           'thumbimage.required'=>'The thumnail image field is required.',
+           'featimage.required'=>'The featured image field is required.',
+           'meta_keywords.required'=>'The meta tag field is required.'
+            ]);
+        if($this->thumbimage)
+        {
+            $this->validate([
+                'thumbimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
+        if($this->featimage)
+        {
+            $this->validate([
+                'featimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
 
         $product =new Product();
         $product->category_id= $this->category_id;
         $product->subcategory_id= $this->scategory_id;
+        if($this->brand_id){
         $product->brand_id= $this->brand_id;
         $product->model_id= $this->modelnumber_id;
+        }
         $product->is_exchange= $this->for_exchange;
         $product->is_sell= $this->for_sell;
         $product->is_rent= $this->for_rent;
         $product->prices= $this->prices;
+         $product->in_range=$this->in_range;
+        if($this->in_range){
+            $product->price_range=$this->price_range;
+        }
         $product->address= $this->address;
-        $product->lat= $this->lat;
-        $product->lang= $this->long;
+        // $product->lat= $this->lat;
+        // $product->lang= $this->long;
         $product->country_id= $this->country_id;
         $product->state_id= $this->state_id;
         $product->city_id= $this->city_id;
@@ -272,19 +330,29 @@ class AddUserProductComponent extends Component
 
         $product->name= $this->name;
         $product->slug=$this->slug;
-        $product->user_id = Auth::user()->id;    
+        $product->user_id = Auth::user()->id;
+        $product->short_description =  $this->short_description;
+        $product->description = $this->description;
+        $product->price_negotiable = $this->price_negotiable;
+        $product->city_id1 = $this->city_id1;
+        $product->city_id2 = $this->city_id2;
+        $product->city_id3 = $this->city_id3;
         $product->save();    
         
-        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
         foreach($at as $key => $atsd){
            // dd($this->dfh.$key);
            // $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
            // dd($sdgh);
+             if($this->inputs[$atsd->id] == 0){
+               
+           }else{
            $PrAt= new ProductAttribute();
            $PrAt->product_id = $product->id;
            $PrAt->attribute_id = $atsd->id;
            $PrAt->attoption_id  = $this->inputs[$atsd->id];
            $PrAt->save();
+           }
 
         }
        // dd($sdgh);
@@ -297,16 +365,17 @@ class AddUserProductComponent extends Component
     public function render()
     {
 
-        $categories=Category::all();
-        $scategories = Subcategory::where('category_id',$this->category_id)->get();
-        $brands = Brand ::where('category_id',$this->category_id)->where('subcategory_id',$this->scategory_id)->get();
-        $modelnumbers = ModelNumber::where('brand_id',$this->b_id)->where('category_id',$this->category_id)->where('subcategory_id',$this->s_id)->get();
-        $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
-        $attributeoptions = AttributeOption::where('attribute_id',$this->attribute_id)->where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        $categories=Category::where('status',1)->get();
+        $scategories = Subcategory::where('category_id',$this->category_id)->where('status',1)->get();
+        $brands = Brand ::where('category_id',$this->category_id)->where('subcategory_id',$this->scategory_id)->where('status',1)->get();
+        $modelnumbers = ModelNumber::where('brand_id',$this->b_id)->where('category_id',$this->category_id)->where('subcategory_id',$this->s_id)->where('status',1)->get();
+        $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
+        $attributeoptions = AttributeOption::where('attribute_id',$this->attribute_id)->where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
       
         $countries = Country::all();
         $states = State::where('country_id',$this->country_id)->get();
         $cities = City::where('state_id',$this->st_id)->get();
+        $citiys = City::leftJoin('states','states.id','=','cities.state_id')->where('states.country_id','101')->select('cities.*')->get();
 
         // return view('livewire.user.add-product-component');
 // dd($categories);
@@ -315,7 +384,7 @@ class AddUserProductComponent extends Component
         return view('livewire.user.add-product-component',[
             'categories'=>$categories,'scategories'=>$scategories,'brands'=>$brands,
             'modelnumbers'=>$modelnumbers,'attributes'=>$attributes,'attributeoptions'=>$attributeoptions,
-            'countries'=>$countries,'states'=>$states,'cities'=>$cities])->layout('layouts.base');
+            'countries'=>$countries,'states'=>$states,'cities'=>$cities,'citiys'=>$citiys])->layout('layouts.base');
         
     }
 }

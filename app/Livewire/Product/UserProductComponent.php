@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Livewire\Product;
+
+use Livewire\Component;
+use App\Models\Product;
+use Livewire\WithPagination;
+
+class UserProductComponent extends Component
+{
+        use withPagination;
+    public function deleteProduct($id)
+    {
+        $product = Product::find($id);
+        $product->status=3;
+        $product->save();
+        session()->flash('message','Product has been deleted successfully!');
+        $this->js('window.location.reload()');
+        return;
+    }
+    public function changeActive($id){
+        $product = Product::find($id);
+        $product->status=2;
+        $product->save();
+        $this->js('window.location.reload()');
+    }
+    public function changeDeactive($id){
+        $product = Product::find($id);
+        $product->status=1;
+        $product->save();
+        $this->js('window.location.reload()');
+    }
+    public function render()
+    {
+
+        // return view('livewire.product.product-component');
+
+        $products=Product::where('status','!=',3)->where('user_id','!=',1)->get();
+        return view('livewire.admin1.product.user-product-component',['products'=>$products])->layout('layouts.admin1');
+    }
+
+}

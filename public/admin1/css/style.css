@@ -4461,7 +4461,7 @@ input:checked + .sa-color-checkbox__box {
 }
 .sa-widget-table thead td,
 .sa-widget-table thead th {
-    color: #6c757d;
+    color: #fff;
     font-size: 0.8125rem;
     font-weight: 500;
     padding-bottom: var(--sa-widget-table__head-cell--padding-y);
@@ -5347,7 +5347,7 @@ input:checked + .sa-color-checkbox__box {
     background-color: #ffd333;
     color: #3d464d;
     flex-shrink: 0;
-    height: var(--sa-toolbar-height);
+    /*height: var(--sa-toolbar-height);*/
 }
 .sa-sidebar__logo {
     align-items: flex-start;
@@ -5615,6 +5615,7 @@ input:checked + .sa-color-checkbox__box {
 }
 .saw-chart__header {
     padding: 1.25rem 1.25rem 0;
+    padding-bottom:20px;
 }
 .saw-chart__body {
     flex-grow: 1;
@@ -5781,8 +5782,9 @@ input:checked + .sa-color-checkbox__box {
     margin: 0;
 }
 [dir="ltr"] .saw-indicator--size--lg .saw-indicator__value {
-    margin-right: 0.75rem;
-    text-align: left;
+   margin-right: -5.25rem;
+    /* text-align: left; */
+    margin-bottom: 10px;
 }
 [dir="rtl"] .saw-indicator--size--lg .saw-indicator__value {
     margin-left: 0.75rem;
@@ -7421,3 +7423,89 @@ input:checked + .sa-color-checkbox__box {
 .sa-roller-stripes {
     fill: #333a40;
 }
+
+
+.side2{
+    display: flex;
+    gap: 10px;
+}
+
+.sidebaar2{
+    width: 20px;
+}
+
+.sidebaar1 {
+    width: 160px;
+    height: 50px;
+    margin-left: 18px;
+}
+
+.counted{
+    padding-left: 35px!important;
+}
+
+.counted1{
+    padding-left: 30px!important;
+}
+
+.sides2{
+    background: #80808059;
+    margin: 10px 10px -3px 10px;
+    border-radius: 2px;
+}
+
+.conf{
+    margin: 10px;
+}
+
+.side3{
+    display: flex;
+    gap: 60px;
+}
+
+.sidebaar3{
+    width: 100px;
+}
+
+.menued{
+    margin-top:10px;
+}
+
+.inputed{
+    margin-bottom:15px;
+}
+
+.color{
+    color:gray;
+}
+#color{
+    color:gray;
+}
+
+.form-label {
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.sad{
+    padding: 17px;
+}
+
+
+@media (max-width:1280px){
+
+/*.categories{*/
+/*    font-size:10px !important;*/
+/*}*/
+
+/*.category{*/
+/*    font-size:9px !important;*/
+/*}*/
+
+}
+
+
+
+
+

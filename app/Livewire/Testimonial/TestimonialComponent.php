@@ -15,6 +15,7 @@ class TestimonialComponent extends Component
         $category->status = 1;
         $category->save();
         session()->flash('message','Testimonial has been Active successfully!');
+        $this->js('window.location.reload()');
     }
     public function DeactiveStatus($id)
     {
@@ -22,24 +23,26 @@ class TestimonialComponent extends Component
         $category->status = 0;
         $category->save();
         session()->flash('message','Testimonial has been Deactive successfully!');
+        $this->js('window.location.reload()');
     }
-    public function Verifiedstatus($id)
+    public function DeleteTestimonial($id)
     {
         $category = Testimonial::find($id);
-        $category->verified = 1;
-        $category->delete();
-        session()->flash('message','Testimonial has been verified successfully!');
+        $category->status = 3;
+        $category->save();
+        session()->flash('message','Testimonial has been deleted successfully!');
+        $this->js('window.location.reload()');
     }
-    public function DeVerifiedstatus($id)
-    {
-        $category = Testimonial::find($id);
-        $category->verified = 0;
-        $category->delete();
-        session()->flash('message','Testimonial has been Deverified successfully!');
-    }
+    // public function DeVerifiedstatus($id)
+    // {
+    //     $category = Testimonial::find($id);
+    //     $category->verified = 0;
+    //     $category->save();
+    //     session()->flash('message','Testimonial has been Deverified successfully!');
+    // }
     public function render()
     {
-        $testimonials = Testimonial::paginate(5);
+        $testimonials = Testimonial::where('status','!=',3)->get();
         return view('livewire.testimonial.testimonial-component',['testimonials'=>$testimonials])->layout('layouts.admin1');
     }
 }

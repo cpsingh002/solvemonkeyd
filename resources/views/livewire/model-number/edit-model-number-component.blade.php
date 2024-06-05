@@ -9,10 +9,10 @@
                          <nav class="mb-2" aria-label="breadcrumb">
 
                          </nav>
-                         <h1 class="h3 m-0">Edit Model Number</h1>
+                         <h1 class="h3 m-0">Edit Model</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.modelnumbers')}}" class="btn btn-primary">All Model Number</a>
+                         <a href="{{route('admin.modelnumbers')}}" class="btn btn-primary">All Models</a>
                      </div>
 
                  </div>
@@ -35,8 +35,8 @@
                                              </div>
                                             
                                                 
-                                                <div class="md-4">
-                                                    <label class="col-md-4 control-label">Category</label>
+                                                <div class="mb-4">
+                                                    <label class="col-md-4 control-label form-label">Category<span class="text-danger"> *</span></label>
                                                     <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
                                                         <option value="">Select Category</option>
                                                         @foreach($categories as $category)
@@ -48,8 +48,8 @@
                                             
                                             
                                                 
-                                                <div class="md-4">
-                                                    <label class="col-md-4 control-label">Sub-Category</label>
+                                                <div class="mb-4">
+                                                    <label class="col-md-4 control-label form-label">Sub-Category<span class="text-danger"> *</span></label>
                                                     <select class="form-control" wire:model="scategory_id">
                                                         <option value="0">Select Sub Category</option>
                                                         @foreach($scategories as $scategory)
@@ -60,8 +60,8 @@
                                                 </div>
                                             
                                             
-                                                <div class="md-4">
-                                                    <label for="form-banner" class="form-label">Brands</label>
+                                                <div class="mb-4">
+                                                    <label for="form-banner" class="form-label">Brands<span class="text-danger"> *</span></label>
                                                     <select class="form-control" wire:model="brand_id">
                                                         <option value="0">Select Brand Name</option>
                                                         @foreach($brands as $brand)
@@ -72,26 +72,26 @@
                                                 </div>
                                             
                                              <div class="mb-4">
-                                                 <label for="form-banner/name" class="form-label">Title</label>
+                                                 <label for="form-banner/name" class="form-label">Title<span class="text-danger"> *</span></label>
                                                  <input type="text" placeholder="Title" class="form-control"
                                                      wire:model="title" wire:keyup="generateslug" />
-                                                 @error('title') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
+                                                 @error('title') <p class="text-danger">{{$message}}</p> @enderror
 
                                              <div class="mb-4">
-                                                 <label for="form-banner/name" class="form-label">Slug</label>
+                                                 <label for="form-banner/name" class="form-label">Slug<span class="text-danger"> *</span></label>
                                                  <input type="text" placeholder="Slug" class="form-control"
                                                      wire:model="slug" />
-                                                 @error('slug') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
-                                            
+                                             @error('slug') <p class="text-danger">{{$message}}</p> @enderror
+
 
                                              <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Status</label>
                                                  <div class="input-group input-group--sa-slug">
 
                                                      <select class="form-select" wire:model="status">
-                                                         <option value="0">Inactive</option>
+                                                         <option value="0">Deactive</option>
                                                          <option value="1">Active</option>
                                                      </select>
                                                  </div>

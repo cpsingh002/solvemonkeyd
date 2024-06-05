@@ -9,4 +9,8 @@ class PackagePurchase extends Model
 {
     use HasFactory;
     protected $table="package_purchases";
+    public function validitycount()
+    {
+        return $this->belongsTo(Package::class,'package_id');
+    }
 }

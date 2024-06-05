@@ -1,22 +1,129 @@
 <div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<style>
+
+  @media(max-width:768px){
+    .footerWrapper .footer-area .footer-tittle .listing .listItem .singleLinks {
+    font-size: 11px !important;
+  } 
+  
+  .footerWrapper .footer-area .footer-form .newsletter-footer .input {
+    margin-left: -64px;
+     width:100%;
+}
+
+    .sidebar {
+	 flex: 1 0 300px;
+	 /*background: #333;*/
+	 height: 100%;
+	 transition: all 0.3s ease-out;
+	 display:none;}
+      
+      .content.is-full-width {
+	 margin-left: 0px!important;
+}
+      
+    .sidebar.is-collapsed {
+	 transform: translateX(0%)!important;
+}  
+     
+ }   
+ 
+  @media(max-width:830px){
+       
+     .footerWrapper .footer-area .footer-tittle .listing .listItem .singleLinks {
+    font-size: 11px !important;
+  } 
+  
+  .footerWrapper .footer-area .footer-form .newsletter-footer .input {
+    margin-left: -64px;
+    width:100%;
+}
+
+    .sidebar {
+	 flex: 1 0 300px;
+	 /*background: #333;*/
+	 height: 100%;
+	 transition: all 0.3s ease-out;
+	 display:none;}
+      
+      .content.is-full-width {
+	 margin-left: 0px!important;
+}
+      
+    .sidebar.is-collapsed {
+	 transform: translateX(0%)!important;
+}  
+     
+ } 
+     nav svg{
+            height:20px;
+        }
+        nav .hidden{
+            display:block !important;
+        }
+        .select-itms{
+            display:flex;
+            /*justify-content:space-around;*/
+            top:0px;
+            gap:60px;
+        }
+        .listscrolls{
+            display:flex;
+            flex-flow:column;
+            gap:25px;
+        }
+        
+        .contained {
+	 display: flex;
+	 width: 100%;
+	 height: 100%;
+}
+ .sidebar {
+	 flex: 1 0 300px;
+	 /*background: #333;*/
+	 height: 100%;
+	 transition: all 0.3s ease-out;
+}
+ .sidebar.is-collapsed {
+	 transform: translateX(-100%);
+}
+ .content {
+	 width: 100%;
+	 height: 100%;
+	 padding: 1rem;
+	 /*background: #999;*/
+	 transition: all 0.3s ease-out;
+}
+ .content.is-full-width {
+	 margin-left: -300px;
+}
+
+.solid{
+    font-size:30px;
+    /*margin-bottom:-70px;*/
+}
+</style>
     <main>
 
-        <div class="section-padding2 plr">
-            <div class="container-fluid">
-                <div class="row">
+        <div class="section-padding2">
+            <div class="">
+                <div class=" contained">
+                    <!--row roows-->
+                    <aside class="sidebar">
 
-                    <div class="col-xxl-3  col-xl-3 col-lg-4 col-md-5">
-                        <div class="cateSidebar">
+                    <div>
+                         <a href="javascript:void(0)" class="closebtn d-lg-none d-md-block d-col-block f-right fs-1" >&times;</a>
+                        <div class="cateSidebar mt-40 mt-md-0">
                             <h5 class="catTittle2">All {{$category->name}}</h5>
 
 
-                            <ul class="listing listScroll">
+                            <ul class="listing listScroll listsscrolls ">
                                 @foreach($subcategories as $subcategory)
-                                    <li class="listItem"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$subcategory->slug])}}" class="items">
-                                        <img src="{{asset('admin/category')}}/{{$subcategory->icon}}" class="icon" alt="{{$subcategory->name}}">
-                                        <span>{{$subcategory->name}} <span class="itemNumber">(1,{{$subcategory->productcount->count()}})</span></span>
+                                    <li class="listItem liii"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$subcategory->slug])}}" class="items">
+                                        <img src="{{asset('admin/category/icon')}}/{{$subcategory->icon}}" class="icon" alt="{{$subcategory->name}}">
+                                        <span class="listed">{{$subcategory->name}} <span class="itemNumber">({{$subcategory->productcount->count()}})</span></span>
                                     </a></li>
                                 
                                 @endforeach
@@ -26,7 +133,8 @@
 
                             <ul class="listing listScroll">
                                 @foreach($brands as $brand)
-                                    <li class="list-item"><input type="checkbox" wire:model="brandtype" value="{{$brand->id}}" wire:click="brandseletc">{{$brand->name}} <span>(217)</span></li>
+                                <!--class="me-2"-->
+                                    <li class="listItem"><input  type="checkbox" wire:model="brandtype" value="{{$brand->id}}" wire:click="brandseletc"><span class="fs-14">{{$brand->name}} ({{$brand->brandcount->count()}})</span></li>
                                                       
                                 @endforeach
                             </ul>
@@ -36,10 +144,11 @@
                             <ul class="listing listScroll">
                                 @if($attributes != null)
                                 @foreach($attributes as $attribute)
-                                <p>{{$attribute->attribute}} </p>
+                                <div class="listItem1">
+                                <p class="catTittled">{{$attribute->attribute}} </p>
                                         @foreach($attribute->attributeoptions as $acv)
-                                            <li class="list-item"><input type="checkbox" wire:model="attributetype" value="{{$acv->id}}" wire:click="brandseletc">{{$acv->option_details}} <span>(217)</span></li>
-                                        @endforeach          
+                                            <li class="listItem"><input type="checkbox" wire:model="attributetype" value="{{$acv->id}}" wire:click="brandseletc"><span class="fs-14">{{$acv->option_details}} ({{$attribute->attributecount->count()}})</span></li>
+                                        @endforeach</div>          
                                 @endforeach
                                 @endif
                             </ul>
@@ -49,18 +158,18 @@
 
                                 <div class="picPrice">
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 col-md-6 col-6">
                                             <div class="input-form">
-                                                <input type="text" placeholder="Min" wire:model="min_price" wire:change="minchange">
+                                                <input type="text" placeholder="Min" wire:model="min_price" wire:change="maxchange">
 
-                                                <div class="icon"><i class="las la-dollar-sign"></i></div>
+                                                 <div class="icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <div class="input-form">
+                                        <div class="col-lg-6 col-md-6 col-6">
+                                            <div class="input-form ">
                                                 <input type="text" placeholder="Max" wire:model="max_price" wire:change="maxchange">
 
-                                                <div class="icon"><i class="las la-dollar-sign"></i></div>
+                                                 <div class="icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
                                             </div>
                                         </div>
                                     </div>
@@ -73,9 +182,9 @@
                                     <div class="row">
                                         <ul class="listing listScroll">
                                             
-                                        <li class="list-item"><input type="checkbox" wire:model="for_sell" value="1" wire:change="maxchange">For Sell <span>(217)</span></li>
-                                        <li class="list-item"><input type="checkbox" wire:model="for_exchange" value="1" wire:change="maxchange">For Exchange <span>(217)</span></li>
-                                        <li class="list-item"><input type="checkbox" wire:model="for_rent" value="1" wire:change="maxchange">For Rent <span>(217)</span></li>
+                                        <li class="listItem"><input class="me-2" type="checkbox" wire:model="for_sell" value="1" wire:change="maxchange"><span class="fs-14">For Sell ({{$for_sell_count}})</span></li>
+                                        <li class="listItem"><input class="me-2" type="checkbox" wire:model="for_exchange" value="1" wire:change="maxchange"><span class="fs-14">For Exchange ({{$for_exchange_count}})</span></li>
+                                        <li class="listItem"><input class="me-2" type="checkbox" wire:model="for_rent" value="1" wire:change="maxchange"><span class="fs-14">For Rent ({{$for_rent_count}})</span></li>
                                             
                                            
                                         </ul>
@@ -83,524 +192,238 @@
                                 </div>
                             </div>
 
-                            <div class="dateTime mb-30">
+                        {{--    <div class="dateTime mb-30">
                                 <h5 class="catTittle">Date Posted</h5>
 
                                 <div class="datePicker">
                                     <input id="datepicker1" placeholder="10/04/2022" />
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="btn-wrapper">
-                                <a href="#" class="cmn-btn4 w-100"> Reset Filter</a>
-                            </div>
+                                <a href="#" class="cmn-btn4 w-100" wire:click="resetfilter"> Reset Filter</a>
+                            </div> 
                         </div>
                     </div>
-
-                    <div class="col-xxl-9 col-xl-9  col-lg-8 col-md-7">
-                        <div class="viewItems">
-                            <div class="row">
-                                <div class="col-lg-5">
-                                    <div class="select-itms">
-                                        <select name="select" class="niceSelect">
-                                            <option value>New York, USA</option>
-                                            <option value>Location PK</option>
-                                            <option value>Location US</option>
-                                            <option value>Location UK</option>
-                                        </select>
-                                        <i class="las la-map-marker-alt  icon"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-7">
-                                    <div class="SearchWrapper">
-                                        <div class="searchBox-wrapper">
-
-                                            <form action="#" class="search-box">
-                                                <div class="input-form">
-                                                    <input type="text" class=" keyup-input" placeholder="Search">
-
-                                                    <div class="icon">
-                                                        <i class="las la-search"></i>
-                                                    </div>
-                                                </div>
-                                            </form>
-
-                                            <div class="category-searchbar search-showHide">
-
-                                                <span class="closed-icon"><i class="las la-times"></i></span>
-                                                <div class="search-suggestions" id="search_suggestions_wrap">
-                                                    <div class="search-inner">
-                                                        <div class="category-suggestion item-suggestions">
-                                                            <h6 class="item-title">Category Suggestions</h6>
-                                                            <ul class="category-suggestion-list">
-                                                                <li class="list"> <a href="#" class="item">Fruits &amp;
-                                                                        Vegetables</a>
-                                                                </li>
-                                                                <li class="list"><a href="#" class="item">Cooking</a>
-                                                                </li>
-                                                                <li class="list"> <a href="#" class="item">Dairy</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="product-suggestion item-suggestions">
-                                                            <h6 class="item-title">
-                                                                <span>
-                                                                    Product Suggestions
-                                                                </span>
-                                                                <a href="#" target="_blank" id="search_result_all"
-                                                                    class="showAll">Show all</a>
-                                                            </h6>
-                                                            <ul class="product-suggestion-list mt-4"
-                                                                id="search_result_products">
-                                                                <li class="list">
-                                                                    <a href="#" class="item">
-                                                                        <div class="product-image"><img
-                                                                                src="assets/img/gallery/wishlist1.jpg"
-                                                                                alt="img"></div>
-                                                                        <div class="product-info">
-                                                                            <div class="product-info-top">
-                                                                                <h6 class="product-name">Fresh Fruits
-                                                                                </h6>
-                                                                            </div>
-                                                                            <div class="product-price">
-                                                                                <div class="price-update-through">
-                                                                                    <span class="flash-price fw-500">Rs
-                                                                                        200.00</span>
-                                                                                    <span class="flash-old-prices">Rs
-                                                                                        240</span>
-                                                                                </div>
-                                                                                <span class="stock-out">In Stock</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="view">
-                                            <button class="customTab active"
-                                                data-toggle-target=".customTab-content-1"><i
-                                                    class="las la-th-large"></i></button>
-                                            <button class="customTab" data-toggle-target=".customTab-content-2"><i
-                                                    class="las la-bars"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
+                     <!--class="col-xxl-3  col-xl-3 col-lg-4 col-md-5"-->
+                     </aside>
+            <section class="content">
+                <div class="row">    
+                            <div class="col-lg-1 col-md-1  ml-3 col-2">
+                                 <button class="btn solid"><i class="fa-solid fa-bars"></i></button>
                             </div>
-                        </div>
-
+                            <div class="col-lg-11 col-md-11 col-10">
+                               <div class="viewItems">
+                                   <form action="{{route('searchs')}}"  method="get" id="seacrhform" class="seacrhform" name="myform">
+                                       <div class="row">
+                                            <div class="col-md-4 col-6">
+                                                <!--<label for="Country">State</label>-->
+                                                <select name="s"  id="namegh" class="form-control forms"  wire:model ="state_id"  wire:change="changeState" required>
+                                                    <option value>Select State</option>
+                                                    @foreach($states as $state)
+                                                        <option value="{{$state->id}}">{{$state->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                <span id="slocation" class="text-danger"></span>
+                                            </div>
+                                            <div class="col-md-4 col-6">
+                                                <!--<label for="city">City</label>-->
+                                                <select name="c" class="form-control forms" wire:model="city_id" wire:change="chnagecity" required>
+                                                    <option value>Select City</option>
+                                                    @foreach($cities as $city)
+                                                        <option value="{{$city->id}}">{{$city->city}}</option>
+                                                    @endforeach
+                                                </select>
+                                                <span id="clocation" class="text-danger"></span>
+                                            </div>
+                                            <div class="col-md-4 col-12">
+                                        <div class="SearchWrapper">
+                                            <div class="searchBox-wrapper">
+    
+                                                <div  class="search-box">
+                                                    <div class="input-form">
+                                                        <input type="text" name="text" class=" keyup-input" value="{{$text}}" placeholder="Search">
+                                                        <span id="textlocation" class="text-danger"></span>
+                                                        <div class="icon" onClick="placeOrder()">
+                                                            <i class="las la-search"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+                                                
+                                            </div>
+                                        <!--    <div class="view">-->
+                                        <!--    <button class="customTab active"-->
+                                        <!--        data-toggle-target=".customTab-content-1"><i-->
+                                        <!--            class="las la-th-large"></i></button>-->
+                                        <!--    <button class="customTab" data-toggle-target=".customTab-content-2"><i-->
+                                        <!--            class="las la-bars"></i></button>-->
+                                        <!--</div>-->
+    
+                                            
+                                        </div>
+                                    </div>
+                                        </div>
+                                   </form>
+                                </div>
+                             </div>
                         <div class="gridView customTab-content customTab-content-1 active">
                             <div class="row ">
+                                @if(isset($products[0]))
                                 @foreach($products as $product)
-                                    <div class="col-xl-4  col-lg-6  col-md-12 col-sm-6">
+                                    <div class="col-xl-3  col-lg-4  col-md-6 col-sm-6">
                                         <div class="singleFeature mb-24">
                                             <div class="featureImg">
                                                 <a href="{{route('product.details',['slug'=>$product->slug])}}"><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}"
                                                         alt="{{$product->name}}"></a>
                                             </div>
                                             <div class="featureCaption">
-                                                <h4><a href="{{route('product.details',['slug'=>$product->slug])}}" class="featureTittle">Apple smartwatch
-                                                        6</a>
+                                                <h4><a href="{{route('product.details',['slug'=>$product->slug])}}" class="featureTittle feets">{{ucfirst($product->name)}}</a>
                                                 </h4>
-                                                <p class="featureCap">{{$product->state->name}},{{$product->country->name}} · <strong class="subCap">12hrs
-                                                        ago</strong></p>
-                                                <span class="featurePricing">Rs{{$product->prices}}</span>
+                                                 <div class="d-flex justify-content-between">
+                                                <p class="featureCap w-60">{{$product->state->name}},  {{$product->country->name}}  </p> <strong class="subCap miss">
+                                                    @php 
+                                                        $to = now(); 
+                                                        $from = $product->created_at;
+                                                        $res= $to->diffInDays($from); 
+                                                        //dd($res);
+                                                    @endphp 
+                                                    @if($res <  1) 
+                                                        Today
+                                                    @elseif(($res > 1 ) && ($res <  7))  
+                                                        {{$product->created_at->format('D')}} 
+                                                    @else 
+                                                        {{$product->created_at->format('M Y')}} 
+                                                    @endif
+                                                        </strong>
+                                                        </div>
+                                                <span class="featurePricing"><i class="fa-solid fa-indian-rupee-sign"></i> {{preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,",$product->prices)}}</span>
                                                 <div class="btn-wrapper">
                                                     @if($product->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
                                                     @if($product->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
-                                                    @if($product->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
+                                                    @if($product->is_rent == 1)  <span class="pro-btn3">Rent</span>     @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
-                                <div class="col-xl-4  col-lg-6  col-md-12 col-sm-6">
-                                    <div class="singleFeature mb-24">
-                                        <div class="featureImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems8.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="featureCaption">
-                                            <h4><a href="{{'/product-detail'}}" class="featureTittle">Apple smartwatch
-                                                    6</a>
-                                            </h4>
-                                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs139.40</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4  col-lg-6  col-md-12 col-sm-6">
-                                    <div class="singleFeature mb-24">
-                                        <div class="featureImg">
-                                            <a href="{{'/product-detail'}}"> <img src="assets/img/gallery/catitems2.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="featureCaption">
-                                            <h4><a href="{{'/product-detail'}}" class="featureTittle">Samsung M32</a>
-                                            </h4>
-                                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs139.40</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4  col-lg-6  col-md-12 col-sm-6">
-                                    <div class="singleFeature mb-24">
-                                        <div class="featureImg">
-                                            <a href="{{'/product-detail'}}"> <img src="assets/img/gallery/catitems3.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="featureCaption">
-                                            <h4><a href="{{'/product-detail'}}" class="featureTittle">Persian cat</a>
-                                            </h4>
-                                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs139.40</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4  col-lg-6  col-md-12 col-sm-6">
-                                    <div class="singleFeature mb-24">
-                                        <div class="featureImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems4.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="featureCaption">
-                                            <h4><a href="{{'/product-detail'}}" class="featureTittle">Beats
-                                                    headphone</a>
-                                            </h4>
-                                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs139.40</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4  col-lg-6  col-md-12 col-sm-6">
-                                    <div class="singleFeature mb-24">
-                                        <div class="featureImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems5.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="featureCaption">
-                                            <h4><a href="{{'/product-detail'}}" class="featureTittle">4 Bed 2 storey
-                                                    house</a></h4>
-                                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs139.40</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4  col-lg-6  col-md-12 col-sm-6">
-                                    <div class="singleFeature mb-24">
-                                        <div class="featureImg">
-                                            <a href="{{'/product-detail'}}"> <img src="assets/img/gallery/catitems6.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="featureCaption">
-                                            <h4><a href="{{'/product-details'}}" class="featureTittle">Apple smartwatch
-                                                    6</a>
-                                            </h4>
-                                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs139.40</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6  col-md-12  col-sm-6">
-                                    <div class="singleFeature mb-24">
-                                        <div class="featureImg">
-                                            <a href="{{'/product-detail'}}"> <img src="assets/img/gallery/catitems7.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="featureCaption">
-                                            <h4><a href="{{'/product-detail'}}" class="featureTittle">Apple smartwatch
-                                                    6</a>
-                                            </h4>
-                                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs139.40</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6  col-md-12  col-sm-6">
-                                    <div class="singleFeature mb-24">
-                                        <div class="featureImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems8.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="featureCaption">
-                                            <h4><a href="{{'/product-detail'}}" class="featureTittle">Apple smartwatch
-                                                    6</a>
-                                            </h4>
-                                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs139.40</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6  col-md-12  col-sm-6">
-                                    <div class="singleFeature mb-24">
-                                        <div class="featureImg">
-                                            <a href="{{'/product-detail'}}"> <img src="assets/img/gallery/catitems9.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="featureCaption">
-                                            <h4><a href="{{'/product-detail'}}" class="featureTittle">Apple smartwatch
-                                                    6</a>
-                                            </h4>
-                                            <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs139.40</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                 @else
+                                <p class="noed"> No Items Available</p>
+                                @endif
+                             
                             </div>
                         </div>
 
-                        <div class="listingView customTab-content customTab-content-2">
-                            <div class="row ">
-                                @foreach($products as $product)
-                                    <div class="col-xl-6 col-lg-12">
-                                        <div class="singleFlexitem mb-24">
-                                            <div class="recentImg">
-                                                <a href="{{'/product-detail'}}"><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}"
-                                                        alt="{{$product->name}}"></a>
-                                            </div>
-                                            <div class="recentCaption">
-                                                <h5><a href="{{'/product-detail'}}" class="featureTittle">{{$product->name}}</a>
-                                                </h5>
-                                                <p class="featureCap">{{$product->state->name}},{{$product->country->name}} · <strong class="subCap">24hrs
-                                                        ago</strong></p>
-                                                <span class="featurePricing">Rs{{$product->prices}}</span>
-                                                <div class="btn-wrapper">
-                                                    @if($product->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
-                                                    @if($product->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
-                                                    @if($product->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                                <div class="col-xl-6 col-lg-12">
-                                    <div class="singleFlexitem mb-24">
-                                        <div class="recentImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems8.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="recentCaption">
-                                            <h5><a href="{{'/product-detail'}}" class="featureTittle">Apple smartwatch
-                                                    6</a>
-                                            </h5>
-                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs146,300</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-12">
-                                    <div class="singleFlexitem mb-24">
-                                        <div class="recentImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems2.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="recentCaption">
-                                            <h5><a href="{{'/product-detail'}}" class="featureTittle">Samsung M32</a>
-                                            </h5>
-                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs124.80</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-12">
-                                    <div class="singleFlexitem mb-24">
-                                        <div class="recentImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems3.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="recentCaption">
-                                            <h5><a href="{{'/product-detail'}}" class="featureTittle">Persian cat</a>
-                                            </h5>
-                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs34.80</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-12">
-                                    <div class="singleFlexitem mb-24">
-                                        <div class="recentImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems4.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="recentCaption">
-                                            <h5><a href="{{'/product-detail'}}" class="featureTittle">Beats
-                                                    headphone</a>
-                                            </h5>
-                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs150.19</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-12">
-                                    <div class="singleFlexitem mb-24">
-                                        <div class="recentImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems5.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="recentCaption">
-                                            <h5><a href="{{'/product-detail'}}" class="featureTittle">4 Bed 2 storey
-                                                    house</a></h5>
-                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs99.99</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-12">
-                                    <div class="singleFlexitem mb-24">
-                                        <div class="recentImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems6.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="recentCaption">
-                                            <h5><a href="{{'/product-detail'}}" class="featureTittle">Apple smartwatch
-                                                    6</a>
-                                            </h5>
-                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs380</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-12">
-                                    <div class="singleFlexitem mb-24">
-                                        <div class="recentImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems7.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="recentCaption">
-                                            <h5><a href="{{'/product-detail'}}" class="featureTittle">4 Bed 2 storey
-                                                    house</a></h5>
-                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs99.99</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-12">
-                                    <div class="singleFlexitem mb-24">
-                                        <div class="recentImg">
-                                            <a href="{{'/product-detail'}}"><img src="assets/img/gallery/catitems8.jpg"
-                                                    alt="images"></a>
-                                        </div>
-                                        <div class="recentCaption">
-                                            <h5><a href="{{'/product-detail'}}" class="featureTittle">Apple smartwatch
-                                                    6</a>
-                                            </h5>
-                                            <p class="featureCap">Dallas, Texas · <strong class="subCap">24hrs
-                                                    ago</strong></p>
-                                            <span class="featurePricing">Rs380</span>
-                                            <div class="btn-wrapper">
-                                                <span class="pro-btn1">Sell</span>
-                                                <span class="pro-btn2">Exchange</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="row justify-content-center">
                             <div class="col-lg-12">
                                 <div class="pagination mt-60">
                                     <ul class="pagination-list">
-                                        <li class=" wow fadeInRight" data-wow-delay="0.0s"><a href="#"
-                                                class="page-number"><i class="las la-angle-left"></i></a></li>
-                                        <li><span class="page-number current">1</span></li>
-                                        <li><a href="#" class="page-number">2</a></li>
-                                        <li><a href="#" class="page-number">3</a></li>
-                                        <li><a href="#" class="page-number">4</a></li>
-                                        <li><a href="#" class="page-number">5</a></li>
-                                        <li class=" wow fadeInLeft" data-wow-delay="0.0s"><a href="#"
-                                                class="page-number"><i class="las la-angle-right"></i></a></li>
+                                        {{$products->links('vendor/livewire/bootstrap')}}
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                   
+                    <!--class="col-xxl-9 col-xl-9  col-lg-8 col-md-7"-->
+                </div>
+            </section>
                 </div>
             </div>
         </div>
 
     </main>
 </div>
+@push('scripts')
+
+<script>
+
+$(function() {
+  $('.btn').on('click', function() {
+    $('.sidebar').toggleClass('is-collapsed');
+    $('.content').toggleClass('is-full-width');
+  });
+});
+if(  window.innerWidth <= 800 ){
+$(document).ready(function(){
+    $(".btn").click(function(){
+        $(".sidebar").toggle();
+            $(".content").css("display", "none");
+           $(".sidebar").css("display", "block");
+       
+    });
+});
+ }
+
+</script>
+
+<script>
+if(  window.innerWidth <= 800 ){
+$(document).ready(function(){
+    $(".closebtn").click(function(){
+        $(".sidebar").toggle();
+            $(".sidebar").css("display", "none");
+           $(".content").css("display", "block");
+    });
+});
+}
+</script>
+    <script>
+        
+            // $('#namegh').on('change',function(ev){
+            //     //alert('gfhfgh');
+            //     var data = $('#namegh').val();
+            //     alert(data);
+            //     @this.set('state_id',data);
+            // });
+            function placeOrder(){
+                var fgh =  validateform();
+               // alert(fgh);
+                if(fgh){
+                    seacrhform.submit();
+                }
+                    return;
+                }
+        
+        
+    </script>
+    <script>  
+        function validateform(){  
+        var name=document.myform.s.value;  
+        var password=document.myform.c.value; 
+        var text = document.myform.text.value; 
+        
+        var status=false;  
+        if(name==""){  
+            document.getElementById("slocation").innerHTML="State is required.";  
+            status=false;
+            return status;
+        }else{  
+            document.getElementById("slocation").innerHTML="";  
+            status=true;
+        }  
+    
+        if(password==""){  
+            document.getElementById("clocation").innerHTML= "please City is required.";  
+            status=false; 
+            return status;
+        }else{  
+            document.getElementById("clocation").innerHTML="";
+            status=true;
+        }  
+    
+        if(text==""){  
+            document.getElementById("textlocation").innerHTML= "please enter search text..";  
+            status=false; 
+            return status;
+        }else{  
+            document.getElementById("textlocation").innerHTML=""; 
+            status=true;
+        }  
+    
+        return status;  
+          
+        
+        }  
+</script>
+@endpush

@@ -14,6 +14,7 @@ class BannerComponent extends Component
         $slider = Banner::find($id);
         $slider->delete();
         session()->flash('message','Banner has been deleted successfully!');
+        $this->js('window.location.reload()');
     }
     public function render()
     {

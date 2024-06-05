@@ -12,6 +12,7 @@ class AddPackagecomponent extends Component
     public $pname;
     public $ptype;
     public $price;
+    public $count;
     public $validity;
     public $description;
     public function updated($fields)
@@ -21,7 +22,9 @@ class AddPackagecomponent extends Component
             'ptype'=>'required|unique:packages',
             'price'=>'required',
             'validity'=>'required',
-            'description' =>'required'
+            'count'=>'required',
+            'description' =>'required',
+            'up_to' =>'required'
         ]);
     }
 
@@ -32,8 +35,15 @@ class AddPackagecomponent extends Component
             'ptype'=>'required|unique:packages',
             'price'=>'required',
             'validity'=>'required',
-            'description' =>'required'
-        ]);
+            'count'=>'required',
+            'description' =>'required',
+            'up_to' =>'required'
+        ],[
+            'pname.required'=>'The package name field is required.',
+            'ptype.required'=>'The package type field is required.',
+            'count.required'=>'The visiting count field is required.',
+           'up_to.required'=>'The package valid upto field is required.'
+            ]);
         
        
 
@@ -42,6 +52,7 @@ class AddPackagecomponent extends Component
             $package->ptype = $this->ptype;
             $package->price = $this->price;
             $package->validity = $this->validity;
+            $package->count = $this->count;
             $package->description = $this->description;
             $package->up_to = $this->up_to;
             $package->status = '1';

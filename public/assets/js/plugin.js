@@ -9382,7 +9382,7 @@ var gj = {};
                 nationalMode: !0,
                 onlyCountries: [],
                 placeholderNumberType: "MOBILE",
-                preferredCountries: ["us", "gb"],
+                preferredCountries: ["in", "us"],
                 separateDialCode: !1,
                 utilsScript: "",
             },

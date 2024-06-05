@@ -36,6 +36,7 @@
                                  <th>Phone Number</th>
                                  <th>City</th>
                                  <th>Address</th>
+                                 <th>Status</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
@@ -45,31 +46,29 @@
                                  <td>{{$user->id}}</td>
                                  <td>{{$user->name}}</td>
                                  <td>{{$user->email}}</td>
-                                 <td>{{$user->city}}</td>
-                                 <td>{{$user->country}}</td>
-                                 <td>@if($user->is_active) Active @else Deactive @endif</td>
-                                 <td>
-                                     <a href="{{route('admin.edituser',['uid'=>$user->id])}}"><i
-                                             class="fa fa-edit "></i></a>
-                                     @if($user->is_active)
-                                     <a href="#"
+                                 <td>{{$user->phone}}</td>
+                                 <td>@if($user->citys) {{$user->citys->city}} @endif</td>
+                                 <td>@if($user->countrys) {{$user->countrys->name}} @endif</td>
+                                 <td>@if($user->is_active)<a href="#"
                                          onclick="confirm('Are you sure, You want to Deactive this User') || event.stopImmediatePropagation()"
-                                         wire:click.prevent="DeactiveUser({{$user->id}})"><i
-                                             class="fa fa-times text-danger"></i></a>
-                                     @else
-                                     <a href="#"
+                                         wire:click.prevent="DeactiveUser({{$user->id}})"> Active </a>
+                                    @else
+                                    <a href="#"
                                          onclick="confirm('Are you sure, You want to Active this User') || event.stopImmediatePropagation()"
-                                         wire:click.prevent="ActiveUser({{$user->id}})"><i
+                                         wire:click.prevent="ActiveUser({{$user->id}})">Deactive </a>
+                                    @endif</td>
+                                 <td>
+                                    
+                                     <a href="#"
+                                         onclick="confirm('Are you sure, You want to Delete this User') || event.stopImmediatePropagation()"
+                                         wire:click.prevent="DeleteUser({{$user->id}})" style="margin-left:10px;"><i
                                              class="fa fa-times text-danger"></i></a>
-                                     @endif
-
-                                     
-                                 </td>
+                                </td>
                              </tr>
                              @endforeach
                          </tbody>
                      </table>
-                     {{$users->links()}}
+                    
                  </div>
              </div>
          </div>

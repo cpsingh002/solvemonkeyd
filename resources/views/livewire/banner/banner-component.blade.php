@@ -50,11 +50,11 @@
                                         <td>{{$slider->subtitle}}</td>
                                         <td>{{$slider->price}}</td>
                                         <td>{{$slider->link}}</td>
-                                        <td>{{$slider->status==1 ? 'Active':'Inactive'}}</td>
+                                        <td>{{$slider->status==1 ? 'Active':'Deactive'}}</td>
                                         <td>{{$slider->created_at}}</td>
                                         <td>
                                         <a href="{{route('admin.editbanner',['bid'=> $slider->id])}}"><i class="fa fa-edit fa-2x"></i></a>
-                                                <a href="#" onclick="confirm('Are you sure, You want to delet this slider') || event.stopImmediatePropagation()" wire:click.prevent="deleteSlider({{$slider->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                                <a href="#" onclick="confirm('Are you sure, You want to delete this banner') || event.stopImmediatePropagation()" wire:click.prevent="deleteSlider({{$slider->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
                                         </td>
                                     </tr>
                              @endforeach

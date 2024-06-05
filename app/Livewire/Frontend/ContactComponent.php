@@ -37,7 +37,8 @@ class ContactComponent extends Component
             'email'=>'required',
             'message'=>'required',
             'checkbox' =>'required',
-        ]);
+        ],['lname.required'=>'Please Enter Last Name!',
+        'fname.required'=>'Please Enter First Name!']);
 
         $contact = new Contactform();
         $contact->fname = $this->fname;

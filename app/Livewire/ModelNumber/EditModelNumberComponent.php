@@ -18,7 +18,7 @@ class EditModelNumberComponent extends Component
     public $slug;
     public $category_id;
     public $brand_id;
-    Public $scategory_id;
+    public $scategory_id;
     public $status;
     public $mid;
     public $m_id;
@@ -44,6 +44,7 @@ class EditModelNumberComponent extends Component
             'title'=>'required',
             'brand_id'=>'required',
             'category_id'=>'required',
+            'scategory_id'=>'required',
             'slug'=>'required|unique:model_numbers,slug,'.$this->m_id            
         ]);
     }
@@ -61,8 +62,13 @@ class EditModelNumberComponent extends Component
             'title'=>'required',
             'brand_id'=>'required',
             'category_id'=>'required',
+            'scategory_id'=>'required',
             'slug'=>'required|unique:model_numbers,slug,'.$this->m_id
-        ]);
+        ],[
+            'brand_id.required'=>'The brand field is required.',
+            'category_id.required'=>'The parent category field is required.',
+            'scategory_id.required'=>'The sub-category field is required.'
+            ]);
               
         $model = ModelNumber::find($this->m_id);
         $model->name = $this->title;
@@ -79,13 +85,13 @@ class EditModelNumberComponent extends Component
   
     public function render()
     {
-        $categories=Category::all();
-        $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $categories=Category::where('status','!=',3)->get();
+        $scategories = Subcategory::where('category_id',$this->category_id)->where('status','!=',3)->get();
         if($this->scategory_id){
-        $brands = Brand::where('subcategory_id',$this->scategory_id)->get();
+        $brands = Brand::where('subcategory_id',$this->scategory_id)->where('status','!=',3)->get();
         }else{
             // dd($this->scategory_id);
-        $brands = Brand::where('category_id',$this->category_id)->get();
+        $brands = Brand::where('category_id',$this->category_id)->where('status','!=',3)->get();
         }
         return view('livewire.model-number.edit-model-number-component',['categories'=>$categories,'scategories'=>$scategories,'brands'=>$brands])->layout('layouts.admin1');
     }

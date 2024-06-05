@@ -21,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+     
     ];
 
     /**
@@ -45,6 +46,22 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function planpurchade()
     {
+        return $this->hasOne(PackagePurchase::class,'user_id')->where('status',1);
+    }
+    public function planpurchadeactive()
+    {
         return $this->hasOne(PackagePurchase::class,'user_id');
+    }
+    public function countrys()
+    {
+        return $this->belongsTo(Country::class,'country');
+    }
+    public function states()
+    {
+        return $this->belongsTo(State::class,'state');
+    }
+     public function citys()
+    {
+        return $this->belongsTo(City::class,'city');
     }
 }

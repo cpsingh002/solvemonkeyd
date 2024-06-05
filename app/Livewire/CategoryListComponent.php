@@ -9,7 +9,7 @@ class CategoryListComponent extends Component
 {
     public function render()
     {
-        $categories = Category::all();
+        $categories = Category::where('status',1)->get();
         return view('livewire.category-list-component',['categories'=>$categories]);
     }
 }

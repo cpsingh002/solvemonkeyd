@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('icon')->nullable();
             $table->string('categorythum')->nullable();
+            $table->boolean('is_home')->default('0');
             $table->timestamps();
         });
     }

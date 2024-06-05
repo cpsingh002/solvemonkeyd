@@ -24,7 +24,7 @@ class SubCategory extends Model
     }
     public function productcount()
     {
-        return $this->hasMany(Product::class,'subcategory_id');
+        return $this->hasMany(Product::class,'subcategory_id')->where('status',1);
     }
     
 }

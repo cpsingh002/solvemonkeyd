@@ -23,6 +23,7 @@ class EditSubCategoryComponent extends Component
     public $categorythum;
     public $newimage;
     public $newicon;
+    public $is_home;
 
     public function mount($scategory_slug)
     {
@@ -36,6 +37,7 @@ class EditSubCategoryComponent extends Component
             $this->slug = $scategory->slug;
             $this->icon = $scategory->icon;
             $this->categorythum = $scategory->categorythum;
+            $this->is_home=$scategory->is_home;
             //dd($this->slug);
         
     }
@@ -61,12 +63,18 @@ class EditSubCategoryComponent extends Component
                 'newimage'=>'required|mimes:jpeg,jpg,png',
             ]);
         }
+         if($this->newicon)
+        {
+            $this->validate([
+                'newicon'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
         if($this->category_id)
         {
             $this->validateOnly($fields,[
                 'name'=>'required',
-                'slug'=>'required|unique:categories,slug,'.$this->category_id,
-                'scategory_id'=>'required'
+                'scategory_id'=>'required',
+                'slug'=>'required|unique:sub_categories,slug,'.$this->category_id,
             ]);
         }
     }
@@ -77,11 +85,20 @@ class EditSubCategoryComponent extends Component
             'name'=>'required',
             'category_id'=>'required',
             'slug' => 'required|unique:categories,slug,'.$this->category_id
-        ]);
+        ],[
+            'category_id.required'=>'The parent category field is required.',
+            'categorythum.required'=>'The category thumbnail image field is required.'
+            ]);
         if($this->newimage)
         {
             $this->validate([
                 'newimage'=>'required|mimes:jpeg,jpg,png',
+            ]);
+        }
+        if($this->newicon)
+        {
+            $this->validate([
+                'newicon'=>'required|mimes:jpeg,jpg,png',
             ]);
         }
       
@@ -96,19 +113,20 @@ class EditSubCategoryComponent extends Component
                 $scategory->icon = $imageNamei;
             }
             if($this->newimage){
-                unlink('admin/category'.'/'.$scategory_id->categorythum);
+              //  unlink('admin/category'.'/'.$scategory_id->categorythum);
                 $imageName= Carbon::now()->timestamp.'.'.$this->newimage->extension();
-                $this->newimage->storeAs('admin/category',$imageName);
-                $scategory_id->categorythum = $imageName;
+                $this->newimage->storeAs('category',$imageName);
+                $scategory->categorythum = $imageName;
             }
+            $scategory->is_home=$this->is_home;
             $scategory->save();
             
         
-        session()->flash('message','Category has been upadted successfully !');
+        session()->flash('message','Sub-Category has been upadted successfully !');
     }
     public function render()
     {
-        $categories = Category::all();
+        $categories = Category::where('status','!=',3)->get();
         return view('livewire.category.edit-sub-category-component',['categories'=>$categories])->layout('layouts.admin1');
     }
 }

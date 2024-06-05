@@ -12,7 +12,7 @@
                          <h1 class="h3 m-0">Add Banner</h1>
                      </div>
                      <div class="col-auto d-flex">
-                         <a href="{{route('admin.banners')}}" class="btn btn-primary">All Banner</a>
+                         <a href="{{route('admin.banners')}}" class="btn btn-primary">All Banners</a>
                      </div>
 
                  </div>
@@ -34,42 +34,42 @@
                                                  <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-banner/name" class="form-label">Title</label>
+                                                 <label for="form-banner/name" class="form-label">Title<span class="text-danger"> *</span></label>
                                                  <input type="text" placeholder="Title" class="form-control"
                                                      wire:model="title" />
-                                                 @error('name') <p class="text-danger">{{$message}}</p> @enderror
+                                                 @error('title') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
-                                                 <label for="form-banner/sub-title" class="form-label">Sub Title</label>
+                                                 <label for="form-banner/sub-title" class="form-label">Sub-Title<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="text" placeholder="Sub Title" class="form-control"
                                                          wire:model="subtitle" />
-                                                     @error('slug') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
+                                                     @error('subtitle') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
                                                  <div>
-                                                     <label for="form-banner/price" class="form-label">Price</label>
+                                                     <label for="form-banner/price" class="form-label">Price<span class="text-danger"> *</span></label>
 
                                                      <div class="input-group input-group--sa-slug">
                                                          <input type="text" placeholder="Price" class="form-control"
                                                              wire:model="price" />
-                                                         @error('slug') <p class="text-danger">{{$message}}</p>@enderror
                                                      </div>
+                                                         @error('price') <p class="text-danger">{{$message}}</p>@enderror
                                                  </div>
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-banner/link" class="form-label">Link</label>
+                                                 <label for="form-banner/link" class="form-label">Link<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="text" placeholder="Link" class="form-control"
                                                          wire:model="link" />
-                                                     @error('icon') <p class="text-danger">{{$message}}</p> @enderror
                                                  </div>
+                                                     @error('link') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
                                              <div class="mb-4">
-                                                 <label for="form-banner/image" class="form-label">Image</label>
+                                                 <label for="form-banner/image" class="form-label">Image<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
 
                                                      <input type="file" class="input-file" wire:model="image" />
@@ -77,6 +77,7 @@
                                                      <img src="{{$image->temporaryUrl()}}" width="120" />
                                                      @endif
                                                  </div>
+                                                     @error('image') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
 
                                              <div class="mb-4">
@@ -84,7 +85,7 @@
                                                  <div class="input-group input-group--sa-slug">
 
                                                      <select class="form-select" wire:model="status">
-                                                         <option value="0">Inactive</option>
+                                                         <option value="0">Deactive</option>
                                                          <option value="1">Active</option>
                                                      </select>
                                                  </div>

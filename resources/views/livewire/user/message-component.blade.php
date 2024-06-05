@@ -3,7 +3,7 @@
     <main>
 
     
-    <div class="messagesArea section-padding2">
+    <div class="messagesArea section-padding2 toped">
         <div class="container">
 
             <div class="row mb-24">
