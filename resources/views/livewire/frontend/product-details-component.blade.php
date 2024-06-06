@@ -149,22 +149,22 @@
                             
                             
                             <p class="detailsCap">Posted on {{$product->created_at->format('d M Y')}}</p>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <div class="col-3">
                                     <span class="detailsPricing">Price : <i class="fa-solid fa-indian-rupee-sign"></i> {{preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,",$product->prices)}}</span>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-4">
                                     
                                     <span><span> Price negotiable :</span> @if($product->price_negotiable) Yes @else NO @endif</span>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-5">
                                     @if($product->price_range)
                                         <span><span> Price Range : </span> {{$dis1}} to {{$dis2}}</span>
                                     @endif
                                 </div>
                             </div>
                             <div class="infoSingle">
-                                <ul class="listing">
+                                <ul class="listing d-flex flex-wrap ">
                                     @foreach($pattributes as $pattribute)
                                     <li class="listItem"></i>{{$pattribute->attribute->attribute}} : {{$pattribute->attributeoption->option_details}}</li>
                                     @endforeach 
@@ -181,8 +181,8 @@
                         </div>
                         @endif
 
-                        <div class="descriptionMid">
-                            <h4 class="priceTittle">Description</h4>
+                        <div class="descriptionMid mt-3">
+                            <h4 class="priceTittle mb-2">Description</h4>
                            <p> {!! $product->description!!}</p>
                           
                         </div>
@@ -272,7 +272,7 @@
                         
                         @if($product->city_id1 || $product->city_id2 || $product->city_id3)
                             <div class="btn-wrapper">
-                                <h4 class="pro-btn3 w-100 text-center font-size-16">Interested Citys
+                                <h4 class="pro-btn3 w-100 text-center font-size-16 mt-4">Interested Citys
                                     <p class="text-black text-white">@if($product->city1) {{$product->city1->city}}, @endif @if($product->city3) {{$product->city3->city}}, @endif @if($product->city2) {{$product->city2->city}} @endif</p>
                                 </h4>
                             </div>
