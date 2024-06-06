@@ -11,6 +11,9 @@ use App\Models\UserProductVisit;
 use App\Models\ProductAttribute;
 use Cart;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Chatuser;
+use App\Models\ProductChat;
+use Illuminate\Support\Str;
 
 class ProductDetailsComponent extends Component
 {
@@ -18,6 +21,8 @@ class ProductDetailsComponent extends Component
     public $haveCouponCode;
     public $productid;
     public $userid; 
+    public $message;
+
     public function mount($slug)
     {
         $this->slug = $slug;
@@ -190,28 +195,34 @@ class ProductDetailsComponent extends Component
                 if(Auth::user()->planpurchadeactive)
                 {        
                     if(Auth::user()->planpurchade){
-                    //  $product= Product::where('slug',$this->slug)->first();
+                        //  $product= Product::where('slug',$this->slug)->first();
                         $visited= UserProductVisit::where('user_id',$user_id)->where('status',1)->count();
                         $package=Auth::user()->planpurchade;
                         $validityCount=$package->validitycount->count;
                         $validityUpto=$package->created_at->addDays($package->validitycount->validity);
-                    // if($validityUpto->gt(now()))
-                        //{
+                        if($validityUpto->gt(now()))
+                        {
                             if($validityCount>$visited)
                             {
                                 //$this->detailCount(Auth::user()->id);
                                 //$this->haveCouponCode = 1;
-                                $this->dispatch('show-chat');
-                                // return redirect()->route('message',['uuid'=>$this->userid,'pid'=>$this->productid]);
+                               $chat = Chatuser::where(['user_id'=>auth()->id(), 'friend_id' =>$this->userid])->first();
+                               if(isset($chat))
+                               {
+                                    return redirect()->route('message',['chatid'=>$chat->chat_id]);
+                               }else{                        
+                                    $this->dispatch('show-chat');
+                               }
+                                
                             }else{
                                 UserProductVisit::where('user_id',$user_id)->update(['status' => 0]);
                                 $package->status=0;
                                 $package->save();
                                 session()->flash('message','your plan limit is over!');
                             }
-                        //}else{
-                        //  session()->flash('message','your plan is expired!');
-                        //}
+                        }else{
+                            session()->flash('message','your plan is expired!');
+                        }
                     }else{
                         session()->flash('message','your plan limit is over!');
                     }
@@ -230,6 +241,41 @@ class ProductDetailsComponent extends Component
             
         // $this->js('window.location.reload()');
         
+    }
+
+
+    public function send_message()
+    {
+        $this->validate(['message' => "required"]);
+
+        if (Chatuser::where(['user_id' => Auth::id(), 'friend_id' => $this->userid,'product_id' => $this->productid])->count() === 0 || Chatuser::where(['user_id' => $this->userid, 'friend_id' => Auth::id(),'product_id' => $this->productid])->count() === 0) {
+                $uuid = Str::uuid();
+                Chatuser::create([
+                    'user_id' => Auth::id(),
+                    'chat_id' => $uuid,
+                    'friend_id' => $this->userid,
+                    'product_id' => $this->productid
+                ]);
+
+                Chatuser::create([
+                    'user_id' => $this->userid,
+                    'chat_id' => $uuid,
+                    'friend_id' => Auth::id(),
+                    'product_id' => $this->productid
+                ]);
+            }
+        ProductChat::create([
+            'user_id' => Auth::id(),
+            'message' => $this->message,
+            'chat_id' => Chatuser::where(['user_id'=>auth()->id(), 'friend_id' =>$this->userid])->first()->chat_id,
+            'friend_id' => $this->userid
+        ]);
+
+        $this->message='';
+        session()->flash('message','Your Message sent to the owner');
+        $this->dispatch('show-chat-close');
+        // $this->render();
+            
     }
     
 }
