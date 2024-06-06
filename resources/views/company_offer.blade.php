@@ -61,7 +61,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Samsung M32</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -77,7 +77,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Nokia 105 Dual Sim</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -93,7 +93,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Redmi 10</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -109,7 +109,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Realme 5</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -125,7 +125,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Oppo phone for sale</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -141,7 +141,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Itel 5081</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -157,7 +157,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Itel 5630</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -173,7 +173,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">NOKIA 1100 Mobile</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -189,7 +189,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Spark 2022 Go</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -205,7 +205,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Apple smartwatch 6</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>
@@ -221,7 +221,7 @@
                             </div>
                             <div class="featureCaption">
                                 <h4><a href="add_details.html" class="featureTittle">Iqoo 9 Pro 5G</a></h4>
-                                <p class="featureCap">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
+                                <p class="featureCap d-flex justify-content-between mb-1">Los Angels, CA · <strong class="subCap">12hrs ago</strong></p>
                                 <span class="featurePricing">$139.40</span>
                                 <div class="btn-wrapper">
                                     <span class="pro-btn1">NEW</span>

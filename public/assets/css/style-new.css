@@ -7321,7 +7321,7 @@
     align-items: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    gap 
+   
   }
 
   .navbar-area .header-cart .single {
@@ -10297,6 +10297,7 @@
     position: relative;
     z-index: 0;
     margin-bottom: 1px;
+    height: 130px;
   }
 
   @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -10959,7 +10960,7 @@
     top: -175px;
     /*left: 20px;*/
 }
-  }
+  
 
 .aboutArea .aboutImg.aboutImg5 img {
     width: 75%;
@@ -12171,8 +12172,7 @@
     /*margin-bottom: 2px;*/
     width: 65%;
 }
-  }
-
+ 
   .gridView .singleFeature .featureCaption .featureCap .subCap {
     font-family: var(--heading-font);
     font-family: var(--heading-font);
@@ -12413,6 +12413,7 @@
     transition: opacity 0.2s;
     display: block;
     width: 100%;
+    height: 88%;
   }
 
   .product-view-wrap figure {
@@ -17457,8 +17458,7 @@
      padding-bottom: 0px; 
 }
 }
- 
-  @media (max-width:540px)  {
+ @media (max-width:540px)  {
     
 
 .priced{
@@ -17474,7 +17474,6 @@
     .sliderArea .shapeHero>img {
     width: 75%;
 } 
-     
 
 .sideBar .showSidebar .singleList .megamenuWrapper .singleMegamenu .submenu-title {
     margin-bottom: 20px;
@@ -17653,7 +17652,6 @@
     height: 120px;
 }
   
-
 .aboutArea .aboutImg.aboutImg5 {
     position: absolute;
     top: -140px !important;
@@ -17669,7 +17667,6 @@
 .centered{
     width:70% !important;
 }
-
 
 .toggle-password {
     position: relative;
@@ -17750,7 +17747,6 @@
     margin-left:40px;
 }
 
-
 .footerWrapper .footer-area .footer-tittle .listing .listItem .singleLinks {
     font-size: 8px;
 }
@@ -17758,9 +17754,6 @@
 .footerWrapper .footer-area .footer-pera .pera {
     font-size: 8px;}
     
-
-
-
 .btn-wrapper .cmn-btn-outline2 {
     font-size: 12px !important;}
     
@@ -17816,6 +17809,7 @@
     height: 45px;
     padding: 10px 20px;
   }
+}
 
 
 
