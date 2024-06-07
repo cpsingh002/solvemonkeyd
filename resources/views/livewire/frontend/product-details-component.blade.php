@@ -164,7 +164,7 @@
                                 </div>
                             </div>
                             <div class="infoSingle">
-                                <ul class="listing d-flex flex-wrap ">
+                                <ul class="listing d-flex flex-wrap">
                                     @foreach($pattributes as $pattribute)
                                     <li class="listItem"></i>{{$pattribute->attribute->attribute}} : {{$pattribute->attributeoption->option_details}}</li>
                                     @endforeach 

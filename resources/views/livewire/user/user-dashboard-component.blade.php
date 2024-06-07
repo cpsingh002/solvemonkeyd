@@ -224,7 +224,8 @@
                                                     </div>
                                                     <div class="col-9">
                                                         <div class="recentCaption">
-                                                            <h5><a href="{{route('product.details',['slug'=>$topvisitlisting->slug])}}" class="featureTittle">{{ucfirst($topvisitlisting->name)}}</a></h5>
+                                                            <h5><a href="{{route('product.details',['slug'=>$topvisitlisting->slug])}}" class="featureTittle " style=
+                                                            "font-size:15px;" >{{ucfirst($topvisitlisting->name)}}</a></h5>
                                                             <div class="d-flex justify-content-between">
                                                                 <span class="featurePricing"><i class="fa-solid fa-indian-rupee-sign"></i> {{preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,",$topvisitlisting->prices)}}</span>
                                                             </div>

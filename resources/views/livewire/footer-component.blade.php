@@ -58,6 +58,8 @@
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a
                                                 href="{{route('privacy-policy')}}" class="singleLinks ww-70"> Privacy Policy</a></li>
 
+                                                <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a
+                                                href="#" class="singleLinks ww-70"> Listing Policy</a></li>        
                                     </ul>
                                 </div>
                             </div>
