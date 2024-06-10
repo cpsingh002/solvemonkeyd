@@ -91,7 +91,9 @@ use App\Livewire\CompanyOffer\AddCompanyOfferComponent;
 |
 */
 
-
+Route::get('/listing-policy', function () {
+    return view('livewire.frontend.Listing-Policy');
+})->name('listing-policy');
 Route::get('/company-offer',[HomeController::class,'CompanyOffer'])->name('comapny.offer');
 Route::get('/company-offer/{slug}',[HomeController::class,'CompanyOfferDetails'])->name('offer.details');
 Route::get('/ulogin',[LoginController::class,'ulogin']);
