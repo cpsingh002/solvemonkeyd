@@ -12440,9 +12440,7 @@
     border-radius: 6px;
   }
 
-  .single-main-image {
-    height: 600px;
-  }
+  
 
   .product-view-wrap .shop-details-gallery-nav.slick-initialized.slick-slider {
     padding: 20px 10px 24px 20px;
@@ -16704,25 +16702,13 @@
     font-size: 30px;
   }
 
-  .messagesWrapper .messagesDetails .messageBox .messageShow {
-    padding-left: 24px;
-    border-bottom: 1px solid rgba(208, 213, 221, 0.4);
-    margin-bottom: 20px;
-    max-height: 356px;
-    overflow-y: auto;
-  }
+ 
 
   .messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message {
     margin-bottom: 24px;
   }
 
-  .messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message .messageText {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 20px;
-    cursor: pointer;
-  }
+  
 
   .messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message .messageText .messageImg {
     margin-right: 20px;
@@ -16740,17 +16726,7 @@
     flex: 1;
   }
 
-  .messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message .messageText .messageCaption .messagePera {
-    font-family: var(--heading-font);
-    font-size: 15px;
-    color: var(--heading-font);
-    margin-bottom: 5px;
-    font-weight: 400;
-    display: inline-block;
-    border: 1px solid rgba(208, 213, 221, 0.4);
-    padding: 20px 30px;
-    border-radius: 0 16px 16px 16px;
-  }
+  
 
   @media (min-width: 1200px) {
     .messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message .messageText .messageCaption .messagePera {
@@ -16771,25 +16747,13 @@
     }
   }
 
-  .messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message .messageText .messageCaption .sendTime {
-    color: #667085;
-    display: block;
-  }
+  
 
   .messagesWrapper .messagesDetails .messageBox .messageShow .rightMessage .singleRight-message {
     margin-bottom: 24px;
   }
 
-  .messagesWrapper .messagesDetails .messageBox .messageShow .rightMessage .singleRight-message .messageText {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-    cursor: pointer;
-  }
+  
 
   .messagesWrapper .messagesDetails .messageBox .messageShow .rightMessage .singleRight-message .messageText .messageImg {
     margin-left: 20px;
@@ -16808,18 +16772,7 @@
     text-align: right;
   }
 
-  .messagesWrapper .messagesDetails .messageBox .messageShow .rightMessage .singleRight-message .messageText .messageCaption .messagePera {
-    font-family: var(--heading-font);
-    font-size: 15px;
-    color: #ffffff;
-    margin-bottom: 5px;
-    font-weight: 400;
-    padding: 20px 30px;
-    border-radius: 16px 0px 16px 16px;
-    background: var(--main-color-two);
-    display: inline-block;
-  }
-
+  
   @media (min-width: 1200px) {
       .cardes{
           margin:10%;
@@ -17025,12 +16978,7 @@
     }
   }
 
-  .messagesWrapper .messagesDetails .messageBox .messageShow .rightMessage .singleRight-message .messageText .messageCaption .sendTime {
-    color: #667085;
-    text-align: right;
-    display: block;
-  }
-
+  
   .messagesWrapper .messagesDetails .messageBox .messageSend {
     position: relative;
     z-index: 0;
@@ -20489,3 +20437,67 @@
   margin-left: 2%;
 }
 
+/* changes */
+.messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message .messageText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.messagesWrapper .messagesDetails .messageBox .messageShow .rightMessage .singleRight-message .messageText .messageCaption .messagePera {
+  font-family: var(--heading-font);
+  font-size: 12px;
+  color: #ffffff;
+  margin-bottom: 5px;
+  font-weight: 400;
+  padding: 10px 10px;
+  border-radius: 16px 0px 16px 16px;
+  background: var(--main-color-two);
+  display: inline-block;
+}
+
+.messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message .messageText .messageCaption .messagePera {
+  font-family: var(--heading-font);
+  font-size: 12px;
+  color: var(--heading-font);
+  margin-bottom: 5px;
+  font-weight: 400;
+  display: inline-block;
+  border: 1px solid rgba(208, 213, 221, 0.4);
+  padding: 10px 10px;
+  border-radius: 0 16px 16px 16px;
+}
+.messagesWrapper .messagesDetails .messageBox .messageShow .rightMessage .singleRight-message .messageText .messageCaption .sendTime {
+  color: #667085;
+  text-align: right;
+  display: block;
+  font-size: 12px;
+}
+
+.messagesWrapper .messagesDetails .messageBox .messageShow .rightMessage .singleRight-message .messageText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message .messageText .messageCaption .sendTime {
+  color: #667085;
+  display: block;
+  font-size: 12px;
+}
+.messagesWrapper .messagesDetails .messageBox .messageShow {
+  padding-left: 24px;
+  border-bottom: 1px solid rgba(208, 213, 221, 0.4);
+  margin-bottom: 20px;
+  max-height: 594px;
+  overflow-y: auto;
+}
+.single-main-image {
+  height: 450px;
+}

@@ -33,7 +33,7 @@
                         <div class="shop-details-gallery-slider global-slick-init slider-inner-margin sliderArrow" >
                             <div class="single-main-image">
                                 <a href="#" class="long-img">
-                                    <img src="{{asset('admin/company/template')}}/{{$companyoffer->offer_template}}" class="img-fluid" alt="image"  style="height:600px";/>
+                                    <img src="{{asset('admin/company/template')}}/{{$companyoffer->offer_template}}" class="img-fluid" alt="image"  style="height:450px";/>
                                 </a>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                             <a href="#" class="cmn-btn-outline2 w-100"><i class="las icon"></i>Related Offer</a>
                         </div>
                         @forelse($rcompanyoffers as $rcompanyoffer)
-                            <div class=" col-md-12 col-md-6">
+                            <div class=" col-md-12 col-md-6 mt-4">
                                 <div class="borderStyle style1 wow fadeInLeft social " data-wow-delay="0.1s">
                             <div class="singleFlexitem mb-24">
                                 <div class="recentImg">
