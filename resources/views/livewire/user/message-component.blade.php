@@ -56,7 +56,7 @@
                                     @empty
                                         <p>No Chat found yet</p>
                                     @endforelse
-                                    <div class="singleUser active">
+                                    {{--<div class="singleUser active">
                                         <div class="listCap">
                                             <div class="userProduct-group">
 
@@ -135,7 +135,7 @@
                                         <div class="timmer mb-20">
                                             <span class="time">04:32 PM</span>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                             </div>
                             <div class="col-xl-7 col-lg-6 col-md-12">
