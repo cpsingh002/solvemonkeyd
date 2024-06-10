@@ -16259,12 +16259,12 @@
 
   .messagesWrapper .userList .singleUser {
     background: #FFFFFF;
-    padding: 20px;
+    padding: 14px;
     padding-bottom: 0;
     border-radius: 12px;
     border: 1px solid transparent;
     position: relative;
-    margin-bottom: 38px;
+    margin-bottom: 28px;
     cursor: pointer;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -16343,8 +16343,8 @@
 
   @media (min-width: 1200px) {
     .messagesWrapper .userList .singleUser .listCap .userProduct-group {
-      width: 29%;
-      margin-right: 9px;
+      /* width: 29%;
+      margin-right: 9px; */
     }
   }
 
@@ -16360,19 +16360,20 @@
 
   .messagesWrapper .userList .singleUser .listCap .userProduct-group .userProduct-img .productImg {
     border-radius: 50%;
-    width: 71px;
-    height: 71px;
+    width: 64px;
+    height: 55px;
+
   }
 
   .messagesWrapper .userList .singleUser .listCap .userProduct-group .userProduct-img .userImg {
     border: 3px solid #ffffff;
     position: absolute;
-    right: 0;
-    bottom: -17px;
+    right: -7px;
+    bottom: -16px;
     border-radius: 50%;
     border: 3px solid #fff;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 38px;
   }
 
   .messagesWrapper .userList .singleUser .listCap .userProduct-group .checkWrap {
@@ -16518,14 +16519,14 @@
 
   @media (min-width: 1200px) {
     .messagesWrapper .userList .singleUser .listCap .proCaption .pricing {
-      font-size: 17px;
-      margin-bottom: 7px;
+      font-size: 12px;
+      /* margin-bottom: 7px; */
     }
   }
 
   .messagesWrapper .userList .singleUser .timmer .time {
     color: var(--heading-color);
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .messagesWrapper .userList .singleUser.active {

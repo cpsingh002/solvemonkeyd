@@ -229,7 +229,7 @@
                                 
                                 
                             @if($haveCouponCode == 1)
-                                <div class="col-lg-8">
+                            <div class="col-lg-12 contactSeller">
                                     <div class="input-form">
                                         <input type="text" value="{{$product->contact_number}}" readonly >
 
@@ -237,14 +237,14 @@
                                     </div>
                                 </div>
                                 @if($product->in_range)
-                                    <div class="col-lg-8">
-                                            <div class="input-form">
-                                                <input type="text" value="{{$dis1}} to {{$dis2}}" readonly>
-    
-                                                <div class="icon"><i class="las la-rupee-sign"></i></div>
-                                            </div>
+                                    <div class="col-lg-12 contactSeller">
+                                        <div class="input-form">
+                                            <input type="text" value="{{$dis1}} to {{$dis2}}" readonly>
+
+                                            <div class="icon"><i class="las la-rupee-sign"></i></div>
                                         </div>
-                                    @endif
+                                    </div>
+                                @endif
                                     <div class="col-lg-12">
                                                 <div class="btn-wrapper mb-20 text-center">
                                                     <a href="#" class="cmn-btn-outline3 w-100" wire:click.prevent="hideContact">Hide Contact</a>
