@@ -142,7 +142,7 @@
                                 <a href="{{route('wishlist')}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
                             </li>
                             <li class="listItem">
-                                <a href="{{route('message')}}" class="items"> <i class="lar la-heart icon"></i> Chat</a>
+                                <a href="{{route('message')}}" class="items itemss item"> <i class="fa-solid fa-message"></i> Chat</a>
                             </li>
                            
                         </ul>

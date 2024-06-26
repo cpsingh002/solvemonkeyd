@@ -77,7 +77,9 @@
                             
                          
                             <li><div class="d-md-block d-lg-none noned">
+                                
                         <ul class="header-cart flex-column ml-60 ">
+                        
                              <div class="" >
                         @auth
                             @livewire('wishlist-count-component')
@@ -175,6 +177,9 @@
                 <div class="nav-right-content">
 
                     <ul class="header-cart">
+                    <li class="single d-flex gap-3" >
+                        <a href="{{route('message')}}" class="heart "> <i class="fa-solid fa-message"></i> </a>
+                                    </li>
                         @auth
                             @livewire('wishlist-count-component')
                         @endauth
