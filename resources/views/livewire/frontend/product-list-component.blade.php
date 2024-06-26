@@ -257,7 +257,7 @@
                             <div class="row ">
                                 @if(isset($products[0]))
                                 @foreach($products as $product)
-                                    <div class="col-xl-3  col-lg-4  col-md-6 col-sm-6">
+                                    <div class="col-xl-3  col-lg-4  col-md-4 col-sm-6">
                                         <div class="singleFeature mb-24">
                                             <div class="featureImg">
                                                 <a href="{{route('product.details',['slug'=>$product->slug])}}"><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}"

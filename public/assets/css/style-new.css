@@ -20473,7 +20473,7 @@
   color: #667085;
   text-align: right;
   display: block;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .messagesWrapper .messagesDetails .messageBox .messageShow .rightMessage .singleRight-message .messageText {
@@ -20490,7 +20490,7 @@
 .messagesWrapper .messagesDetails .messageBox .messageShow .leftMessage .singleLeft-message .messageText .messageCaption .sendTime {
   color: #667085;
   display: block;
-  font-size: 12px;
+  font-size: 10px;
 }
 .messagesWrapper .messagesDetails .messageBox .messageShow {
   padding-left: 24px;
