@@ -133,7 +133,7 @@
                                     <a href="{{route('user-order')}}" class="items itemss active item"><i class="fa-solid fa-cart-shopping"></i> My Orders</a>
                                 </li>
                                 <li class="listItem">
-                                    <a href="{{route('wishlist')}}" class="items"> <i class="lar la-heart icon"></i> Wishlist</a>
+                                    <a href="{{route('wishlist')}}" class="items itemss item"><i class="fa-solid fa-message"></i> Wishlist</a>
                                 </li>
                                 
                             </ul>

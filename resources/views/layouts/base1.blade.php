@@ -80,6 +80,7 @@
                             <li><div class="d-md-block d-lg-none noned">
                         <ul class="header-cart flex-column ">
                              <div class="d-flex gap-3" >
+
                         @auth
                             @livewire('wishlist-count-component')
                         @endauth
@@ -243,6 +244,7 @@
                     <ul class="header-cart">
                     <li class="single d-flex gap-3" >
                         <a href="{{route('message')}}" class="heart "> <i class="fa-regular fa-message"></i> </a>
+
                                     </li>
                         @auth
                             @livewire('wishlist-count-component')
