@@ -97,6 +97,7 @@ Route::get('/listing-policy', function () {
 Route::get('/company-offer',[HomeController::class,'CompanyOffer'])->name('comapny.offer');
 Route::get('/company-offer/{slug}',[HomeController::class,'CompanyOfferDetails'])->name('offer.details');
 Route::get('/ulogin',[LoginController::class,'ulogin']);
+Route::get('/loginotp',[LoginController::class,'SendLoginOtp'])->name('loginsms');
 Route::post('/ulogin',[LoginController::class,'uloginauth'])->name('ulogin');
 Route::post('/uregisteor',[RegisterController::class,'uregisteor'])->name('uregisteor');
 Route::get('/adminlogin',[LoginController::class,'adminlogin']);

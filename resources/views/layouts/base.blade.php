@@ -347,79 +347,124 @@
             <div class="card-body">
                 <form method="POST" action="#" id="frmLogin">
                     @csrf
+                    <div id="loginfrom">
+                        <div class="row mb-3">
+                            <label for="email"
+                                class="col-md-4 fw-bold col-form-label text-md-end">{{ __('Email Address') }}</label>
 
-                    <div class="row mb-3">
-                        <label for="email"
-                            class="col-md-4 fw-bold col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <div class="col-md-6">
+                                <input id="emaill" type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                        <div class="col-md-6">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label for="password"
-                            class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Password') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" name="password" 
-                                autocomplete="current-password">
-                                <i class="toggle-password la la-fw la-eye-slash"></i>
-
-                                @error('password')
+                                @error('email')
                                 <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div id="login_msg"></div>
-                    <div class="row mb-3">
-                        <div class="col-md-10 m-auto">
-                            <div class="form-check1">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <label class="form-check-label fw-bold" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                            {{ old('remember') ? 'checked' : '' }}>
 
+                        <div class="row mb-3">
+                            <label for="password"
+                                class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password" 
+                                    autocomplete="current-password">
+                                    <i class="toggle-password la la-fw la-eye-slash"></i>
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div id="login_msg"></div>
+                        <div class="row mb-3">
+                            <div class="col-md-10 m-auto">
+                                <div class="form-check1">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label class="form-check-label fw-bold" for="remember">
+                                                {{ __('Remember Me') }}
+                                            </label>
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                                                {{ old('remember') ? 'checked' : '' }}>
+
+                                        </div>
+                                        <div class="col-6">
+                                            @if (Route::has('password.request'))
+                                            <a class="btn btn-link buttoned" href="{{ route('password.request') }}">
+                                                {{ __('Forgot Your Password?') }}
+                                            </a>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                        @if (Route::has('password.request'))
-                                        <a class="btn btn-link buttoned" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                        @endif
-                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-12 m-auto">
+                                <div class="btn-wrapper">
+                                    <button type="submit" class="pro-btn2 py-2 px-3">
+                                        {{ __('Login') }}
+                                    </button>
+                                    <button type="button" class="pro-btn2 py-2 px-3" id="loginotp">
+                                        {{ __('Login With OTP ') }}
+                                    </button>
                                 </div>
 
 
                             </div>
                         </div>
                     </div>
-
-                    <div class="row mb-0">
-                        <div class="col-md-12 m-auto">
-                            <div class="btn-wrapper">
-                                <button type="submit" class="pro-btn2 py-2 px-3">
-                                    {{ __('Login') }}
-                                </button>
+                    <div id="loginotpfrom" style="display:none">
+                        <div class="row mb-3">
+                            <label for="phone"  class="col-md-4 fw-bold col-form-label text-md-end">{{ __('Phone Number') }}</label>
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control @error('email') is-invalid @enderror"
+                                    name="phone" value="{{ old('phone') }}"  autocomplete="phone" autofocus onKeyPress="if( this.value.length == 10 ) return false; " >
+                                <div id="phone_error" class="field_error text-danger"></div>
+                                <div id="phoneerroemsg"></div>
                             </div>
+                        </div>
+
+                        <div class="row mb-3"  id="otpenterscetion" style="display:none">
+                            <label for="phone"  class="col-md-4 fw-bold col-form-label text-md-end">{{ __('OTP Code') }}</label>
+                            <div class="col-md-6">
+                                <input id="Otpcode" type="text" class="form-control @error('opt') is-invalid @enderror"
+                                    name="otp" value="{{ old('otp') }}"  autocomplete="phone" autofocus onKeyPress="if( this.value.length == 6 ) return false; " >
+                                <div id="otp_error" class="field_error text-danger"></div>
+                                <div id="phoneerroemsg"></div>
+                            </div>
+                        </div>
+                        <div id="loginotp_msg"></div>
+                        <div class="row mb-0">
+                            <div class="col-md-12 m-auto">
+                                <div class="btn-wrapper">
+                                    <button type="button" class="pro-btn2 py-2 px-3" id="loginotpsend">
+                                        {{ __('Click Here Get OTP') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-0" id="loginsectionsds" style="display:none">
+                            <div class="col-md-12 m-auto">
+                                <div class="btn-wrapper">
+                                    <button type="submit" class="pro-btn2 py-2 px-3">
+                                        {{ __('Login') }}
+                                    </button>
+                                </div>
 
 
+                            </div>
                         </div>
                     </div>
-
                     <div class="row mt-2">
                         <p class="sinUp"><span>Don’t have an account? </span>
                         <a class="singApp popup-btn-register text-violet fw-bold">Sign Up</a></p>
@@ -559,71 +604,144 @@
     <script>
         jQuery('#frmRegistar').submit(function(e){
     
-    e.preventDefault();
-     jQuery('.field_error').html('');
-    jQuery.ajax({
-        url:'{{ route('uregisteor') }}',
-        data:jQuery('#frmRegistar').serialize(),
-        type:'post',
-        success:function(result){
-            if(result.status=="error"){
-                jQuery.each(result.error,function(key,val){
-                jQuery('#'+key+'_error').html(val[0]);
+            e.preventDefault();
+            jQuery('.field_error').html('');
+            jQuery.ajax({
+                url:'{{ route('uregisteor') }}',
+                data:jQuery('#frmRegistar').serialize(),
+                type:'post',
+                success:function(result){
+                    if(result.status=="error"){
+                        jQuery.each(result.error,function(key,val){
+                            jQuery('#'+key+'_error').html(val[0]);
+                        });
+                
+                    }
+                    if(result.status=="success"){
+                        // jQuery('#register_msg').html(result.msg);
+                        jQuery('#frmRegistar')[0].reset();
+                        jQuery('#thank_you_msg').html(result.msg);
+                    }
+                }
             });
-               
-            }
-            if(result.status=="success"){
-                // jQuery('#register_msg').html(result.msg);
-                jQuery('#frmRegistar')[0].reset();
-                jQuery('#thank_you_msg').html(result.msg);
-            }
-        }
-    });
-});
+        });
 
-jQuery('#frmLogin').submit(function(e){
-  jQuery('#login_msg').html("");
-  e.preventDefault();
-  jQuery.ajax({
-    url:'{{ route('ulogin') }}',
-    data:jQuery('#frmLogin').serialize(),
-    type:'post',
-    success:function(result){
-      if(result.status=="error"){
-        jQuery('#login_msg').html(result.msg);
-      }
-      if(result.status=="success"){
-       window.location.reload();
-      }
-    }
-  });
-});
+        jQuery('#frmLogin').submit(function(e){
+            jQuery('#login_msg').html("");
+            e.preventDefault();
+            jQuery.ajax({
+                url:'{{ route('ulogin') }}',
+                data:jQuery('#frmLogin').serialize(),
+                type:'post',
+                success:function(result){
+                    if(result.status=="error"){
+                        jQuery.each(result.error,function(key,val){
+                                    jQuery('#'+key+'_error').html(val[0]);
+                                });
+                        jQuery('#login_msg').html(result.msg);
+                    }
+                    if(result.status=="success"){
+                        window.location.reload();
+                    }
+                }
+            });
+        });
     </script>
     
     <script> 
-    btn.addEventListener('click', function(e){ 
-      e.stopPropagation();
-      view.classList.toggle('is_active');
-  }); // open menu
+        btn.addEventListener('click', function(e){ 
+            e.stopPropagation();
+            view.classList.toggle('is_active');
+        }); // open menu
     
-  for(var i = 0; i < viewItems.length; i++){
-    viewItems[i].addEventListener('click', function(e){
-      e.stopPropagation();
-      out.innerHTML = this.innerHTML;
-      view.classList.remove('is_active');
-    });
-  } 
-    function(){
-        if(view.classList.contains('is_active')){
-          view.classList.remove('is_active');
-          } 
-      }); 
-    
+        for(var i = 0; i < viewItems.length; i++){
+            viewItems[i].addEventListener('click', function(e){
+                e.stopPropagation();
+                out.innerHTML = this.innerHTML;
+                view.classList.remove('is_active');
+            });
+        } 
+        function(){
+            if(view.classList.contains('is_active')){
+                view.classList.remove('is_active');
+            } 
+        }); 
     </script>
     
     
     @livewireScripts
 	@stack('scripts')
+    <script type="text/javascript">
+        function validate() {
+            alert('hhh');
+            var pattern = new RegExp("([^\d])\d{10}([^\d])");
+
+            if (pattern.test(document.getElementById('phone').value)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+
+    <script>
+
+        $(document).on('click', '#loginotp', function() {
+        //   alert("ddd")
+            $('#loginotpfrom').css('display','block' );
+
+           $('#loginfrom').css('display','none');
+           $('#emaill').prop('required',false);
+           $('#Otpcode').prop('required',true);
+           $('#phone').prop('required',true);
+        });
+
+        jQuery('#loginotpsend').on('click', function(e){
+            var id=$("#phone").val();
+            // e.preventDefault();
+            jQuery('#phoneerroemsg').html("");
+			if(id == ''){
+				jQuery('#phoneerroemsg').html('Please Enter Phone Number!.');
+			}else{
+
+                // var pattern = new RegExp("/^[0-9]{10}$/");
+                // if (pattern.test(document.getElementById('phone').value)) {
+                    jQuery('#loginotp_msg').html("");
+                    // e.preventDefault();
+                    // alert('fdgfsfxgds')
+                    jQuery.ajax({
+                        url:'{{ route('loginsms') }}',
+                        data:'phone='+id,
+                        type:'get',
+                        success:function(result){
+                            if(result.status=="error"){
+
+                                jQuery.each(result.error,function(key,val){
+                                    jQuery('#'+key+'_error').html(val[0]);
+                                });
+                                // jQuery('#loginotp_msg').html(result.msg);
+                            }
+                            if(result.status=="success"){
+                                $("#otpenterscetion").css('display','revert-layer' );
+                                $('#loginotpsend').css('display','none');
+                                $("#loginsectionsds").css('display','revert-layer');
+                                // window.location.reload();
+                            }
+                        },
+                        async: false
+                    });
+                // }
+                // else {
+                //     jQuery('#phoneerroemsg').html('Please Enter Correct Phone Number!.');
+                //     // return false;
+                // }
+                // alert(id);
+                
+            }
+        });
+    </script>
+
 </body>
 
 <!-- Mirrored from bytesed.com/tf/listocean/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Sep 2023 06:17:37 GMT -->
