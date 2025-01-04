@@ -45,11 +45,22 @@
                                                 <div class="proCaption">
                                                     <h5><a href="{{ route('message',['chatid'=>$contact->chat_id]) }}" class="messageTittle">{{$contact->nextuser->name}}</a></h5>
                                                     <p class="messageCap">{{$contact->product->name}}</p>
-                                                    <span class="pricing">Can you make it to Rs 289 please?</span>
+                                                    @php 
+                                                        $lastmessage = $contact->lastmessage($contact->chat_id);
+                                                    @endphp
+                                                    <span class="pricing">{{$lastmessage->message}}</span>
                                                 </div>
                                             </div>
                                             <div class="timmer mb-20">
-                                                <span class="time">04:32 PM</span>
+                                                <span class="time">
+                                                    @if($lastmessage->created_at->isToday())
+                                                        {{date('h:i A', strtotime($lastmessage->created_at))}}
+                                                    @elseif($lastmessage->created_at->isSameDay(now()->subDay()))
+                                                        Yesterday
+                                                    @else
+                                                        {{date('d M', strtotime($lastmessage->created_at))}}
+                                                    @endif
+                                                </span>
                                             </div>
                                         </div>
                                     </a>
