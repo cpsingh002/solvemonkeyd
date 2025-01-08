@@ -85,12 +85,11 @@ span.price {
   }
 }
 </style>
-<div>
-    <main>
+<main>
 <div class="row">
   <div class="col-75 py-5">
     <div class="container">
-      <form action="/action_page.php">
+      <form action="#">
 
         <div class="row">
           <div class="col-50">
@@ -102,8 +101,7 @@ span.price {
             <label class="form-label">Package Price: <strong>{{$this->price}}</strong></label>
             <label class="form-label">Package Validity(In days): <strong>{{$this->validity}}</strong></label>
             <label class="form-label">Visiting Count: <strong>{{$this->count}}</strong></label>
-                
-        </div>
+          </div> 
 
           <div class="col-25">
             <h3>Payment</h3>
@@ -145,116 +143,113 @@ span.price {
 </main>
 
 <div class="promotionSetting section-padding2">
-                <div class="container">
-                    <div class="row mb-24">
-                        <div class="col-sm-12">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Payment</a></li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="row mb-24">
+            <div class="col-sm-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Payment</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-xl-10 col-lg-12">
+                <div class="paymentWrapper">
                     <div class="row">
-                        <div class="col-xl-10 col-lg-12">
-                            <div class="paymentWrapper">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="paymentDetails mb-24">
-                                            <div class="paymentDetailsTop mb-24">
-                                                <h4 class="priceTittle">Results you’ll get</h4>
-                                                <ul class="listing">
-                                                    <li class="listItem"><i class="las la-check icon"></i>Your ad will be promoted for 3 days</li>
-                                                    <li class="listItem"><i class="las la-check icon"></i>Get upto 10x times more responses</li>
-                                                    <li class="listItem"><i class="las la-check icon"></i>Your Ad will be featured for 1st day</li>
-                                                </ul>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="paymentDetails mb-24">
+                                <div class="paymentDetailsTop mb-24">
+                                    <h4 class="priceTittle">Results you’ll get</h4>
+                                    <ul class="listing">
+                                        <li class="listItem"><i class="las la-check icon"></i>Your ad will be promoted for 3 days</li>
+                                        <li class="listItem"><i class="las la-check icon"></i>Get upto 10x times more responses</li>
+                                        <li class="listItem"><i class="las la-check icon"></i>Your Ad will be featured for 1st day</li>
+                                    </ul>
+                                </div>
+                                <div class="audience">
+                                    <h4 class="priceTittle">Results you’ll get</h4>
+                                    <ul class="listing">
+                                        <li class="listItem">
+                                            <p class="leftCap">Location</p>
+                                            <p class="rightCap">Utica, Pennsylvania</p>
+                                        </li>
+                                        <li class="listItem">
+                                            <p class="leftCap">Gender</p>
+                                            <p class="rightCap">All</p>
+                                        </li>
+                                        <li class="listItem">
+                                            <p class="leftCap">Age range</p>
+                                            <p class="rightCap">18-45</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="paymentDetails">
+                                <div class="paymentPricing mb-20">
+                                    <ul class="listing">
+                                        <li class="listItem">
+                                            <p class="leftCap">Standard promotion plan</p>
+                                            <p class="rightCap">$79.00</p>
+                                        </li>
+                                        <li class="listItem">
+                                            <p class="leftCap">Vat</p>
+                                            <p class="rightCap">$3.49</p>
+                                        </li>
+                                        <li class="listItem">
+                                            <p class="leftCap">Total</p>
+                                            <p class="rightCap">$82.49</p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="paymentDetailsBottom">
+                                    <h4 class="priceTittle">Payment</h4>
+
+                                    <div class="paymentMethod">
+                                        <div class="cs_radio_btn">
+                                            <div class="radio">
+                                                <input id="radio-1" name="radio" type="radio" tabindex="0" />
+                                                <label for="radio-1" class="radio-label"><i class="lar la-credit-card icon"></i>Credit/Debit Card</label>
                                             </div>
-                                            <div class="audience">
-                                                <h4 class="priceTittle">Results you’ll get</h4>
-                                                <ul class="listing">
-                                                    <li class="listItem">
-                                                        <p class="leftCap">Location</p>
-                                                        <p class="rightCap">Utica, Pennsylvania</p>
-                                                    </li>
-                                                    <li class="listItem">
-                                                        <p class="leftCap">Gender</p>
-                                                        <p class="rightCap">All</p>
-                                                    </li>
-                                                    <li class="listItem">
-                                                        <p class="leftCap">Age range</p>
-                                                        <p class="rightCap">18-45</p>
-                                                    </li>
-                                                </ul>
+                                            <div class="radio">
+                                                <input id="radio-2" name="radio" type="radio" tabindex="0" />
+                                                <label for="radio-2" class="radio-label"><i class="lab la-paypal icon"></i>Paypal</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="paymentDetails">
-                                            <div class="paymentPricing mb-20">
-                                                <ul class="listing">
-                                                    <li class="listItem">
-                                                        <p class="leftCap">Standard promotion plan</p>
-                                                        <p class="rightCap">$79.00</p>
-                                                    </li>
-                                                    <li class="listItem">
-                                                        <p class="leftCap">Vat</p>
-                                                        <p class="rightCap">$3.49</p>
-                                                    </li>
-                                                    <li class="listItem">
-                                                        <p class="leftCap">Total</p>
-                                                        <p class="rightCap">$82.49</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
 
-                                            <div class="paymentDetailsBottom">
-                                                <h4 class="priceTittle">Payment</h4>
+                                    <div class="input-form">
+                                        <input type="text" placeholder="Card number" />
+                                        <div class="icon"><i class="lar la-credit-card"></i></div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                          <div class="input-form">
+                                              <input type="text" placeholder="Expiry date" />
+                                              <div class="icon"><i class="las la-calendar-week"></i></div>
+                                          </div>
+                                      </div>
 
-                                                <div class="paymentMethod">
-                                                    <div class="cs_radio_btn">
-                                                        <div class="radio">
-                                                            <input id="radio-1" name="radio" type="radio" tabindex="0" />
-                                                            <label for="radio-1" class="radio-label"><i class="lar la-credit-card icon"></i>Credit/Debit Card</label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <input id="radio-2" name="radio" type="radio" tabindex="0" />
-                                                            <label for="radio-2" class="radio-label"><i class="lab la-paypal icon"></i>Paypal</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                      <div class="col-lg-6">
+                                          <div class="input-form">
+                                              <input type="text" placeholder="CVV/CVC" />
+                                              <div class="icon"><i class="las la-lock"></i></div>
+                                          </div>
+                                      </div>
 
-                                                <div class="input-form">
-                                                    <input type="text" placeholder="Card number" />
-                                                    <div class="icon"><i class="lar la-credit-card"></i></div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="input-form">
-                                                            <input type="text" placeholder="Expiry date" />
-                                                            <div class="icon"><i class="las la-calendar-week"></i></div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-6">
-                                                        <div class="input-form">
-                                                            <input type="text" placeholder="CVV/CVC" />
-                                                            <div class="icon"><i class="las la-lock"></i></div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-12">
-                                                        <span class="infoTitle2"><i class="las la-lock icon"></i>Payment informations are encrypted with 256 bit SSL</span>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <div class="btn-wrapper mb-10">
-                                                            <a href="#" class="cmn-btn4 w-100">Confirm payment</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                      <div class="col-sm-12">
+                                          <span class="infoTitle2"><i class="las la-lock icon"></i>Payment informations are encrypted with 256 bit SSL</span>
+                                      </div>
+                                      <div class="col-sm-12">
+                                          <div class="btn-wrapper mb-10">
+                                              <button type="button" wire:click.prevent="purchase()" class="cmn-btn4 w-100">Confirm payment</button>
+                                          </div>
+                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -262,4 +257,6 @@ span.price {
                     </div>
                 </div>
             </div>
-<div>
+        </div>
+    </div>
+</div>
