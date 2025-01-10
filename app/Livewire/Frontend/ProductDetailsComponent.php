@@ -74,30 +74,34 @@ class ProductDetailsComponent extends Component
             if($user_id != $this->user_id){
                 if(Auth::user()->planpurchadeactive)
                 {        
-                    if(Auth::user()->planpurchade){
+                    // if(Auth::user()->planpurchade){
                         // $product= Product::where('slug',$this->slug)->first();
                         $visited= UserProductVisit::where('user_id',$user_id)->where('status',1)->count();
                         $package=Auth::user()->planpurchade;
                         // $validityCount=$package->count;
                         // $validityUpto=$package->valid_upto;
-                        if($package->valid_upto->gt(now()))
+                        if(strtotime($package->valid_upto) > strtotime(now()))
                         {
                             if($package->count>$visited)
                             {
                                 $this->detailCount(Auth::user()->id);
                                 $this->haveCouponCode = 1;
                             }else{
-                                UserProductVisit::where('user_id',$user_id)->update(['status' => 0]);
-                                $package->status=0;
-                                $package->save();
-                                session()->flash('message','your plan limit is over!');
+                                // UserProductVisit::where('user_id',$user_id)->update(['status' => 0]);
+                                // $package->status=0;
+                                // $package->save();
+                                session()->flash('message','your plan limit is over! buy a New plan!');
                             }
                         }else{
-                            session()->flash('message','your plan is expired!');
+                            UserProductVisit::where('user_id',$user_id)->update(['status' => 0]);
+                            $package->status=0;
+                            $package->save();
+                            session()->flash('message','your plan is expired! buy a New plan!');
+                            return redirect()->route('package');
                         }
-                    }else{
-                        session()->flash('message','your plan limit is over!');   //Plan expired
-                    }
+                    // }else{
+                    //     session()->flash('message','your plan limit is over!');   //Plan expired
+                    // }
                 }else{
                         session()->flash('message','For sell information first buy a plan!');
                         return redirect()->route('package');

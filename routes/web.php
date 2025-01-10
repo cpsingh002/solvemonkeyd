@@ -128,7 +128,9 @@ Route::middleware(['auth:sanctum','verified','userauth'])->group(function(){
     Route::get('/user/profile/edit',UserEditProfileComponent::class)->name('user.editprofile');
     Route::get('user/echangeItem/{e_for}/{p}/{r}',ExchangeItemComponent::class)->name('user.exchangeitem');
     Route::get('/user-packages',UserPackagesComponent::class)->name('user-packages');
-    Route::get('/package-purchase/{p_id}',PackagePurchaseComponent::class)->name('package.purchase');
+    Route::get('/package-purchase/{p_id}',[HomeController::class,'PlanPurchase'])->name('package.purchase');
+    Route::get('/easzy-pass',[HomeController::class,'EaszyPass'])->name('easzy.pass');
+    
 });
 
 // frontend routes

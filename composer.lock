@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f545bfe8c89366368686cfa69b53324",
+    "content-hash": "c0050a07ffdd7414628d1185c60debe0",
     "packages": [
         {
             "name": "brick/math",
@@ -440,6 +440,39 @@
                 }
             ],
             "time": "2023-08-10T19:36:49+00:00"
+        },
+        {
+            "name": "easebuzz/pay-with-easebuzz-laravel",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easebuzz/paywitheasebuzz-laravel-lib.git",
+                "reference": "384e876f8b98e6a3e957a62856e2266438591fbc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/easebuzz/paywitheasebuzz-laravel-lib/zipball/384e876f8b98e6a3e957a62856e2266438591fbc",
+                "reference": "384e876f8b98e6a3e957a62856e2266438591fbc",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Easebuzz\\PayWithEasebuzzLaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "easebuzz",
+                    "email": "pgsupport@easebuzz.in"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/easebuzz/paywitheasebuzz-laravel-lib/issues",
+                "source": "https://github.com/easebuzz/paywitheasebuzz-laravel-lib/tree/1.0.0"
+            },
+            "time": "2023-09-12T14:35:10+00:00"
         },
         {
             "name": "egulias/email-validator",

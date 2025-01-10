@@ -258,7 +258,7 @@
                                 @if($haveCouponCode != 1)
                                     <div class="col-lg-12">
                                         <div class="btn-wrapper mb-20 text-center">
-                                            <a href="#"  wire:click.prevent="checkplan" class="cmn-btn-outline3 w-100" >Reveal Contact</a>
+                                            <a href="#"  @auth wire:click.prevent="checkplan" class="cmn-btn-outline3 w-100" @else class="cmn-btn-outline3 w-100 popup-btn-login" @endauth>Reveal Contact</a>
                                         </div>
                                     </div>
                                 @endif

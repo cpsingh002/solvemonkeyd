@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('ptype');
             $table->string('pname');
+            $table->string('pslug')->unique();
             $table->string('price');
             $table->text('description');
             $table->string('validity');

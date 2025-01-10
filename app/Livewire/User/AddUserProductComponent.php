@@ -87,7 +87,7 @@ class AddUserProductComponent extends Component
         $this->for_exchange = 1;
         $this->for_sell = 1;
         $this->for_rent = 1;
-        $this->in_range=0;
+        $this->in_range = "0";
         $this->owner_name=Auth::user()->name;
         $this->contact_number=Auth::user()->phone;
         $this->email_id=Auth::user()->email;
@@ -184,7 +184,7 @@ class AddUserProductComponent extends Component
             'meta_keywords'=>'required',
             'meta_description'=>'required',
             'owner_name'=>'required',
-            'contact_number'=>'required',
+            'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
             'images'=>'required',
@@ -241,7 +241,7 @@ class AddUserProductComponent extends Component
             'meta_keywords'=>'required',
             'meta_description'=>'required',
             'owner_name'=>'required',
-            'contact_number'=>'required',
+            'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
             'images'=>'required',

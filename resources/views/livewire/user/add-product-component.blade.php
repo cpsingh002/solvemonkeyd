@@ -189,6 +189,7 @@
                                                                     <div class="input-group input-group--sa-slug">
                                                                         <!--mt-3-->
                                                                         <select class="form-control mtr " wire:model="in_range" wire:change="ranges">
+                                                                            <option value="">Select Option</option>
                                                                             <option value="0">No</option>
                                                                             <option value="1">Yes</option>
                                                                         </select>
@@ -199,7 +200,7 @@
                                                             <label class="infoTitle mt-2">Range</label>
                                                             <div class="input-group input-group--sa-slug">
                                                                 <!--mt-3-->
-                                                                    <select class="form-select  " wire:model="price_range">
+                                                                    <select class="form-select" wire:model="price_range">
                                                                         <option value="">Select Price Range</option>
                                                                         <option value="1">{{($prices*90/100)}} to  {{($prices*110/100)}}</option>
                                                                         <option value="2">{{($prices*85/100)}} to  {{($prices*115/100)}}</option>
@@ -214,6 +215,7 @@
                                                         <div class="input-group input-group--sa-slug">
                                                             <!--mt-3-->
                                                             <select class="form-control mtr " wire:model="price_negotiable">
+                                                                <option value="">select option</option>
                                                                 <option value="0">No</option>
                                                                 <option value="1">Yes</option>
                                                             </select>
@@ -267,7 +269,7 @@
                                                         <select  class="form-control" wire:model="city_id">
                                                             <option value="">Select City</option>
                                                             @foreach($cities as $city)
-                                                                <option value="{{$city->id}}">{{$city->city}}</option>
+                                                                <option value="{{$city->id}}">{{$city->name}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -408,7 +410,7 @@
                                                         <select class="form-control" wire:model="city_id1">
                                                             <option value="0">Select City</option>
                                                             @foreach($citiys as $city)
-                                                                <option value="{{$city->id}}">{{$city->city}}</option>
+                                                                <option value="{{$city->id}}">{{$city->name}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -420,7 +422,7 @@
                                                         <select class="form-control" wire:model="city_id2">
                                                             <option value="0">Select City</option>
                                                             @foreach($citiys as $city)
-                                                                <option value="{{$city->id}}">{{$city->city}}</option>
+                                                                <option value="{{$city->id}}">{{$city->name}}</option>
                                                             @endforeach
                                                         </select>
                                                             @error('city_id2') <p class="text-danger">{{$message}}</p> @enderror
@@ -432,7 +434,7 @@
                                                             <select class="form-control" wire:model="city_id3">
                                                             <option value="0">Select City</option>
                                                             @foreach($citiys as $city)
-                                                                <option value="{{$city->id}}">{{$city->city}}</option>
+                                                                <option value="{{$city->id}}">{{$city->name}}</option>
                                                             @endforeach
                                                         </select>
                                                                 @error('city_id3') <p class="text-danger">{{$message}}</p>@enderror
@@ -565,7 +567,7 @@
       <select class="form-control" wire:model="city_id" disabled >
             <option value="0">Select City</option>
             @foreach($cities as $city)
-                <option value="{{$city->id}}">{{$city->city}}</option>
+                <option value="{{$city->id}}">{{$city->name}}</option>
             @endforeach
         </select>
       <label class="form-label">Address:</label>{{$this->address}}<br>

@@ -222,7 +222,7 @@ class EditUserProductComponent extends Component
             'meta_keywords'=>'required',
             'meta_description'=>'required',
             'owner_name'=>'required',
-            'contact_number'=>'required',
+            'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
             'featimage'=>'required',
@@ -276,7 +276,7 @@ class EditUserProductComponent extends Component
             'meta_keywords'=>'required',
             'meta_description'=>'required',
             'owner_name'=>'required',
-            'contact_number'=>'required',
+            'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
             'featimage'=>'required',
@@ -285,8 +285,8 @@ class EditUserProductComponent extends Component
             'exchange_for'=>'required',
 
             'name'=>'required',
-            'inputs'=>'required',
-            'attribute_arr'=>'required',
+            // 'inputs'=>'required',
+            // 'attribute_arr'=>'required',
             'slug'=>'required|unique:products,slug,'.$this->pid
         ],[
             'category_id.required'=>'The category field is required.',

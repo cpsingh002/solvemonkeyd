@@ -17,6 +17,7 @@ class PackagePurchaseComponent extends Component
     public $count;
     public $pid;
     public $p_id;
+   
         
     public function mount($p_id){
         $this->pid= $p_id;
@@ -29,6 +30,7 @@ class PackagePurchaseComponent extends Component
         $this->count= $package->count;
         $this->description = $package->description;
         $this->p_id = $package->id;
+      
 
     }
     public function checkacticepackage()
