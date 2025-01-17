@@ -292,7 +292,7 @@
         <div class="row justify-content-center">
             <div class="col-xl-8 col-lg-7 col-md-6 col-sm-10 col-12">
                 <div class="section-tittle text-center ">
-                    <h2 class="tittl  "><span class="shape"></span> Exchange Items Listings </h2>
+                    <h2 class="tittl  "><span class="shape"></span> Exchange Item Listings </h2>
                 </div>
             </div>
         </div>

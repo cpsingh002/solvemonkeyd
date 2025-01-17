@@ -188,7 +188,7 @@ class AddUserProductComponent extends Component
             'email_id'=>'required',
 
             'images'=>'required',
-            'exchange_for'=>'required',
+            'exchange_for'=>'required_if:for_exchange,1',
 
             'name'=>'required',
             'slug'=>'required',
@@ -245,13 +245,14 @@ class AddUserProductComponent extends Component
             'email_id'=>'required',
 
             'images'=>'required',
-            'exchange_for'=>'required',
+            'exchange_for'=>'required_if:for_exchange,1',
 
             'name'=>'required',
             'slug'=>'required|unique:products',
             // 'inputs'=>'required',
         //   'attribute_arr'=>'required'
         ],[
+            'name.required'=>'The title field is required.',
             'category_id.required'=>'The category field is required.',
             'scategory_id.required'=>'The sub-category field is required.',
             'attribute_id.required'=>'The attribute field is required.',

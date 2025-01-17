@@ -98,7 +98,7 @@ class ProductListComponent extends Component
        }
 
         $query=$query->distinct()->select('products.*');
-        $products=$query->paginate(10);
+        $products=$query->paginate(12);
       
         //dd($products);
         $brands = Brand::where('status',1)->get();
