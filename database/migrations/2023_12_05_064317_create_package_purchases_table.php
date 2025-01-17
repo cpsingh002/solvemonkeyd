@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('transcation_id');
             $table->string('amonut');
             $table->boolean('status')->default('1');
-            $table->date('valid_upto')->nullable();
+            $table->datetime('valid_upto')->nullable();
             $table->integer('count');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
