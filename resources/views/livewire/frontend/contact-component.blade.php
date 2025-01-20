@@ -81,18 +81,17 @@
                                 <div class="col-lg-6 col-md-6 ">
                                     <div class="input-form">
                                         <label class="infoTitle">Phone number</label>
-                                        <div >
+                                        <div  wire:ignore>
                                         <input id="phone" name="phone" type="tel" wire:model="phone" class="mb-2">
-                                             @error('phone') <p class="text-danger">{{$message}}</p>
-                                            @enderror
                                         </div>
+                                        @error('phone') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
                             </div>
                                 <div class="col-lg-12">
                                     <label class="infoTitle">Message</label>
                                     <div class="input-form mb-3">
-                                        <textarea name="message " id="message" placeholder="About your project" wire:model="message" class="mb-2"></textarea>
+                                        <textarea name="message " id="message" placeholder="Message..." wire:model="message" class="mb-2"></textarea>
                                         @error('message') <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>

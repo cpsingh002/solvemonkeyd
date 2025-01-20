@@ -282,7 +282,7 @@ class EditUserProductComponent extends Component
             'featimage'=>'required',
             'images'=>'required',
             'thumbimage'=>'required',
-            'exchange_for'=>'required',
+            'exchange_for'=>'required_if:for_exchange,1',
 
             'name'=>'required',
             // 'inputs'=>'required',
@@ -356,7 +356,7 @@ class EditUserProductComponent extends Component
 
         if($this->newthumbimage)
         {
-            if(thumbimage){
+            if($product->thumbimage){
             unlink('admin/product/thumb'.'/'.$product->thumbimage);
             }
             $imageNamet= Carbon::now()->timestamp.'.'.$this->newthumbimage->extension();
