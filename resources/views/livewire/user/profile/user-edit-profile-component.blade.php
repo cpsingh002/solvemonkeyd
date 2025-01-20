@@ -108,7 +108,7 @@
                                             <select class="form-control" wire:model="city_id">
                                                     <option value="0">Select City</option>
                                                     @foreach($cities as $city)
-                                                        <option value="{{$city->id}}">{{$city->city}}</option>
+                                                        <option value="{{$city->id}}">{{$city->name}}</option>
                                                     @endforeach
                                                 </select>
                                             

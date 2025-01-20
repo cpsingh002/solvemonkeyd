@@ -62,7 +62,7 @@
                                     make it happen!</p>
                                 <div class="btn-wrapper">
                                     <!-- <a href="login.html" class="cmn-btn04 mr-15 mb-10 wow fadeInLeft" data-wow-delay="0.3s">Sign up</a> -->
-                                    <a href="#" class="browseBtn mb-10 wow fadeInLeft" data-wow-delay="0.3s">Browse ads
+                                    <a href="{{route('product-list')}}" class="browseBtn mb-10 wow fadeInLeft" data-wow-delay="0.3s">Browse ads
                                         <i class="las la-angle-right icon"></i></a>
                                 </div>
                             </div>

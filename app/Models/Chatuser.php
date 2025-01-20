@@ -36,4 +36,8 @@ class Chatuser extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+    public function lastmessage($chat_id)
+    {
+        return ProductChat::where('chat_id',$chat_id)->select('message','created_at')->latest()->first();
+    }
 }

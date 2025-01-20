@@ -213,7 +213,7 @@
                                                     <select name="c" class="form-control forms " wire:model="city_id" wire:change="chnagecity" required>
                                                         <option value>Select City</option>
                                                         @foreach($cities as $city)
-                                                            <option value="{{$city->id}}">{{$city->city}}</option>
+                                                            <option value="{{$city->id}}">{{$city->name}}</option>
                                                         @endforeach
                                                     </select>
                                                     <span id="clocation" class="text-danger"></span>
@@ -274,7 +274,7 @@
                                                         $res= $to->diffInDays($from); 
                                                         //dd($res);
                                                     @endphp 
-                                                    @if($res <  1) 
+                                                    @if($product->created_at->isToday()) 
                                                         Today
                                                     @elseif(($res > 1 ) && ($res <  7))  
                                                         {{$product->created_at->format('D')}} 

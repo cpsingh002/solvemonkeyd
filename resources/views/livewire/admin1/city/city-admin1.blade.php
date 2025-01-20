@@ -33,7 +33,7 @@
                         <tr>
                             <!-- <td><input type="checkbox" class="form-check-input m-0 fs-exact-16 d-block" aria-label="..." /></td> -->
                             <td>{{$city->id}}</td>
-                            <td>{{$city->city}}</td>
+                            <td>{{$city->name}}</td>
                             <td>{{$city->state->name}}</td>
                             <td>{{$city->state->country->name}}</td>
                            

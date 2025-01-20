@@ -1,5 +1,5 @@
-<div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
+@extends('layouts/base1')
+@section('content')
     <main>
 
 
@@ -103,4 +103,4 @@
     </div>
 
 </main>
-</div>
+@endsection

@@ -15,6 +15,7 @@ class MessageComponent extends Component
     public $uuid;
     public $pid;
     public $user;
+    public $chatid;
     public $message;
 
 
@@ -34,32 +35,34 @@ class MessageComponent extends Component
         $this->render();
     }
 
-    public function mount($uuid='',$pid='')
+    public function mount($chatid='')
     {
         //  dd($uuid,$pid);
-        if($uuid != ''){
-        $this->uuid = $uuid;
-        $this->pid = $pid;
+        if($chatid != ''){
+        $chatuser = Chatuser::where('chat_id',$this->chatid)->where('user_id',Auth::id())->first();
+        $this->uuid = $chatuser->friend_id;
+        
+        $this->pid = $chatuser->product_id;
         $product= Product::where('id',$this->pid)->first();
             $this->user = User::where('id',$this->uuid)->first();
 
 
-            if (Chatuser::where(['user_id' => Auth::id(), 'friend_id' => $this->user->id,'product_id' => $this->pid])->count() === 0 || Chatuser::where(['user_id' => $this->user->id, 'friend_id' => Auth::id(),'product_id' => $this->pid])->count() === 0) {
-                $uuid = Str::uuid();
-                Chatuser::create([
-                    'user_id' => Auth::id(),
-                    'chat_id' => $uuid,
-                    'friend_id' => $this->user->id,
-                    'product_id' => $this->pid
-                ]);
+            // if (Chatuser::where(['user_id' => Auth::id(), 'friend_id' => $this->user->id,'product_id' => $this->pid])->count() === 0 || Chatuser::where(['user_id' => $this->user->id, 'friend_id' => Auth::id(),'product_id' => $this->pid])->count() === 0) {
+            //     $uuid = Str::uuid();
+            //     Chatuser::create([
+            //         'user_id' => Auth::id(),
+            //         'chat_id' => $uuid,
+            //         'friend_id' => $this->user->id,
+            //         'product_id' => $this->pid
+            //     ]);
 
-                Chatuser::create([
-                    'user_id' => $this->user->id,
-                    'chat_id' => $uuid,
-                    'friend_id' => Auth::id(),
-                    'product_id' => $this->pid
-                ]);
-            }
+            //     Chatuser::create([
+            //         'user_id' => $this->user->id,
+            //         'chat_id' => $uuid,
+            //         'friend_id' => Auth::id(),
+            //         'product_id' => $this->pid
+            //     ]);
+            // }
         }
     }
     public function render()

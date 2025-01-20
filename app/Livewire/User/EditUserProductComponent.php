@@ -222,7 +222,7 @@ class EditUserProductComponent extends Component
             'meta_keywords'=>'required',
             'meta_description'=>'required',
             'owner_name'=>'required',
-            'contact_number'=>'required',
+            'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
             'featimage'=>'required',
@@ -276,17 +276,17 @@ class EditUserProductComponent extends Component
             'meta_keywords'=>'required',
             'meta_description'=>'required',
             'owner_name'=>'required',
-            'contact_number'=>'required',
+            'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
             'featimage'=>'required',
             'images'=>'required',
             'thumbimage'=>'required',
-            'exchange_for'=>'required',
+            'exchange_for'=>'required_if:for_exchange,1',
 
             'name'=>'required',
-            'inputs'=>'required',
-            'attribute_arr'=>'required',
+            // 'inputs'=>'required',
+            // 'attribute_arr'=>'required',
             'slug'=>'required|unique:products,slug,'.$this->pid
         ],[
             'category_id.required'=>'The category field is required.',
@@ -356,7 +356,7 @@ class EditUserProductComponent extends Component
 
         if($this->newthumbimage)
         {
-            if(thumbimage){
+            if($product->thumbimage){
             unlink('admin/product/thumb'.'/'.$product->thumbimage);
             }
             $imageNamet= Carbon::now()->timestamp.'.'.$this->newthumbimage->extension();

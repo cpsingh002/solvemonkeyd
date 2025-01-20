@@ -50,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function planpurchadeactive()
     {
-        return $this->hasOne(PackagePurchase::class,'user_id');
+        return $this->hasOne(PackagePurchase::class,'user_id')->where('status',1);
     }
     public function countrys()
     {

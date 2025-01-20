@@ -51,7 +51,7 @@
                                 @foreach($cities as $city)
                                     <tr>
                                         <td>{{$city->id}}</td>
-                                        <td>{{$city->city}}</td>
+                                        <td>{{$city->name}}</td>
                                         <td>{{$city->state->name}}</td>
                                         <td>
                                            {{$city->state->country->name}}

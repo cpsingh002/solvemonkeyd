@@ -175,7 +175,7 @@
                         </div>
                         @if($product->city_id1 || $product->city_id2 || $product->city_id3)
                         <div class="btn-wrapper">
-                            <h4 class="pro-btn3 w-100 text-center font-size-16">Interested Citys
+                            <h4 class="pro-btn3 w-100 text-center font-size-16">Interested Cities
                                 <p class="text-black text-white">@if($product->city1) {{$product->city1->city}}, @endif @if($product->city3) {{$product->city3->city}}, @endif @if($product->city2) {{$product->city2->city}} @endif</p>
                             </h4>
                         </div>
@@ -258,7 +258,7 @@
                                 @if($haveCouponCode != 1)
                                     <div class="col-lg-12">
                                         <div class="btn-wrapper mb-20 text-center">
-                                            <a href="#"  wire:click.prevent="checkplan" class="cmn-btn-outline3 w-100" >Reveal Contact</a>
+                                            <a href="#"  @auth wire:click.prevent="checkplan" class="cmn-btn-outline3 w-100" @else class="cmn-btn-outline3 w-100 popup-btn-login" @endauth>Reveal Contact</a>
                                         </div>
                                     </div>
                                 @endif
@@ -272,7 +272,7 @@
                         
                         @if($product->city_id1 || $product->city_id2 || $product->city_id3)
                             <div class="btn-wrapper">
-                                <h4 class="pro-btn3 w-100 text-center font-size-16 mt-4">Interested Citys
+                                <h4 class="pro-btn3 w-100 text-center font-size-16 mt-4">Interested Cities
                                     <p class="text-black text-white">@if($product->city1) {{$product->city1->city}}, @endif @if($product->city3) {{$product->city3->city}}, @endif @if($product->city2) {{$product->city2->city}} @endif</p>
                                 </h4>
                             </div>
@@ -304,7 +304,7 @@
                                                         $res= $to->diffInDays($from); 
                                                         //dd($res);
                                                     @endphp 
-                                                    @if($res <  1) 
+                                                    @if($exproduct->created_at->isToday())
                                                         Today
                                                     @elseif(($res > 1 ) && ($res <  7))  
                                                         {{$rproduct->created_at->format('D')}} 
@@ -335,18 +335,28 @@
             <div class="close-icon">
                 <i class="las la-times"></i>
             </div>
-            <h2 class="modialTittle">Login <span>Here</span> </h2>
+            <h2 class="modialTittle">Message <span>To Owner</span> </h2>
+            <div class="showProduct mb-24">
+                <div class="proCap">
+                    <div class="proImg">
+                        <img src="{{asset('admin/product/feat')}}/{{$product->featimage}}" alt="img" width="200px" height="200px">
+                    </div>
+                    <div class="proCaption">
+                        <h5><a href="#" class="proTittle">{{$product->name}}</a></h5>
+                        <!-- <p class="proPera">Ladies analog watch</p> -->
+                    </div>
+                </div>
+                
+            </div>
             <div class="card-body">
-                <form method="POST" action="#" id="frmLogin">
-                    @csrf
-
+                <form wire:submit.prevent="send_message" method="get">
                     <div class="row mb-3">
                         <label for="email"
-                            class="col-md-4 fw-bold col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            class="col-md-4 fw-bold col-form-label text-md-end">{{ __('Type Message') }}</label>
 
-                        <div class="col-md-6">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <div class="col-md-12">
+                            <input  type="text" class="form-control @error('email') is-invalid @enderror"
+                            name="message" wire:model.lazy="message"  placeholder="Write your message..." required >
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -356,65 +366,17 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        <label for="password"
-                            class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Password') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" name="password" 
-                                autocomplete="current-password">
-                                <i class="toggle-password la la-fw la-eye-slash"></i>
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div id="login_msg"></div>
-                    <div class="row mb-3">
-                        <div class="col-md-10 m-auto">
-                            <div class="form-check1">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <label class="form-check-label fw-bold" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                            {{ old('remember') ? 'checked' : '' }}>
-
-                                    </div>
-                                    <div class="col-6">
-                                        @if (Route::has('password.request'))
-                                        <a class="btn btn-link buttoned" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                        @endif
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="row mb-0">
                         <div class="col-md-12 m-auto">
                             <div class="btn-wrapper">
-                                <button type="submit" class="pro-btn2 py-2 px-3">
-                                    {{ __('Login') }}
+                                <button type="submit" class="pro-btn2 py-2 px-3" wire:click="send_message">
+                                    {{ __('Send') }}
                                 </button>
                             </div>
 
 
                         </div>
-                    </div>
-
-                    <div class="row mt-2">
-                        <p class="sinUp"><span>Don’t have an account? </span>
-                        <a class="singApp popup-btn-register text-violet fw-bold">Sign Up</a></p>
                     </div>
                 </form>
             </div>
@@ -426,6 +388,9 @@
 
     <script>
         
+        window.addEventListener('show-chat-close', event => {
+            $('#modal-wrapper-chat').css('display','none');
+        })
         window.addEventListener('show-chat', event => {
             $("#modal-wrapper-chat,.modal-wrapper-box").css('display','block' );
             $('.body-overlay-desktop').addClass('active');

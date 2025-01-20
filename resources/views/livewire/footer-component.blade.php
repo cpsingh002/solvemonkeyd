@@ -51,7 +51,7 @@
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.0s"><a href="{{route('contact')}}"
                                                 class="singleLinks ww-70"> Contact</a></li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.2s"><a href="{{route('faq')}}"
-                                                class="singleLinks ww-70"> Faq</a></li>
+                                                class="singleLinks ww-70">FAQ </a></li>
                                         <li class="listItem wow fadeInUp" data-wow-delay="0.1s"><a
                                                 href="{{route('terms-and-condition')}}" class="singleLinks singles"> Terms and
                                                 Conditions</a></li>
@@ -77,14 +77,14 @@
 
                                 <div class="footer-form mt-10 wow fadeInRight" data-wow-delay="0.1s">
                                     <div class="form-row mb-21">
-                                        <form class="newsletter-footer" target="_blank" action="#" method="get">
+                                        <div class="newsletter-footer">
                                             <input class="input" type="email" name="email"
                                                 placeholder="Your Email Address">
                                             <div class="btn-wrapper form-icon">
                                                 <button class="btn-default btn-rounded" type="submit" name="submit">
                                                     Submit</button>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                     <div class="footer-social2 ">
                                         <a href="#" class="wow fadeInUp social" data-wow-delay="0.2s"><i

@@ -197,7 +197,7 @@
                                                         $res= $to->diffInDays($from); 
                                                         //dd($res);
                                                     @endphp 
-                                                    @if($res <  1) 
+                                                    @if($seproduct->created_at->isToday())
                                                         Today
                                                     @elseif(($res > 1 ) && ($res <  7))  
                                                         {{$seproduct->created_at->format('D')}} 
@@ -292,7 +292,7 @@
         <div class="row justify-content-center">
             <div class="col-xl-8 col-lg-7 col-md-6 col-sm-10 col-12">
                 <div class="section-tittle text-center ">
-                    <h2 class="tittl  "><span class="shape"></span> Exchange Items Listings </h2>
+                    <h2 class="tittl  "><span class="shape"></span> Exchange Item Listings </h2>
                 </div>
             </div>
         </div>
@@ -315,7 +315,7 @@
                                                         $res= $to->diffInDays($from); 
                                                         //dd($res);
                                                     @endphp 
-                                                    @if($res <  1) 
+                                                    @if($exproduct->created_at->isToday())
                                                         Today
                                                     @elseif(($res > 1 ) && ($res <  7))  
                                                         {{$exproduct->created_at->format('D')}} 
@@ -377,7 +377,7 @@
                                     $res= $to->diffInDays($from); 
                                     //dd($res);
                                 @endphp 
-                                @if($res <  1) 
+                                @if($product->created_at->isToday())
                                     Today
                                 @elseif(($res > 1 ) && ($res <  7))  
                                     {{$product->created_at->format('D')}} 

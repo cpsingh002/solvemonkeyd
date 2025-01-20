@@ -11,6 +11,9 @@ use App\Models\UserProductVisit;
 use App\Models\ProductAttribute;
 use Cart;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Chatuser;
+use App\Models\ProductChat;
+use Illuminate\Support\Str;
 
 class ProductDetailsComponent extends Component
 {
@@ -18,6 +21,9 @@ class ProductDetailsComponent extends Component
     public $haveCouponCode;
     public $productid;
     public $userid; 
+    public $message;
+    public $user_id;
+
     public function mount($slug)
     {
         $this->slug = $slug;
@@ -65,35 +71,44 @@ class ProductDetailsComponent extends Component
 
         if(Auth::check()){
             $user_id=Auth::user()->id;
-            if(Auth::user()->planpurchadeactive)
-            {        
-                if(Auth::user()->planpurchade){
-                    $product= Product::where('slug',$this->slug)->first();
-                    $visited= UserProductVisit::where('user_id',$user_id)->where('status',1)->count();
-                    $package=Auth::user()->planpurchade;
-                    $validityCount=$package->validitycount->count;
-                    $validityUpto=$package->created_at->addDays($package->validitycount->validity);
-                    if($validityUpto->gt(now()))
-                    {
-                        if($validityCount>$visited)
+            if($user_id != $this->user_id){
+                if(Auth::user()->planpurchadeactive)
+                {        
+                    // if(Auth::user()->planpurchade){
+                        // $product= Product::where('slug',$this->slug)->first();
+                        $visited= UserProductVisit::where('user_id',$user_id)->where('status',1)->count();
+                        $package=Auth::user()->planpurchade;
+                        // $validityCount=$package->count;
+                        // $validityUpto=$package->valid_upto;
+                        if(strtotime($package->valid_upto) > strtotime(now()))
                         {
-                            $this->detailCount(Auth::user()->id);
-                            $this->haveCouponCode = 1;
+                            if($package->count>$visited)
+                            {
+                                $this->detailCount(Auth::user()->id);
+                                $this->haveCouponCode = 1;
+                            }else{
+                                // UserProductVisit::where('user_id',$user_id)->update(['status' => 0]);
+                                // $package->status=0;
+                                // $package->save();
+                                session()->flash('message','your plan limit is over! buy a New plan!');
+                            }
                         }else{
                             UserProductVisit::where('user_id',$user_id)->update(['status' => 0]);
                             $package->status=0;
                             $package->save();
-                            session()->flash('message','your plan limit is over!');
+                            session()->flash('message','your plan is expired! buy a New plan!');
+                            return redirect()->route('package');
                         }
-                    }else{
-                        session()->flash('message','your plan is expired!');
-                    }
+                    // }else{
+                    //     session()->flash('message','your plan limit is over!');   //Plan expired
+                    // }
                 }else{
-                    session()->flash('message','your plan limit is over!');
+                        session()->flash('message','For sell information first buy a plan!');
+                        return redirect()->route('package');
                 }
             }else{
-                    session()->flash('message','For sell information first buy a plan!');
-                    return redirect()->route('package');
+                session()->flash('message','This listing Is added by you!');
+                return;
             }
         
         }else{
@@ -140,6 +155,7 @@ class ProductDetailsComponent extends Component
     public function render()
     {
         $product= Product::where('slug',$this->slug)->first();
+        $this->user_id = $product->user_id;
         if($product->id)
         {
             $this->productid = $product->id;
@@ -171,7 +187,7 @@ class ProductDetailsComponent extends Component
         }
         $pattributes = ProductAttribute::where('product_id',$product->id)->get();
         //dd($pattributes);
-        $related_products = Product::where('category_id',$product->category_id)->where('status',1)->inRandomOrder()->limit(4)->get();
+        $related_products = Product::where('category_id',$product->category_id)->where('id', '!=', $product->id)->where('status',1)->inRandomOrder()->limit(4)->get();
         if(Auth::check())
         {
            Cart::instance('wishlist')->restore(auth::user()->email);
@@ -190,28 +206,34 @@ class ProductDetailsComponent extends Component
                 if(Auth::user()->planpurchadeactive)
                 {        
                     if(Auth::user()->planpurchade){
-                    //  $product= Product::where('slug',$this->slug)->first();
+                        //  $product= Product::where('slug',$this->slug)->first();
                         $visited= UserProductVisit::where('user_id',$user_id)->where('status',1)->count();
                         $package=Auth::user()->planpurchade;
                         $validityCount=$package->validitycount->count;
                         $validityUpto=$package->created_at->addDays($package->validitycount->validity);
-                    // if($validityUpto->gt(now()))
-                        //{
+                        if($validityUpto->gt(now()))
+                        {
                             if($validityCount>$visited)
                             {
                                 //$this->detailCount(Auth::user()->id);
                                 //$this->haveCouponCode = 1;
-                                $this->dispatch('show-chat');
-                                // return redirect()->route('message',['uuid'=>$this->userid,'pid'=>$this->productid]);
+                               $chat = Chatuser::where(['user_id'=>auth()->id(), 'friend_id' =>$this->userid])->first();
+                               if(isset($chat))
+                               {
+                                    return redirect()->route('message',['chatid'=>$chat->chat_id]);
+                               }else{                        
+                                    $this->dispatch('show-chat');
+                               }
+                                
                             }else{
                                 UserProductVisit::where('user_id',$user_id)->update(['status' => 0]);
                                 $package->status=0;
                                 $package->save();
                                 session()->flash('message','your plan limit is over!');
                             }
-                        //}else{
-                        //  session()->flash('message','your plan is expired!');
-                        //}
+                        }else{
+                            session()->flash('message','your plan is expired!');
+                        }
                     }else{
                         session()->flash('message','your plan limit is over!');
                     }
@@ -230,6 +252,41 @@ class ProductDetailsComponent extends Component
             
         // $this->js('window.location.reload()');
         
+    }
+
+
+    public function send_message()
+    {
+        $this->validate(['message' => "required"]);
+
+        if (Chatuser::where(['user_id' => Auth::id(), 'friend_id' => $this->userid,'product_id' => $this->productid])->count() === 0 || Chatuser::where(['user_id' => $this->userid, 'friend_id' => Auth::id(),'product_id' => $this->productid])->count() === 0) {
+                $uuid = Str::uuid();
+                Chatuser::create([
+                    'user_id' => Auth::id(),
+                    'chat_id' => $uuid,
+                    'friend_id' => $this->userid,
+                    'product_id' => $this->productid
+                ]);
+
+                Chatuser::create([
+                    'user_id' => $this->userid,
+                    'chat_id' => $uuid,
+                    'friend_id' => Auth::id(),
+                    'product_id' => $this->productid
+                ]);
+            }
+        ProductChat::create([
+            'user_id' => Auth::id(),
+            'message' => $this->message,
+            'chat_id' => Chatuser::where(['user_id'=>auth()->id(), 'friend_id' =>$this->userid])->first()->chat_id,
+            'friend_id' => $this->userid
+        ]);
+
+        $this->message='';
+        session()->flash('message','Your Message sent to the owner');
+        $this->dispatch('show-chat-close');
+        // $this->render();
+            
     }
     
 }

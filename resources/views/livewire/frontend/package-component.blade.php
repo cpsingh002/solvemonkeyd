@@ -39,72 +39,11 @@
                             </ul>
                             <span class="price"><i class="fa-solid fa-indian-rupee-sign"></i> {{preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,",$package->price)}} <span class="subTittle"> /{{$package->validity}} Days</span></span>
                             <div class="btn-wrapper">
-                                <a href="#" wire:click.prevent="checklogin({{$package->id}})" class="cmn-btn-outline1">Get Started</a>
+                                <a href="#" wire:click.prevent="checklogin('{{$package->pslug}}')" class="cmn-btn-outline1">Get Started</a>
                             </div>
                         </div>
                     </div>
                     @endforeach
-                  {{--  <div class="col-lg-4 col-md-6">
-
-                        <div class="singlePrice mb-24 wow fadeInLeft" data-wow-delay="0.0s">
-                            <h4 class="priceTittle">Free</h4>
-                            <ul class="listing">
-                                <li class="listItem"><i class="las la-check icon"></i>
-                                    <blockquote class="priceTag">Your ad will be promoted for 3 days</blockquote>
-                                </li>
-                                <li class="listItem"><i class="las la-check icon"></i>
-                                    <blockquote class="priceTag">Get upto 10x times more responses</blockquote>
-                                </li>
-                                <li class="listItem"><i class="las la-check icon"></i>
-                                    <blockquote class="priceTag">Your Ad will be featured for 1st day</blockquote>
-                                </li>
-                            </ul>
-                            <span class="price">$0 <span class="subTittle"> /For Lifetime</span></span>
-                            <div class="btn-wrapper">
-                                <a href="add_setting.html" class="cmn-btn-outline1">Get Started</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="singlePrice mb-24 wow fadeInUp" data-wow-delay="0.1s">
-                            <h4 class="priceTittle">Standard</h4>
-                            <ul class="listing">
-                                <li class="listItem"><i class="las la-check icon"></i>Your ad will be promoted for 3
-                                    days
-                                </li>
-                                <li class="listItem"><i class="las la-check icon"></i>Get upto 10x times more responses
-                                </li>
-                                <li class="listItem"><i class="las la-check icon"></i>Your Ad will be featured for 1st
-                                    day
-                                </li>
-                            </ul>
-                            <span class="price">$49<span class="subTittle"> /For 3 Days</span></span>
-                            <div class="btn-wrapper">
-                                <a href="add_setting.html" class="cmn-btn-outline1">Get Started</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="singlePrice mb-24 wow fadeInRight" data-wow-delay="0.0s">
-                            <h4 class="priceTittle">Premium</h4>
-                            <ul class="listing">
-                                <li class="listItem"><i class="las la-check icon"></i>Your ad will be promoted for 3
-                                    days
-                                </li>
-                                <li class="listItem"><i class="las la-check icon"></i>Get upto 10x times more responses
-                                </li>
-                                <li class="listItem"><i class="las la-check icon"></i>Your Ad will be featured for 1st
-                                    day
-                                </li>
-                            </ul>
-                            <span class="price">$99<span class="subTittle"> /For 4 days</span></span>
-                            <div class="btn-wrapper">
-                                <a href="add_setting.html" class="cmn-btn-outline1">Get Started</a>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </section>

@@ -87,7 +87,7 @@ class AddUserProductComponent extends Component
         $this->for_exchange = 1;
         $this->for_sell = 1;
         $this->for_rent = 1;
-        $this->in_range=0;
+        $this->in_range = "0";
         $this->owner_name=Auth::user()->name;
         $this->contact_number=Auth::user()->phone;
         $this->email_id=Auth::user()->email;
@@ -184,11 +184,11 @@ class AddUserProductComponent extends Component
             'meta_keywords'=>'required',
             'meta_description'=>'required',
             'owner_name'=>'required',
-            'contact_number'=>'required',
+            'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
             'images'=>'required',
-            'exchange_for'=>'required',
+            'exchange_for'=>'required_if:for_exchange,1',
 
             'name'=>'required',
             'slug'=>'required',
@@ -241,17 +241,18 @@ class AddUserProductComponent extends Component
             'meta_keywords'=>'required',
             'meta_description'=>'required',
             'owner_name'=>'required',
-            'contact_number'=>'required',
+            'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
             'images'=>'required',
-            'exchange_for'=>'required',
+            'exchange_for'=>'required_if:for_exchange,1',
 
             'name'=>'required',
             'slug'=>'required|unique:products',
             // 'inputs'=>'required',
         //   'attribute_arr'=>'required'
         ],[
+            'name.required'=>'The title field is required.',
             'category_id.required'=>'The category field is required.',
             'scategory_id.required'=>'The sub-category field is required.',
             'attribute_id.required'=>'The attribute field is required.',

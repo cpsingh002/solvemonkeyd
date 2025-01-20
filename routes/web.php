@@ -91,10 +91,13 @@ use App\Livewire\CompanyOffer\AddCompanyOfferComponent;
 |
 */
 
-
+Route::get('/listing-policy', function () {
+    return view('livewire.frontend.Listing-Policy');
+})->name('listing-policy');
 Route::get('/company-offer',[HomeController::class,'CompanyOffer'])->name('comapny.offer');
 Route::get('/company-offer/{slug}',[HomeController::class,'CompanyOfferDetails'])->name('offer.details');
 Route::get('/ulogin',[LoginController::class,'ulogin']);
+Route::get('/loginotp',[LoginController::class,'SendLoginOtp'])->name('loginsms');
 Route::post('/ulogin',[LoginController::class,'uloginauth'])->name('ulogin');
 Route::post('/uregisteor',[RegisterController::class,'uregisteor'])->name('uregisteor');
 Route::get('/adminlogin',[LoginController::class,'adminlogin']);
@@ -116,7 +119,7 @@ Route::get('product-brand/{brand_slug}',BrandSearchComponent::class)->name('prod
 Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
 
 Route::middleware(['auth:sanctum','verified','userauth'])->group(function(){
-    Route::get('/message/{uuid?}/{pid?}',MessageComponent::class)->name('message');
+    Route::get('/message/{chatid?}',MessageComponent::class)->name('message');
     Route::get('/user-order',UserOrderComponent::class)->name('user-order');
     Route::get('/user-account',UserAccountComponent::class)->name('user-account');
     Route::get('/user-dashboard',UserDashboardComponent::class)->name('user-dashboard');
@@ -125,7 +128,11 @@ Route::middleware(['auth:sanctum','verified','userauth'])->group(function(){
     Route::get('/user/profile/edit',UserEditProfileComponent::class)->name('user.editprofile');
     Route::get('user/echangeItem/{e_for}/{p}/{r}',ExchangeItemComponent::class)->name('user.exchangeitem');
     Route::get('/user-packages',UserPackagesComponent::class)->name('user-packages');
-    Route::get('/package-purchase/{p_id}',PackagePurchaseComponent::class)->name('package.purchase');
+    Route::get('/package-purchase/{p_id}',[HomeController::class,'PlanPurchase'])->name('package.purchase');
+    Route::get('/easzy-pass',[HomeController::class,'EaszyPass'])->name('easzy.pass');
+    Route::get('/post-ad',AddUserProductComponent::class)->name('post-ad');
+    Route::get('/edit-ad/{pid}',EditUserProductComponent::class)->name('edit-ad');
+
 });
 
 // frontend routes
@@ -137,12 +144,10 @@ Route::middleware(['auth:sanctum','verified','userauth'])->group(function(){
 // Route::get('/privacy-policy',[HomeController::class,'privacyPolicy'])->name('privacy-policy');
 // Route::get('/product-list',[HomeController::class,'productList'])->name('product-list');
 // Route::get('/product-detail',[HomeController::class,'ProductDetails'])->name('product-detail');
-Route::get('/post-ad',AddUserProductComponent::class)->name('post-ad');
 
 // Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
 
 // Route::get('/package',[HomeController::class,'package'])->name('package');
-Route::get('/edit-ad/{pid}',EditUserProductComponent::class)->name('edit-ad');
 //frontend user routes
 // Route::get('/message',[HomeController::class,'message'])->name('message');
 // Route::get('/user-order',[HomeController::class,'userOrder'])->name('user-order');
