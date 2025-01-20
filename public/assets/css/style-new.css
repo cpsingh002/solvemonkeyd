@@ -15293,7 +15293,7 @@
     position: relative;
     border: 1px solid #EAECF0;
     border-radius: 8px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
 
   .listingDetails-Wrapper .listingDetails .input-form input::-webkit-input-placeholder {
@@ -15468,9 +15468,9 @@
     font-weight: 300;
     padding: 15px 18px 9px 20px;
     position: relative;
-    border: 1px solid #e0e3eb;
+    /* border: 1px solid #e0e3eb; */
     border-radius: 8px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
 
   .listingDetails-Wrapper .listingDetails .checkWrap2 {
@@ -16962,7 +16962,7 @@
     appearance: none;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    margin-bottom:10px;
+    /* margin-bottom:10px; */
     height:45px;
 }
 
@@ -20501,4 +20501,8 @@
 }
 .single-main-image {
   height: 450px;
+}
+
+::placeholder{
+  color: #969696 !important;
 }

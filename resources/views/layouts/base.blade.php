@@ -186,7 +186,7 @@
                     </div>
                     <div class="row mt-2">
                         <p class="sinUp"><span>Don’t have an account? </span>
-                        <a class="singApp popup-btn-register text-violet fw-bold">Sign Up</a></p>
+                        <a href="#" class="singApp popup-btn-register text-violet fw-bold">Sign Up</a></p>
                     </div>
                 </form>
             </div>
@@ -240,7 +240,7 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <div class="row ">
                         <label for="password"
                             class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Password') }}</label>
 
@@ -291,8 +291,10 @@
                     
                     
                     <div class="row mt-2">
+
                         <p class="sinUp"><span>Do you have an account?</span>
-                        <a class="singApp popup-btn-login text-violet fw-bold">Sign In</a></p>
+                        <a  href="#" class="singApp popup-btn-login text-violet fw-bold">Sign In</a></p>
+
                     </div>
                 </form>
             </div>
