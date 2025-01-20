@@ -130,7 +130,9 @@ Route::middleware(['auth:sanctum','verified','userauth'])->group(function(){
     Route::get('/user-packages',UserPackagesComponent::class)->name('user-packages');
     Route::get('/package-purchase/{p_id}',[HomeController::class,'PlanPurchase'])->name('package.purchase');
     Route::get('/easzy-pass',[HomeController::class,'EaszyPass'])->name('easzy.pass');
-    
+    Route::get('/post-ad',AddUserProductComponent::class)->name('post-ad');
+    Route::get('/edit-ad/{pid}',EditUserProductComponent::class)->name('edit-ad');
+
 });
 
 // frontend routes
@@ -142,12 +144,10 @@ Route::middleware(['auth:sanctum','verified','userauth'])->group(function(){
 // Route::get('/privacy-policy',[HomeController::class,'privacyPolicy'])->name('privacy-policy');
 // Route::get('/product-list',[HomeController::class,'productList'])->name('product-list');
 // Route::get('/product-detail',[HomeController::class,'ProductDetails'])->name('product-detail');
-Route::get('/post-ad',AddUserProductComponent::class)->name('post-ad');
 
 // Route::get('/admin/product/add',AddProductComponent::class)->name('admin.addproduct');
 
 // Route::get('/package',[HomeController::class,'package'])->name('package');
-Route::get('/edit-ad/{pid}',EditUserProductComponent::class)->name('edit-ad');
 //frontend user routes
 // Route::get('/message',[HomeController::class,'message'])->name('message');
 // Route::get('/user-order',[HomeController::class,'userOrder'])->name('user-order');

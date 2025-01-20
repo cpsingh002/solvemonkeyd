@@ -197,7 +197,7 @@
                                                         $res= $to->diffInDays($from); 
                                                         //dd($res);
                                                     @endphp 
-                                                    @if($res <  1) 
+                                                    @if($seproduct->created_at->isToday())
                                                         Today
                                                     @elseif(($res > 1 ) && ($res <  7))  
                                                         {{$seproduct->created_at->format('D')}} 
@@ -315,7 +315,7 @@
                                                         $res= $to->diffInDays($from); 
                                                         //dd($res);
                                                     @endphp 
-                                                    @if($res <  1) 
+                                                    @if($exproduct->created_at->isToday())
                                                         Today
                                                     @elseif(($res > 1 ) && ($res <  7))  
                                                         {{$exproduct->created_at->format('D')}} 
@@ -377,7 +377,7 @@
                                     $res= $to->diffInDays($from); 
                                     //dd($res);
                                 @endphp 
-                                @if($res <  1) 
+                                @if($product->created_at->isToday())
                                     Today
                                 @elseif(($res > 1 ) && ($res <  7))  
                                     {{$product->created_at->format('D')}} 

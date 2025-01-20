@@ -274,7 +274,7 @@
                                                         $res= $to->diffInDays($from); 
                                                         //dd($res);
                                                     @endphp 
-                                                    @if($res <  1) 
+                                                    @if($product->created_at->isToday()) 
                                                         Today
                                                     @elseif(($res > 1 ) && ($res <  7))  
                                                         {{$product->created_at->format('D')}} 
