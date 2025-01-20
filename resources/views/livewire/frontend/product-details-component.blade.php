@@ -175,7 +175,7 @@
                         </div>
                         @if($product->city_id1 || $product->city_id2 || $product->city_id3)
                         <div class="btn-wrapper">
-                            <h4 class="pro-btn3 w-100 text-center font-size-16">Interested Citys
+                            <h4 class="pro-btn3 w-100 text-center font-size-16">Interested Cities
                                 <p class="text-black text-white">@if($product->city1) {{$product->city1->city}}, @endif @if($product->city3) {{$product->city3->city}}, @endif @if($product->city2) {{$product->city2->city}} @endif</p>
                             </h4>
                         </div>
@@ -272,7 +272,7 @@
                         
                         @if($product->city_id1 || $product->city_id2 || $product->city_id3)
                             <div class="btn-wrapper">
-                                <h4 class="pro-btn3 w-100 text-center font-size-16 mt-4">Interested Citys
+                                <h4 class="pro-btn3 w-100 text-center font-size-16 mt-4">Interested Cities
                                     <p class="text-black text-white">@if($product->city1) {{$product->city1->city}}, @endif @if($product->city3) {{$product->city3->city}}, @endif @if($product->city2) {{$product->city2->city}} @endif</p>
                                 </h4>
                             </div>
@@ -304,7 +304,7 @@
                                                         $res= $to->diffInDays($from); 
                                                         //dd($res);
                                                     @endphp 
-                                                    @if($res <  1) 
+                                                    @if($exproduct->created_at->isToday())
                                                         Today
                                                     @elseif(($res > 1 ) && ($res <  7))  
                                                         {{$rproduct->created_at->format('D')}} 

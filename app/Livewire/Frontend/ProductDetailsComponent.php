@@ -187,7 +187,7 @@ class ProductDetailsComponent extends Component
         }
         $pattributes = ProductAttribute::where('product_id',$product->id)->get();
         //dd($pattributes);
-        $related_products = Product::where('category_id',$product->category_id)->where('status',1)->inRandomOrder()->limit(4)->get();
+        $related_products = Product::where('category_id',$product->category_id)->where('id', '!=', $product->id)->where('status',1)->inRandomOrder()->limit(4)->get();
         if(Auth::check())
         {
            Cart::instance('wishlist')->restore(auth::user()->email);
