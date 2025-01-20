@@ -398,7 +398,7 @@
                                                     @error('owner_name') <p class="text-danger">{{$message}}</p>@enderror
                                                 </div>
                                                 <div class="col-lg-4 col-md-4">
-                                                    <label class="infoTitle">Contact No</label>
+                                                    <label class="infoTitle">Contact number</label>
                                                     <div class="input-form input-form2">
                                                         <input type="text" placeholder="contact no" wire:model="contact_number" />
                                                     </div>

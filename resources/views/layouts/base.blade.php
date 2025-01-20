@@ -99,8 +99,8 @@
                                 </span>
                                 @enderror
                             </div>
+                            <div id="login_msg" class="text-danger"></div>
                         </div>
-                        <div id="login_msg"></div>
                         <div class="row mb-3">
                             <div class="col-md-10 m-auto">
                                 <div class="form-check1">
