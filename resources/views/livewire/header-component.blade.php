@@ -42,7 +42,7 @@
                          
                             <li><div class="d-md-block d-lg-none noned">
                                 
-                        <ul class="header-cart flex-column ml-60 ">
+                        <ul class="header-cart flex-column ml-lg-60 ">
                         
                              <div class="" >
                         @auth

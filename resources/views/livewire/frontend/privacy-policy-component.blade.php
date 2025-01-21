@@ -4,7 +4,7 @@
     <div class="myAccout section-padding2">
         <div class="container">
             <div class="row">
-                <div class="col-xxl-10 col-xl-10 col-lg-8 col-md-7 m-auto">
+                <div class="col-xxl-10 col-xl-10 col-lg-8 col-md-12 m-auto">
                     <div class="HelpSearch">
                         <div class="row">
                             <div class="col-lg-12">

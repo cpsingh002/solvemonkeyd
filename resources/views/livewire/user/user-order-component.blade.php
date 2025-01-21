@@ -135,6 +135,9 @@
                                 <li class="listItem">
                                     <a href="{{route('wishlist')}}" class="items itemss item"><i class="fa-solid fa-message"></i> Wishlist</a>
                                 </li>
+                                <li class="listItem">
+                                    <a href="{{route('message')}}" class="items itemss item"><i class="fa-solid fa-message"></i> Chat</a>
+                                </li>
                                 
                             </ul>
                             <div class="accessAccount">

@@ -36,7 +36,7 @@
 
     <div class="contactArea section-padding2">
         <div class="container rowed">
-            <div class="row  ">
+            <div class="row mt-3 ">
                 <div class=" col-lg-6 col-md-6 col-12 ">
                     <div class="contact-Wrapper">
                         <div class="row wo">

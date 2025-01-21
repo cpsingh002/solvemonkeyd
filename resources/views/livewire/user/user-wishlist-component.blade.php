@@ -137,6 +137,9 @@
                                 <li class="listItem">
                                     <a href="{{route('wishlist')}}" class="items active"> <i class="lar la-heart icon"></i> Wishlist</a>
                                 </li>
+                                <li class="listItem">
+                                    <a href="{{route('message')}}" class="items itemss item"><i class="fa-solid fa-message"></i> Chat</a>
+                                </li>
                                 
                             </ul>
                             <div class="accessAccount">
@@ -153,7 +156,7 @@
                        <div class="col-lg-1 col-md-2 col-2">
                             <button class="btn solid"><i class="fa-solid fa-bars"></i></button>
                         </div>
-                    <div class="col-xxl-9 col-xl-11 col-lg-11 col-md-7 col-10 ">
+                    <div class="col-xxl-9 col-xl-11 col-lg-11 col-md-6 col-10 ">
                   
 
                         <div class=" mt-3">
