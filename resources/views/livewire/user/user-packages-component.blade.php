@@ -175,7 +175,7 @@
                                 @foreach($packages as $package)
                                     <div class="singleFlexitem mb-24  wow fadeInUp social" data-wow-delay="0.0s">
                                         <div class="row">
-                                            <div class="col-8">
+                                            <div class="col-md-8 col-7">
                                                 <div class="listCap">
                                                     <div class="row">
                                                         <div class="col-9">
@@ -193,8 +193,8 @@
                                                     
                                                 </div>
                                             </div>
-                                            <div class="col-4">
-                                                <div class="validitys d-lg-flex d-md-flex gap-md-3 gap-lg-3 mb-1">
+                                            <div class="col-md-4 col-5">
+                                                <div class="validitys d-lg-flex d-flex gap-3 gap-lg-3 mb-1">
                                                 <div class="btn-wrapper ">
                                                     @if(($package->created_at->addDays($package->validitycount->validity))->lt(now())) <span class="pro-btn1">Expired</span>   @endif
                                                 </div>

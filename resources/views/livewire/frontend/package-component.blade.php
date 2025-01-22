@@ -23,7 +23,9 @@
                         <div class="singlePrice mb-24 wow fadeInLeft" data-wow-delay="0.0s">
                             <h4 class="priceTittle">{{$package->pname}}</h4>
                             <ul class="listing">
-                                {!!$package->description !!}
+                                <div class="listing-ptag">
+                                   {!!$package->description !!}
+                                </div>
                                {{-- <li class="listItem"><i class="las la-check icon"></i>
                                     <blockquote class="priceTag">Your ad will be promoted for 3 days</blockquote>
                                 </li>
