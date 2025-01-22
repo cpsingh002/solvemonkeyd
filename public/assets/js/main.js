@@ -123,7 +123,9 @@
         Popup Modal
         -----------------------------------*/
         $(document).on('click', '.close-icon, .body-overlay-desktop', function() {
-            $('.modal-wrapper-box, .body-overlay-desktop').css('display','none');
+            $('.modal-wrapper-box').css('display','none');
+            // $('#modal-wrapper-login,.modal-wrapper-box').css('display','none' );
+            $('.body-overlay-desktop').removeClass('active');
         });
         $(document).on('click', '.popup-modal', function() {
             $('#modal-wrapper,.modal-wrapper-box').show()

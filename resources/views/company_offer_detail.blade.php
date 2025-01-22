@@ -117,12 +117,12 @@
                                 <div class="borderStyle style1 wow fadeInLeft social " data-wow-delay="0.1s">
                             <div class="singleFlexitem mb-24">
                                 <div class="recentImg">
-                                    <img src="{{asset('admin/company/logo')}}/{{$rcompanyoffer->compnay_logo}}" alt="logo" width="200">
+                                    <img src="{{asset('admin/company/logo')}}/{{$rcompanyoffer->company_logo}}" alt="logo" width="200">
                                 </div>
                                 <div class="recentCaption">
-                                    <h5><a href="{{route('offer.details',['slug'=>$companyoffer->slug])}}" class="featureTittle">{{ucfirst($rcompanyoffer->heading)}}</a></h5>
+                                    <h5><a href="{{route('offer.details',['slug'=>$rcompanyoffer->slug])}}" class="featureTittle">{{ucfirst($rcompanyoffer->heading)}}</a></h5>
                                     <div class="d-flex justify-content-between">
-                                        <p class="featureCap w-60">{{$companyoffer->company_name}}</p>  <strong class="subCap miss">{{$companyoffer->created_at->format('Y-m-d')}}</strong>
+                                        <p class="featureCap w-60">{{$rcompanyoffer->company_name}}</p>  <strong class="subCap miss">{{$rcompanyoffer->created_at->format('Y-m-d')}}</strong>
                                     </div>
                                     
                                     <div class="btn-wrapper">

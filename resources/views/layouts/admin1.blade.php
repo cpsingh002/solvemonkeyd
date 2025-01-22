@@ -345,6 +345,23 @@
                                 <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                         data-sa-collapse-item="sa-nav__menu-item--open">
                                     <a href="#" class="sa-nav__link side2 sides2" data-sa-collapse-trigger="">
+                                   <img class="sidebaar2" src="{{asset('assets/img/logo/contact-form.png')}}" alt="images">
+                                        <span class="sa-nav__title">Subscribers</span>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="sa-nav__menu sa-nav__menu--sub " data-sa-collapse-content="">
+                                        
+                                        <li class="sa-nav__menu-item menued">
+                                            <a href="{{route('admin.subscribers')}}" class="sa-nav__link"><span
+                                                    class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Subscribers</span></a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
+                                        data-sa-collapse-item="sa-nav__menu-item--open">
+                                    <a href="#" class="sa-nav__link side2 sides2" data-sa-collapse-trigger="">
                                    <img class="sidebaar2" src="{{asset('assets/img/logo/cogwheel.png')}}" alt="images">
                                         <span class="sa-nav__title">Settings</span>
                                         <i class="fa fa-chevron-right"></i>

@@ -176,7 +176,7 @@
                         @if($product->city_id1 || $product->city_id2 || $product->city_id3)
                         <div class="btn-wrapper">
                             <h4 class="pro-btn3 w-100 text-center font-size-16">Interested Cities
-                                <p class="text-black text-white">@if($product->city1) {{$product->city1->city}}, @endif @if($product->city3) {{$product->city3->city}}, @endif @if($product->city2) {{$product->city2->city}} @endif</p>
+                                <p class="text-black text-white">@if($product->city1) {{$product->city1->name}}, @endif @if($product->city3) {{$product->city3->name}}, @endif @if($product->city2) {{$product->city2->name}} @endif</p>
                             </h4>
                         </div>
                         @endif
@@ -189,8 +189,16 @@
 
                         <div class="descriptionFooter">
                             <div class="btn-wrapper">
-                                <a href="#"  @auth wire:click.prevent="addToWishlist({{$product->id}}, '{{$product->name}}' ,{{$product->prices}})"  class="cmn-btn-outline2" @else  class="cmn-btn-outline2 popup-btn-login" @endauth ><i
-                                        class="lab la-font-awesome-flag icon"></i>Yes, I Am Interested</a>
+                                @auth
+                                    @if($witems->contains($product->id))
+                                        <a href="#" ><i class="lab la-font-awesome-flag icon"></i>Already Interested</a>
+                                    @else
+                                        <a href="#" wire:click.prevent="addToWishlist({{$product->id}}, '{{$product->name}}' ,{{$product->prices}})"  class="cmn-btn-outline2"  ><i
+                                                class="lab la-font-awesome-flag icon"></i>Yes, I Am Interested</a>
+                                    @endif
+                                @else
+                                <a href="#" class="cmn-btn-outline2 popup-btn-login"><i class="lab la-font-awesome-flag icon"></i>Yes, I Am Interested</a>
+                                @endauth
                             </div>
                              @if(Session::has('info'))
                                          <div class="alert alert-success" role="alert">{{Session::get('info')}}
@@ -273,7 +281,7 @@
                         @if($product->city_id1 || $product->city_id2 || $product->city_id3)
                             <div class="btn-wrapper">
                                 <h4 class="pro-btn3 w-100 text-center font-size-16 mt-4">Interested Cities
-                                    <p class="text-black text-white">@if($product->city1) {{$product->city1->city}}, @endif @if($product->city3) {{$product->city3->city}}, @endif @if($product->city2) {{$product->city2->city}} @endif</p>
+                                    <p class="text-black text-white">@if($product->city1) {{$product->city1->name}}, @endif @if($product->city3) {{$product->city3->name}}, @endif @if($product->city2) {{$product->city2->name}} @endif</p>
                                 </h4>
                             </div>
                         @endif
