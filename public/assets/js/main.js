@@ -124,7 +124,8 @@
         -----------------------------------*/
         $(document).on('click', '.close-icon, .body-overlay-desktop', function() {
             $('.modal-wrapper-box').css('display','none');
-            // $('#modal-wrapper-login,.modal-wrapper-box').css('display','none' );
+
+
             $('.body-overlay-desktop').removeClass('active');
         });
         $(document).on('click', '.popup-modal', function() {

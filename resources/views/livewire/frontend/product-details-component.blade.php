@@ -50,7 +50,7 @@
     <div class="proDetails section-padding2">
         <div class="container">
 
-            <div class="row mb-40">
+            <div class="row mb-40 mt-md-0 mt-3">
                 <div class="col-sm-12">
                     <nav aria-label="breadcrumb ">
                         <ol class="breadcrumb breadcrumbs">
@@ -63,7 +63,7 @@
             </div>
 
             <div class="row">
-                <div class="col-xl-7 col-lg-12">
+                <div class="col-xl-7 col-md-7 col-12">
 
                     <div class="product-view-wrap" id="myTabContent" wire:ignore>
                         <div class="shop-details-gallery-slider global-slick-init slider-inner-margin sliderArrow"
@@ -154,12 +154,11 @@
                                     <span class="detailsPricing">Price : <i class="fa-solid fa-indian-rupee-sign"></i> {{preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,",$product->prices)}}</span>
                                 </div>
                                 <div class="col-4">
-                                    
-                                    <span><span> Price negotiable :</span> @if($product->price_negotiable) Yes @else NO @endif</span>
+                                    <span class="price-nego"><span> Price negotiable :</span> @if($product->price_negotiable) Yes @else NO @endif</span>
                                 </div>
                                 <div class="col-5">
                                     @if($product->price_range)
-                                        <span><span> Price Range : </span> {{$dis1}} to {{$dis2}}</span>
+                                        <span class="price-nego"><span> Price Range : </span> {{$dis1}} to {{$dis2}}</span>
                                     @endif
                                 </div>
                             </div>
@@ -213,7 +212,7 @@
                         </div> 
                     </div>
                 </div>
-                <div class="col-xl-5 col-lg-12">
+                <div class="col-xl-5 col-md-5 col-12">
                     <div class="sellerMessage mb-24">
                         <div class="singleFlexitem mb-24 d-flex justify-content-between">
                             <div class="recentImg w-50">
@@ -294,7 +293,7 @@
                         </div>
                     </div>
                     <section class="recentListing  " wire:ignore>
-                        <h4 class=" btn-wrapper w-100 text-center"> Related Product</h4>
+                        <h4 class=" btn-wrapper w-100 text-center mb-3"> Related Product</h4>
                         @foreach($related_products as $rproduct)
                         <div class=" col-md-12 col-md-6">
                         <div class="borderStyle style1 wow fadeInLeft social " data-wow-delay="0.1s">

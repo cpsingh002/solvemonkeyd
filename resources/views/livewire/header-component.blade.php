@@ -42,7 +42,7 @@
                          
                             <li><div class="d-md-block d-lg-none noned">
                                 
-                        <ul class="header-cart flex-column ml-60 ">
+                        <ul class="header-cart flex-column ml-lg-60 ">
                         
                              <div class="" >
                         @auth
@@ -92,7 +92,7 @@
                 <li class="single">
                     <div class="btn-wrapper">
                         <a href="#" class="cmn-btn1 popup-modal">
-                            <i class="las la-plus-square"></i><span class="text">Post your Ad</span>
+                            <i class="las la-plus-square"></i><span class="text">Post Your Ad</span>
                         </a>
                     </div>
                 </li>
@@ -256,7 +256,7 @@
                 <li class="single">
                     <div class="btn-wrapper">
                         <a href="#" class="cmn-btn1 popup-modal">
-                            <i class="las la-plus-square"></i><span class="text">Post your Ad</span>
+                            <i class="las la-plus-square"></i><span class="text">Post Your Ad</span>
                         </a>
                     </div>
                 </li>

@@ -209,7 +209,7 @@
                             @foreach($products as $product)
                                 <div class="singleFlexitem mb-24  wow fadeInUp social" data-wow-delay="0.0s">
                                     <div class="row">
-                                        <div class="col-8">
+                                        <div class="col-md-8 col-7">
                                             <div class="listCap">
                                                 <div class="row">
                                                     <div class="col-3">
@@ -251,13 +251,13 @@
                                                 
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-md-4 col-5">
                                             <div class="btn-wrapper mb-lg-20 ml-lg-60 mb-20 text-center">
                                                 <a href="#" class="cmn-btn-outline4 mr-10 mb-md-2"><i class="lar la-eye icon"></i>@if($product->productCount) {{$product->productCount->visit_count}} @endif</a>
                                                 <a href="{{route('edit-ad',['pid'=>$product->id])}}" class="cmn-btn4 mb-md-2">Edit Ad</a>
                                             </div>
                                             @if($product->is_exchange==1)
-                                            <div class="btn-wrapper ml-30 mb-2 ">
+                                            <div class="btn-wrapper ml-md-30 ml-0 mb-md-2  mb-0">
                                                 <!--w-100-->
                                                 <h4 class="cmn-btn-outline2 " wire:click.prevent="exchangeable('{{$product->exchange_for}}','{{$product->prices}}','{{$product->price_range}}')">See Exchangeable Products
                                                 </h4>

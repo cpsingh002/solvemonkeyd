@@ -200,7 +200,7 @@
                             <div class="viewItems">
                                    <form action="{{route('searchs')}}"  method="get" id="seacrhform" class="seacrhform " name="myform">
                                        <div class=" row ">
-                                        <div class="col-md-4 col-6">
+                                        <div class="col-md-4 col-6 mb-md-0 mb-3">
                                                     <select name="s"  id="namegh" class="form-control forms"  wire:model ="state_id"  wire:change="changeState">
                                                         <option value>Select State</option>
                                                         @foreach($states as $state)
@@ -209,7 +209,7 @@
                                                     </select>
                                                     <span id="slocation" class="text-danger"></span>
                                                 </div>
-                                        <div class=" col-md-4 col-6 ">
+                                        <div class=" col-md-4 col-6 mb-md-0 mb-3 ">
                                                     <select name="c" class="form-control forms " wire:model="city_id" wire:change="chnagecity" required>
                                                         <option value>Select City</option>
                                                         @foreach($cities as $city)
