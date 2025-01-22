@@ -269,9 +269,9 @@
                 @endif
                     <div class="btn-wrapper ">
                         <a href="#" class="cmn-btn2 mr-15 mb-10 wow fadeInLeft @auth popup-modal @else popup-btn-login @endauth"
-                            data-wow-delay="0.3s">Post your ad</a>
+                            data-wow-delay="0.3s">Post Your Ad</a>
                         <a href="{{route('product-list')}}"  class="cmn-btn3 mb-10 wow fadeInRight" data-wow-delay="0.3s">Browse
-                            ads</a>
+                            Ads</a>
                     </div>
                 </div>
             </div>

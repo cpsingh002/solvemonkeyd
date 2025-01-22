@@ -92,7 +92,7 @@
                 <li class="single">
                     <div class="btn-wrapper">
                         <a href="#" class="cmn-btn1 popup-modal">
-                            <i class="las la-plus-square"></i><span class="text">Post your Ad</span>
+                            <i class="las la-plus-square"></i><span class="text">Post Your Ad</span>
                         </a>
                     </div>
                 </li>
@@ -256,7 +256,7 @@
                 <li class="single">
                     <div class="btn-wrapper">
                         <a href="#" class="cmn-btn1 popup-modal">
-                            <i class="las la-plus-square"></i><span class="text">Post your Ad</span>
+                            <i class="las la-plus-square"></i><span class="text">Post Your Ad</span>
                         </a>
                     </div>
                 </li>
