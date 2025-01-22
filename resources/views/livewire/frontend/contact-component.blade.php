@@ -98,7 +98,7 @@
                                 </div>
 
                                 <div class="col-sm-12">
-                                    <label class="checkWrap2">You agree to our privacy policy.
+                                    <label class="checkWrap2">You agree to our <a href="privacy-policy">privacy policy</a>.
                                         <input class="effectBorder" type="checkbox" value="1" wire:model="checkbox" class="mb-2">
                                         <span class="checkmark mb-2"></span>
                                         @error('checkbox') <p class="text-danger">{{$message}}</p>

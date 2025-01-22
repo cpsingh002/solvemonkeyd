@@ -79,7 +79,7 @@ use App\Livewire\Setting\WebSettingComponent;
 use App\Livewire\CompanyOffer\EditCompanyOfferComponent;
 use App\Livewire\CompanyOffer\CompanyOfferComponent;
 use App\Livewire\CompanyOffer\AddCompanyOfferComponent;
-
+use App\Livewire\Subscribers\SubscriberComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -219,4 +219,5 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/company-offer/edit/{eid}',EditCompanyOfferComponent::class)->name('admin.company-offeredit');
     Route::get('/admin/company-offer/add',AddCompanyOfferComponent::class)->name('admin.company-offeradd');
     Route::get('/admin/company-offer',CompanyOfferComponent::class)->name('admin.company-offer');
+    Route::get('/admin/subscribers',SubscriberComponent::class)->name('admin.subscribers');
 });
