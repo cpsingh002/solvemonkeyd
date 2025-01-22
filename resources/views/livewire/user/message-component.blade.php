@@ -65,7 +65,7 @@
                                         </div>
                                     </a>
                                     @empty
-                                        <p>No Chat found yet</p>
+                                        <p style="text-align:center;">You haven't done any chat yet.</p>
                                     @endforelse
                                     {{--<div class="singleUser active">
                                         <div class="listCap">
@@ -149,6 +149,7 @@
                                     </div>--}}
                                 </div>
                             </div>
+                            
                             <div class="col-xl-7 col-lg-6 col-md-12">
                                 @if($uuid != '') 
                                 <div class="messagesDetails">
