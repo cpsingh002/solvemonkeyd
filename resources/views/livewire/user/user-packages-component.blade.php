@@ -210,7 +210,7 @@
                                     </div>
                                 @endforeach
                             @else
-                            <p> No Packages Purchased yet!!</p>
+                            <p style="text-align: center;margin-top:10px; margin-bottom:14px;"> No Packages Purchased yet!!</p>
                             @endif
                             
                                 

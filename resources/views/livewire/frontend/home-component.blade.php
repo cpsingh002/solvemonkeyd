@@ -258,15 +258,20 @@
             <div class="col-xxl-5 col-xl-7  col-lg-7 col-md-7 col-7">
                 <div class="about-caption">
 
-                    <div class="section-tittle section-tittle2 mb-40 ">
-                        <h2 class="tittl wow fadeInUp faded " data-wow-delay="0.1s">Earn cash by selling<br> or Find
+                    <div class="section-tittle section-tittle2 mb-10 ">
+                        <!-- <h2 class="tittl wow fadeInUp faded " data-wow-delay="0.1s">Earn cash by selling<br> or Find
                             anything you desire</h2>
                         <p class="wow fadeInUp" data-wow-delay="0.2s">Solve Monkey connects you with individuals across India willing to sell, buy, and exchange products. Our platform is filled with unique and endless items. We are a community of people 
-                                helping each other find the best products or services! s</p>
+                                helping each other find the best products or services! s</p> -->
+                                <h2 class="tittl wow fadeInUp faded " data-wow-delay="0.1s" style="margin-bottom:10px;padding-left:0; font-weight:600;">One-Stop Destination to Exchange, <br>Sell, and Buy!</h2>
+                                <p class="wow fadeInUp" data-wow-delay="0.2s">Exchange anything, from cars to your plots to mobile, services, and even pets! No matter where you live, Solve Monkey allows you to exchange, sell, and buy. However, our USP is connecting people with other individuals for exchange. Create your account, list your products, and wait for the right connection!</p>
                     </div>
                      @if(Session::has('message'))
                      <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                 @endif
+                    <div class="mb-3">
+                        <p class="usp-tittle"><b>Our USP:</b>Exchanging items is simple! We let you exchange a plot or car with a person in a different city! It is applicable for all items and services listed here!</p>
+                    </div>
                     <div class="btn-wrapper ">
                         <a href="#" class="cmn-btn2 mr-15 mb-10 wow fadeInLeft @auth popup-modal @else popup-btn-login @endauth"
                             data-wow-delay="0.3s">Post Your Ad</a>

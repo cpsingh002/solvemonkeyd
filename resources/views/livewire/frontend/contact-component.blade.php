@@ -41,9 +41,9 @@
                     <div class="contact-Wrapper">
                         <div class="row wo">
                             <div class="col-lg-12">
-                                <div class="section-tittle mb-40">
-                                    <h2 class="tittle p-0">Get in touch</h2>
-                                    <p>Our friendly team would love to hear from you.</p>
+                                <div class="section-tittle mb-40" style="text-align:center;">
+                                    <h2 class="tittle p-0" >Connect with us today!</h2>
+                                    <p>Want to list a product or service or have any queries? Get in touch with us by filling out the form below, and someone from our team will <br> contact you.</p>
                                 </div>
                             </div>
                              @if(Session::has('message'))
@@ -98,7 +98,8 @@
                                 </div>
 
                                 <div class="col-sm-12">
-                                    <label class="checkWrap2">You agree to our privacy policy.
+                                    <label class="checkWrap2">You agree to our                         
+                                        <a href="{{route('privacy-policy')}}"  style="font-weight:600;" data-wow-delay="0.3s">Privacy Policy.</a>
                                         <input class="effectBorder" type="checkbox" value="1" wire:model="checkbox" class="mb-2">
                                         <span class="checkmark mb-2"></span>
                                         @error('checkbox') <p class="text-danger">{{$message}}</p>
