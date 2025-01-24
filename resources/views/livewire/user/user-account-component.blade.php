@@ -268,7 +268,7 @@
                                 </div>
                             @endforeach
                         @else
-                        <p> no item add yet</p>
+                        <p style="text-align: center;margin-top:10px; margin-bottom:14px;"> no item add yet</p>
                         @endif
                         <a class="list-title add-product-link " href="{{'/post-ad'}}">
                             <p class="adds"> Add more product for sell,rent and exchange</p>

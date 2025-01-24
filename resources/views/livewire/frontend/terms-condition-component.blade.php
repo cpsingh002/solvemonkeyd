@@ -11,7 +11,7 @@
                 <div class="col-xxl-10 col-xl-10 col-lg-8 col-md-12 m-auto">
                     <div class="HelpSearch">
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 mt-lg-0 mb-lg-0 mb-4 mt-4">
                                 <div class="text-center"><h1 class="fw-bold text-orange">Terms and Condition</h1></div>
                                 
                             </div>   
