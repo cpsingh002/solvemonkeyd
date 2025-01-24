@@ -232,6 +232,7 @@ class EditUserProductComponent extends Component
 
             'name'=>'required',
             'slug'=>'required',
+            'price_negotiable'=>'required',
         ]);
 
         if($this->newthumbimage)
@@ -287,6 +288,7 @@ class EditUserProductComponent extends Component
             'name'=>'required',
             // 'inputs'=>'required',
             // 'attribute_arr'=>'required',
+            'price_negotiable'=>'required',
             'slug'=>'required|unique:products,slug,'.$this->pid
         ],[
             'category_id.required'=>'The category field is required.',

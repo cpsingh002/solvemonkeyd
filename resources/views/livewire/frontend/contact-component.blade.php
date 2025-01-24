@@ -98,8 +98,10 @@
                                 </div>
 
                                 <div class="col-sm-12">
+
                                     <label class="checkWrap2">You agree to our                         
                                         <a href="{{route('privacy-policy')}}"  style="font-weight:600;" data-wow-delay="0.3s">Privacy Policy.</a>
+
                                         <input class="effectBorder" type="checkbox" value="1" wire:model="checkbox" class="mb-2">
                                         <span class="checkmark mb-2"></span>
                                         @error('checkbox') <p class="text-danger">{{$message}}</p>

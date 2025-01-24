@@ -222,7 +222,21 @@
                                                             <h5><a href="{{route('product.details',['slug'=>$product->slug])}}" class="featureTittle">{{ucfirst($product->name)}}</a>
                                                             </h5>
                                                             <div class="d-flex justify-content-between">
-                                                            <p class="featureCap w-60">{{$product->state->name}},  {{$product->country->name}} </p> <strong class="subCap miss">24hrs ago</strong> </div>
+                                                            <p class="featureCap w-60">{{$product->state->name}},  {{$product->country->name}} </p> <strong class="subCap miss">
+                                                            @php 
+                                                                $to = now(); 
+                                                                $from = $product->created_at;
+                                                                $res= $to->diffInDays($from); 
+                                                                //dd($res);
+                                                            @endphp 
+                                                            @if($product->created_at->isToday())
+                                                                Today
+                                                            @elseif(($res > 1 ) && ($res <  7))  
+                                                                {{$product->created_at->format('D')}} 
+                                                            @else 
+                                                                {{$product->created_at->format('M Y')}} 
+                                                            @endif
+                                                            </strong> </div>
                                                             <span class="featurePricing"><i class="fa-solid fa-indian-rupee-sign"></i> {{preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,",$product->prices)}}</span>
                                                             <div class="btn-wrapper">
                                                                 @if($product->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif

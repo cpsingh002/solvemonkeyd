@@ -76,16 +76,18 @@
                                 </div>
 
                                 <div class="footer-form mt-10 wow fadeInRight" data-wow-delay="0.1s">
-                                    <div class="form-row mb-21">
+                                    <form class="form-row mb-21" wire:submit.prevent="subscribe">
+                                        @if(Session::has('message'))
+                                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                        @endif
                                         <div class="newsletter-footer">
-                                            <input class="input" type="email" name="email"
-                                                placeholder="Your Email Address">
+                                            <input class="input" type="email" name="email" placeholder="Your Email Address" wire:model="email" required>
                                             <div class="btn-wrapper form-icon">
                                                 <button class="btn-default btn-rounded" type="submit" name="submit">
                                                     Submit</button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                     <div class="footer-social2 ">
                                         <a href="#" class="wow fadeInUp social" data-wow-delay="0.2s"><i
                                                 class="lab la-facebook-f icon"></i></a>

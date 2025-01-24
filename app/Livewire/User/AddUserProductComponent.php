@@ -187,11 +187,14 @@ class AddUserProductComponent extends Component
             'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
+            'featimage'=>'required',
             'images'=>'required',
+            'thumbimage'=>'required',
             'exchange_for'=>'required_if:for_exchange,1',
 
             'name'=>'required',
             'slug'=>'required',
+            'price_negotiable'=>'required',
         ]);
         if($this->thumbimage)
         {
@@ -244,11 +247,14 @@ class AddUserProductComponent extends Component
             'contact_number'=>['required','numeric','digits:10'],
             'email_id'=>'required',
 
+            'featimage'=>'required',
             'images'=>'required',
+            'thumbimage'=>'required',
             'exchange_for'=>'required_if:for_exchange,1',
 
             'name'=>'required',
             'slug'=>'required|unique:products',
+            'price_negotiable'=>'required',
             // 'inputs'=>'required',
         //   'attribute_arr'=>'required'
         ],[

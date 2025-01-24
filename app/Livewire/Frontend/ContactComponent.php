@@ -20,7 +20,7 @@ class ContactComponent extends Component
         $this->validateOnly($fields,[
             'lname'=>'required',
             'fname'=>'required',
-            'phone'=>'required',
+            'phone'=>'required|digits:10',
             'email'=>'required',
             'message'=>'required',
             'checkbox' =>'required',
@@ -33,7 +33,7 @@ class ContactComponent extends Component
         $this->validate([
             'lname'=>'required',
             'fname'=>'required',
-            'phone'=>'required',
+            'phone'=>'required|digits:10',
             'email'=>'required',
             'message'=>'required',
             'checkbox' =>'required',
