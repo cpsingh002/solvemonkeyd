@@ -17504,7 +17504,9 @@
 }
 }
  @media (max-width:540px)  {
-    
+    .usp-tittle{
+      font-size: 11px;
+    }
 
 .priced{
          width: 35%;
