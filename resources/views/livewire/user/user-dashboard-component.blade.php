@@ -161,9 +161,9 @@
                             </div>
                         </div>
                         <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 " >
-                            <div class="myListing mt-5">
+                            <div class="myListing mt-4">
                                 <span> Total Listing Added By You: {{$productCount->count()}} </span>
-                                <div class="row ">
+                                <div class="row mt-4">
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <div class="singlePrice mb-24 text-center">
                                             <h4 class="fs-14 mb-10">Listing For Sell</h4>

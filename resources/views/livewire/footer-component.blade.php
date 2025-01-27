@@ -107,7 +107,7 @@
                         <div class="row">
                             <div class="col-xl-12 ">
                                 <div class="footer-copy-right text-center">
-                                    <p class="pera wow fadeInDown" data-wow-delay="0.0s">Copyright © Solve Monkey 2024. <a href="https://softhunters.in/">Softhunters Technology </a></p>
+                                    <p class="pera wow fadeInDown" data-wow-delay="0.0s">Copyright © Solve Monkey {{ date('Y') }}. <a href="https://softhunters.in/">Softhunters Technology </a></p>
                                 </div>
                             </div>
                         </div>

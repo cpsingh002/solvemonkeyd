@@ -255,7 +255,7 @@
 <section class="aboutArea section-padding2 plr plrs sectionBg1">
     <div class="container-fluid">
         <div class="row justify-content-between align-items-center ">
-            <div class="col-xxl-5 col-xl-7  col-lg-7 col-md-7 col-7">
+            <div class="col-xxl-5 col-xl-7  col-lg-7 col-md-7 col-12 mt-md-0 mt-4">
                 <div class="about-caption">
 
                     <div class="section-tittle section-tittle2 mb-10 ">
@@ -280,7 +280,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-6 col-xl-5   col-lg-5 col-md-5 col-5">
+            <div class="col-xxl-6 col-xl-5   col-lg-5 col-md-5 col-12">
 
                 <div class="aboutImg tilt-effect wow fadeInRight" data-wow-delay="0.1s">
                     <img src="{{asset('assets/img/gallery/about.png')}}" alt="images" class="bouncingAnimation  wa1 ">
