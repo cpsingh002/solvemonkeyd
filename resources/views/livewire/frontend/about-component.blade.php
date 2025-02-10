@@ -161,10 +161,10 @@
                     <div class="section-tittle section-tittle6 text-center mb-lg-90 mb-60">
                         <h2 class="tittle">Our story <span class="lineBrack"></span> started in 2022</h2>
                         <p class="tittle2 me">There are many sites that allow their users to sell or buy items. But many users are looking to 
-swap items for multiple reasons. That’s where the idea of the Solve Monkey came from! We 
-wanted to create a platform where users can not only sell or buy items but also exchange 
-anything like a sofa, pet, apartment, or vehicle. In 2020, we worked on our idea, and today, we 
-are one of the first platforms of its kind in India for exchanging items! </p>
+                          swap items for multiple reasons. That’s where the idea of the Solve Monkey came from! We 
+                          wanted to create a platform where users can not only sell or buy items but also exchange 
+                          anything like a sofa, pet, apartment, or vehicle. In 2020, we worked on our idea, and today, we 
+                          are one of the first platforms of its kind in India for exchanging items! </p>
                     </div>
                 </div>
             </div>
