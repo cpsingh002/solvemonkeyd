@@ -14953,7 +14953,7 @@
     background: var(--main-color-two);
     border: 0;
     padding: 19px 6px 20px 31px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     border-bottom: 0;
     display: block;
@@ -15015,6 +15015,7 @@
     -webkit-transition: 0.3s;
     transition: 0.3s;
     background: #fff;
+    font-size: 14px;
   }
 
   .faqArea .collapse-wrapper .accordion-header .accordion-button.collapsed {
@@ -20242,5 +20243,94 @@
 
 .best-feature-points{
   margin-top: 80px;
-  margin-bottom: 40px;
+  margin-bottom: 22%;
+}
+
+/* feature animation */
+.about-us-feature-points{
+	position: absolute;
+	/* padding: 30px 60px; */
+	overflow: hidden;
+}
+
+.about-us-feature-points span:nth-child(1){
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(to right, #0c002b, #1779ff);
+	animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1{
+	0%{
+		transform: translateX(-100%);
+	}
+
+	100%{
+		transform: translateX(100%);
+	}
+}
+
+.about-us-feature-points span:nth-child(2){
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(to bottom, #0c002b, #1779ff);
+	animation: animate2 2s linear infinite;
+	animation-delay: 1s;
+}
+
+@keyframes animate2{
+	0%{
+		transform: translateY(-100%);
+	}
+
+	100%{
+		transform: translateY(100%);
+	}
+}
+
+.about-us-feature-points span:nth-child(3){
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(to left, #0c002b, #1779ff);
+	animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3{
+	0%{
+		transform: translateX(100%);
+	}
+
+	100%{
+		transform: translateX(-100%);
+	}
+}
+
+.about-us-feature-points span:nth-child(4){
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(to top, #0c002b, #1779ff);
+	animation: animate4 2s linear infinite;
+	animation-delay: 1s;
+}
+
+@keyframes animate4{
+	0%{
+		transform: translateY(100%);
+	}
+
+	100%{
+		transform: translateY(-100%);
+	}
 }
