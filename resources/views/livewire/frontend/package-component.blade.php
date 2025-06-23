@@ -41,7 +41,8 @@
                             </ul>
                             <span class="price"><i class="fa-solid fa-indian-rupee-sign"></i> {{preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,",$package->price)}} <span class="subTittle"> /{{$package->validity}} Days</span></span>
                             <div class="btn-wrapper">
-                                <a href="#" wire:click.prevent="checklogin('{{$package->pslug}}')" class="cmn-btn-outline1">Get Started</a>
+                                <a href="{{route('razorpay.checkout', $package->pslug)}}" class="cmn-btn-outline1">Get Started</a>
+                                {{-- <a href="#" wire:click.prevent="checklogin('{{$package->pslug}}')" class="cmn-btn-outline1">Get Started</a> --}}
                             </div>
                         </div>
                     </div>
