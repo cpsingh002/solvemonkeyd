@@ -52,6 +52,45 @@
             font-weight: 500;
             text-align:center;
         }
+         @media(max-width:768px){
+               .section-tittle.section-tittle6 .tittle {
+    font-size: 20px;
+}
+.me {
+    font-weight: 500;
+    font-size: 11px;
+} 
+
+ .footerWrapper .footer-area .footer-tittle .listing .listItem .singleLinks {
+    font-size: 11px !important;
+  } 
+  
+  .footerWrapper .footer-area .footer-form .newsletter-footer .input {
+    margin-left: -64px;
+    width:100%;
+}
+         }
+         .about-us-feature-points{
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 1px 80px 12px rgba(26, 40, 68, 0.06);
+    /* box-shadow: 0px 1px 80px 12px rgba(26, 40, 68, 0.06); */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 12px;
+    padding: 20px;
+    border-radius: 8px;
+    height: 220px;
+  width: 22%;
+}
+.about-us-feature-points p{
+    text-align: justify;
+    font-size:14px;
+}     
+.about-us-feature-h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-align:center;
+}
 
         .about-us-feature-h2{
             margin-bottom:40px;
@@ -152,6 +191,22 @@
                 </div>
             </div>
         </div>
+    <div class="storyArewa ">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-5 col-xl-7 col-lg-8 col-md-9 col-sm-10">
+                    <div class="section-tittle section-tittle6 text-center mb-lg-90 mb-60">
+                        <h2 class="tittle">Our story <span class="lineBrack"></span> started in 2022</h2>
+                        <p class="tittle2 me">There are many sites that allow their users to sell or buy items. But many users are looking to 
+                          swap items for multiple reasons. That’s where the idea of the Solve Monkey came from! We 
+                          wanted to create a platform where users can not only sell or buy items but also exchange 
+                          anything like a sofa, pet, apartment, or vehicle. In 2020, we worked on our idea, and today, we 
+                          are one of the first platforms of its kind in India for exchanging items! </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
         <section class="aboutArea section-padding2 sectionBg3 fluied ">
@@ -386,6 +441,57 @@
                 </div> -->
             </div>
         </section>
+    <section class="best-feature-points">
+        <div class="container-fluid">
+            <h2 class="about-us-feature-h2">Solve Monkey’s Best Features</h2>
+            <div class="row ">
+                <div class="col-lg-3 col-md-6 col-6 mb-lg-0 mb-3">
+                    <div class="about-us-feature-points">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <h3 class="about-us-feature-h3">Extensive Selection</h3>
+                            <p>We list a wide range of products from diverse categories, ensuring you find everything you are looking for.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 mb-lg-0 mb-3">
+                    <div class="about-us-feature-points">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <h3 class="about-us-feature-h3">Secure Transaction </h3>
+                            <p>Our payment gateway is secure and easy-to-use, ensuring hassle-free transactions. </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 mb-lg-0 mb-3">
+                    <div class="about-us-feature-points">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <h3 class="about-us-feature-h3">Community Support </h3>
+                            <p>Join our vibrant community of buyers, sellers, and users looking to swap items, fostering connections to ensure exchanges between users are seamless. </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 mb-lg-0 mb-3">
+                    <div class="about-us-feature-points">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <h3 class="about-us-feature-h3">Customer Support </h3>
+                            <p>24/7 customer support! Our dedicated team of customer support executives is here to help you with any queries or transaction issues. </p>
+                    </div>
+                </div>
+            </div>
+            <!-- <h4 class="about-us-feature-h4" style="text-align:center;">Want to join our growing team?</h4> -->
+            <!-- <div class="btn-wrapper " style="text-align:center;">
+               <a href="{{route('contact')}}"  class="cmn-btn3 mb-10 wow fadeInLeft" data-wow-delay="0.3s">Contact Us</a>
+            </div> -->
+        </div>
+    </section>
 
         <section class="aboutArea plr bottom-padding2">
             <div class="container-fluid">
