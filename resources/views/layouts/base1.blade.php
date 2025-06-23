@@ -223,6 +223,22 @@
                             <div id="name_error" class="field_error text-danger"></div>
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <label for="phone"
+                            class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Phone Number') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
+                                name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+
+                            @error('phone')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            <div id="email_error" class="field_error text-danger"></div>
+                        </div>
+                    </div>
 
                     <div class="row mb-3">
                         <label for="email"

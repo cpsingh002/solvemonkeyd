@@ -118,7 +118,7 @@ Route::get('product-brand/{brand_slug}',BrandSearchComponent::class)->name('prod
 
 Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
 
-Route::middleware(['auth:sanctum','verified','userauth'])->group(function(){
+Route::middleware(['auth:sanctum','userauth'])->group(function(){
     Route::get('/message/{chatid?}',MessageComponent::class)->name('message');
     Route::get('/user-order',UserOrderComponent::class)->name('user-order');
     Route::get('/user-account',UserAccountComponent::class)->name('user-account');
