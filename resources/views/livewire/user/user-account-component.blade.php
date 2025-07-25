@@ -222,7 +222,7 @@
                                                             <h5><a href="{{route('product.details',['slug'=>$product->slug])}}" class="featureTittle">{{ucfirst($product->name)}}</a>
                                                             </h5>
                                                             <div class="d-flex justify-content-between">
-                                                            <p class="featureCap w-60">{{$product->state->name}},  {{$product->country->name}} </p> <strong class="subCap miss">
+                                                            <p class="featureCap w-60">{{@$product->state->name}},  {{@$product->country->name}} </p> <strong class="subCap miss">
                                                             @php 
                                                                 $to = now(); 
                                                                 $from = $product->created_at;
