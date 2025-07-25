@@ -195,7 +195,7 @@
                             <div class="featureCaption ">
                                 <h4><a href="{{route('product.details',['slug'=>$seproduct->slug])}}" class="featureTittle">{{ucfirst($seproduct->name)}}</a></h4>
                                 <div class="d-flex justify-content-between">
-                                <p class="featureCap w-60">{{$seproduct->state->name}},   {{$seproduct->country->name}} </p> <strong class="subCap miss">@php 
+                                <p class="featureCap w-60">{{@$seproduct->state->name}},   {{@$seproduct->country->name}} </p> <strong class="subCap miss">@php 
                                                         $to = now(); 
                                                         $from = $seproduct->created_at;
                                                         $res= $to->diffInDays($from); 
@@ -318,7 +318,7 @@
                                 <h5><a href="{{route('product.details',['slug'=>$exproduct->slug])}}" class="featureTittle">{{ ucfirst($exproduct->name)}}</a>
                                 </h5>
                                 <div class="d-flex  justify-content-between">
-                                <p class="featureCap w-60">{{$exproduct->state->name}},   {{$exproduct->country->name}} </p> <strong class="subCap miss">@php 
+                                <p class="featureCap w-60">{{@$exproduct->state->name}},   {{@$exproduct->country->name}} </p> <strong class="subCap miss">@php 
                                                         $to = now(); 
                                                         $from = $exproduct->created_at;
                                                         $res= $to->diffInDays($from); 
