@@ -80,7 +80,7 @@ class EditProductComponent extends Component
   public $newthumbimage;
   public $newfeatimage;
   
-  public $city_id1,$city_id2,$city_id3, $price_negotiable;
+  public $city_id1,$city_id2,$city_id3, $price_negotiable,$remark,$isverified,$document_verified,$legal_verified,$on_ground_verified,$admin_verified;
   
     public function mount($pid)
     {
@@ -124,6 +124,12 @@ class EditProductComponent extends Component
       $this->city_id2 = $product->city_id2;
       $this->city_id1 = $product->city_id1;
       $this->price_negotiable  = $product->price_negotiable;
+      $this->remark = $product->remark;
+    $this->isverified = $product->user_verified;
+    $this->document_verified = $product->document_verified;
+    $this->legal_verified = $product->legal_verified;
+    $this->on_ground_verified = $product->on_ground_verified;
+    $this->admin_verified = $product->admin_verified;
 
       
 
@@ -424,9 +430,15 @@ class EditProductComponent extends Component
         $product->city_id1 = $this->city_id1;
         $product->city_id2 = $this->city_id2;
         $product->city_id3 = $this->city_id3;
+        $product->remark = $this->remark;
+        $product->user_verified = $this->isverified;
+        $product->admin_verified = $this->admin_verified;
+         $product->document_verified = $this->document_verified;
+        $product->legal_verified = $this->legal_verified;
+        $product->on_ground_verified = $this->on_ground_verified;
         $product->save();    
         
-        $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
+        $at = Attribute::where('category_id', $product->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
         //  dd($this->inputs,$at);
         foreach($at as $key => $atsd){
             // dd($this->inputs[$atsd->id]);

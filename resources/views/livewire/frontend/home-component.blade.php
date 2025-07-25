@@ -366,7 +366,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach($products as $product)
+            @forelse($products as $product)
                 <div class="col-lg-3 col-sm-6 col-md-6">
                     <div class="singleFeature mb-24">
                         <div class="featureImg">
@@ -398,7 +398,9 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+            <p style="text-align: center; margin-bottom: 25px;">No Listing added Today Yet</p>
+            @endforelse
         </div>
     </div>
 </section>
@@ -406,7 +408,7 @@
 
 
 
-<div class="testimonialArea section-padding2 plr plrss">
+{{-- <div class="testimonialArea section-padding2 plr plrss">
     <div class="container-fluid">
 
         <div class="row justify-content-center">
@@ -437,11 +439,7 @@
                                     @for($i=0; $i< 5-$testimonial->star; $i++)
                                         <i class="fa fa-star star-gray"></i>
                                     @endfor
-                                    <!--<li class="listItems"><i class="las la-star icon"></i></li>-->
-                                    <!--<li class="listItems"><i class="las la-star icon"></i></li>-->
-                                    <!--<li class="listItems"><i class="las la-star icon"></i></li>-->
-                                    <!--<li class="listItems"><i class="las la-star icon"></i></li>-->
-                                    <!--<li class="listItems"><i class="las la-star icon"></i></li>-->
+                                    
                                 </ul>
                                 <div class="testiPera">
                                     <p class="pera">{{$testimonial->description}}</p>
@@ -461,118 +459,12 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="singleTestimonial">
-                        <div class="testimonialCap">
-                            <ul class="rattingList">
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                            </ul>
-                            <div class="testiPera">
-                                <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                    sold more than Rs 80,000 on this platform.
-                                    my all buyers are extremely happy</p>
-                            </div>
-
-                            <div class="testimonialClient d-flex align-items-center">
-                                <div class="clientImg">
-                                    <img src="assets/img/gallery/client2.png" alt="images">
-                                </div>
-                                <div class="clientText">
-                                    <span class="clientName">Paul Anderson</span>
-                                    <p class="clinetDisCrip">Solve Monkey seller</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="singleTestimonial">
-                        <div class="testimonialCap">
-                            <ul class="rattingList">
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                            </ul>
-                            <div class="testiPera">
-                                <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                    sold more than Rs 80,000 on this platform.
-                                    my all buyers are extremely happy</p>
-                            </div>
-
-                            <div class="testimonialClient d-flex align-items-center">
-                                <div class="clientImg">
-                                    <img src="assets/img/gallery/client3.png" alt="images">
-                                </div>
-                                <div class="clientText">
-                                    <span class="clientName">Harman Preet</span>
-                                    <p class="clinetDisCrip">Solve Monkey seller</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="singleTestimonial">
-                        <div class="testimonialCap">
-                            <ul class="rattingList">
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                            </ul>
-                            <div class="testiPera">
-                                <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                    sold more than Rs 80,000 on this platform.
-                                    my all buyers are extremely happy</p>
-                            </div>
-
-                            <div class="testimonialClient d-flex align-items-center">
-                                <div class="clientImg">
-                                    <img src="assets/img/gallery/client4.png" alt="images">
-                                </div>
-                                <div class="clientText">
-                                    <span class="clientName">Rian Saddine</span>
-                                    <p class="clinetDisCrip">Solve Monkey seller</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="singleTestimonial">
-                        <div class="testimonialCap">
-                            <ul class="rattingList">
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                                <li class="listItems"><i class="las la-star icon"></i></li>
-                            </ul>
-                            <div class="testiPera">
-                                <p class="pera">Solve Monkey is a great place to sell pre-loved and new items. I
-                                    sold more than Rs 80,000 on this platform.
-                                    my all buyers are extremely happy</p>
-                            </div>
-
-                            <div class="testimonialClient d-flex align-items-center">
-                                <div class="clientImg">
-                                    <img src="assets/img/gallery/client1.png" alt="images">
-                                </div>
-                                <div class="clientText">
-                                    <span class="clientName">David Norman</span>
-                                    <p class="clinetDisCrip">Solve Monkey seller</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
+                    
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 </div>

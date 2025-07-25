@@ -1,4 +1,4 @@
-<footer>
+<footer >
         <div class="footerWrapper plr">
             <div class="footer-area footer-padding">
                 <div class="container-fluid">

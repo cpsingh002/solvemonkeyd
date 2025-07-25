@@ -11,7 +11,7 @@
     <meta name="keywords"
         content="ads, advertise, advertising, classified, classified ads, database, directory, jobs, listing, local, portal" />
     <meta name="description"
-        content="Choose from 72 Premium classified ads Templates from the #1 source for classified ads Templates. Created by our Global Community of independent Web Developers." />
+        content="List for ads and rent sell and buy them." />
     <title>Solve Monkey</title>
     <link rel="icon" type="image/x-icon" sizes="20x20" href="{{asset('assets/img/icon/favicon.png')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
@@ -220,6 +220,22 @@
                             </span>
                             @enderror
                             <div id="name_error" class="field_error text-danger"></div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="phone"
+                            class="col-md-4 col-form-label fw-bold text-md-end">{{ __('Phone Number') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
+                                name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+
+                            @error('phone')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            <div id="email_error" class="field_error text-danger"></div>
                         </div>
                     </div>
 
@@ -465,6 +481,6 @@
 
 </body>
 
-<!-- Mirrored from bytesed.com/tf/listocean/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Sep 2023 06:17:37 GMT -->
+
 
 </html>

@@ -79,7 +79,7 @@ class EditUserProductComponent extends Component
     public $newimages;
     public $newthumbimage;
     public $newfeatimage;
-     public $city_id1,$city_id2,$city_id3, $price_negotiable;
+    public $city_id1,$city_id2,$city_id3, $price_negotiable,$remark,$isverified;
     
     public function mount($pid)
     {
@@ -123,6 +123,8 @@ class EditUserProductComponent extends Component
         $this->city_id2 = $product->city_id2;
         $this->city_id1 = $product->city_id1;
         $this->price_negotiable  = $product->price_negotiable;
+        $this->remark = $product->remark;
+        $this->isverified = $product->user_verified;
 
 
         $Ptss= ProductAttribute::where('product_id',$pid)->get();
@@ -304,13 +306,13 @@ class EditUserProductComponent extends Component
 
         if($this->newthumbimage)
         {
-            $this->validateOnly([
+            $this->validate([
                 'newthumbimage'=>'required|mimes:jpeg,jpg,png',
             ]);
         }
         if($this->newfeatimage)
         {
-            $this->validateOnly([
+            $this->validate([
                 'newfeatimage'=>'required|mimes:jpeg,jpg,png',
             ]);
         }
@@ -349,10 +351,10 @@ class EditUserProductComponent extends Component
         if($this->newfeatimage)
         {
             if($product->featimage){
-            unlink('admin/product/feat'.'/'.$product->featimage);
+            // unlink('admin/product/feat'.'/'.$product->featimage);
             }
             $imageNamef= Carbon::now()->timestamp.'.'.$this->newfeatimage->extension();
-            $this->newfeatimage->storeAs('product/feat',$imageName);
+            $this->newfeatimage->storeAs('product/feat',$imageNamef);
             $product->featimage = $imageNamef;
         }
 
@@ -381,7 +383,7 @@ class EditUserProductComponent extends Component
             $imagesname = '';
             foreach($this->newimages as $key=>$image)
             {
-                $imgName= Carbon::now()->timestamp.'.'.$image->extension();
+                $imgName= Carbon::now()->timestamp.$key.'.'.$image->extension();
                 $image->storeAs('product/image',$imgName);
                 $imagesname = $imagesname.','.$imgName;
             }
@@ -397,6 +399,8 @@ class EditUserProductComponent extends Component
         $product->city_id1 = $this->city_id1;
         $product->city_id2 = $this->city_id2;
         $product->city_id3 = $this->city_id3;
+        $product->remark = $this->remark;
+        $product->user_verified = $this->isverified;
         $product->save();    
         
         $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();

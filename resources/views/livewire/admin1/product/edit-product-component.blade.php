@@ -125,11 +125,9 @@
                                                     </div>
                                                     <div class="mb-4">
                                                         <label class="form-label">Title<span class="text-danger"> *</span></label>
-                                                        <input type="text" placeholder="Title"
-                                                            class="form-control" wire:model="name" wire:keyup="generateslug" />
+                                                        <input type="text" placeholder="Title"  class="form-control" wire:model="name" wire:keyup="generateslug" />
                                                     </div>
-                                                     @error('name') <p class="text-danger">{{$message}}</p>
-                                                        @enderror
+                                                     @error('name') <p class="text-danger">{{$message}}</p>  @enderror
                                                     <div class="mb-4">
                                                         <label for="form-category/slug" class="form-label">Product Slug<span class="text-danger"> *</span></label>
                                                         <div class="input-group input-group--sa-slug">
@@ -392,82 +390,142 @@
                                                         </div>
                                                             @error('meta_description') <p class="text-danger">{{$message}}</p> @enderror
                                                     </div>
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                    <div class="mb-4">
-                                                        <label class="form-label">Owner Name<span class="text-danger"> *</span></label>
-                                                        <input type="text" placeholder="Owner Name"
-                                                            class="form-control" wire:model="owner_name" />
-                                                    </div>
-                                                        @error('owner_name') <p class="text-danger">{{$message}}</p>@enderror
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                    <div class="mb-4">
-                                                        <label class="form-label">Contact No<span class="text-danger"> *</span></label>
-                                                        <div class="input-group input-group--sa-slug">
-                                                            <input type="number" placeholder="Contact No"
-                                                                class="form-control" wire:model="contact_number" />
-                                                        </div>
-                                                            @error('contact_number') <p class="text-danger">{{$message}}</p> @enderror
-                                                    </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                    <div class="mb-4">
-                                                        <label class="form-label">Email<span class="text-danger"> *</span></label>
-                                                            <div class="input-group input-group--sa-slug">
-                                                                <input type="email" placeholder="email_id"
-                                                                    class="form-control" wire:model="email_id" />
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="mb-4">
+                                                                <label class="form-label">Owner Name<span class="text-danger"> *</span></label>
+                                                                <input type="text" placeholder="Owner Name" class="form-control" wire:model="owner_name" />
                                                             </div>
+                                                            @error('owner_name') <p class="text-danger">{{$message}}</p>@enderror
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="mb-4">
+                                                                <label class="form-label">Contact No<span class="text-danger"> *</span></label>
+                                                                <div class="input-group input-group--sa-slug">
+                                                                    <input type="number" placeholder="Contact No"  class="form-control" wire:model="contact_number" />
+                                                                </div>
+                                                                @error('contact_number') <p class="text-danger">{{$message}}</p> @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="mb-4">
+                                                                <label class="form-label">Email<span class="text-danger"> *</span></label>
+                                                                <div class="input-group input-group--sa-slug">
+                                                                    <input type="email" placeholder="email_id" class="form-control" wire:model="email_id" />
+                                                                </div>
                                                                 @error('email_id') <p class="text-danger">{{$message}}</p>@enderror
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    </div>
-                                                </div>
                                                 
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                    <div class="mb-4">
-                                                        <label class="form-label"> First City</label>
-                                                        <select class="form-control" wire:model="city_id1">
-                                                            <option value="0">Select City</option>
-                                                            @foreach($citiys as $city)
-                                                                <option value="{{$city->id}}">{{$city->name}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                        @error('city_id1') <p class="text-danger">{{$message}}</p>@enderror
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                    <div class="mb-4">
-                                                        <label class="form-label">Second City</label>
-                                                        <select class="form-control" wire:model="city_id2">
-                                                            <option value="0">Select City</option>
-                                                            @foreach($citiys as $city)
-                                                                <option value="{{$city->id}}">{{$city->name}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                            @error('city_id2') <p class="text-danger">{{$message}}</p> @enderror
-                                                    </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                    <div class="mb-4">
-                                                        <label class="form-label">Third City</label>
-                                                            <select class="form-control" wire:model="city_id3">
-                                                            <option value="0">Select City</option>
-                                                            @foreach($citiys as $city)
-                                                                <option value="{{$city->id}}">{{$city->name}}</option>
-                                                            @endforeach
-                                                        </select>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="mb-4">
+                                                                <label class="form-label"> First City</label>
+                                                                <select class="form-control" wire:model="city_id1">
+                                                                    <option value="0">Select City</option>
+                                                                    @foreach($citiys as $city)
+                                                                        <option value="{{$city->id}}">{{$city->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            @error('city_id1') <p class="text-danger">{{$message}}</p>@enderror
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="mb-4">
+                                                                <label class="form-label">Second City</label>
+                                                                <select class="form-control" wire:model="city_id2">
+                                                                    <option value="0">Select City</option>
+                                                                    @foreach($citiys as $city)
+                                                                        <option value="{{$city->id}}">{{$city->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                                @error('city_id2') <p class="text-danger">{{$message}}</p> @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="mb-4">
+                                                                <label class="form-label">Third City</label>
+                                                                <select class="form-control" wire:model="city_id3">
+                                                                    <option value="0">Select City</option>
+                                                                    @foreach($citiys as $city)
+                                                                        <option value="{{$city->id}}">{{$city->name}}</option>
+                                                                    @endforeach
+                                                                </select>
                                                                 @error('city_id3') <p class="text-danger">{{$message}}</p>@enderror
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    </div>
-                                                </div>
                                                     <div class="mb-4">
                                                         <label class="form-label">Exchange For<span class="text-danger"> *</span></label>
-                                                            <div class="input-group input-group--sa-slug">
-                                                                <input type="test" placeholder=""
-                                                                    class="form-control" wire:model="exchange_for" />
+                                                        <div class="input-group input-group--sa-slug">
+                                                            <input type="test" placeholder=""  class="form-control" wire:model="exchange_for" />
+                                                        </div>
+                                                        @error('exchange_for') <p class="text-danger">{{$message}}</p>@enderror
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <label class="form-label">Remark About Product</label>
+                                                            <div class="nput-group input-group--sa-slug" wire:ignore>
+                                                                <textarea  id=" "class="form-control " rows="2"  placeholder="Reamrk About Product" wire:model="remark">{!! $remark !!}</textarea>
+                                                                                                                    
                                                             </div>
-                                                                @error('exchange_for') <p class="text-danger">{{$message}}</p>@enderror
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <label class="form-label"> User want To verifed this listing?</label>
+                                                            <select class="form-control" wire:model="isverified">
+                                                                <option value="">Select option</option>
+                                                                <option value="0">No</option>
+                                                                <option value="1">Yes</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <label class="form-label"> Admin want To verifed this listing?</label>
+                                                            <select class="form-control" wire:model="admin_verified">
+                                                                <option value="">Select option</option>
+                                                                <option value="0">No</option>
+                                                                <option value="1">Yes</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="mb-4">
+                                                                <label class="form-label">On Ground Verified</label>
+                                                                <select class="form-control" wire:model="on_ground_verified">
+                                                                    <option value="">Select </option>
+                                                                    <option value="0">No</option>
+                                                                    <option value="1">Yes</option>
+                                                                   
+                                                                </select>
+                                                            </div>
+                                                            @error('on_ground_verified') <p class="text-danger">{{$message}}</p>@enderror
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="mb-4">
+                                                                <label class="form-label">Documents Verified</label>
+                                                                <select class="form-control" wire:model="document_verified">
+                                                                    <option value="">Select </option>
+                                                                    <option value="0">No</option>
+                                                                    <option value="1">Yes</option>
+                                                                </select>
+                                                                @error('document_verified') <p class="text-danger">{{$message}}</p> @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="mb-4">
+                                                                <label class="form-label">Legal Verified </label>
+                                                                <select class="form-control" wire:model="legal_verified">
+                                                                    <option value="">Select</option>
+                                                                    <option value="0">No</option>
+                                                                    <option value="1">Yes</option>
+                                                                </select>
+                                                                @error('legal_verified') <p class="text-danger">{{$message}}</p>@enderror
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                          
 

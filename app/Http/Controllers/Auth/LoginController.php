@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     /*
@@ -130,7 +131,7 @@ class LoginController extends Controller
     public function SendLoginOtp(Request $request)
     {
         $valid=Validator::make($request->all(),[
-            'phone'=>['required','numeric','digits:10','exists:users,phone'],          
+            'phone'=>['required','numeric','digits:10'],          
         ],[
            'phone.exists'=>'This Phone Number is not persent.',
             'phone.required'=>'The Phone field is required.',
@@ -140,9 +141,22 @@ class LoginController extends Controller
         if(!$valid->passes()){
             return response()->json(['status'=>'error','error'=>$valid->errors()->toArray()]);
         }else{
+            $user = User::where('phone',$request->phone)->first();
             $number = $request->phone;
             $otp = rand(111111,999999);
-                User::where('phone',$request->phone)->update(['otp_code'=>$otp]);
+            if(isset($user))
+            {
+               User::where('phone',$request->phone)->update(['otp_code'=>$otp]); 
+            }else{
+                    $user = User::create([
+                        'name' => $request->phone,
+                        'email' => null,
+                        'password' => Hash::make($request->phone),
+                        'phone' => $request->phone,
+                        'otp_code'=>$otp
+                    ]);
+            }
+                
             $curl = curl_init();
             curl_setopt_array($curl, array(
                 CURLOPT_URL => 'http://allsms1.dreamitservices.co.in/index.php/smsapi/httpapi/?secret=ZEB1fTQG8VKl4SEvgUsp&sender=SJSSMH&tempid=1707173538437715764&receiver='.$number.'&route=TA&msgtype=1&sms=Dear%20User%20your%20one-time%20password%20(OTP)%20is%20'.$otp.'.%20Enter%20this%20code%20to%20verify%20your%20solve%20monkey%20account.%20Keep%20it%20private%20for%20your%20security.%20Thank%20you!%20SJSSMH',
