@@ -1,19 +1,243 @@
-<div> 
+<div>
+
     <style>
-        #mapa{
+        #mapa {
             position: sticky !important;
-            margin-top:2%;
-            border-radius:10px;
-            height:450px;
+            margin-top: 2%;
+            border-radius: 10px;
+            height: 450px;
+        }
+
+
+        .breadcrumb a {
+            color: var(--main-color-one);
+        }
+
+        body,
+        html {
+            font-family: var(--body-font);
+            color: var(--paragraph-color);
+            background-color: var(--bg-light-one);
+        }
+
+        /* Container Enhancements */
+        .card-body {
+            background-color: var(--white-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        label {
+            /* font-weight: 600; */
+            color: var(--paragraph-color-four);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea,
+        .form-control,
+        .form-select {
+            /* border-radius: 50px; */
+            border-radius: 16px;
+            /* padding: 0.75rem 1.5rem; */
+            border: 1px solid var(--paragraph-color-three);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: var(--white-color);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--main-color-one);
+            box-shadow: 0 0 0 3px rgba(247, 102, 49, 0.2);
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--main-color-one), var(--secondary-color));
+            border: none;
+            padding: 0.75rem 2.5rem;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 600;
+            font-family: var(--heading-font);
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(247, 102, 49, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--main-color-one)) !important;
+            box-shadow: 0 8px 30px rgba(247, 102, 49, 0.3) !important;
+        }
+
+        /* Custom Select Dropdown */
+        select.form-control,
+        select.form-select {
+            appearance: none;
+            background-color: var(--white-color);
+            /* background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' width='18' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23F76631' points='70,105 10,35 130,35'/%3E%3C/svg%3E"); */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' width='6' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23F76631' points='70,105 10,35 130,35'/%3E%3C/svg%3E");
+            /* background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 1rem; */
+            padding-right: 1rem;
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 10px 10px;
+        }
+
+        select.form-select option:checked,
+        select.form-control option:checked {
+            background-color: #F76631;
+            color: #fff;
+        }
+
+        /* File Upload Styling */
+        input[type="file"] {
+            display: block;
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1rem;
+            background-color: var(--white-color);
+            border: 2px dashed var(--main-color-one);
+            border-radius: 16px;
+            cursor: pointer;
+            color: var(--heading-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        input[type="file"]:hover {
+            background-color: var(--bg-light-two);
+            border-color: var(--secondary-color);
+        }
+
+        input[type="file"]::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        input[type="file"]::before {
+            content: "📁 Click to Browse Files";
+            display: inline-block;
+            background: var(--main-color-one);
+            color: var(--white-color);
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="file"]:hover::before {
+            background-color: var(--secondary-color);
+        }
+
+        /* CKEditor Styling */
+        .ck-editor__editable_inline {
+            min-height: 200px;
+            border-radius: 16px !important;
+            border: 1px solid var(--paragraph-color-three) !important;
+            padding: 1.5rem !important;
+            font-family: var(--body-font);
+            background-color: var(--white-color);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ck-editor__editable_inline:focus {
+            border-color: var(--main-color-one) !important;
+            box-shadow: 0 0 0 3px rgba(247, 102, 49, 0.15);
+        }
+
+        .ck.ck-toolbar {
+            background-color: var(--white-color) !important;
+            border: 1px solid var(--paragraph-color-three) !important;
+            border-radius: 16px 16px 0 0 !important;
+            padding: 0.75rem !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .ck.ck-toolbar .ck-button {
+            color: var(--heading-color) !important;
+            border-radius: 8px !important;
+            transition: background-color 0.3s ease;
+            padding: 0.4rem 0.6rem;
+        }
+
+        .ck.ck-toolbar .ck-button:hover {
+            background-color: var(--main-color-one) !important;
+            color: var(--white-color) !important;
+        }
+
+        .ck.ck-toolbar .ck-button.ck-on {
+            background-color: var(--secondary-color) !important;
+            color: var(--white-color) !important;
+        }
+
+        input[type="file"] {
+            display: none !important;
+        }
+
+        .custom-file-upload {
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            padding: 1rem;
+            /* border: 2px dashed var(--main-color-one); */
+            border: 1px solid var(--paragraph-color-three) !important;
+            border-radius: 16px;
+            background-color: var(--white-color);
+            /* color: var(--main-color-one); */
+            color #6c757d;
+            /* font-weight: 600; */
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .custom-file-upload:hover {
+            background-color: var(--bg-light-two);
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .form-control:focus {
+            box-shadow: none !important;
+            border-color: var(--main-color-one);
+        }
+
+
+
+        input[type="text"]:focus {
+            border: 1px solid var(--main-color-one);
+        }
+
+        /* .btn-primary:hover{
+            background-color: var(--secondary-color) !important;
+
+        } */
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--main-color-one)) !important;
         }
     </style>
+
+
     <div class="addList-Details section-padding2">
         <div class="container">
             <div class="row justify-content-center rowee">
-                <div class="col-xl-8 col-lg-12">
+                <div class="col-xl-9 col-lg-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{'/'}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ '/' }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Properties</a></li>
                             <li class="breadcrumb-item"><a href="#">Post ad</a></li>
                         </ol>
@@ -25,124 +249,162 @@
                             <div class="listingDetails-Wrapper">
                                 <div class="listingDetails">
                                     <div class="row">
-                                        @if(Session::has('message'))
-                                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                        @if (Session::has('message'))
+                                            <div class="alert alert-success" role="alert">
+                                                {{ Session::get('message') }}</div>
                                         @endif
-                                        <form class="form-horizontal"  enctype="multipart/form-data" wire:submit.prevent="addProduct">
+                                        <form class="form-horizontal" enctype="multipart/form-data"
+                                            wire:submit.prevent="addProduct">
                                             <div class="row ">
                                                 <div class="col-lg-6 col-md-6  mb-3">
                                                     <div class="select-itmss">
                                                         <label class="infoTitle">Category</label>
-                                                        <select class="form-control" wire:model="category_id" wire:change="changeSubcategory"   >
+                                                        <select class="form-control" wire:model="category_id"
+                                                            wire:change="changeSubcategory">
                                                             <option value="">Select Category</option>
-                                                            @foreach($categories as $category)
-                                                            <option value="{{$category->id}}">{{$category->name}}
-                                                            </option>
+                                                            @foreach ($categories as $category)
+                                                                <option value="{{ $category->id }}">
+                                                                    {{ $category->name }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    @error('category_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('category_id')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-6 col-md-6  mb-3">
                                                     <div class="select-itmss">
                                                         <label class="infoTitle">Subcategory</label>
 
-                                                        <select  class="form-control " wire:model="scategory_id" wire:change="changeattribute">
+                                                        <select class="form-control " wire:model="scategory_id"
+                                                            wire:change="changeattribute">
                                                             <option value="">Select Sub Category</option>
-                                                            @foreach($scategories as $scategory)
-                                                            <option value="{{$scategory->id}}">{{$scategory->name}}
-                                                            </option>
+                                                            @foreach ($scategories as $scategory)
+                                                                <option value="{{ $scategory->id }}">
+                                                                    {{ $scategory->name }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    @error('scategory_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('scategory_id')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
-                                                @if(isset($brands[0]))
-                                                <div class="col-lg-6 col-md-6  mb-3">
-                                                    <div class="select-itmss">
-                                                        <label class="infoTitle">Brand</label>
-                                                        <select  class="form-control " wire:model="brand_id" wire:change="changebrands">
-                                                            <option value="">Select Brand Name</option>
-                                                            @foreach($brands as $brand)
-                                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
-                                                            @endforeach
-                                                        </select>
+                                                @if (isset($brands[0]))
+                                                    <div class="col-lg-6 col-md-6  mb-3">
+                                                        <div class="select-itmss">
+                                                            <label class="infoTitle">Brand</label>
+                                                            <select class="form-control " wire:model="brand_id"
+                                                                wire:change="changebrands">
+                                                                <option value="">Select Brand Name</option>
+                                                                @foreach ($brands as $brand)
+                                                                    <option value="{{ $brand->id }}">
+                                                                        {{ $brand->name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        @error('brand_id')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
                                                     </div>
-                                                    @error('brand_id') <p class="text-danger">{{$message}}</p> @enderror
-                                                </div>
-                                                <div class="col-lg-6 col-md-6  mb-3">
-                                                    <div class="select-itmss">
-                                                        <label class="infoTitle ">Brand Model Number</label>
-                                                        <select name="select" class="form-control " wire:model="modelnumber_id">
-                                                            <option value="">Select Brand Model</option>
-                                                            @foreach($modelnumbers as $modelnumber)
-                                                            <option value="{{$modelnumber->id}}">
-                                                                {{$modelnumber->name}}
-                                                            </option>
-                                                            @endforeach
-                                                        </select>
+                                                    <div class="col-lg-6 col-md-6  mb-3">
+                                                        <div class="select-itmss">
+                                                            <label class="infoTitle ">Brand Model Number</label>
+                                                            <select name="select" class="form-control "
+                                                                wire:model="modelnumber_id">
+                                                                <option value="">Select Brand Model</option>
+                                                                @foreach ($modelnumbers as $modelnumber)
+                                                                    <option value="{{ $modelnumber->id }}">
+                                                                        {{ $modelnumber->name }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        @error('modelnumber_id')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
                                                     </div>
-                                                    @error('modelnumber_id') <p class="text-danger">{{$message}}</p> @enderror
-                                                </div>
                                                 @endif
                                             </div>
-                                             
-                                            @if(isset($attributes[0]))
-                                            <div class="mb-2">
-                                                    <label for="form-banner" class="form-label infoTitle info">Attributes </label>
-                                                        <div class="col-md-12">
-                                                            @foreach($attributes as $key1 => $attribute)
-                                                                <label class="infoTitle infos">{{$attribute->attribute}}</label>
-                                                                <!-- <input type="hidden" value="{{$attribute->id}}" wire:model="dfh.{{$key1}}"> -->
-                                                                
-                                                                <select class="form-control" wire:model="attribute_arr.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" required >
-                                                                    <option value="">Select</option>
-                                                                    @foreach($attribute->attributeoptions as $attributeoption)
-                                                                    <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            @endforeach
-                                                        </div>
-                                                    @error('attribute_arr') <p class="text-danger">{{$message}}</p> @enderror
+
+                                            @if (isset($attributes[0]))
+                                                <div class="mb-2">
+                                                    <label for="form-banner"
+                                                        class="form-label infoTitle info">Attributes </label>
+                                                    <div class="col-md-12">
+                                                        @foreach ($attributes as $key1 => $attribute)
+                                                            <label
+                                                                class="infoTitle infos">{{ $attribute->attribute }}</label>
+                                                            <!-- <input type="hidden" value="{{ $attribute->id }}" wire:model="dfh.{{ $key1 }}"> -->
+
+                                                            <select class="form-control"
+                                                                wire:model="attribute_arr.{{ $key1 }}"
+                                                                wire:change="changehghg({{ $attribute->id }}, {{ $key1 }})"
+                                                                required>
+                                                                <option value="">Select</option>
+                                                                @foreach ($attribute->attributeoptions as $attributeoption)
+                                                                    <option value="{{ $attributeoption->id }}">
+                                                                        {{ $attributeoption->option_details }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        @endforeach
+                                                    </div>
+                                                    @error('attribute_arr')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
-                                                @endif
+                                            @endif
                                             <div class="row">
                                                 <div class="col-lg-12  mb-3">
                                                     <label class="infoTitle ">Title</label>
                                                     <div class="input-group input-group--sa-slug">
-                                                        <input type="text" class="form-control " placeholder="Product Title" wire:model="name" wire:keyup="generateslug">
+                                                        <input type="text" class="form-control "
+                                                            placeholder="Product Title" wire:model="name"
+                                                            wire:keyup="generateslug">
                                                     </div>
-                                                    @error('name') <p class="text-danger">{{$message}}</p>@enderror
+                                                    @error('name')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <!--mb-4-->
                                                 <div class="mbr  mb-3">
-                                                    <label for="form-category/slug" class="form-label infoTitle">Product Slug</label>
+                                                    <label for="form-category/slug"
+                                                        class="form-label infoTitle">Product
+                                                        Slug</label>
                                                     <div class="input-group input-group--sa-slug">
-                                                        <input type="text" placeholder="Product Slug" class="form-control"
-                                                            wire:model="slug" />
+                                                        <input type="text" placeholder="Product Slug"
+                                                            class="form-control" wire:model="slug" />
                                                     </div>
-                                                    @error('slug') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('slug')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-12  mb-3">
                                                     <label class="infoTitle"> Short Description</label>
                                                     <div class="input-form input-form2 " wire:ignore>
-                                                        <textarea  id="short_description"  placeholder="Short Description" wire:model="short_description">{!! $short_description !!}</textarea>
+                                                        <textarea id="short_description" placeholder="Short Description" wire:model="short_description">{!! $short_description !!}</textarea>
                                                     </div>
                                                 </div>
-                                                    @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
+                                                @error('short_description')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                @enderror
                                                 <div class="col-lg-12  mb-3">
                                                     <label class ="infoTitle my-2">Description</label>
                                                     <div class="input-form input-form2 " wire:ignore>
-                                                        <textarea id="description"  placeholder="Description" wire:model="description">{!! $description !!}</textarea>
+                                                        <textarea id="description" placeholder="Description" wire:model="description">{!! $description !!}</textarea>
                                                     </div>
                                                 </div>
-                                                    @error('description') <p class="text-danger">{{$message}}</p> @enderror
+                                                @error('description')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
                                                         <label class="infoTitle mt-2">Available for Exchange</label>
-                                                        <select name="select" class="form-control" wire:model="for_exchange">
+                                                        <select name="select" class="form-control"
+                                                            wire:model="for_exchange">
                                                             <option value="1">Yes</option>
                                                             <option value="0">No</option>
                                                         </select>
@@ -151,7 +413,8 @@
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
                                                         <label class="infoTitle mt-2">Available for Rent</label>
-                                                        <select name="select" class="form-control" wire:model="for_rent">
+                                                        <select name="select" class="form-control"
+                                                            wire:model="for_rent">
                                                             <option value="1">Yes</option>
                                                             <option value="0">No</option>
                                                         </select>
@@ -160,69 +423,80 @@
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
                                                         <label class="infoTitle mt-2">Available for Sell</label>
-                                                        <select name="select" class="form-control" wire:model="for_sell">
+                                                        <select name="select" class="form-control"
+                                                            wire:model="for_sell">
                                                             <option value="1">Yes</option>
                                                             <option value="0">No</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                                {{--<div class="col-lg-12">
+
+                                            {{-- <div class="col-lg-12">
                                                     <label class="form-label infoTitle">Product Specification</label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <input type="text" class="form-control " placeholder="product specification">
                                                         @error('pname') <p class="text-danger">{{$message}}</p>
                                                         @enderror
                                                     </div>
-                                                </div>--}}
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-3  mb-3">
-                                                        <label class="form-label infoTitle ">Product Price</label>
-                                                        <div class="input-group input-group--sa-slug">
-                                                            <input type="text" class="form-control " placeholder="product price" wire:model="prices" />
-                                                        </div>
-                                                            @error('prices') <p class="text-danger">{{$message}}</p> @enderror
+                                                </div> --}}
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-3  mb-3">
+                                                    <label class="form-label infoTitle ">Product Price</label>
+                                                    <div class="input-group input-group--sa-slug">
+                                                        <input type="text" class="form-control "
+                                                            placeholder="product price" wire:model="prices" />
                                                     </div>
-                                                    <div class="col-lg-3 col-md-3  mb-3">
-                                                        <label class="form-label infoTitle ">Price in range</label>
-                                                                    <div class="input-group input-group--sa-slug">
-                                                                        <!--mt-3-->
-                                                                        <select class="form-control mtr " wire:model="in_range" wire:change="ranges">
-                                                                            <option value="">Select Option</option>
-                                                                            <option value="0">No</option>
-                                                                            <option value="1">Yes</option>
-                                                                        </select>
-                                                                    </div>
+                                                    @error('prices')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-lg-6 col-md-3  mb-3">
+                                                    <label class="form-label infoTitle ">Price in range</label>
+                                                    <div class="input-group input-group--sa-slug">
+                                                        <!--mt-3-->
+                                                        <select class="form-control mtr " wire:model="in_range"
+                                                            wire:change="ranges">
+                                                            <option value="">Select Option</option>
+                                                            <option value="0">No</option>
+                                                            <option value="1">Yes</option>
+                                                        </select>
                                                     </div>
-                                                    <div class="col-lg-3 col-md-3  mb-3">
-                                                            @if($in_range==1)
-                                                            <label class="infoTitle mt-2">Range</label>
-                                                            <div class="input-group input-group--sa-slug">
-                                                                <!--mt-3-->
-                                                                    <select class="form-select" wire:model="price_range">
-                                                                        <option value="">Select Price Range</option>
-                                                                        <option value="1">{{($prices*90/100)}} to  {{($prices*110/100)}}</option>
-                                                                        <option value="2">{{($prices*85/100)}} to  {{($prices*115/100)}}</option>
-                                                                        <option value="3">{{($prices*80/100)}} to  {{($prices*120/100)}}</option>
-                                                                        <option value="4">{{($prices*75/100)}} to  {{($prices*125/100)}}</option>
-                                                                    </select>
-                                                            </div>
-                                                            @endif
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-3  mb-3">
-                                                        <label class="form-label infoTitle ">Price is negotiable</label>
+                                                </div>
+                                                @if ($in_range == 1)
+                                                    <div class="col-lg-6 col-md-3  mb-3">
+                                                        <label class="infoTitle ">Range</label>
                                                         <div class="input-group input-group--sa-slug">
                                                             <!--mt-3-->
-                                                            <select class="form-control mtr " wire:model="price_negotiable">
-                                                                <option value="">select option</option>
-                                                                <option value="0">No</option>
-                                                                <option value="1">Yes</option>
+                                                            <select class="form-select form-control mtr"
+                                                                wire:model="price_range">
+                                                                <option value="">Select Price Range</option>
+                                                                <option value="1">{{ ($prices * 90) / 100 }} to
+                                                                    {{ ($prices * 110) / 100 }}</option>
+                                                                <option value="2">{{ ($prices * 85) / 100 }} to
+                                                                    {{ ($prices * 115) / 100 }}</option>
+                                                                <option value="3">{{ ($prices * 80) / 100 }} to
+                                                                    {{ ($prices * 120) / 100 }}</option>
+                                                                <option value="4">{{ ($prices * 75) / 100 }} to
+                                                                    {{ ($prices * 125) / 100 }}</option>
                                                             </select>
                                                         </div>
                                                     </div>
+                                                @endif
+                                                <div class="col-lg-6 col-md-3  mb-3">
+                                                    <label class="form-label infoTitle ">Price is negotiable</label>
+                                                    <div class="input-group input-group--sa-slug">
+                                                        <!--mt-3-->
+                                                        <select class="form-control mtr "
+                                                            wire:model="price_negotiable">
+                                                            <option value="">select option</option>
+                                                            <option value="0">No</option>
+                                                            <option value="1">Yes</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                {{--<div class="col-lg-12">
+                                            </div>
+                                            {{-- <div class="col-lg-12">
                                                     <label class="form-label infoTitle">How many year Old</label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <input type="text" class="form-control" placeholder="years">
@@ -236,48 +510,59 @@
                                                         @error('validity') <p class="text-danger">
                                                             {{$message}}</p>@enderror
                                                     </div>
-                                                </div>--}}
+                                                </div> --}}
 
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
                                                         <label class="infoTitle">Country</label>
-                                                        <select class="form-control " wire:model="country_id" wire:change.prevent="changecountry">
+                                                        <select class="form-control " wire:model="country_id"
+                                                            wire:change.prevent="changecountry">
                                                             <option value="">Select Country</option>
-                                                            @foreach($countries as $country)
-                                                            <option value="{{$country->id}}">{{$country->name}}</option>
+                                                            @foreach ($countries as $country)
+                                                                <option value="{{ $country->id }}">
+                                                                    {{ $country->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                        @error('country_id') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('country_id')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
                                                         <label class="infoTitle">State</label>
-                                                        <select  class="form-control " wire:model="state_id" wire:change.prevent="changestate" >
+                                                        <select class="form-control " wire:model="state_id"
+                                                            wire:change.prevent="changestate">
                                                             <option value="">Select State</option>
-                                                            @foreach($states as $state)
-                                                            <option value="{{$state->id}}">{{$state->name}}</option>
+                                                            @foreach ($states as $state)
+                                                                <option value="{{ $state->id }}">
+                                                                    {{ $state->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                        @error('state_id') <p class="text-danger">{{$message}}</p>@enderror
+                                                    @error('state_id')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
                                                         <label class="infoTitle">City</label>
-                                                        <select  class="form-control" wire:model="city_id">
+                                                        <select class="form-control" wire:model="city_id">
                                                             <option value="">Select City</option>
-                                                            @foreach($cities as $city)
-                                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                                            @foreach ($cities as $city)
+                                                                <option value="{{ $city->id }}">
+                                                                    {{ $city->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    @error('city_id') <p class="text-danger">{{$message}}</p>@enderror
+                                                    @error('city_id')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
-                                            
-                                           <div class="row">
+
+                                            <div class="row">
                                                 {{-- <div class="col-lg-12 col-md-12">
                                                     <div class="condition">
                                                         <h6 class="infoTitle my-2">Get Location cordenat using option</h6>
@@ -309,151 +594,264 @@
                                                         <input type="text" name="long" id="long" class="longs form-control" wire:model="long" readonly>
                                                     </div>
                                                     
-                                                </div>--}}
+                                                </div> --}}
                                                 <div class="col-lg-12  mb-3">
                                                     <label class="form-label infoTitle ">Address</label>
-                                                    <div class="input-form input-form2">
-                                                        <input type="text" class="form-control " placeholder="address" wire:model="address">
+                                                    <div class="">
+                                                        <input type="text" class="form-control "
+                                                            placeholder="address" wire:model="address">
                                                     </div>
-                                                        @error('address') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('address')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12  mb-3">
-                                                    <label class="form-label infoTitle">ZipCode</label>
-                                                    <input type="text" placeholder="Zipcode"
-                                                        class="form-control" wire:model="zipcode" />
+                                                <label class="form-label infoTitle">ZipCode</label>
+                                                <input type="text" placeholder="Zipcode" class="form-control"
+                                                    wire:model="zipcode" />
                                             </div>
-                                            @error('zipcode') <p class="text-danger">{{$message}}</p> @enderror
+                                            @error('zipcode')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
                                             <div class="row">
-                                                <div class="col-lg-12  mb-3">
+                                                {{-- <div class="col-lg-12  mb-3">
                                                     <label class="infoTitle">Thumbnail Image</label>
                                                     <div class="input-form input-form2">
-                                                        <input type="file" placeholder="thumbnail image" wire:model="thumbimage">
-                                                        @if($thumbimage)
-                                                            <img src="{{$thumbimage->temporaryUrl()}}" width="120" />
+                                                        <input type="file" placeholder="thumbnail image"
+                                                            wire:model="thumbimage">
+                                                        @if ($thumbimage)
+                                                            <img src="{{ $thumbimage->temporaryUrl() }}"
+                                                                width="120" />
                                                         @endif
                                                     </div>
-                                                        @error('thumbimage') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('thumbimage')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div> --}}
+                                                <div class="col-lg-12 mb-3">
+                                                    <label class="infoTitle">Thumbnail Image</label>
+
+                                                    <!-- Custom file upload box -->
+                                                    <label for="thumbimage" class="custom-file-upload">
+                                                        <span>📁 Click to upload thumbnail</span>
+                                                    </label>
+                                                    <input type="file" id="thumbimage" wire:model="thumbimage" />
+
+                                                    @if ($thumbimage)
+                                                        <img src="{{ $thumbimage->temporaryUrl() }}" width="120"
+                                                            class="mt-2 rounded shadow-sm" />
+                                                    @endif
+
+                                                    @error('thumbimage')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
-                                                <div class="col-lg-12  mb-3">
+
+
+                                                {{-- <div class="col-lg-12  mb-3">
                                                     <label class="infoTitle">Featured Image</label>
                                                     <div class="input-form input-form2">
-                                                        <input type="file" placeholder="featured image" wire:model= "featimage">
-                                                    @if($featimage)
-                                                            <img src="{{$featimage->temporaryUrl()}}" width="120" />
+                                                        <input type="file" placeholder="featured image"
+                                                            wire:model= "featimage">
+                                                        @if ($featimage)
+                                                            <img src="{{ $featimage->temporaryUrl() }}"
+                                                                width="120" />
                                                         @endif
                                                     </div>
-                                                        @error('featimage') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('featimage')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div> --}}
+                                                <div class="col-lg-12 mb-3">
+                                                    <label class="infoTitle">Featured Image</label>
+
+                                                    <!-- Custom file upload label -->
+                                                    <label for="featUpload" class="custom-file-upload">
+                                                        <span>📁 Click here to upload featured image</span>
+                                                    </label>
+
+                                                    <!-- Hidden input -->
+                                                    <input type="file" id="featUpload" wire:model="featimage" />
+
+                                                    @if ($featimage)
+                                                        <img src="{{ $featimage->temporaryUrl() }}" width="120"
+                                                            class="mt-2 rounded shadow-sm" />
+                                                    @endif
+
+                                                    @error('featimage')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
-                                                <div class="col-lg-12  mb-3">
+
+                                                {{-- <div class="col-lg-12  mb-3">
                                                     <label class="infoTitle"> Image</label>
                                                     <div class="input-form input-form2">
-                                                        <input type="file" placeholder="image" wire:model="images" multiple>
-                                                        @if($images)
-                                                            @foreach($images as $image)
-                                                                <img src="{{$image->temporaryUrl()}}" width="120" />
+                                                        <input type="file" placeholder="image" wire:model="images"
+                                                            multiple>
+                                                        @if ($images)
+                                                            @foreach ($images as $image)
+                                                                <img src="{{ $image->temporaryUrl() }}"
+                                                                    width="120" />
                                                             @endforeach
                                                         @endif
                                                     </div>
-                                                        @error('images') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('images')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div> --}}
+                                                <div class="col-lg-12 mb-3">
+                                                    <label class="infoTitle">Images</label>
+
+                                                    <!-- Custom styled file upload for multiple images -->
+                                                    <label for="multiUpload" class="custom-file-upload">
+                                                        <span>📁 Click here to upload multiple images</span>
+                                                    </label>
+
+                                                    <!-- Hidden file input -->
+                                                    <input type="file" id="multiUpload" wire:model="images"
+                                                        multiple />
+
+                                                    @if ($images)
+                                                        <div class="d-flex flex-wrap gap-2 mt-2">
+                                                            @foreach ($images as $image)
+                                                                <img src="{{ $image->temporaryUrl() }}"
+                                                                    width="120" class="rounded shadow-sm" />
+                                                            @endforeach
+                                                        </div>
+                                                    @endif
+
+                                                    @error('images')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
+
                                             </div>
-                                            
+
                                             <div class="row">
                                                 <div class="col-lg-12  mb-3">
                                                     <label class="form-label infoTitle">Meta Tag</label>
                                                     <div class="input-group input-group--sa-slug">
-                                                        <input type="text" class="form-control " placeholder="Meta tag" wire:model="meta_keywords" />
+                                                        <input type="text" class="form-control "
+                                                            placeholder="Meta tag" wire:model="meta_keywords" />
                                                     </div>
-                                                    @error('meta_keywords') <p class="text-danger">{{$message}}</p>@enderror
+                                                    @error('meta_keywords')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-12  mb-3">
                                                     <label class="infoTitle">Meta Description</label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <textarea placeholder="Meta description" class="form-control " rows="2" wire:model="meta_description"></textarea>
                                                     </div>
-                                                        @error('meta_description') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('meta_description')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
-                                                <div class="col-lg-4 col-md-4col-lg-4 col-md-4col-lg-4 col-md-4 mb-lg-0 mb-md-3">
+                                                <div
+                                                    class="col-lg-4 col-md-4col-lg-4 col-md-4col-lg-4 col-md-4 mb-lg-0 mb-md-3 mb-3">
                                                     <label class="form-label infoTitle">Owner Name</label>
                                                     <div class="input-group input-group--sa-slug">
-                                                        <input type="text" class="form-control " placeholder="Owner name" wire:model="owner_name" />
+                                                        <input type="text" class="form-control "
+                                                            placeholder="Owner name" wire:model="owner_name" />
                                                     </div>
-                                                    @error('owner_name') <p class="text-danger">{{$message}}</p>@enderror
+                                                    @error('owner_name')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-4 col-md-4col-lg-4 col-md-4  mb-3">
                                                     <label class="form-label infoTitle">Contact number</label>
                                                     <div class="input-group input-group--sa-slug">
-                                                        <input type="text" class="form-control " placeholder="Contact no" wire:model="contact_number" />
+                                                        <input type="text" class="form-control "
+                                                            placeholder="Contact no" wire:model="contact_number" />
                                                     </div>
-                                                        @error('contact_number') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('contact_number')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <label class="form-label infoTitle">Email</label>
                                                     <div class="input-group input-group--sa-slug">
-                                                        <input type="text" class="form-control " placeholder="Email" wire:model="email_id" />
+                                                        <input type="text" class="form-control "
+                                                            placeholder="Email" wire:model="email_id" />
                                                     </div>
-                                                    @error('email_id') <p class="text-danger">{{$message}}</p>@enderror
+                                                    @error('email_id')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-12  mb-3">
                                                     <label class="form-label infoTitle">Exchange For</label>
                                                     <div class="input-group input-group--sa-slug">
-                                                        <input type="text" class="form-control " placeholder="Exchange For" wire:model="exchange_for" />
+                                                        <input type="text" class="form-control "
+                                                            placeholder="Exchange For" wire:model="exchange_for" />
                                                     </div>
-                                                    @error('exchange_for') <p class="text-danger">{{$message}}</p> @enderror
+                                                    @error('exchange_for')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
-                                             <div class="row">
-                                                    <div class="col-md-4  mb-3">
+                                            <div class="row">
+                                                <div class="col-md-4  mb-3">
                                                     <div class="mb-4">
                                                         <label class="form-label"> First City</label>
                                                         <select class="form-control" wire:model="city_id1">
                                                             <option value="0">Select City</option>
-                                                            @foreach($citiys as $city)
-                                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                                            @foreach ($citiys as $city)
+                                                                <option value="{{ $city->id }}">
+                                                                    {{ $city->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                        @error('city_id1') <p class="text-danger">{{$message}}</p>@enderror
-                                                    </div>
-                                                    <div class="col-md-4  mb-3">
+                                                    @error('city_id1')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-4  mb-3">
                                                     <div class="mb-4">
                                                         <label class="form-label">Second City</label>
                                                         <select class="form-control" wire:model="city_id2">
                                                             <option value="0">Select City</option>
-                                                            @foreach($citiys as $city)
-                                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                                            @foreach ($citiys as $city)
+                                                                <option value="{{ $city->id }}">
+                                                                    {{ $city->name }}</option>
                                                             @endforeach
                                                         </select>
-                                                            @error('city_id2') <p class="text-danger">{{$message}}</p> @enderror
-                                                    </div>
-                                                    </div>
-                                                    <div class="col-md-4  mb-3">
-                                                    <div class="mb-4">
-                                                        <label class="form-label">Third City</label>
-                                                            <select class="form-control" wire:model="city_id3">
-                                                            <option value="0">Select City</option>
-                                                            @foreach($citiys as $city)
-                                                                <option value="{{$city->id}}">{{$city->name}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                                @error('city_id3') <p class="text-danger">{{$message}}</p>@enderror
-                                                    </div>
+                                                        @error('city_id2')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
                                                     </div>
                                                 </div>
-                                            
-                                            
-                                            <div class="col-sm-12">
-                                                <div class="btn-wrapper mb-10 text-center">
-                                                <button  class="btn btn-primary" wire:click.prevent="preview">Preview</button>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <div class="col-md-4  mb-3">
+                                                    <div class="mb-4">
+                                                        <label class="form-label">Third City</label>
+                                                        <select class="form-control" wire:model="city_id3">
+                                                            <option value="0">Select City</option>
+                                                            @foreach ($citiys as $city)
+                                                                <option value="{{ $city->id }}">
+                                                                    {{ $city->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('city_id3')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            
+
+                                            <div class="col-sm-12">
+                                                <div class="btn-wrapper mb-10 text-center">
+                                                    <button class="btn btn-primary"
+                                                        wire:click.prevent="preview">Preview</button>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+
                                         </form>
-                                        @if(Session::has('message'))
-                                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                        @if (Session::has('message'))
+                                            <div class="alert alert-success" role="alert">
+                                                {{ Session::get('message') }}</div>
                                         @endif
                                     </div>
                                 </div>
@@ -465,152 +863,370 @@
             </div>
         </div>
     </div>
-<div wire:ignore.self class="modal fade" id="productPreviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Preview Product</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <label class="form-label">Category:</label>
-      <select class="form-control" wire:model="category_id" wire:change="changeSubcategory" disabled>
-            <option value="">Select Category</option>
-            @foreach($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
-            @endforeach
-        </select>
-      <label class="form-label">Sub Category:</label>
-      <select class="form-control" wire:model="scategory_id" wire:change="changeattribute" disabled>
-            <option value="0">Select Sub Category</option>
-            @foreach($scategories as $scategory)
-                <option value="{{$scategory->id}}">{{$scategory->name}}</option>
-            @endforeach
-        </select>
-        @if(isset($brands[0]))
-                                                    
-                    <label for="form-banner" class="form-label">Brands</label>
-                    <div class="col-md-12">
-                        <select class="form-control" wire:model="brand_id" disabled>
-                            <option value="0">Select Brand Name</option>
-                            @foreach($brands as $brand)
-                                <option value="{{$brand->id}}">{{$brand->name}}</option>
+    {{-- <div wire:ignore.self class="modal fade" id="productPreviewModal" data-bs-backdrop="static"
+        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Preview Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3"> 
+                        <label class="form-label">Category:</label>
+                        <select class="form-control" wire:model="category_id" wire:change="changeSubcategory" disabled>
+                            <option value="">Select Category</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
+                         </div>
+                    
+                    <div class="mb-3"> 
+                        <label class="form-label">Sub Category:</label>
+                        <select class="form-control" wire:model="scategory_id" wire:change="changeattribute" disabled>
+                            <option value="0">Select Sub Category</option>
+                            @foreach ($scategories as $scategory)
+                                <option value="{{ $scategory->id }}">{{ $scategory->name }}</option>
+                            @endforeach
+                        </select>
+
                     </div>
-                <label for="form-banner" class="form-label">Brands Model Number </label>
-                <div class="col-md-12">
-                    <select class="form-control" wire:model="modelnumber_id" disabled>
-                        <option value="0">Select Brand Model</option>
-                        @foreach($modelnumbers as $modelnumber)
-                            <option value="{{$modelnumber->id}}">{{$modelnumber->name}}</option>
+                    @if (isset($brands[0]))
+
+                        <label for="form-banner" class="form-label">Brands</label>
+                        <div class="col-md-12">
+                            <select class="form-control" wire:model="brand_id" disabled>
+                                <option value="0">Select Brand Name</option>
+                                @foreach ($brands as $brand)
+                                    <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <label for="form-banner" class="form-label">Brands Model Number </label>
+                        <div class="col-md-12">
+                            <select class="form-control" wire:model="modelnumber_id" disabled>
+                                <option value="0">Select Brand Model</option>
+                                @foreach ($modelnumbers as $modelnumber)
+                                    <option value="{{ $modelnumber->id }}">{{ $modelnumber->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
+                    @if (isset($attributes[0]))
+                        <label for="form-banner" class="form-label">Attributes </label>
+                        <div class="col-md-12">
+                            @foreach ($attributes as $key1 => $attribute)
+                                <label>{{ $attribute->attribute }}</label>
+                                <select class="form-control" wire:model="attribute_arr.{{ $key1 }}" disabled>
+                                    <option value="0">Select</option>
+                                    @foreach ($attribute->attributeoptions as $attributeoption)
+                                        <option value="{{ $attributeoption->id }}">
+                                            {{ $attributeoption->option_details }}</option>
+                                    @endforeach
+                                </select>
+                            @endforeach
+                        </div>
+                    @endif
+                    <label class="form-label ">Title:</label>{{ $this->name }}<br>
+                    <label class="form-label ">Product Slug:</label>{{ $this->slug }}<br>
+                    <label class="form-label ">Short Description:</label>
+                    <div class="input-group mb-3" wire:ignore>
+                        <textarea class ="form-control" disabled wire:model="short_description"></textarea>
+                    </div>
+                    <label class="form-label mb-3">Description:</label>
+                    <div class="input-group mb-3" wire:ignore>
+                        <textarea class ="form-control" disabled wire:model="description"></textarea>
+                    </div>
+                    <label class="form-label ">Available For Exchange:</label>
+                    @if ($this->for_exchange)
+                         Yes 
+                    @else
+                        No 
+                    @endif
+                    <br>
+                    <label class="form-label ">Available For Rent:</label>
+                    @if ($this->for_rent)
+                        Yes
+                    @else
+                        No
+                    @endif
+                    <br>
+                    <label class="form-label ">Avaiable For Sale:</label>
+                    @if ($this->for_sell)
+                        Yes
+                    @else
+                        No
+                    @endif
+                    <br>
+                    <label class="form-label">Price:</label>{{ $this->prices }}<br>
+                    <label class="form-label">Price Range:</label>
+                    @if ($this->in_range)
+                        Yes
+                    @else
+                        No
+                    @endif
+                    <br>
+                    @if ($in_range == 1)
+                        <label class="form-label">Range</label>
+                        <div class="input-group input-group--sa-slug">
+                            <select class="form-select mt-3" wire:model="price_range" disabled>
+                                <option value="">Select Price Range</option>
+                                <option value="0">{{ ($prices * 90) / 100 }} to {{ ($prices * 110) / 100 }}
+                                </option>
+                                <option value="1">{{ ($prices * 85) / 100 }} to {{ ($prices * 115) / 100 }}
+                                </option>
+                                <option value="2">{{ ($prices * 80) / 100 }} to {{ ($prices * 120) / 100 }}
+                                </option>
+                                <option value="3">{{ ($prices * 75) / 100 }} to {{ ($prices * 125) / 100 }}
+                                </option>
+                            </select>
+                        </div>
+                    @endif
+                    <label class="form-label ">Country:</label>
+                    <select class="form-control mb-3" wire:model="country_id" disabled>
+                        <option value="0">Select Country</option>
+                        @foreach ($countries as $country)
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
                     </select>
-                </div>
-        @endif
-        @if(isset($attributes[0]))                                                
-            <label for="form-banner" class="form-label">Attributes </label>
-                <div class="col-md-12">
-                    @foreach($attributes as $key1 => $attribute)
-                        <label>{{$attribute->attribute}}</label>
-                        <select class="form-control" wire:model="attribute_arr.{{$key1}}" disabled>
-                            <option value="0">Select</option>
-                            @foreach($attribute->attributeoptions as $attributeoption)
-                            <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
-                            @endforeach
-                        </select>
-                    @endforeach
-                </div>
-        @endif
-      <label class="form-label">Title:</label>{{$this->name}}<br>
-      <label class="form-label">Product Slug:</label>{{$this->slug}}<br>
-      <label class="form-label">Short Description:</label>
-      <div class="input-group" wire:ignore>
-            <textarea class ="form-control" disabled wire:model="short_description"></textarea>
-        </div>
-      <label class="form-label">Description:</label>
-      <div class="input-group" wire:ignore>
-            <textarea class ="form-control" disabled wire:model="description"></textarea>
-        </div>
-      <label class="form-label">Available For Exchange:</label>@if($this->for_exchange) Yes @else No @endif<br>
-      <label class="form-label">Available For Rent:</label>@if($this->for_rent) Yes @else No @endif<br>
-      <label class="form-label">Avaiable For Sale:</label>@if($this->for_sell) Yes @else No @endif<br>
-      <label class="form-label">Price:</label>{{$this->prices}}<br>
-      <label class="form-label">Price Range:</label>@if($this->in_range) Yes @else No @endif<br>
-        @if($in_range==1)
-            <label class="form-label">Range</label>
-            <div class="input-group input-group--sa-slug">
-                <select class="form-select mt-3" wire:model="price_range" disabled>
-                    <option value="">Select Price Range</option>
-                    <option value="0">{{($prices*90/100)}} to  {{($prices*110/100)}}</option>
-                    <option value="1">{{($prices*85/100)}} to  {{($prices*115/100)}}</option>
-                    <option value="2">{{($prices*80/100)}} to  {{($prices*120/100)}}</option>
-                    <option value="3">{{($prices*75/100)}} to  {{($prices*125/100)}}</option>
-                </select>
-            </div>
-         @endif
-      <label class="form-label">Country:</label>
-        <select class="form-control" wire:model="country_id" disabled>
-            <option value="0">Select Country</option>
-            @foreach($countries as $country)
-            <option value="{{$country->id}}">{{$country->name}}</option>
-            @endforeach
-        </select>
-      <label class="form-label">State:</label>
-      <select class="form-control"  wire:model="state_id" disabled>
-            <option value="0">Select State</option>
-            @foreach($states as $state)
-            <option value="{{$state->id}}">{{$state->name}}</option>
-            @endforeach
-        </select>
-      <label class="form-label">City:</label>
-      <select class="form-control" wire:model="city_id" disabled >
-            <option value="0">Select City</option>
-            @foreach($cities as $city)
-                <option value="{{$city->id}}">{{$city->name}}</option>
-            @endforeach
-        </select>
-      <label class="form-label">Address:</label>{{$this->address}}<br>
-      <label class="form-label">Thumbnail Images:</label><br>
-            @if($thumbimage)
-                <img src="{{$thumbimage->temporaryUrl()}}" width="120" /><br>
-            @endif
-      <label class="form-label">Featured Images:</label><br>
-            @if($featimage)
-                <img src="{{$featimage->temporaryUrl()}}" width="120" /><br>
-            @endif
-      <label class="form-label">Images 4+:</label><br>
-      @if($images)
-            @foreach($images as $image)
-                <img src="{{$image->temporaryUrl()}}" width="120" /><br>
-            @endforeach
-        @endif
-      <label class="form-label">Meta Tag:</label>{{$this->meta_keywords}}<br>
-      <label class="form-label">Meta Description:</label>{{$this->meta_description}}<br>
-      <label class="form-label">Owner Name:</label>{{$this->owner_name}}<br>
-      <label class="form-label">Contact No:</label>{{$this->contact_number}}<br>
-      <label class="form-label">Email:</label>{{$this->email_id}}<br>
-      <label class="form-label">Exchange For:</label>{{$this->exchange_for}}<br>
+                    <label class="form-label">State:</label>
+                    <select class="form-control mb-3" wire:model="state_id" disabled>
+                        <option value="0">Select State</option>
+                        @foreach ($states as $state)
+                            <option value="{{ $state->id }}">{{ $state->name }}</option>
+                        @endforeach
+                    </select>
+                    <label class="form-label">City:</label>
+                    <select class="form-control mb-3" wire:model="city_id" disabled>
+                        <option value="0">Select City</option>
+                        @foreach ($cities as $city)
+                            <option value="{{ $city->id }}">{{ $city->name }}</option>
+                        @endforeach
+                    </select>
+                    <label class="form-label">Address:</label>{{ $this->address }}<br>
+                    <label class="form-label">Thumbnail Images:</label><br>
+                    @if ($thumbimage)
+                        <img src="{{ $thumbimage->temporaryUrl() }}" width="120" /><br>
+                    @endif
+                    <label class="form-label">Featured Images:</label><br>
+                    @if ($featimage)
+                        <img src="{{ $featimage->temporaryUrl() }}" width="120" /><br>
+                    @endif
+                    <label class="form-label">Images 4+:</label><br>
+                    @if ($images)
+                        @foreach ($images as $image)
+                            <img src="{{ $image->temporaryUrl() }}" width="120" /><br>
+                        @endforeach
+                    @endif
+                    <label class="form-label">Meta Tag:</label>{{ $this->meta_keywords }}<br>
+                    <label class="form-label">Meta Description:</label>{{ $this->meta_description }}<br>
+                    <label class="form-label">Owner Name:</label>{{ $this->owner_name }}<br>
+                    <label class="form-label">Contact No:</label>{{ $this->contact_number }}<br>
+                    <label class="form-label">Email:</label>{{ $this->email_id }}<br>
+                    <label class="form-label">Exchange For:</label>{{ $this->exchange_for }}<br>
 
-     </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
-        <!-- <button type="button" class="btn btn-primary">Save</button> -->
-      </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                    <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <div wire:ignore.self class="modal fade" id="productPreviewModal" data-bs-backdrop="static"
+        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header  text-white">
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">Preview Product</h5>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Basic Info -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label ">Category</label>
+                            <select class="form-control" wire:model="category_id" disabled>
+                                <option>Select Category</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Sub Category</label>
+                            <select class="form-control" wire:model="scategory_id" disabled>
+                                <option>Select Sub Category</option>
+                                @foreach ($scategories as $scategory)
+                                    <option value="{{ $scategory->id }}">{{ $scategory->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    @if (isset($brands[0]))
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Brand</label>
+                                <select class="form-control" wire:model="brand_id" disabled>
+                                    <option>Select Brand</option>
+                                    @foreach ($brands as $brand)
+                                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Brand Model</label>
+                                <select class="form-control" wire:model="modelnumber_id" disabled>
+                                    <option>Select Model</option>
+                                    @foreach ($modelnumbers as $modelnumber)
+                                        <option value="{{ $modelnumber->id }}">{{ $modelnumber->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    @endif
+
+                    <!-- Attributes -->
+                    @if (isset($attributes[0]))
+                        <div class="mb-4">
+                            <label class="form-label ">Attributes</label>
+                            <div class="row">
+                                @foreach ($attributes as $key1 => $attribute)
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">{{ $attribute->attribute }}</label>
+                                        <select class="form-control" wire:model="attribute_arr.{{ $key1 }}"
+                                            disabled>
+                                            <option value="0">Select</option>
+                                            @foreach ($attribute->attributeoptions as $attributeoption)
+                                                <option value="{{ $attributeoption->id }}">
+                                                    {{ $attributeoption->option_details }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
+                    <!-- Product Info -->
+                    <div class="mb-3">
+                        <p> Title:  {{ $this->name }}</p>
+                        <p>Slug:  {{ $this->slug }}</p>
+                        <p>Short Description: </p>
+                        <textarea class="form-control mb-2" disabled>{{ $this->short_description }}</textarea>
+                        <p> Description: </p>
+                        <textarea class="form-control" rows="3" disabled>{{ $this->description }}</textarea>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4"> Exchange:  {{ $this->for_exchange ? 'Yes' : 'No' }}
+                        </div>
+                        <div class="col-md-4"> Rent:  {{ $this->for_rent ? 'Yes' : 'No' }}</div>
+                        <div class="col-md-4"> Sell:  {{ $this->for_sell ? 'Yes' : 'No' }}</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <p> Price:  ₹{{ $this->prices }}</p>
+                        <p> In Price Range:  {{ $this->in_range ? 'Yes' : 'No' }}</p>
+                        @if ($in_range)
+                            <label class="form-label">Select Price Range:</label>
+                            <select class="form-control mt-2" wire:model="price_range" disabled>
+                                <option value="">Select Price Range</option>
+                                <option value="0">{{ ($prices * 90) / 100 }} to {{ ($prices * 110) / 100 }}
+                                </option>
+                                <option value="1">{{ ($prices * 85) / 100 }} to {{ ($prices * 115) / 100 }}
+                                </option>
+                                <option value="2">{{ ($prices * 80) / 100 }} to {{ ($prices * 120) / 100 }}
+                                </option>
+                                <option value="3">{{ ($prices * 75) / 100 }} to {{ ($prices * 125) / 100 }}
+                                </option>
+                            </select>
+                        @endif
+                    </div>
+
+                    <!-- Location Info -->
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label ">Country</label>
+                            <select class="form-control" wire:model="country_id" disabled>
+                                <option>Select Country</option>
+                                @foreach ($countries as $country)
+                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label ">State</label>
+                            <select class="form-control" wire:model="state_id" disabled>
+                                <option>Select State</option>
+                                @foreach ($states as $state)
+                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label ">City</label>
+                            <select class="form-control" wire:model="city_id" disabled>
+                                <option>Select City</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <p> Address:  {{ $this->address }}</p>
+
+                    <!-- Images -->
+                    <div class="mb-3">
+                        <label class="form-label ">Images</label><br>
+                        @if ($thumbimage)
+                            <p>Thumbnail:</p>
+                            <img src="{{ $thumbimage->temporaryUrl() }}" width="120" class="me-2 mb-2" />
+                        @endif
+                        @if ($featimage)
+                            <p>Featured:</p>
+                            <img src="{{ $featimage->temporaryUrl() }}" width="120" class="me-2 mb-2" />
+                        @endif
+                        @if ($images)
+                            <p>Gallery:</p>
+                            @foreach ($images as $image)
+                                <img src="{{ $image->temporaryUrl() }}" width="120" class="me-2 mb-2" />
+                            @endforeach
+                        @endif
+                    </div>
+
+                    <!-- Meta & Contact -->
+                    <div class="mb-3">
+                        <p> Meta Tag:  {{ $this->meta_keywords }}</p>
+                        <p> Meta Description:  {{ $this->meta_description }}</p>
+                        <p> Owner Name:  {{ $this->owner_name }}</p>
+                        <p> Contact No:  {{ $this->contact_number }}</p>
+                        <p> Email:  {{ $this->email_id }}</p>
+                        <p> Exchange For:  {{ $this->exchange_for }}</p>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
 </div>
 
 @push('scripts')
-
-<script>
-    document.addEventListener('livewire:init', () => {
-       Livewire.on('openproductPreviewModal', (event) => {
-        $('#productPreviewModal').modal('show');
-       });
-    });
-</script>
+    <script>
+        document.addEventListener('livewire:init', () => {
+            Livewire.on('openproductPreviewModal', (event) => {
+                $('#productPreviewModal').modal('show');
+            });
+        });
+    </script>
     <script>
         // function show2(){
         //     // $("#box").hide();
@@ -618,16 +1234,17 @@
         //     document.getElementById('mapa').style.display = 'block';
         //     }
 
-        function show2(){
+        function show2() {
             // alert("ee")
-        // $("#mapa").toggle();
-        // alert("rrr")
-        document.getElementById('map-container').style.display = 'block';
+            // $("#mapa").toggle();
+            // alert("rrr")
+            document.getElementById('map-container').style.display = 'block';
         }
     </script>
 
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5fD8-BwH8kMsjb-HQS_4NG0f7FRcHS4&callback=initMap"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5fD8-BwH8kMsjb-HQS_4NG0f7FRcHS4&callback=initMap"></script>
 
     <script>
         // In the following example, markers appear when the user clicks on the map.
@@ -637,7 +1254,10 @@
         var markers = [];
 
         function initMap() {
-            var center = {lat:37.769, lng:-122.446};
+            var center = {
+                lat: 37.769,
+                lng: -122.446
+            };
 
             map = new google.maps.Map(document.getElementById('mapa'), {
                 zoom: 12,
@@ -652,12 +1272,12 @@
                 $('#lat').val(event.latLng.lat());
                 $('#long').val(event.latLng.lng());
 
-                @this.set('lat',event.latLng.lat());
-                @this.set('long',event.latLng.lng());
-               // document.getElementById("text").innerHTML = event.latLng.lat() + ',' + event.latLng.lng();
+                @this.set('lat', event.latLng.lat());
+                @this.set('long', event.latLng.lng());
+                // document.getElementById("text").innerHTML = event.latLng.lat() + ',' + event.latLng.lng();
 
 
-           
+
             });
 
 
@@ -685,29 +1305,27 @@
         }
     </script>
     <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
-<script>
-    ClassicEditor.create( document.querySelector( '#short_description' ) )
+    <script>
+        ClassicEditor.create(document.querySelector('#short_description'))
             .then(editor => {
                 editor.model.document.on('change:data', () => {
-                @this.set('short_description', editor.getData());
-                })
-            })
-        .catch( error => {
-            console.error( error );
-        } );
-                    
-</script>
-<script>
-        ClassicEditor
-            .create(document.querySelector('#description'))
-            .then(editor => {
-                editor.model.document.on('change:data', () => {
-                @this.set('description', editor.getData());
+                    @this.set('short_description', editor.getData());
                 })
             })
             .catch(error => {
                 console.error(error);
             });
     </script>
-    
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .then(editor => {
+                editor.model.document.on('change:data', () => {
+                    @this.set('description', editor.getData());
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endpush
