@@ -169,7 +169,7 @@
                 
                     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
                         <div class="promoteAds">
-                            <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s"
+                    {{--   <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s"
                                 style="visibility: visible; animation-delay: 0s; animation-name: fadeInLeft;">
                                 <div class="singlePromoteAds mb-24  wow fadeInUp social" data-wow-delay="0.0s"
                                     style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
@@ -308,7 +308,9 @@
                                                 class="las la-heart icon"></i>Pending</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+
+                            <p class="noed text-center">No item in Order List</p>
 
                         </div>
                     </div>

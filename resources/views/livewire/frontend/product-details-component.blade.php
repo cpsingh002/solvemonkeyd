@@ -62,6 +62,14 @@
                 <div class="col-xl-7 col-md-7 col-12">
 
                     <div class="product-view-wrap" id="myTabContent" wire:ignore>
+                        @if($product->admin_verified == 1)
+                        <div class="verifed-section" style="position: absolute;  z-index: 999999; padding: 1% !important; text-align: center;">
+                            <div class="recentImg">
+                                <img class="" src="{{asset('assets/img/logo/solve-logo1.png')}}" alt="images" width="100px" height="100px">
+                            </div>
+                            <!-- <span>Verified</span> -->
+                        </div>
+                        @endif
                         <div class="shop-details-gallery-slider global-slick-init slider-inner-margin sliderArrow"
                             data-asNavFor=".shop-details-gallery-nav" data-infinite="true" data-arrows="false"
                             data-dots="false" data-slidesToShow="1" data-swipeToSlide="true" data-fade="true"

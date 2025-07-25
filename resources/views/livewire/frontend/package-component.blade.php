@@ -13,6 +13,9 @@
                         </div>
                     </div>
                 </div>
+                @if (session('success'))
+                    <div class="alert alert-success mt-3">{{ session('success') }}</div>
+                @endif
                 @if(Session::has('message'))
                      <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                 @endif

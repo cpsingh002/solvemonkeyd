@@ -441,6 +441,23 @@
                                                     </div>
                                                     </div>
                                                 </div>
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <label class="form-label">Remark About Product</label>
+                                                        <div class="input-form input-form2" wire:ignore>
+                                                            <textarea  id="" placeholder="Reamrk About Product" wire:model="remark">{!! $remark !!}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label class="form-label"> Are you want To verifed this listing?</label>
+                                                        <select class="form-control" wire:model="isverified">
+                                                            <option value="">Select option</option>
+                                                            <option value="0">No</option>
+                                                            <option value="1">Yes</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             
                                             
                                             <div class="col-sm-12">

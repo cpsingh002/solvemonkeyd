@@ -92,6 +92,8 @@ use App\Livewire\Subscribers\SubscriberComponent;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/uploadfile',[HomeController::class,'ProductImport']);
+Route::post('/uploadfile',[HomeController::class,'ProductImportstoreBike'])->name('upload.file');
 
 Route::get('/listing-policy', function () {
     return view('livewire.frontend.Listing-Policy');
@@ -120,7 +122,7 @@ Route::get('product-brand/{brand_slug}', BrandSearchComponent::class)->name('pro
 
 Route::get('/thank-you', ThankyouComponent::class)->name('thankyou');
 
-Route::middleware(['auth:sanctum', 'verified', 'userauth'])->group(function () {
+Route::middleware(['auth:sanctum', 'userauth'])->group(function () {
     Route::get('/message/{chatid?}', MessageComponent::class)->name('message');
     Route::get('/user-order', UserOrderComponent::class)->name('user-order');
     Route::get('/user-account', UserAccountComponent::class)->name('user-account');
@@ -138,6 +140,7 @@ Route::middleware(['auth:sanctum', 'verified', 'userauth'])->group(function () {
 
     Route::get('/buy-package/{slug}', [PaymentController::class, 'checkout'])->name('razorpay.checkout');
     Route::post('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('razorpay.success');
+    Route::get('/freepayment/success/{sid}', [PaymentController::class, 'FreePackagepaymentSuccess'])->name('package.freesuccess');
 });
 
 // frontend routes

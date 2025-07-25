@@ -34,7 +34,7 @@
 <!--</style>-->
 
 <body>
-    
+
     @livewire('header-component')
 
     @yield('content')

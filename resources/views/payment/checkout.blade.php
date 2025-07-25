@@ -113,8 +113,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <button id="payBtn" class="btn">Continue to checkout</button>
+                    @if($package->price > 0)
+                        <button id="payBtn" class="btn">Continue to checkout</button>
+                    @else 
+                        <a href="{{route('package.freesuccess',['sid'=>$package->pslug])}}"><button id="freeplanBtn" class="btn">Continue to Add</button></a>
+                    @endif
 
                     @if (session('success'))
                         <div class="alert alert-success mt-3">{{ session('success') }}</div>
@@ -127,6 +130,7 @@
 
 @push('scripts')
     {{-- Razorpay JS --}}
+    @if($package->price > 0)
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         document.getElementById('payBtn').onclick = function(e) {
@@ -177,4 +181,5 @@
             rzp.open();
         }
     </script>
+    @endif
 @endpush

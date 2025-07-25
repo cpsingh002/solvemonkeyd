@@ -54,8 +54,10 @@
                                  <td>{{$product->address}}</td>
                                  <td>{{$product->exchange_for}}</td>
                                  <td>@if($product->user_verified == 1) 
+                                    @if($product->admin_verified == 0)
                                     <a href="#" wire:click.prevent='adminverified({{$product->id}})' onclick="confirm('Are you sure you want to Verified this product?') || event.stopImmediatePropagation()">Verified </a>
                                     @else <a href="#" wire:click.prevent='admindeverifed({{$product->id}})' onclick="confirm('Are you sure you want to de-verified this product?') || event.stopImmediatePropagation()">De-verified </a> @endif
+                                    @else <span>No Required</span>@endif
                                 </td>
                                  <td>@if($product->status==1) 
                                         <a href="#" wire:click.prevent='changeActive({{$product->id}})' onclick="confirm('Are you sure you want to de-active this product?') || event.stopImmediatePropagation()">Active </a>

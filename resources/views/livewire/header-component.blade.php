@@ -22,7 +22,7 @@
                             <li><a href="{{route('product-list')}}">All Ads</a></li>
                             <li><a href="{{route('about')}}">About us</a></li>
                             <li><a href="{{route('contact')}}">Contact</a></li>
-                            <li><a href="{{route('comapny.offer')}}">Compnay Offer</a></li>
+                            <li><a href="{{route('comapny.offer')}}">Company Offer</a></li>
                             <li>
                                <div class="sibeBar-Wrapper d-lg-none d-md-block ">
 
