@@ -258,7 +258,7 @@
                                             <div class="row ">
                                                 <div class="col-lg-6 col-md-6  mb-3">
                                                     <div class="select-itmss">
-                                                        <label class="infoTitle">Category</label>
+                                                        <label class="infoTitle">Category<span class="text-danger">*</span></label>
                                                         <select class="form-control" wire:model="category_id"
                                                             wire:change="changeSubcategory">
                                                             <option value="">Select Category</option>
@@ -275,7 +275,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-md-6  mb-3">
                                                     <div class="select-itmss">
-                                                        <label class="infoTitle">Subcategory</label>
+                                                        <label class="infoTitle">Subcategory<span class="text-danger">*</span></label>
 
                                                         <select class="form-control " wire:model="scategory_id"
                                                             wire:change="changeattribute">
@@ -294,7 +294,7 @@
                                                 @if (isset($brands[0]))
                                                     <div class="col-lg-6 col-md-6  mb-3">
                                                         <div class="select-itmss">
-                                                            <label class="infoTitle">Brand</label>
+                                                            <label class="infoTitle">  Brand <span class="text-danger">*</span></label>
                                                             <select class="form-control " wire:model="brand_id"
                                                                 wire:change="changebrands">
                                                                 <option value="">Select Brand Name</option>
@@ -310,7 +310,7 @@
                                                     </div>
                                                     <div class="col-lg-6 col-md-6  mb-3">
                                                         <div class="select-itmss">
-                                                            <label class="infoTitle ">Brand Model Number</label>
+                                                            <label class="infoTitle ">   Model Number <span class="text-danger">*</span></label>
                                                             <select name="select" class="form-control "
                                                                 wire:model="modelnumber_id">
                                                                 <option value="">Select Brand Model</option>
@@ -331,7 +331,7 @@
                                             @if (isset($attributes[0]))
                                                 <div class="mb-2">
                                                     <label for="form-banner"
-                                                        class="form-label infoTitle info">Attributes </label>
+                                                        class="form-label infoTitle info"> Attributes <span class="text-danger">*</span></label>
                                                     <div class="col-md-12">
                                                         @foreach ($attributes as $key1 => $attribute)
                                                             <label
@@ -357,9 +357,9 @@
                                             @endif
                                             <div class="row">
                                                 <div class="col-lg-12  mb-3">
-                                                    <label class="infoTitle ">Title</label>
+                                                    <label class="infoTitle "> Title<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
-                                                        <input type="text" class="form-control "
+                                                        <input type="text" class="form-control " 
                                                             placeholder="Product Title" wire:model="name"
                                                             wire:keyup="generateslug">
                                                     </div>
@@ -370,8 +370,8 @@
                                                 <!--mb-4-->
                                                 <div class="mbr  mb-3">
                                                     <label for="form-category/slug"
-                                                        class="form-label infoTitle">Product
-                                                        Slug</label>
+                                                        class="form-label infoTitle"> Product  
+                                                        Slug<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <input type="text" placeholder="Product Slug"
                                                             class="form-control" wire:model="slug" />
@@ -381,7 +381,7 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-lg-12  mb-3">
-                                                    <label class="infoTitle"> Short Description</label>
+                                                    <label class="infoTitle"> Short Description<span class="text-danger">*</span></label>
                                                     <div class="input-form input-form2 " wire:ignore>
                                                         <textarea id="short_description" placeholder="Short Description" wire:model="short_description">{!! $short_description !!}</textarea>
                                                     </div>
@@ -390,7 +390,7 @@
                                                     <p class="text-danger">{{ $message }}</p>
                                                 @enderror
                                                 <div class="col-lg-12  mb-3">
-                                                    <label class ="infoTitle my-2">Description</label>
+                                                    <label class ="infoTitle my-2">Description<span class="text-danger">*</span></label>
                                                     <div class="input-form input-form2 " wire:ignore>
                                                         <textarea id="description" placeholder="Description" wire:model="description">{!! $description !!}</textarea>
                                                     </div>
@@ -402,7 +402,7 @@
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
-                                                        <label class="infoTitle mt-2">Available for Exchange</label>
+                                                        <label class="infoTitle mt-2">Available for Exchange<span class="text-danger">*</span></label>
                                                         <select name="select" class="form-control"
                                                             wire:model="for_exchange">
                                                             <option value="1">Yes</option>
@@ -412,7 +412,7 @@
                                                 </div>
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
-                                                        <label class="infoTitle mt-2">Available for Rent</label>
+                                                        <label class="infoTitle mt-2">Available for Rent<span class="text-danger">*</span></label>
                                                         <select name="select" class="form-control"
                                                             wire:model="for_rent">
                                                             <option value="1">Yes</option>
@@ -422,7 +422,7 @@
                                                 </div>
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
-                                                        <label class="infoTitle mt-2">Available for Sell</label>
+                                                        <label class="infoTitle mt-2">Available for Sell<span class="text-danger">*</span></label>
                                                         <select name="select" class="form-control"
                                                             wire:model="for_sell">
                                                             <option value="1">Yes</option>
@@ -442,7 +442,7 @@
                                                 </div> --}}
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-3  mb-3">
-                                                    <label class="form-label infoTitle ">Product Price</label>
+                                                    <label class="form-label infoTitle ">Product Price<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <input type="text" class="form-control "
                                                             placeholder="product price" wire:model="prices" />
@@ -452,7 +452,7 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-lg-6 col-md-3  mb-3">
-                                                    <label class="form-label infoTitle ">Price in range</label>
+                                                    <label class="form-label infoTitle ">Price in range<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <!--mt-3-->
                                                         <select class="form-control mtr " wire:model="in_range"
@@ -465,7 +465,7 @@
                                                 </div>
                                                 @if ($in_range == 1)
                                                     <div class="col-lg-6 col-md-3  mb-3">
-                                                        <label class="infoTitle ">Range</label>
+                                                        <label class="infoTitle ">Range<span class="text-danger">*</span></label>
                                                         <div class="input-group input-group--sa-slug">
                                                             <!--mt-3-->
                                                             <select class="form-select form-control mtr"
@@ -484,7 +484,7 @@
                                                     </div>
                                                 @endif
                                                 <div class="col-lg-6 col-md-3  mb-3">
-                                                    <label class="form-label infoTitle ">Price is negotiable</label>
+                                                    <label class="form-label infoTitle ">Price is negotiable<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <!--mt-3-->
                                                         <select class="form-control mtr "
@@ -515,7 +515,7 @@
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
-                                                        <label class="infoTitle">Country</label>
+                                                        <label class="infoTitle">Country<span class="text-danger">*</span></label>
                                                         <select class="form-control " wire:model="country_id"
                                                             wire:change.prevent="changecountry">
                                                             <option value="">Select Country</option>
@@ -531,7 +531,7 @@
                                                 </div>
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
-                                                        <label class="infoTitle">State</label>
+                                                        <label class="infoTitle">State<span class="text-danger">*</span></label>
                                                         <select class="form-control " wire:model="state_id"
                                                             wire:change.prevent="changestate">
                                                             <option value="">Select State</option>
@@ -547,7 +547,7 @@
                                                 </div>
                                                 <div class="col-lg-4 col-md-4  mb-3">
                                                     <div class="select-itmss ">
-                                                        <label class="infoTitle">City</label>
+                                                        <label class="infoTitle">City<span class="text-danger">*</span></label>
                                                         <select class="form-control" wire:model="city_id">
                                                             <option value="">Select City</option>
                                                             @foreach ($cities as $city)
@@ -596,7 +596,7 @@
                                                     
                                                 </div> --}}
                                                 <div class="col-lg-12  mb-3">
-                                                    <label class="form-label infoTitle ">Address</label>
+                                                    <label class="form-label infoTitle ">Address<span class="text-danger">*</span></label>
                                                     <div class="">
                                                         <input type="text" class="form-control "
                                                             placeholder="address" wire:model="address">
@@ -607,7 +607,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12  mb-3">
-                                                <label class="form-label infoTitle">ZipCode</label>
+                                                <label class="form-label infoTitle">ZipCode<span class="text-danger">*</span></label>
                                                 <input type="text" placeholder="Zipcode" class="form-control"
                                                     wire:model="zipcode" />
                                             </div>
@@ -630,17 +630,17 @@
                                                     @enderror
                                                 </div> --}}
                                                 <div class="col-lg-12 mb-3">
-                                                    <label class="infoTitle">Thumbnail Image</label>
+                                                    <label class="infoTitle">Thumbnail Image<span class="text-danger">*</span></label>
 
                                                     <!-- Custom file upload box -->
                                                     <label for="thumbimage" class="custom-file-upload">
-                                                        <span>📁 Click to upload thumbnail</span>
+                                                        <span>📁 Click to upload thumbnail<span class="text-danger">*</span></span>
                                                     </label>
                                                     <input type="file" id="thumbimage" wire:model="thumbimage" />
 
                                                     @if ($thumbimage)
                                                         <img src="{{ $thumbimage->temporaryUrl() }}" width="120"
-                                                            class="mt-2 rounded shadow-sm" />
+                                                            class="mt-2 rounded shadow-sm img-design"   />
                                                     @endif
 
                                                     @error('thumbimage')
@@ -664,7 +664,7 @@
                                                     @enderror
                                                 </div> --}}
                                                 <div class="col-lg-12 mb-3">
-                                                    <label class="infoTitle">Featured Image</label>
+                                                    <label class="infoTitle">Featured Image<span class="text-danger">*</span></label>
 
                                                     <!-- Custom file upload label -->
                                                     <label for="featUpload" class="custom-file-upload">
@@ -676,7 +676,7 @@
 
                                                     @if ($featimage)
                                                         <img src="{{ $featimage->temporaryUrl() }}" width="120"
-                                                            class="mt-2 rounded shadow-sm" />
+                                                            class="mt-2 rounded shadow-sm img-design" />
                                                     @endif
 
                                                     @error('featimage')
@@ -701,7 +701,7 @@
                                                     @enderror
                                                 </div> --}}
                                                 <div class="col-lg-12 mb-3">
-                                                    <label class="infoTitle">Images</label>
+                                                    <label class="infoTitle">Images<span class="text-danger">*</span></label>
 
                                                     <!-- Custom styled file upload for multiple images -->
                                                     <label for="multiUpload" class="custom-file-upload">
@@ -716,7 +716,7 @@
                                                         <div class="d-flex flex-wrap gap-2 mt-2">
                                                             @foreach ($images as $image)
                                                                 <img src="{{ $image->temporaryUrl() }}"
-                                                                    width="120" class="rounded shadow-sm" />
+                                                                    width="120" class="rounded shadow-sm img-design" />
                                                             @endforeach
                                                         </div>
                                                     @endif
@@ -730,7 +730,7 @@
 
                                             <div class="row">
                                                 <div class="col-lg-12  mb-3">
-                                                    <label class="form-label infoTitle">Meta Tag</label>
+                                                    <label class="form-label infoTitle">Meta Tag<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <input type="text" class="form-control "
                                                             placeholder="Meta tag" wire:model="meta_keywords" />
@@ -740,7 +740,7 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-lg-12  mb-3">
-                                                    <label class="infoTitle">Meta Description</label>
+                                                    <label class="infoTitle">Meta Description<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <textarea placeholder="Meta description" class="form-control " rows="2" wire:model="meta_description"></textarea>
                                                     </div>
@@ -750,7 +750,7 @@
                                                 </div>
                                                 <div
                                                     class="col-lg-4 col-md-4col-lg-4 col-md-4col-lg-4 col-md-4 mb-lg-0 mb-md-3 mb-3">
-                                                    <label class="form-label infoTitle">Owner Name</label>
+                                                    <label class="form-label infoTitle">Owner Name<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <input type="text" class="form-control "
                                                             placeholder="Owner name" wire:model="owner_name" />
@@ -760,7 +760,7 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-lg-4 col-md-4col-lg-4 col-md-4  mb-3">
-                                                    <label class="form-label infoTitle">Contact number</label>
+                                                    <label class="form-label infoTitle">Contact number<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <input type="text" class="form-control "
                                                             placeholder="Contact no" wire:model="contact_number" />
@@ -770,7 +770,7 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-lg-4 col-md-4  mb-3">
-                                                    <label class="form-label infoTitle">Email</label>
+                                                    <label class="form-label infoTitle">Email<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <input type="text" class="form-control "
                                                             placeholder="Email" wire:model="email_id" />
@@ -780,7 +780,7 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-lg-12  mb-3">
-                                                    <label class="form-label infoTitle">Exchange For</label>
+                                                    <label class="form-label infoTitle">Exchange For<span class="text-danger">*</span></label>
                                                     <div class="input-group input-group--sa-slug">
                                                         <input type="text" class="form-control "
                                                             placeholder="Exchange For" wire:model="exchange_for" />

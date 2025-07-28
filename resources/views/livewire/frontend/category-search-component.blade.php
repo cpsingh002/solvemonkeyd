@@ -131,7 +131,7 @@
                             <h5 class="catTittle2">All Brands</h5>
 
 
-                            <ul class="listing listScroll">
+                            <ul class="listing listScroll product_brand" >
                                 @foreach($brands as $brand)
                                 <!--class="me-2"-->
                                     <li class="listItem"><input  type="checkbox" wire:model="brandtype" value="{{$brand->id}}" wire:click="brandseletc"><span class="fs-14">{{$brand->name}} ({{$brand->brandcount->count()}})</span></li>
