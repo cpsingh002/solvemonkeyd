@@ -2,49 +2,45 @@
   
       <style>
     
-     @media(max-width:768px){
-    .footerWrapper .footer-area .footer-tittle .listing .listItem .singleLinks {
-    font-size: 11px !important;
-  } 
-  
-  .footerWrapper .footer-area .footer-form .newsletter-footer .input {
-    margin-left: -64px;
-     width:100%;
-}
+        @media(max-width:768px){
+            .footerWrapper .footer-area .footer-tittle .listing .listItem .singleLinks {
+                font-size: 11px !important;
+            }    
+            
+            .footerWrapper .footer-area .footer-form .newsletter-footer .input {
+                margin-left: -64px;
+                width:100%;
+            }
 
-.recentListing .singleFlexitem .recentCaption .featureTittle {
-    font-size: 15px;
-    height: 25px;
-    /* font-weight: 600; */
-    overflow: hidden;
-}
+            .recentListing .singleFlexitem .recentCaption .featureTittle {
+                font-size: 15px;
+                height: 25px;
+                /* font-weight: 600; */
+                overflow: hidden;
+            }
 
-     
- }   
- 
-  @media(max-width:830px){
-       
-     .footerWrapper .footer-area .footer-tittle .listing .listItem .singleLinks {
-    font-size: 11px !important;
-  } 
-  
-  .footerWrapper .footer-area .footer-form .newsletter-footer .input {
-    margin-left: -64px;
-    width:100%;
-}
+                
+        }   
+            
+        @media(max-width:830px){
+                
+            .footerWrapper .footer-area .footer-tittle .listing .listItem .singleLinks {
+                font-size: 11px !important;
+            } 
+            
+            .footerWrapper .footer-area .footer-form .newsletter-footer .input {
+                margin-left: -64px;
+                width:100%;
+            }
 
-  .recentListing .singleFlexitem .recentCaption .featureTittle {
-    font-size: 15px;
-    height: 25px;
-    /* font-weight: 600; */
-    overflow: hidden;
-}
+            .recentListing .singleFlexitem .recentCaption .featureTittle {
+                font-size: 15px;
+                height: 25px;
+                /* font-weight: 600; */
+                overflow: hidden;
+            }
 
-     
- } 
-
- 
- 
+        }     
     </style>  
 
     <div class="proDetails section-padding2">
@@ -52,7 +48,7 @@
 
             <div class="row mb-40 mt-md-0 mt-3">
                 <div class="col-sm-12">
-                    <nav aria-label="breadcrumb ">
+                    <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrumbs">
                             <li class="breadcrumb-item"><a href="{{route('/')}}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{route('product.category',['category_slug'=>$product->category->slug])}}">{{$product->category->slug }}</a></li>
@@ -66,6 +62,14 @@
                 <div class="col-xl-7 col-md-7 col-12">
 
                     <div class="product-view-wrap" id="myTabContent" wire:ignore>
+                        @if($product->admin_verified == 1)
+                        <div class="verifed-section" style="position: absolute;  z-index: 999999; padding: 1% !important; text-align: center;">
+                            <div class="recentImg">
+                                <img class="" src="{{asset('assets/img/logo/solve-logo1.png')}}" alt="images" width="100px" height="100px">
+                            </div>
+                            <!-- <span>Verified</span> -->
+                        </div>
+                        @endif
                         <div class="shop-details-gallery-slider global-slick-init slider-inner-margin sliderArrow"
                             data-asNavFor=".shop-details-gallery-nav" data-infinite="true" data-arrows="false"
                             data-dots="false" data-slidesToShow="1" data-swipeToSlide="true" data-fade="true"
@@ -133,12 +137,9 @@
                                 </span>
                                  @if(Auth::check())
                                 <div class="detailsTittle">
-                                    @php
-                                        $witems = Cart::instance('wishlist')->content()->pluck('id');
-                                    @endphp
+                                   
                                     @if($witems->contains($product->id))
                                     
-                                   
                                         <a href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fa fa-heart fill-heart"></i></a>
                                     @else
                                         <a href="#" wire:click.prevent="addToWishlist({{$product->id}}, '{{$product->name}}' ,{{$product->prices}})"><i class="lar la-heart icon"></i></a>
@@ -189,27 +190,29 @@
                         <div class="descriptionFooter">
                             <div class="btn-wrapper">
                                 @auth
+
                                     @if($witems->contains($product->id))
-                                        <a href="#" ><i class="lab la-font-awesome-flag icon"></i>Already Interested</a>
+                                        <a href="#" class="cmn-btn-outline2" ><i class="lab la-font-awesome-flag icon"></i>Already Interested</a>
                                     @else
-                                        <a href="#" wire:click.prevent="addToWishlist({{$product->id}}, '{{$product->name}}' ,{{$product->prices}})"  class="cmn-btn-outline2"  ><i
+                                        <a href="#" wire:click.prevent="addToWishlist({{$product->id}}, '{{$product->name}}' ,{{$product->prices}})" class="cmn-btn-outline2"><i
                                                 class="lab la-font-awesome-flag icon"></i>Yes, I Am Interested</a>
                                     @endif
                                 @else
                                 <a href="#" class="cmn-btn-outline2 popup-btn-login"><i class="lab la-font-awesome-flag icon"></i>Yes, I Am Interested</a>
                                 @endauth
                             </div>
-                             @if(Session::has('info'))
-                                         <div class="alert alert-success" role="alert">{{Session::get('info')}}
-                                         </div>
-                                    @endif
+                            <br>
+                            </div> 
+                            @if(Session::has('info'))
+                                <div class="alert alert-success" role="alert">{{Session::get('info')}}</div>
+                            @endif
                             <!--<div class="socialWrap">-->
                             <!--    <a href="#" class="social"><i class="lab la-facebook-square"></i></a>-->
                             <!--    <a href="#" class="social"><i class="lab la-twitter"></i></a>-->
                             <!--    <a href="#" class="social"><i class="lab la-linkedin"></i></a>-->
                             <!--    <a href="#" class="social"><i class="lar la-bell"></i></a>-->
                             <!--</div>-->
-                        </div> 
+                        
                     </div>
                 </div>
                 <div class="col-xl-5 col-md-5 col-12">
@@ -232,11 +235,11 @@
                             <div id="mapproduct" class="map-item" style="padding-bottom: 50%;overflow: hidden;position: relative;width: 100%;"> </div>
                         </div> --}}
                          
-                            <div class="row">
+                        <div class="row">
                                 
                                 
                             @if($haveCouponCode == 1)
-                            <div class="col-lg-12 contactSeller">
+                                <div class="col-lg-12 contactSeller">
                                     <div class="input-form">
                                         <input type="text" value="{{$product->contact_number}}" readonly >
 
@@ -253,24 +256,23 @@
                                     </div>
                                 @endif
                                     <div class="col-lg-12">
-                                                <div class="btn-wrapper mb-20 text-center">
-                                                    <a href="#" class="cmn-btn-outline3 w-100" wire:click.prevent="hideContact">Hide Contact</a>
-                                                </div>
-                                            </div>
-                                    @endif
-                                    @if(Session::has('message'))
-                                         <div class="alert alert-success"  role="alert">{{Session::get('message')}}
-                                         </div>
-                                    @endif
-                                @if($haveCouponCode != 1)
-                                    <div class="col-lg-12">
                                         <div class="btn-wrapper mb-20 text-center">
-                                            <a href="#"  @auth wire:click.prevent="checkplan" class="cmn-btn-outline3 w-100" @else class="cmn-btn-outline3 w-100 popup-btn-login" @endauth>Reveal Contact</a>
+                                            <a href="#" class="cmn-btn-outline3 w-100" wire:click.prevent="hideContact">Hide Contact</a>
                                         </div>
                                     </div>
-                                @endif
+                            @endif
+                            @if(Session::has('message'))
+                                    <div class="alert alert-success"  role="alert">{{Session::get('message')}} </div>
+                            @endif
+                            @if($haveCouponCode != 1)
+                                <div class="col-lg-12">
+                                    <div class="btn-wrapper mb-20 text-center">
+                                        <a href="#"  @auth wire:click.prevent="checkplan" class="cmn-btn-outline3 w-100" @else class="cmn-btn-outline3 w-100 popup-btn-login" @endauth>Reveal Contact</a>
+                                    </div>
+                                </div>
+                            @endif
                                 
-                            </div>
+                        </div>
                         
                         <div class="btn-wrapper">
                             <a href="#" @auth wire:click.prevent="ProductChat({{$product->id}})"  class="cmn-btn-outline2  w-100" @else  class=" cmn-btn-outline2 popup-btn-login  w-100" @endauth ><i class="las la-comments icon"></i>Message
@@ -332,7 +334,7 @@
                         @endforeach
                         
                     </section>
-                    
+                </div>
             </div>
         </div>
     </div>
@@ -392,7 +394,6 @@
 
 </div>
 @push('scripts')
-
     <script>
         
         window.addEventListener('show-chat-close', event => {

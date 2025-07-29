@@ -44,7 +44,7 @@ class ExchangeItemComponent extends Component
             //  dd($text);
              $query[$key] = Product::whereBetween('prices',[$min,$max])->where('is_exchange','1')->where(function ($query) use ($text) {
                     $query ->where('exchange_for','like','%'.$text.'%')->orwhere('name','like','%'.$text.'%')->orwhere('meta_keywords','like','%'.$text.'%'); 
-                })->where('user_id','!=', Auth::user()->id)->where('status',1)->get();
+                })->where('user_id','!=', Auth::user()->id)->where('status',1)->where('user_verified','0')->get();
         }
                     //  dd($query);
         return view('livewire.user.exchange-item-component',['products'=>$query])->layout('layouts.base');

@@ -33,6 +33,21 @@ class ProductComponent extends Component
         session()->flash('message','Product has been deleted successfully!');
         $this->js('window.location.reload()');
     }
+     public function admindeverifed($id){
+        $product = Product::find($id);
+        $product->admin_verified=0;
+        $product->user_verified = 1;
+        $product->save();
+        $this->js('window.location.reload()');
+    }
+    public function adminverified($id){
+        $product = Product::find($id);
+        $product->admin_verified=1;
+        $product->user_verified = 0;
+        $product->save();
+        $this->js('window.location.reload()');
+    }
+
    
     public function render()
     {

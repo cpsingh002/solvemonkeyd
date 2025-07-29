@@ -23,12 +23,11 @@ class FooterComponent extends Component
         $this->validate([
             'email'=>'required|email'
         ]);
-
         $subscriber = new Subscriber();
         $subscriber->email = $this->email;
         $subscriber->save();
         // dd($subscriber);
-
+        $this->email = '';
         session()->flash('message','You have subscribed successfully!');
     }
 }

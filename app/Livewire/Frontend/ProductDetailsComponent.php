@@ -125,33 +125,7 @@ class ProductDetailsComponent extends Component
         $this->haveCouponCode = "";
         return;
     }
-    public function addToWishlist($product_id,$product_name,$product_price)
-    {
-        if(Auth::check())
-        {
-        Cart::instance('wishlist')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
-         //$this->dispatch('wishlist-count-component','refreshComponent');
-         $this->dispatch('wishlist-count-component','refreshComponent');
-          session()->flash('info','Item added to your wishlist for contact details click on Reveal Contact button ');
-        //  return;
-        }else{
-            // session()->flash('message','Login First');
-            $this->dispatch('show-edit-post-modal');
-        }
-    }
-    
-    public function removeFromWishlist($product_id)
-    {
-        foreach(Cart::instance('wishlist')->content() as $witem)
-        {
-            if($witem->id == $product_id)
-            {
-                Cart::instance('wishlist')->remove($witem->rowId);
-                $this->dispatch('wishlist-count-component','refreshComponent');
-                return;
-            }
-        }
-    }
+   
     public function render()
     {
         $product= Product::where('slug',$this->slug)->first();
@@ -187,15 +161,46 @@ class ProductDetailsComponent extends Component
         }
         $pattributes = ProductAttribute::where('product_id',$product->id)->get();
         //dd($pattributes);
-        $related_products = Product::where('category_id',$product->category_id)->where('id', '!=', $product->id)->where('status',1)->inRandomOrder()->limit(4)->get();
+        $related_products = Product::where('category_id',$product->category_id)->where('id', '!=', $product->id)->where('status',1)->where('user_verified','0')->inRandomOrder()->limit(4)->get();
         if(Auth::check())
         {
            Cart::instance('wishlist')->restore(auth::user()->email);
+           $witems = Cart::instance('wishlist')->content()->pluck('id');
+        }else{
+            $witems = []; 
         }
         return view('livewire.frontend.product-details-component',['product'=>$product,
-        'related_products'=>$related_products,'pattributes'=>$pattributes,'dis1'=>$dis1,'dis2'=>$dis2])->layout('layouts.base');
+        'related_products'=>$related_products,'pattributes'=>$pattributes,'dis1'=>$dis1,'dis2'=>$dis2,'witems'=>$witems])->layout('layouts.base');
     }
     
+
+    public function addToWishlist($product_id,$product_name,$product_price)
+    {
+        if(Auth::check())
+        {
+            Cart::instance('wishlist')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+            //$this->dispatch('wishlist-count-component','refreshComponent');
+            $this->dispatch('wishlist-count-component','refreshComponent');
+            session()->flash('info','Item added to your wishlist for contact details click on Reveal Contact button ');
+        //  return;
+        }else{
+            // session()->flash('message','Login First');
+            $this->dispatch('show-edit-post-modal');
+        }
+    }
+    
+    public function removeFromWishlist($product_id)
+    {
+        foreach(Cart::instance('wishlist')->content() as $witem)
+        {
+            if($witem->id == $product_id)
+            {
+                Cart::instance('wishlist')->remove($witem->rowId);
+                $this->dispatch('wishlist-count-component','refreshComponent');
+                return;
+            }
+        }
+    }
     public function ProductChat($id)
     {
 

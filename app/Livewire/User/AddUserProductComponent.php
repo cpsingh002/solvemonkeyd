@@ -80,7 +80,7 @@ class AddUserProductComponent extends Component
 
     public $inputs = [];
     public $attribute_arr = [];
-     public $city_id1,$city_id2,$city_id3, $price_negotiable;
+     public $city_id1,$city_id2,$city_id3, $price_negotiable,$remark,$isverified;
      
     public function mount()
     {
@@ -344,6 +344,8 @@ class AddUserProductComponent extends Component
         $product->city_id1 = $this->city_id1;
         $product->city_id2 = $this->city_id2;
         $product->city_id3 = $this->city_id3;
+        $product->remark = $this->remark;
+        $product->user_verified = $this->isverified;
         $product->save();    
         
         $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();

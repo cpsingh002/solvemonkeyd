@@ -172,10 +172,10 @@
                </div>
                
                
-<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 ">
+            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 ">
 
                 <div class="myListing">
-
+                    {{--
                     <div class="singleFlexitem mb-24  wow fadeInUp social" data-wow-delay="0.0s">
                         <div class="row">
                             <div class="col-8">
@@ -247,6 +247,8 @@
                             </div>
                         </div>
                     </div>
+                    --}}
+                    <p class="noed text-center">No item added</p>
                 </div>
             </div>
            

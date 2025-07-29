@@ -69,7 +69,7 @@ class SearchComponent extends Component
         $subcategory_id = SubCategory::where('slug','like','%'.$this->text.'%')->first() ? SubCategory::where('slug','like','%'.$this->text.'%')->first()->id : '';
         
        // dd($category_id,$brand_id,$subcategory_id);
-        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('state_id',$this->state_id)->where('status',1);
+        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('state_id',$this->state_id)->where('status',1)->where('user_verified','0');
         $this->for_rent_count=Product::where('is_rent',1)->where('status',1)->count();
         $this->for_sell_count=Product::where('is_sell',1)->where('status',1)->count();
         $this->for_exchange_count=Product::where('is_exchange',1)->where('status',1)->count();
