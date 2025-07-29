@@ -11964,6 +11964,8 @@
     gap: 5px;
     border-bottom:1px dotted whitesmoke;
     padding-bottom:6px;
+
+
   }
 
   .cateSidebar .listing .listItem:last-child {
@@ -20334,3 +20336,11 @@
 		transform: translateY(-100%);
 	}
 }
+
+
+
+.product_brand{
+  max-height: 300px !important;
+  overflow-y: auto !important;
+}
+
