@@ -152,7 +152,7 @@
                     @foreach($categories as $category)
                         <li class="singleServices wow fadeInUp" data-wow-delay="0.1s">
                             <div class="serviceIcon">
-                                <img src="{{asset('admin/category/icon')}}/{{$category->icon}}" alt="{{$category->name}}">
+                              <a href="{{route('product.category',['category_slug'=>$category->slug])}}">  <img src="{{asset('admin/category/icon')}}/{{$category->icon}}" alt="{{$category->name}}"></a>
                             </div>
                             <div class="serviceCap">
                                 <h4><a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="title">{{$category->name}}</a></h4>
@@ -188,6 +188,14 @@
 
                     @foreach($sellproducts  as $seproduct)
                         <div class="singleFeature pb-24 pb1 proos mb-20 ">
+                             @if($seproduct->admin_verified == 1)
+                                <div class="verifed-section" style="position: absolute;  padding: 1% !important; text-align: center;">
+                                    <div class="recentImg">
+                                        <img class="" src="{{asset('assets/img/logo/solve-logo1.png')}}" alt="images" width="100px" height="100px">
+                                    </div>
+                                    <!-- <span>Verified</span> -->
+                                </div>
+                            @endif
                             <div class="featureImg">
                                 <a href="{{route('product.details',['slug'=>$seproduct->slug])}}"><img src="{{asset('admin/product/feat')}}/{{$seproduct->featimage}}"
                                         alt="{{$seproduct->name}}"></a>
@@ -309,6 +317,14 @@
             @foreach($exchnageproducts as $exproduct)
                 <div class="col-xl-4 col-lg-6 col-md-6 col-12">
                     <div class="borderStyle style1 wow fadeInLeft social" data-wow-delay="0.0s">
+                         @if($exproduct->admin_verified == 1)
+                                                <div class="verifed-section" style="position: absolute;  padding: 2% !important; text-align: center;">
+                                                    <div class="recentImg">
+                                                        <img class="" src="{{asset('assets/img/logo/solve-logo1.png')}}" alt="images" width="70px" height="70px">
+                                                    </div>
+                                                    <!-- <span>Verified</span> -->
+                                                </div>
+                                            @endif
                         <div class="singleFlexitem mb-24">
                             <div class="recentImg">
                                 <a href="{{route('product.details',['slug'=>$exproduct->slug])}}"><img src="{{asset('admin/product/feat')}}/{{$exproduct->featimage}}"

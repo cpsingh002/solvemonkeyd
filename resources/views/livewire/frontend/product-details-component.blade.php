@@ -298,38 +298,46 @@
                         <h4 class=" btn-wrapper w-100 text-center mb-3"> Related Product</h4>
                         @foreach($related_products as $rproduct)
                         <div class=" col-md-12 col-md-6">
-                        <div class="borderStyle style1 wow fadeInLeft social " data-wow-delay="0.1s">
-                            <div class="singleFlexitem mb-24">
-                                <div class="recentImg">
-                                    <img src="{{asset('admin/product/feat')}}/{{$rproduct->featimage}}" alt="{{$rproduct->name}}" width="200">
-                                </div>
-                                <div class="recentCaption">
-                                    <h5><a href="{{route('product.details',['slug'=>$rproduct->slug])}}" class="featureTittle">{{ucfirst($rproduct->name)}}</a></h5>
-                                    <div class="d-flex justify-content-between">
-                                    <p class="featureCap w-60">{{$rproduct->state->name}},  {{$rproduct->country->name}} </p>  <strong class="subCap miss">
-                                        @php 
-                                                        $to = now(); 
-                                                        $from = $rproduct->created_at;
-                                                        $res= $to->diffInDays($from); 
-                                                        //dd($res);
-                                                    @endphp 
-                                                    @if($rproduct->created_at->isToday())
-                                                        Today
-                                                    @elseif(($res > 1 ) && ($res <  7))  
-                                                        {{$rproduct->created_at->format('D')}} 
-                                                    @else 
-                                                        {{$rproduct->created_at->format('M Y')}} 
-                                                    @endif</strong>
+                            <div class="borderStyle style1 wow fadeInLeft social " data-wow-delay="0.1s">
+                                @if($rproduct->admin_verified == 1)
+                                                <div class="verifed-section" style="position: absolute;  z-index: 999999; padding: 1% !important; text-align: center;">
+                                                    <div class="recentImg">
+                                                        <img class="" src="{{asset('assets/img/logo/solve-logo1.png')}}" alt="images" width="100px" height="100px">
                                                     </div>
-                                    <span class="featurePricing"><i class="fa-solid fa-indian-rupee-sign"></i> {{preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,",$rproduct->prices)}}</span>
-                                    <div class="btn-wrapper">
-                                        @if($rproduct->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
-                                        @if($rproduct->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
-                                        @if($rproduct->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
+                                                    <!-- <span>Verified</span> -->
+                                                </div>
+                                            @endif
+                                <div class="singleFlexitem mb-24">
+                                    <div class="recentImg">
+                                        <img src="{{asset('admin/product/feat')}}/{{$rproduct->featimage}}" alt="{{$rproduct->name}}" width="200">
+                                    </div>
+                                    <div class="recentCaption">
+                                        <h5><a href="{{route('product.details',['slug'=>$rproduct->slug])}}" class="featureTittle">{{ucfirst($rproduct->name)}}</a></h5>
+                                        <div class="d-flex justify-content-between">
+                                        <p class="featureCap w-60">{{$rproduct->state->name}},  {{$rproduct->country->name}} </p>  <strong class="subCap miss">
+                                            @php 
+                                                            $to = now(); 
+                                                            $from = $rproduct->created_at;
+                                                            $res= $to->diffInDays($from); 
+                                                            //dd($res);
+                                                        @endphp 
+                                                        @if($rproduct->created_at->isToday())
+                                                            Today
+                                                        @elseif(($res > 1 ) && ($res <  7))  
+                                                            {{$rproduct->created_at->format('D')}} 
+                                                        @else 
+                                                            {{$rproduct->created_at->format('M Y')}} 
+                                                        @endif</strong>
+                                                        </div>
+                                        <span class="featurePricing"><i class="fa-solid fa-indian-rupee-sign"></i> {{preg_replace("/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/i", "$1,",$rproduct->prices)}}</span>
+                                        <div class="btn-wrapper">
+                                            @if($rproduct->is_sell == 1) <span class="pro-btn1">Sell</span>   @endif
+                                            @if($rproduct->is_exchange == 1)  <span class="pro-btn2">Exchange</span>     @endif
+                                            @if($rproduct->is_rent == 1)  <span class="pro-btn2">Rent</span>     @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         @endforeach
                         

@@ -84,6 +84,7 @@ class UserEditProfileComponent extends Component
 
         $user = User::find(Auth::user()->id);
         $user->name = $this->name;
+        $user->email = $this->email;
         $user->phone= $this->phone;
         $user->state = $this->state_id;
         $user->country =$this->country_id;

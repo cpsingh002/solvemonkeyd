@@ -128,6 +128,8 @@ class ProductDetailsComponent extends Component
    
     public function render()
     {
+        // dd(url()->current());
+        //  session()->put('redirecturlpath',url()->current());
         $product= Product::where('slug',$this->slug)->first();
         $this->user_id = $product->user_id;
         if($product->id)
@@ -244,6 +246,7 @@ class ProductDetailsComponent extends Component
                     }
                 }else{
                         session()->flash('message','For sell information first buy a plan!');
+                        session()->put('redirecturlpath',url()->current());
                         return redirect()->route('package');
                 }
             }else{

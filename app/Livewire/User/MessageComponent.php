@@ -30,7 +30,7 @@ class MessageComponent extends Component
             'chat_id' => Chatuser::where(['user_id'=>auth()->id(), 'friend_id' =>$this->user->id])->first()->chat_id,
             'friend_id' => $this->user->id
         ]);
-
+        $this->dispatch('header-component','refreshComponent');
         $this->message='';
         $this->render();
     }
@@ -44,7 +44,7 @@ class MessageComponent extends Component
         
         $this->pid = $chatuser->product_id;
         $product= Product::where('id',$this->pid)->first();
-            $this->user = User::where('id',$this->uuid)->first();
+        $this->user = User::where('id',$this->uuid)->first();
 
 
             // if (Chatuser::where(['user_id' => Auth::id(), 'friend_id' => $this->user->id,'product_id' => $this->pid])->count() === 0 || Chatuser::where(['user_id' => $this->user->id, 'friend_id' => Auth::id(),'product_id' => $this->pid])->count() === 0) {
@@ -77,5 +77,10 @@ class MessageComponent extends Component
         $product = Product::where('id',$this->pid)->first();
         // dd($messages);
         return view('livewire.user.message-component',['contacts'=>$contacts,'messages'=>$messages,'product'=>$product])->layout('layouts.base');
+    }
+    public function readmsg()
+    {
+        ProductChat::where('chat_id',Chatuser::where(['user_id'=>Auth::id(), 'friend_id' =>$this->user->id,'product_id' => $this->pid])->first()->chat_id)->update(['read_status'=>1]);
+        $this->dispatch('header-component','refreshComponent');
     }
 }

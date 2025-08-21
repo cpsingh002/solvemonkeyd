@@ -24,6 +24,6 @@ class Brand extends Model
     }
     public function brandcount()
     {
-        return $this->hasMany(Product::class,'brand_id')->where('status',1);
+        return $this->hasMany(Product::class,'brand_id')->where('status',1)->whereIn('user_verified',['0','2']);
     }
 }

@@ -14,15 +14,15 @@ class PaymentController extends Controller
     {
         $package = Package::where('pslug', $slug)->firstOrFail();
         $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
-if($package->price > 0){
-        $razorpayOrder = $api->order->create([
-            'receipt' => 'order_rcpt_' . now()->timestamp,
-            'amount' => $package->price * 100,
-            'currency' => 'INR',
-        ]);
-    }else{
-        $razorpayOrder = [];
-    }
+        if($package->price > 0){
+            $razorpayOrder = $api->order->create([
+                'receipt' => 'order_rcpt_' . now()->timestamp,
+                'amount' => $package->price * 100,
+                'currency' => 'INR',
+            ]);
+        }else{
+            $razorpayOrder = [];
+        }
         return view('payment.checkout', [
             'package' => $package,
             'razorpayOrder' => $razorpayOrder,
@@ -64,6 +64,12 @@ if($package->price > 0){
             'count' => $package->count,
         ]);
 
+        if(session()->has('redirecturlpath'))
+        {
+            return redirect(session()->get('redirecturlpath'))->with('success', 'Payment completed successfully!');
+        }else{
+         return redirect('user-dashboard')->with('success', 'Payment completed successfully!');   
+        }
         return redirect()->back()->with('success', 'Payment completed successfully!');
     }
 
@@ -90,7 +96,13 @@ if($package->price > 0){
             'count' => $package->count,
         ]);
 
-        return redirect()->route('package')->back()->with('success', 'Payment completed successfully!');
+        if(session()->has('redirecturlpath'))
+        {
+            return redirect(session()->get('redirecturlpath'))->with('success', 'Payment completed successfully!');
+        }else{
+         return redirect()->route('user-dashboard')->with('success', 'Payment completed successfully!');   
+        }
+        return redirect()->route('package')->with('success', 'Payment completed successfully!');
     }
 
 

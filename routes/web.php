@@ -93,7 +93,7 @@ use App\Livewire\Subscribers\SubscriberComponent;
 |
 */
 Route::get('/uploadfile',[HomeController::class,'ProductImport']);
-Route::post('/uploadfile',[HomeController::class,'ProductImportstoreBike'])->name('upload.file');
+Route::post('/uploadfile',[HomeController::class,'ProductImportstorescotty'])->name('upload.file');
 
 Route::get('/listing-policy', function () {
     return view('livewire.frontend.Listing-Policy');

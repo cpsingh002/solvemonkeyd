@@ -76,7 +76,7 @@ class AddProductComponent extends Component
 
     public $inputs = [];
     public $attribute_arr = [];
-    public $city_id1,$city_id2,$city_id3, $price_negotiable;
+    public $city_id1,$city_id2,$city_id3, $price_negotiable, $model_id;
     
     public function mount()
     {
@@ -94,6 +94,9 @@ class AddProductComponent extends Component
     {
         $this->scategory_id = 0;
         $this->option_details='';
+        $this->$this->modelnumber_id = '';
+        $this->model_id = '';
+        $this->brand_id = '';
 
         
     }
@@ -114,6 +117,8 @@ class AddProductComponent extends Component
     {
           $this->b_id = $this->brand_id;
           //dd($this->b_id,$this->category_id,$this->s_id);
+          $this->model_id = '';
+          $this->modelnumber_id = '';
     }
 
     public function changecountry()
@@ -335,6 +340,10 @@ class AddProductComponent extends Component
         Session()->flash('message','Product has been Created Successfully!');
 
     }
+    public function chnagemodel()
+    {
+        $this->model_id = $this->modelnumber_id;
+    }
     
 
     public function render(Request $request)
@@ -348,9 +357,33 @@ class AddProductComponent extends Component
         $scategories = Subcategory::where('category_id',$this->category_id)->where('status','!=',3)->get();
         $brands = Brand ::where('category_id',$this->category_id)->where('subcategory_id',$this->scategory_id)->where('status','!=',3)->get();
         $modelnumbers = ModelNumber::where('brand_id',$this->b_id)->where('category_id',$this->category_id)->where('subcategory_id',$this->s_id)->where('status','!=',3)->get();
-        $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
-        $attributeoptions = AttributeOption::where('attribute_id',$this->attribute_id)->where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
-      
+        $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
+        
+        // if($this->scategory_id == '10'){
+        //     if(!empty($this->model_id))
+        //     {
+        //         $query = Attribute::where('category_id', $this->category_id)
+        //             ->where('subcategory_id', $this->s_id)
+        //             ->where('status', '!=', 3)
+        //             ->with(['attributeoptions' => function ($q) {
+        //                 if (isset($this->model_id)) {
+        //                     $q->where('model_id', $this->model_id);
+        //                 }
+        //             }]);
+
+        //         if (is_array($modelnumbers) && isset($modelnumbers[0])) {
+        //             $query->whereHas('attributeoptions', function ($q) {
+        //                 $q->where('model_id', $this->model_id);
+        //             });
+        //         }
+        //         $attributes = $query->get();
+        //     }else{
+        //     $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
+        //     }
+        // }else{
+        //     $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
+        // }
+
         $countries = Country::all();
         $states = State::where('country_id',$this->country_id)->get();
         $cities = City::where('state_id',$this->st_id)->get();
@@ -358,7 +391,7 @@ class AddProductComponent extends Component
        
         return view('livewire.admin1.product.add-product-component',[
             'categories'=>$categories,'scategories'=>$scategories,'brands'=>$brands,
-            'modelnumbers'=>$modelnumbers,'attributes'=>$attributes,'attributeoptions'=>$attributeoptions,
+            'modelnumbers'=>$modelnumbers,'attributes'=>$attributes,
             'countries'=>$countries,'states'=>$states,'cities'=>$cities,'citiys'=>$citiys])->layout('layouts.admin1');
 
     }

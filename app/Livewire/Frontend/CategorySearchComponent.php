@@ -102,7 +102,7 @@ class CategorySearchComponent extends Component
             $filter= "";
         }
         
-        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('status',1)->where('user_verified','0');
+        $query = Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('status',1)->whereIn('user_verified',['0','2'])->orderBy('id','desc');
         $this->for_rent_count=Product::where('is_rent',1)->where('category_id',$category_id)->where('status',1)->count();
         $this->for_sell_count=Product::where('is_sell',1)->where('category_id',$category_id)->where('status',1)->count();
         $this->for_exchange_count=Product::where('is_exchange',1)->where('category_id',$category_id)->where('status',1)->count();

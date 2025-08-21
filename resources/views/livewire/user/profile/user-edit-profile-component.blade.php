@@ -70,7 +70,7 @@
                                     <div class="col-lg-12 col-md-12">
                                         <label class="infoTitle mt-2">Email</label>
                                         <div class="input-form input-form2">
-                                            <input type="text"  class="form-control" value="{{$this->email}}" readonly>
+                                            <input type="text"  class="form-control" value="{{$this->email}}"  wire:model="email">
                                         </div>
                                     </div>
                                     

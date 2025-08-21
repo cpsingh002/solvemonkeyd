@@ -837,6 +837,25 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <label class="form-label">Remark About Product</label>
+                                                        <div class="input-form input-form2" wire:ignore>
+                                                            <textarea  id="" placeholder="Reamrk About Product" wire:model="remark">{!! $remark !!}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label class="form-label"> Are you want to verifed this listing?<span class="text-danger">*</span></label>
+                                                        <select class="form-control" wire:model="isverified" required>
+                                                            <option value="">Select option</option>
+                                                            <option value="0">No</option>
+                                                            <option value="1">Yes</option>
+                                                        </select>
+                                                         @error('isverified')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
 
 
                                             <div class="col-sm-12">

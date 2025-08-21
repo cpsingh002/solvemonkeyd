@@ -42,7 +42,7 @@ class BrandSearchComponent extends Component
             $brand_name = $brand->name;
         }
 
-        $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('brand_id',$brand_id)->where('status',1)->where('user_verified','0')->paginate(20);
+        $products =Product::whereBetween('prices',[$this->min_price,$this->max_price])->where('brand_id',$brand_id)->where('status',1)->whereIn('user_verified',['0','2'])->orderby('id','desc')->paginate(20);
         //dd($products);
         //$brands = Brand::where('category_id',$category_id)->get();
         $categories = Category::where('category_id',$brand->category_id)->where('status',1)->get();

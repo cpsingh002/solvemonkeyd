@@ -181,7 +181,11 @@
 
                         <div class="userProfile mb-24">
                             <div class="recentImg">
-                                <img src="../assets/img/gallery/myAccout.png" alt="images">
+                                @if(Auth::user()->profile)
+                                    <img src="{{asset('admin/userprofile')}}/{{Auth::user()->profile}}" width="100px" alt="images">
+                                @else
+                                    <img class="" src="{{asset('admin/userprofile/solve.png')}}" width="100px" alt="images">
+                                @endif
                             </div>
                             <div class="recentCaption">
                                 <div class="cap">
@@ -196,7 +200,7 @@
 
                         <div class="infoSingle">
                             <ul class="listing">
-                                <li class="listItem"><i class="las la-map-marker-alt icon"></i>@if(Auth::user()->city !=''){{Auth::user()->citys->city}},  {{Auth::user()->states->name}},  {{Auth::user()->countrys->name}} @else <span>Not provided yet</span> @endif</li>
+                                <li class="listItem"><i class="las la-map-marker-alt icon"></i>@if(Auth::user()->city !=''){{Auth::user()->citys->name}},  {{Auth::user()->states->name}},  {{Auth::user()->countrys->name}} @else <span>Not provided yet</span> @endif</li>
                                 <li class="listItem"><i class="lar la-envelope-open icon"></i>{{Auth::user()->email}}</a>
                                 </li>
                                 <li class="listItem"><i class="las la-phone icon"></i>@if(Auth::user()->phone !='') {{Auth::user()->phone}} @else <span>Not provided yet</span> @endif</li>

@@ -431,8 +431,16 @@ class EditProductComponent extends Component
         $product->city_id2 = $this->city_id2;
         $product->city_id3 = $this->city_id3;
         $product->remark = $this->remark;
-        $product->user_verified = $this->isverified;
-        $product->admin_verified = $this->admin_verified;
+        if($this->admin_verified == '1')
+        {
+            $product->user_verified = '2';
+            $product->admin_verified = $this->admin_verified;
+        }else{
+            $product->user_verified = $this->isverified;
+            $product->admin_verified = $this->admin_verified;
+        }
+
+        
          $product->document_verified = $this->document_verified;
         $product->legal_verified = $this->legal_verified;
         $product->on_ground_verified = $this->on_ground_verified;

@@ -32,7 +32,7 @@ class AttributeOptionComponent extends Component
 
     public function render()
     {
-        $attributeoptions=AttributeOption::where('status','!=',3)->get();
+        $attributeoptions=AttributeOption::where('status','!=',3)->take(1000)->get();
         return view('livewire.attribute-option.attribute-option-component',['attributeoptions'=>$attributeoptions])->layout('layouts.admin1');
     }
 }

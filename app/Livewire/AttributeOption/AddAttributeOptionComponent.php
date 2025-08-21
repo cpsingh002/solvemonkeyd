@@ -7,7 +7,8 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Attribute;
 use App\Models\AttributeOption;
-
+use App\Models\Brand;
+use App\Models\ModelNumber;
 
 class AddAttributeOptionComponent extends Component
 {
@@ -17,6 +18,8 @@ class AddAttributeOptionComponent extends Component
     public $option_details;
     public $status;
     public $s_id;
+    public $model_id;
+    public $brand_id,$b_id;
     
     public function mount()
     {
@@ -52,6 +55,8 @@ class AddAttributeOptionComponent extends Component
         $slider->attribute_id = $this->attribute_id;
         $slider->option_details = $this->option_details;
         $slider->status = $this->status;
+        $slider->model_id = $this->model_id;
+        $slider->brand_id = $this->brand_id;
         $slider->save();
         Session()->flash('message',"Attribute's Option has been Created Successfully!");
     }
@@ -65,6 +70,10 @@ class AddAttributeOptionComponent extends Component
         $this->attribute_id = 0;
         $this->s_id = $this->scategory_id;
     }
+    public function changebrands()
+    {
+        $this->b_id = $this->brand_id;
+    }
 
     public function render()
     {
@@ -73,6 +82,9 @@ class AddAttributeOptionComponent extends Component
         
         $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
       
-        return view('livewire.attribute-option.add-attribute-option-component',['categories'=>$categories,'scategories'=>$scategories,'attributes'=>$attributes])->layout('layouts.admin1');
+        $brands = Brand ::where('category_id',$this->category_id)->where('subcategory_id',$this->s_id)->where('status','!=',3)->get();
+        $modelnumbers = ModelNumber::where('brand_id',$this->b_id)->where('category_id',$this->category_id)->where('subcategory_id',$this->s_id)->where('status','!=',3)->get();
+        
+        return view('livewire.attribute-option.add-attribute-option-component',['modelnumbers'=>$modelnumbers,'brands'=>$brands,'categories'=>$categories,'scategories'=>$scategories,'attributes'=>$attributes])->layout('layouts.admin1');
     }
 }

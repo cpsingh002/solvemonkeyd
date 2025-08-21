@@ -260,6 +260,14 @@
                                 @foreach($products as $product)
                                     <div class="col-xl-3  col-lg-4  col-md-12 col-sm-6">
                                         <div class="singleFeature mb-24">
+                                            @if($product->admin_verified == 1)
+                                                <div class="verifed-section" style="position: absolute;  z-index: 999999; padding: 1% !important; text-align: center;">
+                                                    <div class="recentImg">
+                                                        <img class="" src="{{asset('assets/img/logo/solve-logo1.png')}}" alt="images" width="100px" height="100px">
+                                                    </div>
+                                                    <!-- <span>Verified</span> -->
+                                                </div>
+                                            @endif
                                             <div class="featureImg">
                                                 <a href="{{route('product.details',['slug'=>$product->slug])}}"><img src="{{asset('admin/product/feat')}}/{{$product->featimage}}"
                                                         alt="{{$product->name}}"></a>

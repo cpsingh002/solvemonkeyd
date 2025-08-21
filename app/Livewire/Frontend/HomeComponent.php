@@ -32,10 +32,10 @@ class HomeComponent extends Component
     {
         $testimonials = Testimonial::where('status',1)->get();
         $categories = Category::where('status',1)->get();
-        $products = Product::whereDate('created_at', now()->today())->where('status',1)->where('user_verified','0')->take(10)->get();
+        $products = Product::whereDate('created_at', now()->today())->where('status',1)->whereIn('user_verified',['0','2'])->take(10)->get();
         // $products = Product::take(8)->get();
-        $exchnageproducts = Product::where('is_exchange',1)->where('status',1)->where('user_verified','0')->latest()->get()->take(6);
-        $sellproducts = Product::where('is_sell',1)->where('status',1)->where('user_verified','0')->latest()->get()->take(10);
+        $exchnageproducts = Product::where('is_exchange',1)->where('status',1)->whereIn('user_verified',['0','2'])->latest()->get()->take(6);
+        $sellproducts = Product::where('is_sell',1)->where('status',1)->whereIn('user_verified',['0','2'])->latest()->get()->take(10);
        // $countries = Country::all();
         $states = State::where('country_id','101')->get();
         //$citys = City::where('state_id',$this->state_id)->get();

@@ -308,7 +308,7 @@
                                                                         Model Number <span class="text-danger">*</span></label>
                                                                     <div class="col-md-12">
                                                                         <select class="form-control"
-                                                                            wire:model="modelnumber_id">
+                                                                            wire:model="modelnumber_id" wire:change="chnagemodel">
                                                                             <option value="0">Select Brand Model
                                                                             </option>
                                                                             @foreach ($modelnumbers as $modelnumber)

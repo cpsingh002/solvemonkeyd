@@ -21,7 +21,7 @@ class Attribute extends Model
     }
     public function attributeoptions()
     {
-        return $this->hasMany(AttributeOption::class,'attribute_id');
+        return $this->hasMany(AttributeOption::class,'attribute_id')->where('status',1);
     }
     public function attributecount()
     {

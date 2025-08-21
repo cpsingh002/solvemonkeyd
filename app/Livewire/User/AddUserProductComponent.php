@@ -195,6 +195,7 @@ class AddUserProductComponent extends Component
             'name'=>'required',
             'slug'=>'required',
             'price_negotiable'=>'required',
+            'isverified'=>'required'
         ]);
         if($this->thumbimage)
         {

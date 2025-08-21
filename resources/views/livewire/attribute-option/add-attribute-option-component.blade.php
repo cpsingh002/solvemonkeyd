@@ -76,6 +76,32 @@
                                                      @error('attribute_id') <p class="text-danger">{{$message}}</p> @enderror
                                              </div>
                                              <div class="mb-4">
+                                                 <label for="form-banner/image" class="form-label">Brand</label>
+                                                 <div class="input-group input-group--sa-slug">
+                                                    <select  class="form-control" wire:model="brand_id" wire:change="changebrands">
+                                                        <option value="">Select Brand Name</option>
+                                                        @foreach($brands as $brand)
+                                                        <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                 </div>
+                                                     @error('brand_id') <p class="text-danger">{{$message}}</p> @enderror
+                                             </div>
+                                            <div class="mb-4">
+                                                <label for="form-banner/image" class="form-label">Modell Number</label>
+                                                <div class="input-group input-group--sa-slug">
+                                                    <select name="select" class="form-control" wire:model="model_id">
+                                                        <option value="">Select Model Number</option>
+                                                        @foreach($modelnumbers as $modelnumber)
+                                                            <option value="{{$modelnumber->id}}">
+                                                                {{$modelnumber->name}}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                @error('model_id') <p class="text-danger">{{$message}}</p> @enderror
+                                            </div>
+                                             <div class="mb-4">
                                                  <label for="form-banner/image" class="form-label">Option Details<span class="text-danger"> *</span></label>
                                                  <div class="input-group input-group--sa-slug">
                                                      <input type="text" placeholder="Attribute" class="form-control" wire:model="option_details" />

@@ -24,101 +24,81 @@
                             <li><a href="{{route('contact')}}">Contact</a></li>
                             <li><a href="{{route('comapny.offer')}}">Company Offer</a></li>
                             <li>
-                               <div class="sibeBar-Wrapper d-lg-none d-md-block ">
-
-                        <div class="sideBar ">
-
-                            <a href="#" class="sidebarBtn ms-3">
-                                 <!--<i class="las la-bars iconLeft"></i>  -->
-                                <span class="allCat" id="drop_view">All Categories</span><i class="las la-angle-down iconRight"></i>
-                            </a>
-
-                            @livewire('category-list-component')
-                        </div>
-
-                    </div> 
+                                <div class="sibeBar-Wrapper d-lg-none d-md-block ">
+                                    <div class="sideBar ">
+                                        <a href="#" class="sidebarBtn ms-3">
+                                            <!--<i class="las la-bars iconLeft"></i>  -->
+                                            <span class="allCat" id="drop_view">All Categories</span><i class="las la-angle-down iconRight"></i>
+                                        </a>
+                                        @livewire('category-list-component')
+                                    </div>
+                                </div> 
+                            </li>                        
+                            <li>
+                                <div class="d-md-block d-lg-none noned">
+                                    <ul class="header-cart flex-column ml-lg-60 ">
+                                        <div class="" >
+                                            @auth
+                                                @livewire('wishlist-count-component')
+                                            @endauth
+                                            @if(Route::has('login'))
+                                            @auth                       
+                                                <li class="single userAccount d-flex gap-3">
+                                                    <button class="user">
+                                                       
+                                                             <img class="" src="{{asset('admin/userprofile/solve.png')}}" width="150px" alt="images">
+                                                        
+                                                    </button>
+                                                    <span class="text">User Account</span>
+                                                    <div class="userAccount-wrapper ">
+                                                        <h6 class="ac-title">User Account</h6>
+                                                        <ul class="ac-list">
+                                                            <li class="list">
+                                                                <a class="list-title" href="{{route('user-account')}}"> <i class="lar la-user-circle icon"></i> My Account </a>
+                                                            </li>
+                                                            <li class="list">
+                                                                <a class="list-title" href="{{route('wishlist')}}"><i class="fa fa-heart icon"></i> Wishlist </a>
+                                                            </li>    
+                                                            <li class="list">
+                                                                <a class="list-title" href="{{route('user-ads')}}"><i class="las la-address-card icon"></i> Product ADs </a>
+                                                            </li>
+                                                            <li class="list">
+                                                                <a class="list-title" href="{{ route('logout') }}"
+                                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                                                    class="las la-sign-out-alt icon"></i>Logout</a>
+                                                            </li>
+                                                            <form id="logout-form" method="POST" action="{{route('logout')}}">
+                                                                @csrf
+                                                            </form>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                
+                                                <li class="single">
+                                                    <div class="btn-wrapper">
+                                                        <a href="#" class="cmn-btn1 popup-modal">
+                                                            <i class="las la-plus-square"></i><span class="text">Post Your Ad</span>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            @else
+                                                <li class="single" wire:ignore>
+                                                    <!-- <a title="Register or Login" href="{{route('login')}}">Login</a> -->
+                                                    <div class="btn-wrapper">
+                                                        <a href="#" class="cmn-btn1 popup-btn-login">
+                                                            <i class="las la-plus-square"></i><span class="text">Login</span>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            @endif
+                                            @endif
+                                        </div>
+                                    </ul>
+                                </div>
                             </li>
-                            
-                         
-                            <li><div class="d-md-block d-lg-none noned">
-                                
-                        <ul class="header-cart flex-column ml-lg-60 ">
-                        
-                             <div class="" >
-                        @auth
-                            @livewire('wishlist-count-component')
-                        @endauth
-
-
-                        @if(Route::has('login'))
-                        @auth
-                       
-                       
-                        <li class="single userAccount d-flex gap-3 ">
-                            <button class="user"><img src="{{asset('assets/img/gallery/user.png')}}" alt="images"></button><span
-                                    class="text">User Account</span>
-                            <div class="userAccount-wrapper ">
-                                <h6 class="ac-title">User Account</h6>
-                                <ul class="ac-list">
-                                    <li class="list">
-                                        <a class="list-title" href="{{route('user-account')}}"> <i
-                                                class="lar la-user-circle icon"></i> My Account </a>
-                                    </li>
-                                    <li class="list">
-                                        <a class="list-title" href="{{route('wishlist')}}"><i class="fa fa-heart icon"></i>
-                                            Wishlist </a>
-                                    </li>
-
-                                    <li class="list">
-                                        <a class="list-title" href="{{route('user-ads')}}"><i
-                                                class="las la-address-card icon"></i> Product ADs </a>
-                                    </li>
-
-
-                                    <li class="list">
-                                        <a class="list-title" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                                                class="las la-sign-out-alt icon"></i>Logout</a>
-                                    </li>
-                                    <form id="logout-form" method="POST" action="{{route('logout')}}">
-                                        @csrf
-                                    </form>
-                        </li>
-                    </ul>
-                </div>
-
-                </li>
-                       </div>
-                <li class="single">
-                    <div class="btn-wrapper">
-                        <a href="#" class="cmn-btn1 popup-modal">
-                            <i class="las la-plus-square"></i><span class="text">Post Your Ad</span>
-                        </a>
-                    </div>
-                </li>
-                @else
-                <li class="single" wire:ignore>
-                    <!-- <a title="Register or Login" href="{{route('login')}}">Login</a> -->
-
-
-                    <div class="btn-wrapper">
-                        <a href="#" class="cmn-btn1 popup-btn-login">
-                            <i class="las la-plus-square"></i><span class="text">Login</span>
-                        </a>
-                    </div>
-                </li>
-
-                @endif
-                @endif
-                </ul>
-                    </div></li>
                         </ul>
                     </div>
-
-
-
-                   <div class="sibeBar-Wrapper d-md-none d-lg-block d-none d-sm-block">
-
+                    <div class="sibeBar-Wrapper d-md-none d-lg-block d-none d-sm-block">
                         <div class="sideBar ">
 
                             <a href="#" class="sidebarBtn ms-3">
@@ -128,14 +108,7 @@
 
                             @livewire('category-list-component')
                         </div>
-
                     </div>
-                    
-                    
-                   
-                    
-                   
-
                 </div>
 
                 <div class="nav-right-content">
@@ -143,8 +116,14 @@
                     <ul class="header-cart">
 
                     <li class="single d-flex gap-3" >
-                        <a href="{{route('message')}}" class="heart "> <i class="lar la-envelope"></i> </a>
-                                    </li>
+                        <a href="{{route('message')}}" class="heart "> <i class="lar la-envelope"></i>
+                            <div class="left-info">
+                                
+                                    <span class="index">{{$messagecount}}</span>
+                                <span class="title"></span>
+                            </div> 
+                        </a>
+                        </li>
 
                         @auth
                             @livewire('wishlist-count-component')
@@ -221,7 +200,11 @@
 
                         </li> --}}
                         <li class="single userAccount">
-                            <button class="user"><img src="{{asset('assets/img/gallery/user.png')}}" alt="images"></button>
+                            <button class="user">
+                                
+                                    <img class="" src="{{asset('admin/userprofile/solve.png')}}" width="150px" alt="images">
+                               
+                            </button>
                             <div class="userAccount-wrapper">
                                 <h6 class="ac-title">User Account</h6>
                                 <ul class="ac-list">

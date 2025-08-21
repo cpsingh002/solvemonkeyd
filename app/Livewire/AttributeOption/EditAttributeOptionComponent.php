@@ -7,6 +7,9 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Attribute;
 use App\Models\AttributeOption;
+use App\Models\Brand;
+use App\Models\ModelNumber;
+
 
 class EditAttributeOptionComponent extends Component
 {
@@ -17,6 +20,8 @@ class EditAttributeOptionComponent extends Component
     public $status;
     public $s_id;
     public $oid;
+    public $model_id;
+    public $brand_id,$b_id;
 
     public function mount($oid)
     {
@@ -25,9 +30,12 @@ class EditAttributeOptionComponent extends Component
         $this->category_id=$slider->category_id;
         $this->scategory_id =$slider->subcategory_id;
         $this->attribute_id=$slider->attribute_id;
-         $this->status=$slider->status;
+        $this->status=$slider->status;
         $this->oid = $slider->id;
         $this->s_id = $this->scategory_id;
+        $this->model_id = $slider->model_id;
+        $this->brand_id = $slider->brand_id;
+        $this->b_id = $this->brand_id;
 
     }
     public function update($fields){
@@ -56,6 +64,8 @@ class EditAttributeOptionComponent extends Component
         $attribute->subcategory_id =  $this->scategory_id;
         $attribute->attribute_id=$this->attribute_id;
         $attribute->status= $this->status;
+        $attribute->model_id = $this->model_id;
+        $attribute->brand_id = $this->brand_id;
         $attribute->save();
         Session()->flash('message',"Attribute's option has been Updated Successfully!");
     }
@@ -71,14 +81,20 @@ class EditAttributeOptionComponent extends Component
         $this->s_id = $this->scategory_id;
         $this->option_details='';
     }
+    public function changebrands()
+    {
+        $this->b_id = $this->brand_id;
+    }
 
     public function render()
     {
         $categories=Category::where('status','!=',3)->get();
         $scategories = Subcategory::where('category_id',$this->category_id)->where('status','!=',3)->get();
-        
         $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status','!=',3)->get();
+        $brands = Brand ::where('category_id',$this->category_id)->where('subcategory_id',$this->s_id)->where('status','!=',3)->get();
+        $modelnumbers = ModelNumber::where('brand_id',$this->b_id)->where('category_id',$this->category_id)->where('subcategory_id',$this->s_id)->where('status','!=',3)->get();
+        
       
-        return view('livewire.attribute-option.edit-attribute-option-component',['categories'=>$categories,'scategories'=>$scategories,'attributes'=>$attributes])->layout('layouts.admin1');
+        return view('livewire.attribute-option.edit-attribute-option-component',['modelnumbers'=>$modelnumbers,'brands'=>$brands,'categories'=>$categories,'scategories'=>$scategories,'attributes'=>$attributes])->layout('layouts.admin1');
     }
 }

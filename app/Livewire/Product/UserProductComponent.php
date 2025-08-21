@@ -41,7 +41,7 @@ class UserProductComponent extends Component
     public function adminverified($id){
         $product = Product::find($id);
         $product->admin_verified=1;
-        $product->user_verified = 0;
+        $product->user_verified = 2;
         $product->save();
         $this->js('window.location.reload()');
     }
