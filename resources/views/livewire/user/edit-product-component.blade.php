@@ -304,7 +304,7 @@
                                                 <div class="col-lg-6 col-md-6 mb-3">
                                                     <div class="selects-itms mt-2">
                                                         <label class="infoTitle">Brand Model Number<span class="text-danger">*</span></label>
-                                                        <select name="select" class="form-control" wire:model="modelnumber_id">
+                                                        <select name="select" class="form-control" wire:model="modelnumber_id" wire:change="chnagemodel">
                                                              <option value="">Select Model Number</option>
                                                             @foreach($modelnumbers as $modelnumber)
                                                             <option value="{{$modelnumber->id}}">
@@ -325,12 +325,22 @@
                                                             @foreach($attributes as $key1 => $attribute)
                                                                 <label class="infoTitle">{{$attribute->attribute}}<span class="text-danger">*</span></label>
                                                                 <!-- <input type="hidden" value="{{$attribute->id}}" wire:model="dfh.{{$key1}}"> -->
-                                                                <select class="form-control mb-3 " wire:model="attribute_arr.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" required>
-                                                                    <option value="">Select</option>
-                                                                    @foreach($attribute->attributeoptions as $attributeoption)
-                                                                    <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
-                                                                    @endforeach
-                                                                </select>
+                                                                @if($attribute->id == '15')
+                                                                    <select class="form-control mb-3 " wire:model="attribute_arr.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" required>
+                                                                        <option value="">Select</option>
+                                                                        @foreach($attribute->attributeoptions->where('brand_id', $brand_id)->where('model_id', $model_id) as $attributeoption)
+                                                                        <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                @else
+                                                                    <select class="form-control mb-3 " wire:model="attribute_arr.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" required>
+                                                                        <option value="">Select</option>
+                                                                        @foreach($attribute->attributeoptions as $attributeoption)
+                                                                        <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
+                                                                        @endforeach
+                                                                    </select>
+
+                                                                @endif
                                                             @endforeach
                                                         </div>
                                                 @error('attribute_arr') <p class="text-danger">{{$message}}</p> @enderror

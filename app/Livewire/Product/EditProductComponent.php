@@ -80,7 +80,7 @@ class EditProductComponent extends Component
   public $newthumbimage;
   public $newfeatimage;
   
-  public $city_id1,$city_id2,$city_id3, $price_negotiable,$remark,$isverified,$document_verified,$legal_verified,$on_ground_verified,$admin_verified;
+  public $city_id1,$city_id2,$city_id3, $price_negotiable,$remark,$isverified,$document_verified,$legal_verified,$on_ground_verified,$admin_verified,$model_id;
   
     public function mount($pid)
     {
@@ -89,6 +89,7 @@ class EditProductComponent extends Component
        $this->scategory_id= $product->subcategory_id;
        $this->brand_id = $product->brand_id;
        $this->modelnumber_id = $product->model_id;
+       $this->model_id = $product->model_id;
        $this->for_exchange = $product->is_exchange;
        $this->for_sell = $product->is_sell;
        $this->for_rent = $product->is_rent;
@@ -172,6 +173,8 @@ class EditProductComponent extends Component
     {
           $this->b_id = $this->brand_id;
           //dd($this->b_id,$this->category_id,$this->s_id);
+            $this->model_id = '';
+          $this->modelnumber_id = '';
     }
 
     public function changecountry()
@@ -256,12 +259,12 @@ class EditProductComponent extends Component
         //dd($this->attribute_arr[$key]);
        // dd($at_id,$key,$this->attributeoption_id.$key);
        $this->inputs[$at_id] =$this->attribute_arr[$key];
-    //    if(!in_array($at_id,$this->attributeoption_id))
-    //     {
-    //         array_push($this->inputs,$at_id);
-    //         array_push($this->attribute_arr,$this->attributeoption_id);
-           
-    //     }
+        //    if(!in_array($at_id,$this->attributeoption_id))
+        //     {
+        //         array_push($this->inputs,$at_id);
+        //         array_push($this->attribute_arr,$this->attributeoption_id);
+            
+        //     }
     }
     public function ranges()
     {
@@ -274,19 +277,19 @@ class EditProductComponent extends Component
         //     'inputs'=>'required',
         //     'attribute_arr'=>'required']);
         //dd($this->attribute_arr['1']);
-    //     dd($this->inputs,$this->attribute_arr);
-    //     $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
-    //     foreach($at as $key => $atsd){
-    //        // dd($this->dfh.$key);
-    //        $fdg= $this->attributeoption_id[$key];
-    //        dd($fdg);
-    //         $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
-    //        // dd($sdgh);
-         
+        //     dd($this->inputs,$this->attribute_arr);
+        //     $at = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->get();
+        //     foreach($at as $key => $atsd){
+        //        // dd($this->dfh.$key);
+        //        $fdg= $this->attributeoption_id[$key];
+        //        dd($fdg);
+        //         $sdgh[$key] = $this->dfh.$key.'helo'. $this->attributeoption_id.$key;
+        //        // dd($sdgh);
+            
 
-    //     }
-    //     dd($sdgh);
-    //    // dd($this->attributeoptionid.'0');
+        //     }
+        //     dd($sdgh);
+        //    // dd($this->attributeoptionid.'0');
         
         $this->validate([
             'category_id'=>'required',
@@ -497,5 +500,11 @@ class EditProductComponent extends Component
 
       //  return view('livewire.admin1.product.edit-product-component')->layout('layouts.admin1');
 
+    }
+
+
+     public function chnagemodel()
+    {
+        $this->model_id = $this->modelnumber_id;
     }
 }

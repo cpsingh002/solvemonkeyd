@@ -22,12 +22,12 @@
                     @if(Session::has('message'))
                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                      @endif
-             <div class="sa-layout__content"  wire:ignore>
+             <div class="sa-layout__content">
                  <div class="card">
                     
-                     <div class="p-4"><input type="text" placeholder="Start typing to search for customers" class="form-control form-control--search mx-auto" id="table-search"></div>
+                     <div class="p-4"><input type="text" wire:model.live="search" wire:navigate placeholder="Start typing to search for customers" class="form-control form-control--search mx-auto" id="table-search"></div>
                      <div class="sa-divider"></div>
-                     <table class="sa-datatables-init" data-order="[[ 1, &quot;asc&quot; ]]" data-sa-search-input="#table-search" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                     <table class="table mb-2" id="myTable">
                          <thead>
                              <tr>
                                  <th>Id</th>
@@ -61,8 +61,20 @@
                              @endforeach
                          </tbody>
                      </table>
-                 </div>
+                     <div class="sa-datatables__footer">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination pagination-sm justify-content-end mb-2">
+                                {{ $attributeoptions->links('livewire::bootstrap') }}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                 
              </div>
          </div>
      </div>
  </div>
+
+@push('scripts')
+ 
+@endpush

@@ -79,7 +79,7 @@ class EditUserProductComponent extends Component
     public $newimages;
     public $newthumbimage;
     public $newfeatimage;
-    public $city_id1,$city_id2,$city_id3, $price_negotiable,$remark,$isverified;
+    public $city_id1,$city_id2,$city_id3, $price_negotiable,$remark,$isverified,$model_id;
     
     public function mount($pid)
     {
@@ -88,6 +88,7 @@ class EditUserProductComponent extends Component
         $this->scategory_id= $product->subcategory_id;
         $this->brand_id = $product->brand_id;
         $this->modelnumber_id = $product->model_id;
+        $this->model_id = $product->model_id;
         $this->for_exchange = $product->is_exchange;
         $this->for_sell = $product->is_sell;
         $this->for_rent = $product->is_rent;
@@ -166,6 +167,8 @@ class EditUserProductComponent extends Component
     {
           $this->b_id = $this->brand_id;
           //dd($this->b_id,$this->category_id,$this->s_id);
+            $this->model_id = '';
+          $this->modelnumber_id = '';
     }
 
     public function changecountry()
@@ -430,7 +433,7 @@ class EditUserProductComponent extends Component
         $brands = Brand ::where('category_id',$this->category_id)->where('subcategory_id',$this->scategory_id)->where('status',1)->get();
         $modelnumbers = ModelNumber::where('brand_id',$this->b_id)->where('category_id',$this->category_id)->where('subcategory_id',$this->s_id)->where('status',1)->get();
         $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
-        $attributeoptions = AttributeOption::where('attribute_id',$this->attribute_id)->where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
+        // $attributeoptions = AttributeOption::where('attribute_id',$this->attribute_id)->where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
       
         $countries = Country::all();
         $states = State::where('country_id',$this->country_id)->get();
@@ -439,7 +442,11 @@ class EditUserProductComponent extends Component
         // dd($this->st_id);
         return view('livewire.user.edit-product-component',[
           'categories'=>$categories,'scategories'=>$scategories,'brands'=>$brands,
-          'modelnumbers'=>$modelnumbers,'attributes'=>$attributes,'attributeoptions'=>$attributeoptions,
+          'modelnumbers'=>$modelnumbers,'attributes'=>$attributes,
           'countries'=>$countries,'states'=>$states,'cities'=>$cities,'citiys'=>$citiys])->layout('layouts.base');
+    }
+     public function chnagemodel()
+    {
+        $this->model_id = $this->modelnumber_id;
     }
 }

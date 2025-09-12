@@ -80,7 +80,7 @@ class AddUserProductComponent extends Component
 
     public $inputs = [];
     public $attribute_arr = [];
-     public $city_id1,$city_id2,$city_id3, $price_negotiable,$remark,$isverified;
+     public $city_id1,$city_id2,$city_id3, $price_negotiable,$remark,$isverified,$model_id;
      
     public function mount()
     {
@@ -91,6 +91,8 @@ class AddUserProductComponent extends Component
         $this->owner_name=Auth::user()->name;
         $this->contact_number=Auth::user()->phone;
         $this->email_id=Auth::user()->email;
+        $this->model_id = 0;
+        $this->brand_id = 0;
     }
 
     public function generateslug()
@@ -125,6 +127,8 @@ class AddUserProductComponent extends Component
     {
           $this->b_id = $this->brand_id;
           //dd($this->b_id,$this->category_id,$this->s_id);
+            $this->model_id = '';
+          $this->modelnumber_id = '';
     }
 
     public function changecountry()
@@ -380,7 +384,7 @@ class AddUserProductComponent extends Component
         $brands = Brand ::where('category_id',$this->category_id)->where('subcategory_id',$this->scategory_id)->where('status',1)->get();
         $modelnumbers = ModelNumber::where('brand_id',$this->b_id)->where('category_id',$this->category_id)->where('subcategory_id',$this->s_id)->where('status',1)->get();
         $attributes = Attribute::where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
-        $attributeoptions = AttributeOption::where('attribute_id',$this->attribute_id)->where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
+        // $attributeoptions = AttributeOption::where('attribute_id',$this->attribute_id)->where('category_id', $this->category_id)->where('subcategory_id', $this->s_id)->where('status',1)->get();
       
         $countries = Country::all();
         $states = State::where('country_id',$this->country_id)->get();
@@ -393,8 +397,12 @@ class AddUserProductComponent extends Component
         // return view('post-ad',[
         return view('livewire.user.add-product-component',[
             'categories'=>$categories,'scategories'=>$scategories,'brands'=>$brands,
-            'modelnumbers'=>$modelnumbers,'attributes'=>$attributes,'attributeoptions'=>$attributeoptions,
+            'modelnumbers'=>$modelnumbers,'attributes'=>$attributes,
             'countries'=>$countries,'states'=>$states,'cities'=>$cities,'citiys'=>$citiys])->layout('layouts.base');
         
+    }
+     public function chnagemodel()
+    {
+        $this->model_id = $this->modelnumber_id;
     }
 }

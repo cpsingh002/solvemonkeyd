@@ -507,6 +507,8 @@
     </div>
     <!-- sa-app / end -->
     <!-- scripts -->
+     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+     @livewireScripts
     <script src="{{asset('admin1/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('admin1/vendor/feather-icons/feather.min.js')}}"></script>
     <script src="{{asset('admin1/vendor/simplebar/simplebar.min.js')}}"></script>
@@ -527,8 +529,9 @@
     <script src="{{asset('admin1/js/calendar.js')}}"></script>
     <script src="{{asset('admin1/js/demo.js')}}"></script>
     <script src="{{asset('admin1/js/demo-chart-js.js')}}"></script>
-    @livewireScripts
+   
 	@stack('scripts')
+     
 </body>
 <!-- Mirrored from stroyka-admin.html.themeforest.scompiler.ru/variants/ltr/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 May 2023 05:17:29 GMT -->
 

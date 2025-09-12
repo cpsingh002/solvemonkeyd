@@ -94,7 +94,7 @@ class AddProductComponent extends Component
     {
         $this->scategory_id = 0;
         $this->option_details='';
-        $this->$this->modelnumber_id = '';
+        $this->modelnumber_id = '';
         $this->model_id = '';
         $this->brand_id = '';
 

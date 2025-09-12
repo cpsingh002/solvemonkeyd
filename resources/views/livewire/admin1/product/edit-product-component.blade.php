@@ -299,7 +299,7 @@
                                                             <div class="my-2">
                                                             <label for="form-banner" class="form-label">Brands Model Number<span class="text-danger"> *</span> </label>
                                                             <div class="col-md-12">
-                                                                <select class="form-control mb-4" wire:model="modelnumber_id">
+                                                                <select class="form-control mb-4" wire:model="modelnumber_id" wire:change="chnagemodel">
                                                                     <option value="0">Select Brand Name</option>
                                                                     @foreach($modelnumbers as $modelnumber)
                                                                         <option value="{{$modelnumber->id}}">{{$modelnumber->name}}</option>
@@ -318,12 +318,22 @@
                                                                 @foreach($attributes as $key1 => $attribute)
                                                                     <label class="form-label">{{$attribute->attribute}}<span class="text-danger"> *</span></label>
                                                                     <!-- <input type="hidden" value="{{$attribute->id}}" wire:model="dfh.{{$key1}}"> -->
+                                                                     @if($attribute->id == '15')
+                                                                        <select class="form-control mb-4" wire:model="attribute_arr.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" required>
+                                                                            <option value="0">Select</option>
+                                                                            @foreach($attribute->attributeoptions->where('brand_id', $brand_id)->where('model_id', $model_id) as $attributeoption)
+                                                                            <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
+                                                                            @endforeach
+                                                                        </select>
+
+                                                                     @else
                                                                     <select class="form-control mb-4" wire:model="attribute_arr.{{$key1}}" wire:change="changehghg({{$attribute->id}}, {{$key1}})" required>
-                                                                        <option value="">Select</option>
+                                                                        <option value="0">Select</option>
                                                                         @foreach($attribute->attributeoptions as $attributeoption)
                                                                         <option value="{{$attributeoption->id}}">{{$attributeoption->option_details}}</option>
                                                                         @endforeach
                                                                     </select>
+                                                                    @endif
                                                                 @endforeach
                                                             
                                                             </div>
